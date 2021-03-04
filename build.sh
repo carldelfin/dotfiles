@@ -47,7 +47,7 @@ simple() {
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
   texlive-full texlive-latex-extra syncthing make cmake build-essential \
-  dirmngr ca-certificates gnupg2
+  dirmngr ca-certificates gnupg2 libopenblas-base
   
   # polybar from backports
   sudo apt -t buster-backports install -y polybar
@@ -90,9 +90,9 @@ simple() {
   
   # r and rstudio
   sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
-  sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian buster-cran35/'
+  sudo add-apt-repository 'deb http://cloud.r-project.org/bin/linux/debian buster-cran40/'
   sudo apt update
-  sudo apt install -y r-base-core r-base r-base-dev
+  sudo apt install -y -t buster-cran40 r-base
 
   cd /tmp
   wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
