@@ -35,7 +35,8 @@ simple() {
   xinit bspwm sxhkd kitty suckless-tools feh rofi pass unzip htop \
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
-  texlive-full texlive-latex-extra syncthing make cmake build-essential
+  texlive-full texlive-latex-extra syncthing make cmake build-essential \
+  dirmngr ca-certificates
   
   # polybar from backports
   echo 'deb http://deb.debian.org/debian buster-backports main' >/tmp/myppa.list
@@ -81,10 +82,10 @@ simple() {
   sudo apt update && sudo apt install -y signal-desktop
   
   # r and rstudio
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-  echo 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/' | sudo tee -a /etc/apt/sources.list
+  sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+  sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian buster-cran35/'
   sudo apt update
-  sudo apt install -y r-base-core r-recommended r-base-dev
+  sudo apt install -y r-base r-recommended r-base-dev
 
   cd /tmp
   wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
