@@ -84,7 +84,7 @@ simple() {
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
   echo 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/' | sudo tee -a /etc/apt/sources.list
   sudo apt update
-  sudo apt install -y r-base r-base-dev
+  sudo apt install -y r-base-core r-recommended r-base-dev
 
   cd /tmp
   wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
