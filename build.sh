@@ -35,7 +35,7 @@ simple() {
   sudo cp /tmp/myppa.list /etc/apt/sources.list.d/
   rm /tmp/myppa.list
   sudo apt update
-  sudo apt install -t -y buster-backports linux-image-amd64 linux-headers-amd64 \
+  sudo apt install -y -t buster-backports linux-image-amd64 linux-headers-amd64 \
   firmware-linux firmware-linux-nonfree
   
   # ------------------------------------------------------------------------------
