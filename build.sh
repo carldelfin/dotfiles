@@ -32,10 +32,13 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  xinit bspwm sxhkd kitty polybar suckless-tools feh rofi pass unzip htop \
+  xinit bspwm sxhkd kitty suckless-tools feh rofi pass unzip htop \
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
   texlive-full texlive-latex-extra syncthing
+  
+  # polybar from backports
+  sudo apt -t buster-backports install -y polybar
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
