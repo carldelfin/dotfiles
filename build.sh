@@ -34,11 +34,8 @@ simple() {
   sudo apt install -y \
   xinit bspwm sxhkd kitty polybar suckless-tools feh rofi pass unzip htop \
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
-  pulseaudio x11-xserver-utils software-properties-common libavcodec-extra
-
-  # # vim-plug
-  # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-  #      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
+  texlive-full texlive-latex-extra syncthing
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
@@ -75,6 +72,30 @@ simple() {
   wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
   echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
   sudo apt update && sudo apt install -y signal-desktop
+  
+  # r and rstudio
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+  echo 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/' | sudo tee -a /etc/apt/sources.list
+  sudo apt update
+  sudo apt install -y r-base r-base-dev
+
+  cd /tmp
+  wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
+  sudo apt install -y ./*.deb
+  rm *.deb
+  cd
+  
+  # zotero
+  wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
+  sudo apt update
+  sudo apt install -y zotero
+  
+  # vscode
+  cd /tmp
+  wget https://az764295.vo.msecnd.net/stable/ea3859d4ba2f3e577a159bc91e3074c5d85c0523/code_1.52.1-1608136922_amd64.deb
+  sudo apt install -y ./*.deb
+  rm *.deb
+  cd
 
   # ------------------------------------------------------------------------------
   # Fonts 
@@ -104,14 +125,6 @@ simple() {
   cd
   
   fc-cache -f -v
-  
-  # make sure the pop cursor theme is used by bspwm
-  # mkdir -p ~/.local/share/icons
-  # mkdir -p ~/.icons
-  # sudo cp -r /usr/share/icons/Pop ~/.local/share/icons
-  # sudo cp -r /usr/share/icons/Pop ~/.icons
-  # sudo mkdir -p /usr/share/icons/defaults
-  # sudo touch /usr/share/icons/default/index.theme
   
   # ------------------------------------------------------------------------------
   # Set up symlinks
