@@ -43,11 +43,11 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  xinit bspwm sxhkd kitty suckless-tools feh rofi pass unzip htop \
+  xinit bspwm sxhkd kitty suckless-tools feh rofi pass unzip htop mpv \
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
   texlive-full texlive-latex-extra syncthing make cmake build-essential \
-  dirmngr ca-certificates gnupg2 libopenblas-base
+  dirmngr ca-certificates gnupg2 ufw
   
   # polybar from backports
   sudo apt -t buster-backports install -y polybar
@@ -89,6 +89,12 @@ simple() {
   sudo apt update && sudo apt install -y signal-desktop
   
   # r and rstudio
+  sudo apt install -y \
+  libclang-dev libssl-dev libxml2-dev \
+  libcurl4-openssl-dev libssl-dev libxt-dev \
+  libopenblas-dev liblapack-dev libopencv-dev \
+  libcairo2-dev libnode-dev
+  
   sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
   sudo add-apt-repository 'deb http://cloud.r-project.org/bin/linux/debian buster-cran40/'
   sudo apt update
