@@ -1,0 +1,38 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d web rstudio zot code sign 6 7 8 9 10
+
+bspc config border_width          2
+bspc config window_gap            8
+bspc config top_padding           0
+
+bspc config split_ratio           0.52
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+
+bspc config focused_border_color  \#e5c07b
+bspc config normal_border_color    \#abb2bf
+
+bspc rule -a Zathura state=tiled
+bspc rule -a Firefox desktop='^1'
+bspc rule -a RStudio desktop='^2'
+bspc rule -a zotero desktop='^3'
+bspc rule -a code desktop='^4'
+bspc rule -a signal-desktop desktop='^5'
+
+# polybar
+~/dotfiles/scripts/launch.sh
+
+# wallpaper
+feh --bg-scale ~/dotfiles/img/wallpaper.png
+
+# sound
+pulseaudio --start
+
+# syncthing
+syncthing -no-browser
+
+# correct mouse cursor
+xsetroot -cursor_name left_ptr
