@@ -35,7 +35,7 @@ simple() {
   xinit bspwm sxhkd kitty suckless-tools feh rofi pass unzip htop \
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
-  texlive-full texlive-latex-extra syncthing make cmake
+  texlive-full texlive-latex-extra syncthing make cmake build-essential
   
   # polybar from backports
   echo 'deb http://deb.debian.org/debian buster-backports main' >/tmp/myppa.list
