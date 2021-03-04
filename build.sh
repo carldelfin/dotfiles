@@ -38,6 +38,9 @@ simple() {
   texlive-full texlive-latex-extra syncthing
   
   # polybar from backports
+  echo 'deb http://deb.debian.org/debian buster-backports main' >/tmp/myppa.list
+  sudo cp /tmp/myppa.list /etc/apt/sources.list.d/
+  rm /tmp/myppa.list
   sudo apt -t buster-backports install -y polybar
 
   # passmenu
