@@ -40,7 +40,7 @@ simple() {
   rm /tmp/sidsrc.list
   
   sudo apt update
-  sudo apt full-upgrade
+  sudo apt full-upgrade -y
   #sudo apt install -y -t buster-backports linux-image-amd64 linux-headers-amd64 \
   #firmware-linux firmware-linux-nonfree
   
