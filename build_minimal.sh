@@ -45,14 +45,21 @@ simple() {
   #firmware-linux firmware-linux-nonfree
   
   # ------------------------------------------------------------------------------
-  # Required packages
+  # Install required packages
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  xorg bspwm sxhkd kitty polybar suckless-tools feh rofi pass unzip htop mpv \
-  zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
-  pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
-  syncthing make cmake build-essential dirmngr ca-certificates ufw rsync 
+  
+  # main
+  xorg x11-xserver-utils bspwm sxhkd kitty polybar suckless-tools rofi pass \
+  software-properties-common apt-transport-https build-essential \
+  ca-certificates dirmngr make cmake \
+  
+  # utils
+  zathura ranger nautilus feh unzip htop syncthing ufw rsync neofetch \
+  
+  # media
+  alsa-utils pulseaudio libavcodec-extra \
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
