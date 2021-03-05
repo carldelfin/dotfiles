@@ -33,8 +33,8 @@ simple() {
   echo 'deb http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sid.list
   echo 'deb-src http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sidsrc.list
 
-  sudo cp >/tmp/sid.list /etc/apt/sources.list.d/
-  sudo cp >/tmp/sidsrc.list /etc/apt/sources.list.d/
+  sudo cp /tmp/sid.list /etc/apt/sources.list.d/
+  sudo cp /tmp/sidsrc.list /etc/apt/sources.list.d/
   
   rm >/tmp/sid.list
   rm >/tmp/sidsrc.list
