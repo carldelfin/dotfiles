@@ -112,6 +112,17 @@ simple() {
   fc-cache -f -v
   
   # ------------------------------------------------------------------------------
+  # Make sure relevant configs and scripts are executable
+  # ------------------------------------------------------------------------------
+  
+  chmod +x ~/dotfiles/config/bspwm/bspwmrc
+  chmod +x ~/dotfiles/config/scripts/launch.sh
+  chmod +x ~/dotfiles/config/scripts/vpn.sh
+  chmod +x ~/dotfiles/config/scripts/upgrades.sh
+  chmod +x ~/dotfiles/config/scripts/backup.sh
+  chmod +x ~/dotfiles/config/scripts/weather.R
+
+  # ------------------------------------------------------------------------------
   # Set up symlinks
   # ------------------------------------------------------------------------------
   
@@ -127,7 +138,6 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
-
 }
 
 simple
