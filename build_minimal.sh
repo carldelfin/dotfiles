@@ -36,8 +36,8 @@ simple() {
   sudo cp /tmp/sid.list /etc/apt/sources.list.d/
   sudo cp /tmp/sidsrc.list /etc/apt/sources.list.d/
   
-  rm >/tmp/sid.list
-  rm >/tmp/sidsrc.list
+  rm /tmp/sid.list
+  rm /tmp/sidsrc.list
   
   sudo apt update
   sudo apt full-upgrade
