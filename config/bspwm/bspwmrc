@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d web rstudio zot code sign 6 7 8 9 10
+bspc monitor -d web rstudio zot file code sign 7 8 9 10
 
 bspc config border_width          2
 bspc config window_gap            8
@@ -19,8 +19,8 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Firefox desktop='^1'
 bspc rule -a RStudio desktop='^2'
 bspc rule -a zotero desktop='^3'
-bspc rule -a code desktop='^4'
-bspc rule -a signal-desktop desktop='^5'
+bspc rule -a code desktop='^5'
+bspc rule -a signal-desktop desktop='^6'
 
 # polybar
 ~/dotfiles/scripts/launch.sh
