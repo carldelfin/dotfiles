@@ -118,11 +118,11 @@ simple() {
   # ------------------------------------------------------------------------------
   
   chmod +x ~/dotfiles/config/bspwm/bspwmrc
-  chmod +x ~/dotfiles/config/scripts/launch.sh
-  chmod +x ~/dotfiles/config/scripts/vpn.sh
-  chmod +x ~/dotfiles/config/scripts/upgrades.sh
-  chmod +x ~/dotfiles/config/scripts/backup.sh
-  chmod +x ~/dotfiles/config/scripts/weather.R
+  chmod +x ~/dotfiles/scripts/launch.sh
+  chmod +x ~/dotfiles/scripts/vpn.sh
+  chmod +x ~/dotfiles/scripts/upgrades.sh
+  chmod +x ~/dotfiles/scripts/backup.sh
+  chmod +x ~/dotfiles/scripts/weather.R
 
   # ------------------------------------------------------------------------------
   # Set up symlinks
