@@ -47,7 +47,7 @@ simple() {
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
   texlive-full texlive-latex-extra syncthing make cmake build-essential \
-  dirmngr ca-certificates gnupg2 ufw lightdm
+  dirmngr ca-certificates gnupg2 ufw rsync lightdm
   
   # polybar from backports
   sudo apt -t buster-backports install -y polybar
