@@ -49,14 +49,10 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  xorg bspwm sxhkd kitty suckless-tools feh rofi pass unzip htop mpv \
+  xorg bspwm sxhkd kitty polybar suckless-tools feh rofi pass unzip htop mpv \
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
-  texlive-full texlive-latex-extra syncthing make cmake build-essential \
-  dirmngr ca-certificates gnupg2 ufw rsync polybar
-  
-  # polybar from backports
-  # sudo apt -t buster-backports install -y polybar
+  syncthing make cmake build-essential dirmngr ca-certificates ufw rsync 
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
