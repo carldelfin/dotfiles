@@ -82,6 +82,13 @@ simple() {
   # Fonts 
   # ------------------------------------------------------------------------------
   
+  # google fonts
+  cd /tmp
+  wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
+  unzip fonts.zip -d ~/.local/share/fonts
+  rm -rf fonts.zip
+  cd
+  
   # fira code
   mkdir -p ~/.local/share/fonts
   cd ~/.local/share/fonts
