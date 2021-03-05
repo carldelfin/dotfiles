@@ -48,16 +48,10 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  
-  # main
   xorg x11-xserver-utils bspwm sxhkd kitty polybar suckless-tools rofi pass \
   software-properties-common apt-transport-https build-essential \
   ca-certificates dirmngr make cmake \
-  
-  # utils
   zathura ranger nautilus feh unzip htop syncthing ufw rsync neofetch \
-  
-  # media
   alsa-utils pulseaudio libavcodec-extra \
 
   # passmenu
