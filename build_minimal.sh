@@ -28,15 +28,21 @@ catch() {
 simple() {
   
   # ------------------------------------------------------------------------------
-  # Kernel upgrade
+  # Upgrade to Debian Sid
   # ------------------------------------------------------------------------------
+  echo 'deb http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sid.list
+  echo 'deb-src http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sidsrc.list
+
+  sudo cp >/tmp/sid.list /etc/apt/sources.list.d/
+  sudo cp >/tmp/sidsrc.list /etc/apt/sources.list.d/
   
-  echo 'deb http://deb.debian.org/debian buster-backports main' >/tmp/myppa.list
-  sudo cp /tmp/myppa.list /etc/apt/sources.list.d/
-  rm /tmp/myppa.list
+  rm >/tmp/sid.list
+  rm >/tmp/sidsrc.list
+  
   sudo apt update
-  sudo apt install -y -t buster-backports linux-image-amd64 linux-headers-amd64 \
-  firmware-linux firmware-linux-nonfree
+  sudo apt full-upgrade
+  #sudo apt install -y -t buster-backports linux-image-amd64 linux-headers-amd64 \
+  #firmware-linux firmware-linux-nonfree
   
   # ------------------------------------------------------------------------------
   # Required packages
@@ -47,10 +53,10 @@ simple() {
   zathura ranger nautilus neofetch apt-transport-https pandoc alsa-utils \
   pulseaudio x11-xserver-utils software-properties-common libavcodec-extra \
   texlive-full texlive-latex-extra syncthing make cmake build-essential \
-  dirmngr ca-certificates gnupg2 ufw rsync lightdm
+  dirmngr ca-certificates gnupg2 ufw rsync polybar
   
   # polybar from backports
-  sudo apt -t buster-backports install -y polybar
+  # sudo apt -t buster-backports install -y polybar
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
