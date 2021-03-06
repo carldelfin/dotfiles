@@ -48,7 +48,7 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  xorg xorg-server xorg-xinit x11-xserver-utils bspwm sxhkd kitty polybar suckless-tools rofi pass \
+  xorg x11-xserver-utils bspwm sxhkd kitty polybar suckless-tools rofi pass \
   software-properties-common apt-transport-https build-essential \
   ca-certificates dirmngr make cmake libgtk-3-dev \
   zathura ranger nautilus feh unzip htop syncthing ufw rsync neofetch firefox lxappearance \
