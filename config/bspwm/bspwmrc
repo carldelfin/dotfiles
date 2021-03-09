@@ -26,7 +26,7 @@ bspc rule -a signal-desktop desktop='^6'
 ~/dotfiles/scripts/launch.sh
 
 # wallpaper
-feh --bg-scale ~/dotfiles/img/wallpaper.png
+feh --bg-scale ~/dotfiles/img/wallpaper.jpg
 
 # sound
 pulseaudio --start
