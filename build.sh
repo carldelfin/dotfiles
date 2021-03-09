@@ -139,7 +139,7 @@ simple() {
   # Set up symlinks
   # ------------------------------------------------------------------------------
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,RStudio,ranger,zathura}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,RStudio,ranger,zathura,gtk-3.0}
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
@@ -153,6 +153,7 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
+  ln -s -f ~/dotfiles/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
   
   # ------------------------------------------------------------------------------
   # Enable UFW
