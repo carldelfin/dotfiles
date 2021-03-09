@@ -26,33 +26,15 @@ catch() {
 }
 
 simple() {
-  
-  # ------------------------------------------------------------------------------
-  # Upgrade to Debian Sid
-  # ------------------------------------------------------------------------------
-  
-  echo 'deb http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sid.list
-  echo 'deb-src http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sidsrc.list
 
-  sudo cp /tmp/sid.list /etc/apt/sources.list.d/
-  sudo cp /tmp/sidsrc.list /etc/apt/sources.list.d/
-  
-  rm /tmp/sid.list
-  rm /tmp/sidsrc.list
-  
-  sudo apt update
-  sudo apt full-upgrade -y
-  
   # ------------------------------------------------------------------------------
   # Install required packages
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  xorg x11-xserver-utils bspwm sxhkd kitty polybar suckless-tools rofi pass \
-  software-properties-common apt-transport-https build-essential \
-  ca-certificates dirmngr make cmake libgtk-3-dev \
-  zathura ranger nautilus feh unzip htop syncthing ufw rsync neofetch firefox lxappearance \
-  alsa-utils pulseaudio libavcodec-extra \
+  bspwm kitty polybar suckless-tools rofi pass \
+  apt-transport-https \
+  zathura ranger feh htop syncthing neofetch firefox
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
@@ -82,13 +64,6 @@ simple() {
   # Fonts 
   # ------------------------------------------------------------------------------
   
-  # google fonts
-  cd /tmp
-  wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
-  unzip fonts.zip -d ~/.local/share/fonts
-  rm -rf fonts.zip
-  cd
-  
   # fira code
   mkdir -p ~/.local/share/fonts
   cd ~/.local/share/fonts
@@ -113,15 +88,6 @@ simple() {
   cd
   
   fc-cache -f -v
-  
-  # ------------------------------------------------------------------------------
-  # Papirus icons 
-  # ------------------------------------------------------------------------------
-  
-  sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
-  sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
-  sudo apt update
-  sudo apt install -y papirus-icon-theme
   
   # ------------------------------------------------------------------------------
   # Make sure relevant configs and scripts are executable
