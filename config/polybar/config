@@ -106,26 +106,22 @@ label-unmounted-foreground = ${colors.foreground-alt}
 ; ------------------------------------------------------------------------------
 [module/bspwm]
 ; ------------------------------------------------------------------------------
+
 type = internal/bspwm
 
-label-focused = %name%
-;label-focused = 
-;label-focused-background = #98c379
+label-focused = 
 label-focused-foreground = #e5c07b
 label-focused-padding = 1
 
-label-occupied = %name%
-;label-occupied = 
-
+label-occupied = 
 label-occupied-foreground = #98c379
 label-occupied-padding = 1
 
-label-urgent = %name%
+label-urgent = 
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
-label-empty = %name%
-;label-empty = 
+label-empty = 
 label-empty-foreground = #abb2bf
 label-empty-padding = 1
 
@@ -173,7 +169,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-label = "%gb_used% / %gb_total%"
+label = "%percentage_free%%"
 
 ; ------------------------------------------------------------------------------
 [module/wlan]
@@ -215,7 +211,6 @@ label-disconnected-foreground = ${colors.secondary}
 [module/date]
 ; ------------------------------------------------------------------------------
 
-click-left = exec notify-send "$(cal)"
 type = internal/date
 interval = 5
 date = "%Y-%m-%d"
@@ -260,19 +255,32 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <ramp-capacity> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
 
-label-full = %percentage%%
-label-charging = %percentage%%
-label-discharging = %percentage%%
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = %{o#ff0000}%{-o}
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = %{o#ff9900}%{-o}
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 750
 
 ; ------------------------------------------------------------------------------
 [module/temperature]
