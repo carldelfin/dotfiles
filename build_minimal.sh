@@ -153,6 +153,15 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
+  
+  # ------------------------------------------------------------------------------
+  # Enable UFW
+  # ------------------------------------------------------------------------------
+  
+  sudo ufw default deny incoming
+  sudo ufw default allow outgoing
+  sudo ufw allow from 192.168.20.0/24 # allow from within LAN
+  sudo ufw enable
  
 }
 
