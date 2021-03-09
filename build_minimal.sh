@@ -33,7 +33,7 @@ simple() {
 
   sudo apt install -y \
   bspwm kitty polybar suckless-tools rofi pass \
-  apt-transport-https \
+  apt-transport-https lxappearance \
   zathura ranger feh htop syncthing neofetch firefox
 
   # passmenu
@@ -74,8 +74,8 @@ simple() {
   
   # r and rstudio
   sudo apt install -y \
-  libclang-dev libssl-dev libxml2-dev \
-  libcurl4-openssl-dev libssl-dev libxt-dev \
+  libclang-dev libssl-dev \
+  libcurl4-openssl-dev libxt-dev \
   libopenblas-dev liblapack-dev libopencv-dev \
   libcairo2-dev libnode-dev
   
