@@ -34,7 +34,7 @@ simple() {
   sudo apt install -y \
   bspwm kitty polybar suckless-tools rofi pass \
   apt-transport-https lxappearance \
-  zathura ranger feh htop syncthing neofetch firefox
+  zathura ranger feh htop syncthing neofetch
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
