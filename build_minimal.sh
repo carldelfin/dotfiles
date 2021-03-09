@@ -139,7 +139,7 @@ simple() {
   # Set up symlinks
   # ------------------------------------------------------------------------------
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,zathura}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,RStudio,ranger,zathura}
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
@@ -148,16 +148,12 @@ simple() {
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
   ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
   ln -s -f ~/dotfiles/config/rofi/my_theme.rasi ~/.config/rofi/my_theme.rasi
+  ln -s -f ~/dotfiles/config/RStudio/desktop.ini ~/.config/RStudio/desktop.ini
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
-  
-  # ------------------------------------------------------------------------------
-  # Clean up
-  # ------------------------------------------------------------------------------
-  
-  sudo apt autoremove -y
+ 
 }
 
 simple
