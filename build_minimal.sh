@@ -59,6 +59,41 @@ simple() {
   sudo mv rofi-power-menu /usr/local/bin
   sudo chmod +x /usr/local/bin/rofi-power-menu
   cd
+  
+  # mullvad
+  cd /tmp
+  wget https://mullvad.net/media/app/MullvadVPN-2020.7_amd64.deb
+  sudo apt install -y ./*.deb
+  rm *.deb
+  cd
+
+  # signal
+  wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+  echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+  sudo apt update && sudo apt install -y signal-desktop
+  
+  # r and rstudio
+  sudo apt install -y \
+  libclang-dev libssl-dev libxml2-dev \
+  libcurl4-openssl-dev libssl-dev libxt-dev \
+  libopenblas-dev liblapack-dev libopencv-dev \
+  libcairo2-dev libnode-dev
+  
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+  sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/'
+  sudo apt update
+  sudo apt install -y r-base r-base-dev
+
+  cd /tmp
+  wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
+  sudo apt install -y ./*.deb
+  rm *.deb
+  cd
+  
+  # zotero
+  wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
+  sudo apt update
+  sudo apt install -y zotero
 
   # ------------------------------------------------------------------------------
   # Fonts 
