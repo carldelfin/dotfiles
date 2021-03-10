@@ -80,11 +80,11 @@ enable-ipc = true
 type = internal/bspwm
 
 label-focused = 
-label-focused-foreground = #e5c07b
+label-focused-foreground = #F0C674
 label-focused-padding = 1
 
 label-occupied = 
-label-occupied-foreground = #C5C8C6
+label-occupied-foreground = #F2F2F2
 label-occupied-padding = 1
 
 label-urgent = 
@@ -92,7 +92,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
 label-empty = 
-label-empty-foreground = #3b3c3b
+label-empty-foreground = #333333
 label-empty-padding = 1
 
 ; ------------------------------------------------------------------------------
