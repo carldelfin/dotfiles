@@ -1,13 +1,18 @@
 #!/bin/bash
 
+
 # ==============================================================================
 #
-# This script checks if syncthing is running
+# Simple script that checks if Syncthing is running by looking for the GUI IP.
+#
+# Make sure to add your own API key!
 #
 # ==============================================================================
 
-if !(curl -s http://127.0.0.1:8384/rest/system/ping | grep '{"ping":"pong"}' > /dev/null 2>&1); then
-    echo "%{F#FBB86C}syncthing not running%{F-}"
+gui_ip=$(curl -s -X GET -H "X-API-Key: <API key here>" http://localhost:8384/rest/system/status | jq --raw-output '.guiAddressUsed')
+
+if !($gui_ip > /dev/null 2>&1); then
+    echo $gui_ip
 else
-    echo "%{F#D2D2D2}OK%{F-}"
+    echo "%{F#FBB86C}syncthing not running%{F-}"
 fi
