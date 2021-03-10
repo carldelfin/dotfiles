@@ -33,7 +33,7 @@ simple() {
 
   sudo apt install -y \
   bspwm kitty polybar suckless-tools rofi pass \
-  apt-transport-https lxappearance \
+  apt-transport-https lxappearance libavcodec-extra \
   zathura ranger feh htop syncthing neofetch
 
   # passmenu
