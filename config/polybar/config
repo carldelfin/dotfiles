@@ -30,7 +30,7 @@ height = 24
 ;offset-x = 1%
 ;offset-y = 0.2%
 radius = 0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -55,8 +55,8 @@ font-2 = "Font Awesome 5 Free:style=Regular:size=11;3"
 font-3 = "Font Awesome 5 Free:style=Solid:size=11;3"
 
 modules-left = bspwm
-modules-center =
-modules-right = filesystem upgrades memory cpu temperature wlan eth vpn battery pulseaudio date
+modules-center = date
+modules-right = filesystem upgrades memory cpu temperature wlan eth vpn battery pulseaudio
 
 wm-restack = bspwm
 
