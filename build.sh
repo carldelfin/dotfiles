@@ -2,7 +2,7 @@
 
 # ==============================================================================
 #
-# This script makes it possible to select what to install from my dotfiles
+# I use this script to selectively install programs I regularly use.
 #
 # It's based on work by Nathan Davieau and MestreLion from
 # https://serverfault.com/a/777849
