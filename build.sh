@@ -113,7 +113,7 @@ simple() {
   # ------------------------------------------------------------------------------
   
   sudo apt remove -y --allow-remove-essential \
-  gnome-terminal gnome-calendar gedit geary eog evince
+  gnome-terminal gnome-calendar gedit geary eog evince totem
   
   # ------------------------------------------------------------------------------
   # Fonts 
