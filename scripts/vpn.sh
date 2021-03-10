@@ -18,9 +18,9 @@ protocol=$(mullvad status | awk '{for(i=1;i<=NF;i++)if($i=="to")print $(i+1)}')
 
 vpn_report() {
 	if [ "$vpn_status" = "Connected" ]; then
-		echo "%{F#F2F2F2}$ip_address ($protocol)%{F-}"
+		echo "%{F#DFDFDF}$ip_address ($protocol)%{F-}"
 	elif [ "$vpn_status" = "Connecting" ]; then
-		echo "%{F#F2F2F2}connecting...%{F-}"
+		echo "%{F#DFDFDF}connecting...%{F-}"
 	else
 		echo "%{F#FBB86C}disconnected%{F-}"
 	fi
