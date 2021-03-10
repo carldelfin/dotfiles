@@ -2,11 +2,10 @@
 
 # ==============================================================================
 #
-# This script gets my workstation up and running after a clean install,
-# INCLUDING setting up UFW.
+# This script gets my workstation up and running after a clean install.
 #
-# This might not be what you want! Make sure to read through this file and make
-# changes accordingly!
+# Do not use this script blindly, it might not do what you want! 
+# Make sure to read through this file and make changes accordingly.
 #
 # ==============================================================================
 
