@@ -7,8 +7,8 @@
 */
 
 * {
-    text-color:                  #CCCCCC;
-    background-color:            #363636;
+    text-color:                  #DFDFDF;
+    background-color:            #282828;
     dark-text:                   #242424;
     lightbg:                     #534c48;
     red:                         #f15d22;
