@@ -60,6 +60,13 @@ simple() {
   sudo chmod +x /usr/local/bin/rofi-power-menu
   cd
   
+  # rofi-bluetooth
+  cd /tmp
+  wget https://raw.githubusercontent.com/carldelfin/rofi-bluetooth/master/rofi-bluetooth
+  sudo mv rofi-bluetooth /usr/local/bin
+  sudo chmod +x /usr/local/bin/rofi-bluetooth
+  cd
+  
   # mullvad
   cd /tmp
   wget https://mullvad.net/media/app/MullvadVPN-2020.7_amd64.deb
