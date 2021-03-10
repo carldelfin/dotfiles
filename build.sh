@@ -94,6 +94,12 @@ simple() {
   #wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
   #sudo apt update
   #sudo apt install -y zotero
+  
+  # code
+  #sudo apt install -y code
+  
+  # latex
+  #sudo apt install -y texlive texlive-latex-extra
 
   # ------------------------------------------------------------------------------
   # Remove redundant packages 
