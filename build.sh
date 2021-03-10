@@ -99,7 +99,7 @@ simple() {
   # Remove redundant packages 
   # ------------------------------------------------------------------------------
   
-  sudo apt remove -y --allow-remove-essential gnome-terminal
+  sudo apt remove -y --allow-remove-essential gnome-terminal gedit
   
   # ------------------------------------------------------------------------------
   # Fonts 
