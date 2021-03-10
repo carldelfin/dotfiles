@@ -151,6 +151,7 @@ simple() {
   chmod +x ~/dotfiles/config/bspwm/bspwmrc
   chmod +x ~/dotfiles/scripts/launch.sh
   chmod +x ~/dotfiles/scripts/vpn.sh
+  chmod +x ~/dotfiles/scripts/sync.sh
   chmod +x ~/dotfiles/scripts/upgrades.sh
   chmod +x ~/dotfiles/scripts/backup.sh
   chmod +x ~/dotfiles/scripts/weather.R
