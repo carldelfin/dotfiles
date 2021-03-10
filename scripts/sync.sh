@@ -1,6 +1,13 @@
 #!/bin/bash
+
+# ==============================================================================
+#
+# This script checks if syncthing is running
+#
+# ==============================================================================
+
 if !(curl -s http://127.0.0.1:8384/rest/system/ping | grep '{"ping":"pong"}' > /dev/null 2>&1); then
-    echo "syncthing not running"
+    echo "%{F#FBB86C}syncthing not running%{F-}"
 else
-    echo "syncthing running"
+    echo "%{F#F2F2F2}OK%{F-}"
 fi
