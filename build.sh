@@ -112,7 +112,7 @@ simple() {
   # Remove redundant packages 
   # ------------------------------------------------------------------------------
   
-  sudo apt remove -y --allow-remove-essential gnome-terminal gedit
+  sudo apt remove -y --allow-remove-essential gnome-terminal gnome-calendar gedit geary
   
   # ------------------------------------------------------------------------------
   # Fonts 
