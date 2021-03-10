@@ -17,10 +17,10 @@ screenchange-reload = true
 [colors]
 ; ------------------------------------------------------------------------------
 
-background = #333333
-background-alt = #333333
-foreground = #F2F2F2
-foreground-alt = #F2F2F2
+background = #2D2D2D
+background-alt = #2D2D2D
+foreground = #C5C5C5
+foreground-alt = #C5C5C5
 primary = #FBB86C
 secondary = #FBB86C
 alert = #FBB86C
