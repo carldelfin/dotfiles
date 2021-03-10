@@ -19,8 +19,8 @@ screenchange-reload = true
 
 background = #282828
 background-alt = #282828
-foreground = #DFDFDF
-foreground-alt = #DFDFDF
+foreground = #D2D2D2
+foreground-alt = #D2D2D2
 primary = #FBB86C
 secondary = #FBB86C
 alert = #FBB86C
