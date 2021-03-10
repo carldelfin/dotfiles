@@ -31,28 +31,28 @@ function ACTIONS {
         exit 1
     fi
     if [[ ${choices[1]} ]]; then
-        source ~/dotfiles/build/system_setup.sh
+        source ~/dotfiles/install/system_setup.sh
     fi
     if [[ ${choices[2]} ]]; then
-        source ~/dotfiles/build/install_r_rstudio.sh
+        source ~/dotfiles/install/install_r_rstudio.sh
     fi
     if [[ ${choices[3]} ]]; then
-        source ~/dotfiles/build/install_r_packages.sh
+        source ~/dotfiles/install/install_r_packages.sh
     fi
     if [[ ${choices[4]} ]]; then
-        source ~/dotfiles/build/install_vscode.sh
+        source ~/dotfiles/install/install_vscode.sh
     fi
     if [[ ${choices[5]} ]]; then
-        source ~/dotfiles/build/install_zotero.sh
+        source ~/dotfiles/install/install_zotero.sh
     fi
     if [[ ${choices[6]} ]]; then
-        source ~/dotfiles/build/install_zoom.sh
+        source ~/dotfiles/install/install_zoom.sh
     fi
     if [[ ${choices[7]} ]]; then
-        source ~/dotfiles/build/install_texlive.sh
+        source ~/dotfiles/install/install_texlive.sh
     fi
     if [[ ${choices[8]} ]]; then
-        source ~/dotfiles/build/install_signal.sh
+        source ~/dotfiles/install/install_signal.sh
     fi
 }
 
