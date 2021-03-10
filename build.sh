@@ -113,7 +113,7 @@ simple() {
   #wget https://zoom.us/client/latest/zoom_amd64.deb
   #sudo apt install -y ./*.deb
   #rm *.deb
-  cd
+  #cd
   
   # kvm
   #sudo apt install -y \
