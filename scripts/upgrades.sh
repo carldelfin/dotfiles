@@ -5,5 +5,5 @@ num_upgrades=$(apt-get -s dist-upgrade | grep -Po "^[[:digit:]]+ (?=upgraded)" |
 if (( $num_upgrades > 0 )); then
     echo "%{F#FBB86C}$num_upgrades%{F-}"
 else
-    echo "%{F#F2F2F2}$num_upgrades%{F-}"
+    echo "%{F#DFDFDF}$num_upgrades%{F-}"
 fi
