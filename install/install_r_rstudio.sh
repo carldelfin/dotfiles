@@ -36,6 +36,9 @@ simple() {
   sudo apt install -y ./*.deb
   rm *.deb
   cd
+  
+  mkdir -p ~/.config/{RStudio}
+  ln -s -f ~/dotfiles/config/RStudio/desktop.ini ~/.config/RStudio/desktop.ini
  }
 
 simple
