@@ -21,9 +21,9 @@ background = #333333
 background-alt = #333333
 foreground = #F2F2F2
 foreground-alt = #F2F2F2
-primary = #F0C674
-secondary = #F0C674
-alert = #F0C674
+primary = #FBB86C
+secondary = #FBB86C
+alert = #FBB86C
 
 ; ------------------------------------------------------------------------------
 [bar/cmd]
@@ -38,7 +38,7 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-separator = %{F#F0C674}%{F-}
+separator = %{F#FBB86C}%{F-}
 separator-padding = 1
 
 line-size = 0
