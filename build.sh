@@ -100,7 +100,14 @@ simple() {
   
   # latex
   #sudo apt install -y texlive texlive-latex-extra
-
+  
+  # zoom
+  #cd /tmp
+  #wget https://zoom.us/client/latest/zoom_amd64.deb
+  #sudo apt install -y ./*.deb
+  #rm *.deb
+  #cd
+  
   # ------------------------------------------------------------------------------
   # Remove redundant packages 
   # ------------------------------------------------------------------------------
