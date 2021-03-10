@@ -9,5 +9,5 @@
 if !(curl -s http://127.0.0.1:8384/rest/system/ping | grep '{"ping":"pong"}' > /dev/null 2>&1); then
     echo "%{F#FBB86C}syncthing not running%{F-}"
 else
-    echo "%{F#DFDFDF}OK%{F-}"
+    echo "%{F#D2D2D2}OK%{F-}"
 fi
