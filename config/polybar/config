@@ -17,8 +17,8 @@ screenchange-reload = true
 [colors]
 ; ------------------------------------------------------------------------------
 
-background = #333333
-background-alt = #333333
+background = #171717
+background-alt = #171717
 foreground = #F2F2F2
 foreground-alt = #F2F2F2
 primary = #FBB86C
