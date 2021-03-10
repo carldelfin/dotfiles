@@ -73,28 +73,13 @@ simple() {
   sudo apt install -y ./*.deb
   rm *.deb
   cd
-
-  # zotero
-  #wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
-  #sudo apt update
-  #sudo apt install -y zotero
-  
-  # latex
-  #sudo apt install -y texlive texlive-latex-extra
-  
-  # zoom
-  #cd /tmp
-  #wget https://zoom.us/client/latest/zoom_amd64.deb
-  #sudo apt install -y ./*.deb
-  #rm *.deb
-  #cd
   
   # kvm
-  #sudo apt install -y \
-  #qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
-  #sudo adduser `id -un` libvirt
-  #sudo adduser `id -un` kvm
-  
+  sudo apt install -y \
+  qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+  sudo adduser `id -un` libvirt
+  sudo adduser `id -un` kvm
+
   # ------------------------------------------------------------------------------
   # Remove redundant packages 
   # ------------------------------------------------------------------------------
@@ -147,7 +132,7 @@ simple() {
   # Set up symlinks
   # ------------------------------------------------------------------------------
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,RStudio,ranger,zathura,gtk-3.0}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,zathura,gtk-3.0}
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
@@ -156,7 +141,6 @@ simple() {
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
   ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
   ln -s -f ~/dotfiles/config/rofi/my_theme.rasi ~/.config/rofi/my_theme.rasi
-  ln -s -f ~/dotfiles/config/RStudio/desktop.ini ~/.config/RStudio/desktop.ini
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
