@@ -8,6 +8,12 @@ margin-bottom = 0
 include-file = ~/dotfiles/config/polybar/user_modules.ini
 
 ; ------------------------------------------------------------------------------
+[settings]
+; ------------------------------------------------------------------------------
+
+screenchange-reload = true
+
+; ------------------------------------------------------------------------------
 [colors]
 ; ------------------------------------------------------------------------------
 
@@ -26,9 +32,6 @@ alert = #F0C674
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 24
-
-;offset-x = 1%
-;offset-y = 0.2%
 radius = 0
 fixed-center = true
 
@@ -71,39 +74,6 @@ cursor-scroll = ns-resize
 enable-ipc = true
 
 ; ------------------------------------------------------------------------------
-[module/xwindow]
-; ------------------------------------------------------------------------------
-
-type = internal/xwindow
-label = %title:0:30:...%
-
-; ------------------------------------------------------------------------------
-[module/xkeyboard]
-; ------------------------------------------------------------------------------
-
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-
-label-layout = %layout%
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-
-; ------------------------------------------------------------------------------
-[module/filesystem]
-; ------------------------------------------------------------------------------
-
-type = internal/fs
-interval = 25
-mount-0 = /
-label-mounted = " %percentage_used%%"
-label-unmounted-foreground = ${colors.foreground-alt}
-
-; ------------------------------------------------------------------------------
 [module/bspwm]
 ; ------------------------------------------------------------------------------
 
@@ -126,29 +96,14 @@ label-empty-foreground = #3b3c3b
 label-empty-padding = 1
 
 ; ------------------------------------------------------------------------------
-[module/xbacklight]
+[module/filesystem]
 ; ------------------------------------------------------------------------------
 
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = " %percentage_used%%"
+label-unmounted-foreground = ${colors.foreground-alt}
 
 ; ------------------------------------------------------------------------------
 [module/cpu]
@@ -255,32 +210,19 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-charging = <ramp-capacity>  <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 ; ------------------------------------------------------------------------------
 [module/temperature]
@@ -306,46 +248,3 @@ ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 ramp-4 = 
-
-; ------------------------------------------------------------------------------
-[module/powermenu]
-; ------------------------------------------------------------------------------
-
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
-; ------------------------------------------------------------------------------
-[settings]
-; ------------------------------------------------------------------------------
-
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
