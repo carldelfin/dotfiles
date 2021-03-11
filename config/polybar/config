@@ -31,7 +31,7 @@ alert = #FBB86C
 
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 28
+height = 30
 radius = 0
 fixed-center = true
 
