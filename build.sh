@@ -24,6 +24,7 @@ options[5]="Install Zotero"
 options[6]="Install Zoom"
 options[7]="Install Texlive"
 options[8]="Install Signal"
+options[9]="${GREEN}Install everything!${NC}"
 
 # define actions based on options
 function ACTIONS {
@@ -52,6 +53,16 @@ function ACTIONS {
         source ~/dotfiles/install/install_texlive.sh
     fi
     if [[ ${choices[8]} ]]; then
+        source ~/dotfiles/install/install_signal.sh
+    fi
+    if [[ ${choices[9]} ]]; then
+        source ~/dotfiles/install/system_setup.sh
+        source ~/dotfiles/install/install_r_rstudio.sh
+        source ~/dotfiles/install/install_r_packages.sh
+        source ~/dotfiles/install/install_vscode.sh
+        source ~/dotfiles/install/install_zotero.sh
+        source ~/dotfiles/install/install_zoom.sh
+         source ~/dotfiles/install/install_texlive.sh
         source ~/dotfiles/install/install_signal.sh
     fi
 }
