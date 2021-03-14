@@ -119,13 +119,13 @@ simple() {
   # Make sure relevant configs and scripts are executable
   # ------------------------------------------------------------------------------
   
-  chmod +x ~/dotfiles/config/bspwm/bspwmrc
-  chmod +x ~/dotfiles/scripts/launch.sh
-  chmod +x ~/dotfiles/scripts/vpn.sh
-  chmod +x ~/dotfiles/scripts/sync.sh
-  chmod +x ~/dotfiles/scripts/upgrades.sh
-  chmod +x ~/dotfiles/scripts/backup.sh
-  chmod +x ~/dotfiles/scripts/weather.R
+  sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
+  sudo chmod +x ~/dotfiles/scripts/launch.sh
+  sudo chmod +x ~/dotfiles/scripts/vpn.sh
+  sudo chmod +x ~/dotfiles/scripts/sync.sh
+  sudo chmod +x ~/dotfiles/scripts/upgrades.sh
+  sudo chmod +x ~/dotfiles/scripts/backup.sh
+  sudo chmod +x ~/dotfiles/scripts/weather.R
 
   # ------------------------------------------------------------------------------
   # Set up symlinks
