@@ -37,7 +37,7 @@ simple() {
   rm *.deb
   cd
   
-  mkdir -p ~/.config/{RStudio}
+  mkdir -p ~/.config/RStudio
   ln -s -f ~/dotfiles/config/RStudio/desktop.ini ~/.config/RStudio/desktop.ini
  }
 
