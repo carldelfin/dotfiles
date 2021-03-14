@@ -95,7 +95,7 @@ label-urgent-foreground = #F2F2F2
 label-urgent-padding = 1
 
 label-empty = %name%
-label-empty-foreground = #868686
+label-empty-foreground = #6D6D6D
 label-empty-background = #282828
 label-empty-padding = 1
 
