@@ -1,5 +1,5 @@
 [Default Applications]
-application/pdf=zathura.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
 
 [Added Associations]
-application/pdf=zathura.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
