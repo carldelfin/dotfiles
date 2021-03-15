@@ -24,18 +24,23 @@ simple() {
   sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/'
   sudo apt update
   
+  # R
   sudo apt install -y \
   r-base r-base-dev \
   libclang-dev libssl-dev \
   libcurl4-openssl-dev libxt-dev \
   libopenblas-dev liblapack-dev libopencv-dev \
   libcairo2-dev libnode-dev
-
+  
+  # RStudio
   cd /tmp
   wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
   sudo apt install -y ./*.deb
   rm *.deb
   cd
+  
+  # Radian
+  pip install -U radian
   
   mkdir -p ~/.config/RStudio
   ln -s -f ~/dotfiles/config/RStudio/desktop.ini ~/.config/RStudio/desktop.ini
