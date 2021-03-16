@@ -159,10 +159,11 @@ simple() {
   sudo ufw enable
   
   # ------------------------------------------------------------------------------
-  # Clean up
+  # Clean up and upgrade
   # ------------------------------------------------------------------------------
   
   sudo apt -y autoremove
+  sudo apt update && sudo apt -y upgrade
  
 }
 
