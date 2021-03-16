@@ -17,7 +17,7 @@ NC='\033[0m'
 # define menu options
 options[0]="${RED}Abort${NC}"
 options[1]="System setup"
-options[2]="Install R and RStudio"
+options[2]="Install R"
 options[3]="Install useful R packages"
 options[4]="Install Visual Studio Code"
 options[5]="Install Zotero"
@@ -35,7 +35,7 @@ function ACTIONS {
         source ~/dotfiles/install/system_setup.sh
     fi
     if [[ ${choices[2]} ]]; then
-        source ~/dotfiles/install/install_r_rstudio.sh
+        source ~/dotfiles/install/install_r.sh
     fi
     if [[ ${choices[3]} ]]; then
         source ~/dotfiles/install/install_r_packages.sh
