@@ -34,7 +34,10 @@ simple() {
   bspwm kitty polybar suckless-tools rofi pass \
   apt-transport-https lxappearance libavcodec-extra \
   okular ranger feh htop syncthing neofetch arandr \
-  jq neovim python3-pip
+  jq neovim python3-pip qt5-style-plugins
+  
+  # required for okular theme
+  echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
 
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
