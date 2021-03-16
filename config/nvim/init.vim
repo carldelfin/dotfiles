@@ -4,24 +4,40 @@
 
 call plug#begin('~/.vim/plugged')
 
+" ncm2 and related
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
-Plug 'sirver/ultiSnips'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'roxma/nvim-yarp'
+Plug 'sirver/ultiSnips'
+Plug 'gaalcaras/ncm-R'
+
+" nvim-r and related
 Plug 'jalvesaq/Nvim-R'
 Plug 'jalvesaq/R-Vim-runtime'
-Plug 'gaalcaras/ncm-R'
-Plug 'jalvesaq/zotcite'
-Plug 'Yggdroot/indentLine'
-Plug 'tomasiser/vim-code-dark'
-Plug 'preservim/nerdtree'
+
+" airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" nerdtree
+Plug 'preservim/nerdtree'
+
+" cosmetics
+Plug 'Yggdroot/indentLine'
+Plug 'tomasiser/vim-code-dark'
 Plug 'machakann/vim-highlightedyank'
+
+" buffer control
 Plug 'ap/vim-buftabline'
 Plug 'kien/ctrlp.vim'
+
+" citations
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'jgm/citeproc'
+"Plug 'jalvesaq/zotcite'
 
 augroup ncm2
     autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -49,18 +65,18 @@ nnoremap <C-i> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Copy and paste using C-v and C-p
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
+"vmap <C-c> "+yi
+"vmap <C-x> "+c
+"vmap <C-v> c<ESC>"+p
+"imap <C-v> <ESC>"+pa
 
 " Nvim-R object browser
 vmap <C-o> <LocalLeader>ro
 nmap <C-o> <LocalLeader>ro
 
 " buffers
-nnoremap <C-x> :bnext<CR>
-nnoremap <C-z> :bprev<CR>
+nnoremap <C-w> :bnext<CR>
+nnoremap <C-q> :bprev<CR>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -96,6 +112,9 @@ let g:vimtex_view_method = 'okular'
 
 " allow buffers to be hidden if modified
 set hidden
+
+" Disable folding of vim-pandoc plugin
+let g:pandoc#modules#disabled = ["folding"]
 
 " --------------------------------------------------------------
 " NERDTree
