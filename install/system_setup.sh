@@ -36,9 +36,6 @@ simple() {
   okular ranger feh htop syncthing neofetch arandr \
   jq neovim python3-pip qt5-style-plugins
   
-  # required for okular theme
-  echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
-
   # passmenu
   sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
   sudo chmod +x /usr/bin/passmenu
@@ -132,10 +129,10 @@ simple() {
   sudo chmod +x ~/dotfiles/scripts/weather.R
 
   # ------------------------------------------------------------------------------
-  # Set up symlinks
+  # Set up symlinks and paths
   # ------------------------------------------------------------------------------
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,zathura}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger}
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
@@ -147,7 +144,8 @@ simple() {
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
-  ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
+  
+  echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
   
   # ------------------------------------------------------------------------------
   # Enable UFW
