@@ -2,10 +2,11 @@
 
 # ==============================================================================
 #
-# This script installs the latest version of R and RStudio
+# This script installs the latest versions of R and Radian,
+# as well as some useful packages for optimal R performance
 #
 # https://www.r-project.org/
-# https://rstudio.com/
+# https://github.com/randy3k/radian
 #
 # ==============================================================================
 
@@ -24,7 +25,6 @@ simple() {
   sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/'
   sudo apt update
   
-  # R
   sudo apt install -y \
   r-base r-base-dev \
   libclang-dev libssl-dev \
@@ -32,18 +32,7 @@ simple() {
   libopenblas-dev liblapack-dev libopencv-dev \
   libcairo2-dev libnode-dev
   
-  # Radian
   pip install -U radian
-  
-  # RStudio
-  #cd /tmp
-  #wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
-  #sudo apt install -y ./*.deb
-  #rm *.deb
-  #cd
-  
-  mkdir -p ~/.config/RStudio
-  ln -s -f ~/dotfiles/config/RStudio/desktop.ini ~/.config/RStudio/desktop.ini
   
 }
 
