@@ -34,7 +34,7 @@ simple() {
   bspwm kitty polybar suckless-tools rofi pass \
   apt-transport-https lxappearance libavcodec-extra \
   okular ranger feh htop syncthing neofetch arandr \
-  jq neovim python3-pip qt5-style-plugins
+  inkscape jq neovim python3-pip qt5-style-plugins
   
   # vim-plug
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
