@@ -30,7 +30,8 @@ simple() {
   make unzip curl ufw lxapperance apt-listbugs \
   alsa-utils pulseaudio libavcodec-extra qpdf \
   okular ranger feh syncthing arandr htop \
-  neofetch jq neovim qt5-style-plugins
+  neofetch jq neovim qt5-style-plugins firefox-esr \
+  rsync
 
   # ------------------------------------------------------------------------------
   # vim-plug
