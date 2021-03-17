@@ -38,7 +38,7 @@ simple() {
   sudo apt install -y \
   xorg bspwm picom kitty polybar suckless-tools rofi pass rsync \
   neovim make meson gcc unzip curl ufw apt-listbugs qpdf okular \
-  ranger feh syncthing arandr htop jq firefox-esr
+  nautilus neofetch ranger feh syncthing arandr htop jq firefox-esr
   
   #sudo apt install -y \
   #libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
