@@ -17,12 +17,7 @@ NC='\033[0m'
 # define menu options
 options[0]="${RED}Abort${NC}"
 options[1]="Install everyting required by dotfiles"
-options[2]="Install R and RStudio"
-options[3]="Install useful R packages"
-options[4]="Install Visual Studio Code"
-options[5]="Install Zotero"
-options[6]="Modify Pop_OS! keyboard shortcuts"
-
+options[2]="Install R and Radian"
 
 # define actions based on options
 function ACTIONS {
@@ -33,25 +28,7 @@ function ACTIONS {
         source ~/dotfiles/build/system_setup.sh
     fi
     if [[ ${choices[2]} ]]; then
-        source ~/dotfiles/build/install_r_rstudio.sh
-    fi
-    if [[ ${choices[3]} ]]; then
-        source ~/dotfiles/build/install_r_packages.sh
-    fi
-    if [[ ${choices[4]} ]]; then
-        source ~/dotfiles/build/install_vscode.sh
-    fi
-    if [[ ${choices[5]} ]]; then
-        source ~/dotfiles/build/install_zotero.sh
-    fi
-    if [[ ${choices[6]} ]]; then
-        source ~/dotfiles/build/modify_keybindings.sh
-    fi
-    if [[ ${choices[7]} ]]; then
-        source ~/dotfiles/build/install_libreoffice.sh
-    fi
-    if [[ ${choices[8]} ]]; then
-        source ~/dotfiles/build/install_syncthing.sh
+        source ~/dotfiles/build/install_r.sh
     fi
 }
 
