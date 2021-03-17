@@ -15,11 +15,12 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 | Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
 | Distro              | [Debian Testing](https://wiki.debian.org/DebianTesting)|
-| WM                  | [bspwm](https://github.com/baskerville/bspwm)   |
-| Theme               | [Materia Dark](https://github.com/nana-4/materia-theme) |
+| WM                  | [bspwm](https://github.com/baskerville/bspwm)|
+| Bar                 | [Polybar](https://github.com/polybar/polybar)|
+| Theme               | [Materia Dark](https://github.com/nana-4/materia-theme)|
 | Icons               | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)|
-| Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)       |
-| Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode) |
+| Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
+| Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode)|
 
 # Detailed overview
 
