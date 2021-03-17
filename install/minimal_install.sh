@@ -113,29 +113,38 @@ simple() {
   # Fonts 
   # ------------------------------------------------------------------------------
   
-  # fira code
-  mkdir -p ~/.local/share/fonts
-  cd ~/.local/share/fonts
-  wget https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
-  unzip *.zip
-  mv ~/.local/share/fonts/ttf/*.ttf ~/.local/share/fonts
-  rm *.txt
-  rm *.html
-  rm *.zip
-  rm *.css
-  rm -rf woff
-  rm -rf woff2
-  rm -rf variable_ttf
-  rm -rf ttf
-  
+  # firacode
+  if fc-list | grep -q FiraCode; then
+    echo "firacode is already installed"
+  else
+    mkdir -p ~/.local/share/fonts
+    cd ~/.local/share/fonts
+    wget https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
+    unzip *.zip
+    mv ~/.local/share/fonts/ttf/*.ttf ~/.local/share/fonts
+    rm *.txt
+    rm *.html
+    rm *.zip
+    rm *.css
+    rm -rf woff
+    rm -rf woff2
+    rm -rf variable_ttf
+    rm -rf ttf
+  fi
+
   # fontawesome
-  wget https://use.fontawesome.com/releases/v5.15.2/fontawesome-free-5.15.2-desktop.zip
-  unzip *.zip
-  mv fontawesome-free-5.15.2-desktop/otfs/*.otf ~/.local/share/fonts/
-  rm *.zip
-  rm -rf fontawesome-free-5.15.2-desktop
-  cd
-  
+  if fc-list | grep -q FontAwesome; then
+    echo "fontawesome is already installed"
+  else
+    mkdir -p ~/.local/share/fonts
+    wget https://use.fontawesome.com/releases/v5.15.2/fontawesome-free-5.15.2-desktop.zip
+    unzip *.zip
+    mv fontawesome-free-5.15.2-desktop/otfs/*.otf ~/.local/share/fonts/
+    rm *.zip
+    rm -rf fontawesome-free-5.15.2-desktop
+    cd
+  fi
+ 
   fc-cache -f -v
   
   # ------------------------------------------------------------------------------
