@@ -5,6 +5,7 @@
 ## Installation
 
 The easiest way to get started is to clone this repo and running `install.sh`:
-`bash
+
+```bash
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash install.sh
-`
+```
