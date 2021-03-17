@@ -48,7 +48,7 @@ simple() {
   else
       curl -s 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe298a3a825c0d65dfd57cbb651716619e084dab9' -o marutter.key
       if ! file marutter.key | grep -q "PGP public key"; then
-        echo "$KEY does not appear to be a valid PGP key - aborting!"
+        echo "marutter.key does not appear to be a valid PGP key - aborting!"
         exit 1
       else
         sudo mkdir -p /usr/local/share/keyrings/
