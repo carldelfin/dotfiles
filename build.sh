@@ -16,8 +16,9 @@ NC='\033[0m'
 
 # define menu options
 options[0]="${RED}Abort${NC}"
-options[1]="Install everyting required by dotfiles"
-options[2]="Install R and Radian"
+options[1]="Upgrade to latest Linux kernel"
+options[2]="Install everyting required by dotfiles"
+options[3]="Install R and Radian"
 
 # define actions based on options
 function ACTIONS {
@@ -25,10 +26,13 @@ function ACTIONS {
         exit 1
     fi
     if [[ ${choices[1]} ]]; then
-        source ~/dotfiles/build/system_setup.sh
+        source ~/dotfiles/build/01_kernel_upgrade.sh
     fi
     if [[ ${choices[2]} ]]; then
-        source ~/dotfiles/build/install_r.sh
+        source ~/dotfiles/build/02_system_setup.sh
+    fi
+    if [[ ${choices[3]} ]]; then
+        source ~/dotfiles/build/03_install_r.sh
     fi
 }
 
