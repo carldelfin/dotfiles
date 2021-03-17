@@ -203,13 +203,10 @@ simple() {
   # Set up symlinks and paths
   # ==============================================================================
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim,gtk-3.0}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim}
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
-  #ln -s -f ~/dotfiles/config/.gtkrc-2.0 ~/.gtkrc-2.0
-  #sudo ln -s -f ~/dotfiles/config/index.theme /usr/share/icons/default/index.theme
-  #ln -s -f ~/dotfiles/config/gtk-3.0/settings.ini ~/gtk-3.0/settings.ini
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
@@ -233,13 +230,6 @@ simple() {
   sudo ufw allow from 192.168.20.0/24
   sudo ufw enable
   sudo ufw allow syncthing
-  
-  # ==============================================================================
-  # Clean up and upgrade
-  # ==============================================================================
-  
-  sudo apt -y autoremove
-  sudo apt update && sudo apt -y upgrade
  
 }
 
