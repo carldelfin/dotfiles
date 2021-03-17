@@ -43,4 +43,4 @@ simple() {
 }
 
 simple
-echo -e "\033[1;32mInstallation OK\033[0m"
+echo -e "\033[1;32mZotero installation OK\033[0m"
