@@ -31,11 +31,9 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  inkscape neofetch htop texlive texlive-latex-extra
-  
-  # kvm
-  sudo apt install -y \
+  inkscape neofetch htop texlive texlive-latex-extra \
   qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+  
   sudo adduser `id -un` libvirt
   sudo adduser `id -un` kvm
   
@@ -54,6 +52,7 @@ simple() {
   # radian
   sudo apt install -y python3-pip
   pip install -U radian
+  ln -s -f ~/dotfiles/config/.radian_profile ~/.radian_profile
   
   # signal
   wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
@@ -76,5 +75,5 @@ simple() {
 
 simple
 echo ""
-echo -e "\033[1;32mSystem setup OK!\033[0m"
+echo -e "\033[1;32mFull install OK\033[0m"
 echo ""
