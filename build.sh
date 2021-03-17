@@ -10,7 +10,7 @@
 #			|_.__/   \__,_| |_| |_|  \__,_| (_) |___/ |_| |_|
 # 
 #
-# This scripts lets you select what applications to install, including and beyond the intitial
+# This scripts lets you select what applications to install, including and beyond the initial
 # system setup. I use more or less all of them, but sometimes only have use for some of them on
 # certain machines. In addition, keeping them separate is quite handy for testing purposes.
 # 
