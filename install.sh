@@ -44,7 +44,7 @@ simple() {
 
   sudo apt install -y \
   bspwm kitty polybar suckless-tools rofi pass \
-  lxappearance libavcodec-extra qpdf inkscape\
+  libavcodec-extra qpdf inkscape\
   okular ranger feh syncthing arandr htop \
   neofetch jq neovim qt5-style-plugins
   
