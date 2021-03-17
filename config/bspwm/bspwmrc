@@ -15,13 +15,11 @@ bspc config gapless_monocle       true
 bspc config focused_border_color  \#FBB86C
 bspc config normal_border_color   \#ABB2BF
 
-bspc rule -a Zathura state=tiled
-
 # polybar
 ~/dotfiles/scripts/launch.sh
 
 # wallpaper
-feh --bg-scale ~/dotfiles/img/wallpaper.jpg
+feh --bg-scale ~/dotfiles/img/wallpaper.png
 
 # sound
 pulseaudio --start
