@@ -55,7 +55,7 @@ simple() {
   fi
 
   # rofi-pass
-  if ! command -v passmenu &> /dev/null; then
+  if ! command -v rofi-pass &> /dev/null; then
       cd /tmp
       wget https://github.com/carnager/rofi-pass/archive/master.zip
       unzip master.zip
@@ -74,7 +74,7 @@ simple() {
   fi
   
   # rofi-power-menu
-    if ! command -v passmenu &> /dev/null; then
+  if ! command -v rofi-power-menu &> /dev/null; then
       cd /tmp
       wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
       sudo mv rofi-power-menu /usr/local/bin
