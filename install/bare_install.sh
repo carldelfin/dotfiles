@@ -33,8 +33,8 @@ simple() {
   sudo apt install -y \
   bspwm kitty polybar suckless-tools rofi pass \
   apt-transport-https lxappearance libavcodec-extra \
-  okular ranger feh htop syncthing neofetch arandr \
-  inkscape jq neovim python3-pip qt5-style-plugins
+  okular ranger feh syncthing arandr \
+  jq neovim qt5-style-plugins
   
   # vim-plug
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -77,12 +77,6 @@ simple() {
   sudo apt install -y ./*.deb
   rm *.deb
   cd
-  
-  # kvm
-  sudo apt install -y \
-  qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
-  sudo adduser `id -un` libvirt
-  sudo adduser `id -un` kvm
 
   # ------------------------------------------------------------------------------
   # Remove redundant packages 
