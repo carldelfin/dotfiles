@@ -12,7 +12,7 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 # Brief overview
 
-| Component           | What                                            |
+| Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
 | Distro              | [Debian Testing](https://wiki.debian.org/DebianTesting)|
 | WM                  | [bspwm](https://github.com/baskerville/bspwm)   |
