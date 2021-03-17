@@ -24,7 +24,7 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 # Detailed overview
 
-## Pop_OS!
+## Why Debian?
 
 ## Installed programs
 
