@@ -50,26 +50,42 @@ simple() {
   libcairo2-dev libnode-dev
   
   # radian
-  sudo apt install -y python3-pip
-  pip install -U radian
-  ln -s -f ~/dotfiles/config/.radian_profile ~/.radian_profile
-  
+  if ! command -v radian &> /dev/null; then
+    sudo apt install -y python3-pip
+    pip install -U radian
+    ln -s -f ~/dotfiles/config/.radian_profile ~/.radian_profile
+  else
+      echo "radian is already installed"
+  fi
+
   # signal
-  wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-  echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-  sudo apt update && sudo apt install -y signal-desktop
+  if ! command -v signal-desktop &> /dev/null; then
+    wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+    echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+    sudo apt update && sudo apt install -y signal-desktop
+  else
+      echo "signal is already installed"
+  fi
   
   # zoom
-  cd /tmp
-  wget https://zoom.us/client/latest/zoom_amd64.deb
-  sudo apt install -y ./*.deb
-  rm *.deb
-  cd
+  if ! command -v zoom &> /dev/null; then
+    cd /tmp
+    wget https://zoom.us/client/latest/zoom_amd64.deb
+    sudo apt install -y ./*.deb
+    rm *.deb
+    cd
+  else
+      echo "zoom is already installed"
+  fi
   
   # zotero
-  wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
-  sudo apt update
-  sudo apt install -y zotero
+  if ! command -v zoom &> /dev/null; then
+    wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
+    sudo apt update
+    sudo apt install -y zotero
+  else
+    echo "zotero is already installed"
+  fi
  
 }
 
