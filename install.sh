@@ -165,7 +165,7 @@ simple() {
   if [ -f "$KEY" ]; then
       echo "$KEY already exists"
   else
-      curl -s 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe298a3a825c0d65dfd57cbb651716619e084dab9' -o marutter.key
+      wget -q -O marutter.key "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe298a3a825c0d65dfd57cbb651716619e084dab9"
       if ! file marutter.key | grep -q "PGP public key"; then
           echo "marutter.key does not appear to be a valid PGP key - aborting!"
           exit 1
@@ -209,7 +209,7 @@ simple() {
       if [ -f "$KEY" ]; then
           echo "$KEY already exists"
       else
-          curl -s 'https://updates.signal.org/desktop/apt/keys.asc' -o signal.key
+          wget -q -O signal.key "https://updates.signal.org/desktop/apt/keys.asc"
           if ! file signal.key | grep -q "PGP public key"; then
               echo "signal.key does not appear to be a valid PGP key - aborting!"
               exit 1
@@ -251,7 +251,7 @@ simple() {
       if [ -f "$KEY" ]; then
           echo "$KEY already exists"
       else
-          curl -s "https://github.com/retorquere/zotero-deb/releases/download/apt-get/deb.gpg.key" -o zotero.key
+          wget -q -O zotero.key "https://github.com/retorquere/zotero-deb/releases/download/apt-get/deb.gpg.key"
           if ! file zotero.key | grep -q "PGP public key"; then
               echo "zotero.key does not appear to be a valid PGP key - aborting!"
               exit 1
