@@ -16,8 +16,8 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 | --------------------| :-----------------------------------------------|
 | Distro              | [Debian Testing](https://wiki.debian.org/DebianTesting)|
 | WM                  | [bspwm](https://github.com/baskerville/bspwm)   |
-| Theme               | [Pop-dark](https://github.com/pop-os/gtk-theme) |
-| Icons               | [Pop](https://github.com/pop-os/icon-theme)     |
+| Theme               | [Materia Dark](https://github.com/nana-4/materia-theme) |
+| Icons               | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)       |
 | Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode) |
 
