@@ -10,7 +10,7 @@ The easiest way to get started is to clone this repo and running `build.sh`:
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
 ```
 
-# Brief overview
+# Quick overview
 
 | Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
