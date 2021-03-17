@@ -19,7 +19,7 @@ set -e
 trap 'catch $? $LINENO' EXIT
 
 catch() {
-  if [ "$1" != "0" ]; then
+    if [ "$1" != "0" ]; then
     echo -e "\033[1;31mInstallation failed!\033[0m"
     echo -e "\033[1;31mError $1 occurred on $2\033[0m"
   fi
@@ -175,21 +175,21 @@ simple() {
   # --------------------------------------------------------------------------------------------------
   
   if fc-list | grep -q FiraCode; then
-    echo "Fira Code is already installed"
+      echo "Fira Code is already installed"
   else
-    mkdir -p ~/.local/share/fonts
-    cd ~/.local/share/fonts
-    wget https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
-    unzip *.zip
-    mv ~/.local/share/fonts/ttf/*.ttf ~/.local/share/fonts
-    rm *.txt
-    rm *.html
-    rm *.zip
-    rm *.css
-    rm -rf woff
-    rm -rf woff2
-    rm -rf variable_ttf
-    rm -rf ttf
+      mkdir -p ~/.local/share/fonts
+      cd ~/.local/share/fonts
+      wget https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
+      unzip *.zip
+      mv ~/.local/share/fonts/ttf/*.ttf ~/.local/share/fonts
+      rm *.txt
+      rm *.html
+      rm *.zip
+      rm *.css
+      rm -rf woff
+      rm -rf woff2
+      rm -rf variable_ttf
+      rm -rf ttf
   fi
 
   # --------------------------------------------------------------------------------------------------
@@ -198,16 +198,16 @@ simple() {
   # --------------------------------------------------------------------------------------------------
   
   if fc-list | grep -q "Font Awesome"; then
-    echo "Font Awesome is already installed"
+      echo "Font Awesome is already installed"
   else
-    mkdir -p ~/.local/share/fonts
-    cd /tmp
-    wget https://use.fontawesome.com/releases/v5.15.2/fontawesome-free-5.15.2-desktop.zip
-    unzip *.zip
-    mv fontawesome-free-5.15.2-desktop/otfs/*.otf ~/.local/share/fonts/
-    rm *.zip
-    rm -rf fontawesome-free-5.15.2-desktop
-    cd
+      mkdir -p ~/.local/share/fonts
+      cd /tmp
+      wget https://use.fontawesome.com/releases/v5.15.2/fontawesome-free-5.15.2-desktop.zip
+      unzip *.zip
+      mv fontawesome-free-5.15.2-desktop/otfs/*.otf ~/.local/share/fonts/
+      rm *.zip
+      rm -rf fontawesome-free-5.15.2-desktop
+      cd
   fi
   
   # --------------------------------------------------------------------------------------------------
@@ -216,16 +216,16 @@ simple() {
   # --------------------------------------------------------------------------------------------------
   
   if fc-list | grep -q "Fira Sans"; then
-    echo "Fira Sans is already installed"
+      echo "Fira Sans is already installed"
   else
-    mkdir -p ~/.local/share/fonts
-    cd /tmp
-    wget https://github.com/pop-os/fonts/archive/master.zip
-    unzip *.zip
-    mv fonts-master/fira/*.otf ~/.local/share/fonts/
-    rm *.zip
-    rm -rf fonts-master
-    cd
+      mkdir -p ~/.local/share/fonts
+      cd /tmp
+      wget https://github.com/pop-os/fonts/archive/master.zip
+      unzip *.zip
+      mv fonts-master/fira/*.otf ~/.local/share/fonts/
+      rm *.zip
+      rm -rf fonts-master
+      cd
   fi
   
   fc-cache -f
@@ -261,7 +261,7 @@ simple() {
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   
   if ! cat /etc/environment | grep -q "QT_QPA_PLATFORMTHEME=gtk2"; then
-    echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
+      echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
   fi
 
   # ==================================================================================================
