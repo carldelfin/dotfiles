@@ -1,18 +1,19 @@
 #!/bin/bash
 
-#  _           _        _ _       _     
-# (_)         | |      | | |     | |    
-#  _ _ __  ___| |_ __ _| | |  ___| |__  
-# | | '_ \/ __| __/ _` | | | / __| '_ \ 
-# | | | | \__ \ || (_| | | |_\__ \ | | |
-# |_|_| |_|___/\__\__,_|_|_(_)___/_| |_|
-
 ################################################################################
+#      _           _        _ _       _     
+#     (_)         | |      | | |     | |    
+#      _ _ __  ___| |_ __ _| | |  ___| |__  
+#     | | '_ \/ __| __/ _` | | | / __| '_ \ 
+#     | | | | \__ \ || (_| | | |_\__ \ | | |
+#     |_|_| |_|___/\__\__,_|_|_(_)___/_| |_|
 #
-# This script gets my workstation up and running after a clean install.
+#     This script gets my workstation up and running after a clean install.
 #
-# Do not use this script blindly, it might not do what you want! 
-# Make sure to read through this file and make changes accordingly.
+#     Do not use this script blindly, it is fairly comprehensive,
+#     and might not at all do what you want!
+#
+#     Make sure to read through this file and make changes accordingly.
 #
 ################################################################################
 
