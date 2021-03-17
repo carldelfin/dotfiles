@@ -16,9 +16,10 @@ NC='\033[0m'
 
 # define menu options
 options[0]="${RED}Abort${NC}"
-options[1]="Upgrade to latest Linux kernel"
-options[2]="Install everyting required by dotfiles"
+options[1]="Kernel upgrade"
+options[2]="System setup"
 options[3]="Install R and Radian"
+options[4]="Install Zotero"
 
 # define actions based on options
 function ACTIONS {
@@ -33,6 +34,9 @@ function ACTIONS {
     fi
     if [[ ${choices[3]} ]]; then
         source ~/dotfiles/build/03_install_r.sh
+    fi
+    if [[ ${choices[4]} ]]; then
+        source ~/dotfiles/build/04_install_zotero.sh
     fi
 }
 
