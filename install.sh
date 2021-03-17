@@ -342,6 +342,7 @@ simple() {
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.gtkrc-2.0 ~/.gtkrc-2.0
+  sudo ln -s -f ~/dotfiles/config/index.theme /usr/share/icons/default/index.theme
   ln -s -f ~/dotfiles/config/gtk-3.0/settings.ini ~/gtk-3.0/settings.ini
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
