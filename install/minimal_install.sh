@@ -48,10 +48,8 @@ simple() {
   if ! command -v passmenu &> /dev/null; then
       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
       sudo chmod +x /usr/bin/passmenu
-      exit
   else
       echo "passmenu is already installed"
-      exit
   fi
 
   # rofi-pass
@@ -67,10 +65,8 @@ simple() {
       cd ..
       sudo rm -rf rofi-pass-master
       cd
-      exit
   else
       echo "rofi-pass is already installed"
-      exit
   fi
   
   # rofi-power-menu
@@ -80,10 +76,8 @@ simple() {
       sudo mv rofi-power-menu /usr/local/bin
       sudo chmod +x /usr/local/bin/rofi-power-menu
       cd
-      exit
   else
       echo "rofi-power-menu is already installed"
-      exit
   fi
   
   # rofi-bluetooth
@@ -93,10 +87,8 @@ simple() {
       sudo mv rofi-bluetooth /usr/local/bin
       sudo chmod +x /usr/local/bin/rofi-bluetooth
       cd
-      exit
   else
       echo "rofi-bluetooth is already installed"
-      exit
   fi
   
   # mullvad
@@ -106,10 +98,8 @@ simple() {
       sudo apt install -y ./*.deb
       rm *.deb
       cd
-      exit
   else
       echo "mullvad is already installed"
-      exit
   fi
 
   # ------------------------------------------------------------------------------
