@@ -38,7 +38,7 @@ simple() {
   
   # vim-plug
   if [ -d "$HOME/.vim/plugged" ]; then
-      echo "vim-plug already installed"
+      echo "vim-plug is already installed"
   else
       sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -50,7 +50,7 @@ simple() {
       sudo chmod +x /usr/bin/passmenu
       exit
   else
-      echo "passmenu already installed"
+      echo "passmenu is already installed"
       exit
   fi
 
@@ -69,7 +69,7 @@ simple() {
       cd
       exit
   else
-      echo "rofi-pass already installed"
+      echo "rofi-pass is already installed"
       exit
   fi
   
@@ -82,7 +82,7 @@ simple() {
       cd
       exit
   else
-      echo "rofi-power-menu already installed"
+      echo "rofi-power-menu is already installed"
       exit
   fi
   
@@ -95,7 +95,7 @@ simple() {
       cd
       exit
   else
-      echo "rofi-bluetooth already installed"
+      echo "rofi-bluetooth is already installed"
       exit
   fi
   
@@ -108,7 +108,7 @@ simple() {
       cd
       exit
   else
-      echo "mullvad already installed"
+      echo "mullvad is already installed"
       exit
   fi
 
