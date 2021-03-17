@@ -157,6 +157,7 @@ simple() {
     echo "Font Awesome is already installed"
   else
     mkdir -p ~/.local/share/fonts
+    cd /tmp
     wget https://use.fontawesome.com/releases/v5.15.2/fontawesome-free-5.15.2-desktop.zip
     unzip *.zip
     mv fontawesome-free-5.15.2-desktop/otfs/*.otf ~/.local/share/fonts/
@@ -164,7 +165,25 @@ simple() {
     rm -rf fontawesome-free-5.15.2-desktop
     cd
   fi
- 
+  
+  # ------------------------------------------------------------------------------
+  # Fira Sans
+  # https://github.com/pop-os/fonts
+  # ------------------------------------------------------------------------------
+  
+  if fc-list | grep -q "Fira Sans"; then
+    echo "Fira Sans is already installed"
+  else
+    mkdir -p ~/.local/share/fonts
+    cd /tmp
+    wget https://github.com/pop-os/fonts/archive/master.zip
+    unzip *.zip
+    mv fonts-master/fira/*.otf ~/.local/share/fonts/
+    rm *.zip
+    rm -rf fonts-master
+    cd
+  fi
+  
   fc-cache -f
   
   # ==============================================================================
