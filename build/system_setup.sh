@@ -1,5 +1,15 @@
 #!/bin/bash
 
+####################################################################################################
+#
+# This script installs things that are required either by the system or by me. Although larger 
+# applications are installed using separate scripts, please note that quite a lot is installed 
+# during system setup as well. In addition, UFW is configured, and several symlinks are setup.
+#
+# As always, do not blindly use this script!
+#
+####################################################################################################
+
 # ==================================================================================================
 # Define a try catch function
 # Based on: https://medium.com/@dirk.avery/the-bash-trap-trap-ce6083f36700
