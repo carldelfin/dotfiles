@@ -17,18 +17,18 @@ catch() {
 
 simple() {
 
-  # ------------------------------------------------------------------------------
-  # Essential packages
-  # ------------------------------------------------------------------------------
+  # ==============================================================================
+  # Install packages
+  # ==============================================================================
 
+  # ------------------------------------------------------------------------------
+  # Essentials
+  # ------------------------------------------------------------------------------
+  
   sudo apt install -y \
-  xorg bspwm kitty polybar suckless-tools rofi pass \
-  make meson gcc unzip curl ufw lxappearance apt-listbugs \
-  alsa-utils pulseaudio libavcodec-extra qpdf \
-  okular ranger feh syncthing arandr htop \
-  neofetch jq neovim qt5-style-plugins firefox-esr \
-  rsync materia-gtk-theme papirus-icon-theme \
-  qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+  xorg bspwm kitty polybar suckless-tools rofi pass rsync \
+  neovim make meson gcc unzip curl ufw apt-listbugs qpdf \
+  okular ranger feh syncthing arandr htop jq firefox-esr
   
   # ------------------------------------------------------------------------------
   # picom
@@ -46,18 +46,6 @@ simple() {
   git submodule update --init --recursive
   meson --buildtype=release . build
   sudo ninja -C build install
-  
-  # ------------------------------------------------------------------------------
-  # vim-plug
-  # https://github.com/junegunn/vim-plug
-  # ------------------------------------------------------------------------------
-  
-  if [ -d "$HOME/.vim/plugged" ]; then
-      echo "vim-plug is already installed"
-  else
-      sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  fi
   
   # ------------------------------------------------------------------------------
   # passmenu
@@ -134,6 +122,41 @@ simple() {
       cd
   else
       echo "Mullvad is already installed"
+  fi
+  
+  # ------------------------------------------------------------------------------
+  # KVM
+  # ------------------------------------------------------------------------------
+  
+  sudo apt install -y \
+  qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+  
+  sudo adduser `id -un` libvirt
+  sudo adduser `id -un` kvm
+  
+  # ------------------------------------------------------------------------------
+  # Appearance
+  # ------------------------------------------------------------------------------
+  
+  sudo apt install -y \
+  lxappearance materia-gtk-theme papirus-icon-theme qt5-style-plugins
+  
+  # ------------------------------------------------------------------------------
+  # Sound
+  # ------------------------------------------------------------------------------
+  
+  sudo apt install -y alsa-utils pulseaudio libavcodec-extra 
+  
+  # ------------------------------------------------------------------------------
+  # vim-plug
+  # https://github.com/junegunn/vim-plug
+  # ------------------------------------------------------------------------------
+  
+  if [ -d "$HOME/.vim/plugged" ]; then
+      echo "vim-plug is already installed"
+  else
+      sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
   
   # ==============================================================================
@@ -214,7 +237,7 @@ simple() {
   sudo chmod +x ~/dotfiles/scripts/weather.R
 
   # ==============================================================================
-  # Set up symlinks, paths and users
+  # Set up symlinks and paths
   # ==============================================================================
   
   mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim}
@@ -234,9 +257,6 @@ simple() {
   if ! cat /etc/environment | grep -q "QT_QPA_PLATFORMTHEME=gtk2"; then
     echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
   fi
-  
-  sudo adduser `id -un` libvirt
-  sudo adduser `id -un` kvm
 
   # ==============================================================================
   # Enable UFW
