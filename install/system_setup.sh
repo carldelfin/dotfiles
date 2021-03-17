@@ -172,5 +172,5 @@ simple() {
 
 simple
 echo ""
-echo -e "\033[1;32mEverything is set up, time to reboot!\033[0m"
+echo -e "\033[1;32mSystem setup OK!\033[0m"
 echo ""
