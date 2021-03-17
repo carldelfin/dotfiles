@@ -1,0 +1,3 @@
+options(radian.color_scheme = "monokai")
+options(radian.editing_mode = "vi")
+options(radian.highlight_matching_bracket = TRUE)
