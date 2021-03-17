@@ -14,12 +14,19 @@ while test $# -gt 0; do
       exit 0
       ;;
     -f|--full)
+      shift
       source ~/dotfiles/install/minimal_install.sh
       source ~/dotfiles/install/full_install.sh
       exit 0
+      shift
     -m|--minimal)
+      shift
       source ~/dotfiles/install/minimal_install.sh
       exit 0
+      shift
+      ;;
+    *)
+      break
       ;;
   esac
 done
