@@ -29,7 +29,7 @@ simple() {
   xorg bspwm kitty polybar suckless-tools rofi pass \
   make meson gcc unzip curl ufw lxappearance apt-listbugs \
   alsa-utils pulseaudio libavcodec-extra qpdf \
-  okular ranger feh syncthing arandr htop python-pip \
+  okular ranger feh syncthing arandr htop \
   neofetch jq neovim qt5-style-plugins firefox-esr \
   rsync materia-gtk-theme papirus-icon-theme
   
