@@ -20,7 +20,7 @@ simple() {
 
   Rscript -e 'dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)'
   Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER"))'
-  Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans"))'
+  Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans", "pander", "rmarkdown", "devtools"))'
 
 }
 
