@@ -31,7 +31,7 @@ simple() {
   alsa-utils pulseaudio libavcodec-extra qpdf \
   okular ranger feh syncthing arandr htop \
   neofetch jq neovim qt5-style-plugins firefox-esr \
-  rsync materia-gtk-theme
+  rsync materia-gtk-theme papirus-icon-theme
 
   # ------------------------------------------------------------------------------
   # vim-plug
