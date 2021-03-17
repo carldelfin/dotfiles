@@ -2,9 +2,9 @@
 
 # ==============================================================================
 #
-# This script installs the latest version of TexLive
-#
+# This script installs the latest version of TexLive and Pandoc
 # https://www.tug.org/texlive/
+# https://pandoc.org/
 #
 # ==============================================================================
 
@@ -19,7 +19,7 @@ catch() {
 }
 
 simple() {
-  sudo apt install -y texlive texlive-latex-extra
+  sudo apt install -y texlive texlive-latex-extra pandoc
 }
 
 simple
