@@ -37,7 +37,7 @@ simple() {
   
   sudo apt install -y \
   xorg bspwm picom kitty polybar suckless-tools rofi pass rsync \
-  neovim make meson gcc unzip curl ufw apt-listbugs qpdf okular \
+  neovim make gcc unzip curl ufw apt-listbugs qpdf okular \
   nautilus neofetch ranger feh syncthing arandr htop jq firefox-esr
   
   #sudo apt install -y \
