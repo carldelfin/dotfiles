@@ -133,7 +133,7 @@ simple() {
   fi
 
   # fontawesome
-  if fc-list | grep -q FontAwesome; then
+  if fc-list | grep -q "Font Awesome"; then
     echo "fontawesome is already installed"
   else
     mkdir -p ~/.local/share/fonts
@@ -145,7 +145,7 @@ simple() {
     cd
   fi
  
-  fc-cache -f -v
+  fc-cache -f
   
   # ------------------------------------------------------------------------------
   # Make sure relevant configs and scripts are executable
