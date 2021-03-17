@@ -18,7 +18,7 @@ catch() {
 
 simple() {
 
-  Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans"), repos="https://cloud.r-project.org")'
+  Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans"))'
 
 }
 
