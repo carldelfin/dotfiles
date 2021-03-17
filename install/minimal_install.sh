@@ -177,8 +177,10 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   
-  echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
-  
+  if ! cat /etc/environment | grep -q "QT_QPA_PLATFORMTHEME=gtk2"; then
+    echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
+  fi
+
   # ------------------------------------------------------------------------------
   # Enable UFW
   # ------------------------------------------------------------------------------
