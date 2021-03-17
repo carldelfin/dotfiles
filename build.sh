@@ -1,96 +1,25 @@
 #!/bin/bash
 
-# ==============================================================================
-#
-# I use this script to selectively install programs I regularly use.
-#
-# It's based on work by Nathan Davieau and MestreLion from
-# https://serverfault.com/a/777849
-#
-# ==============================================================================
-
-# define colors
-GREEN='\033[1;32m'
-RED='\033[0;31m'
-NC='\033[0m'
-
-# define menu options
-options[0]="${RED}Abort${NC}"
-options[1]="System setup"
-options[2]="Install R"
-options[3]="Install useful R packages"
-options[4]="Install Zotero"
-options[5]="Install Zoom"
-options[6]="Install Texlive"
-options[7]="Install Signal"
-options[8]="${GREEN}Install everything!${NC}"
-
-# define actions based on options
-function ACTIONS {
-    if [[ ${choices[0]} ]]; then
-        exit 1
-    fi
-    if [[ ${choices[1]} ]]; then
-        source ~/dotfiles/install/system_setup.sh
-    fi
-    if [[ ${choices[2]} ]]; then
-        source ~/dotfiles/install/install_r.sh
-    fi
-    if [[ ${choices[3]} ]]; then
-        source ~/dotfiles/install/install_r_packages.sh
-    fi
-    if [[ ${choices[4]} ]]; then
-        source ~/dotfiles/install/install_zotero.sh
-    fi
-    if [[ ${choices[5]} ]]; then
-        source ~/dotfiles/install/install_zoom.sh
-    fi
-    if [[ ${choices[6]} ]]; then
-        source ~/dotfiles/install/install_texlive.sh
-    fi
-    if [[ ${choices[7]} ]]; then
-        source ~/dotfiles/install/install_signal.sh
-    fi
-    if [[ ${choices[8]} ]]; then
-        source ~/dotfiles/install/system_setup.sh
-        source ~/dotfiles/install/install_r.sh
-        source ~/dotfiles/install/install_r_packages.sh
-        source ~/dotfiles/install/install_zotero.sh
-        source ~/dotfiles/install/install_zoom.sh
-        source ~/dotfiles/install/install_texlive.sh
-        source ~/dotfiles/install/install_signal.sh
-    fi
-}
-
-ERROR=" "
-
-clear
-
-# menu function
-function MENU {
-    echo ""
-    echo "---------------------------------------------------------------------"
-    for NUM in ${!options[@]}; do
-        echo -e $(( NUM+1 ))" "[""${GREEN4}${choices[NUM]:- }"${NC}"]" ${options[NUM]}"
-    done
-    echo "---------------------------------------------------------------------"
-    echo "$ERROR"
-}
-
-# menu loop
-while MENU && read -e -p "Select by pressing the corresponding number (press again to deselect), then ENTER when done: " -n1 SELECTION && [[ -n "$SELECTION" ]]; do
-    clear
-    if [[ "$SELECTION" == *[[:digit:]]* && $SELECTION -ge 1 && $SELECTION -le ${#options[@]} ]]; then
-        (( SELECTION-- ))
-        if [[ "${choices[SELECTION]}" == "+" ]]; then
-            choices[SELECTION]=""
-        else
-            choices[SELECTION]="+"
-        fi
-            ERROR=" "
-    else
-        ERROR="Invalid option: $SELECTION"
-    fi
+while test $# -gt 0; do
+  case "$1" in
+    -h|--help)
+      echo "$package - attempt to capture frames"
+      echo " "
+      echo "$package [options] application [arguments]"
+      echo " "
+      echo "options:"
+      echo "-h, --help                show help"
+      echo "-f, --full                do a full system install"
+      echo "-m, --minimal             do a minimal system install"
+      exit 0
+      ;;
+    -f|--full)
+      source ~/dotfiles/install/minimal_install.sh
+      source ~/dotfiles/install/full_install.sh
+      exit 0
+    -m|--minimal)
+      source ~/dotfiles/install/minimal_install.sh
+      exit 0
+      ;;
+  esac
 done
-
-ACTIONS
