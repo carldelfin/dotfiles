@@ -53,7 +53,7 @@ simple() {
       else
         sudo mkdir -p /usr/local/share/keyrings/
         sudo mv marutter.key /usr/local/share/keyrings/
-        echo "deb [signed-by=/usr/local/share/keyrings/marutter.key.gpg] https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/" | sudo tee -a /etc/apt/sources.list
+        echo "deb [signed-by=/usr/local/share/keyrings/marutter.key] https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/" | sudo tee -a /etc/apt/sources.list
       fi
   fi
 
