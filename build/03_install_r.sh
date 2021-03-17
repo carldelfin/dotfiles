@@ -28,7 +28,7 @@ simple() {
   
   if ! command -v radian &> /dev/null; then
       sudo apt install -y python3-pip
-      pip install -U radian
+      pip3 install -U radian
       ln -s -f ~/dotfiles/config/.radian_profile ~/.radian_profile
   else
       echo "Radian is already installed"
