@@ -258,7 +258,7 @@ simple() {
           else
               sudo mkdir -p /usr/local/share/keyrings/
               sudo mv zotero.key /usr/local/share/keyrings/
-              echo "deb [signed-by=/usr/local/share/keyrings/zotero.key] deb https://github.com/retorquere/zotero-deb/releases/download/apt-get/ ./" | sudo tee -a /etc/apt/sources.list.d/zotero.list
+              echo "deb [signed-by=/usr/local/share/keyrings/zotero.key] https://github.com/retorquere/zotero-deb/releases/download/apt-get/ ./" | sudo tee -a /etc/apt/sources.list.d/zotero.list
           fi
       fi
       sudo apt update
