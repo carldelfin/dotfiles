@@ -38,8 +38,25 @@ simple() {
   sudo adduser `id -un` kvm
   
   # r
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-  sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/'
+  #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+  #sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/'
+  
+  KEY=/usr/local/share/keyrings/marutter.key
+
+  if [ -f "$KEY" ]; then
+      echo "$KEY already exists"
+  else
+      curl -s 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe298a3a825c0d65dfd57cbb651716619e084dab9' -o marutter.key
+      if ! file marutter.key | grep -q "PGP public key"; then
+        echo "$KEY does not appear to be a valid PGP key - aborting!"
+        exit 1
+      else
+        sudo mkdir -p /usr/local/share/keyrings/
+        sudo mv marutter.key /usr/local/share/keyrings/
+        echo "deb [signed-by=/usr/local/share/keyrings/marutter.key.gpg] https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/" | sudo tee -a /etc/apt/sources.list
+      fi
+  fi
+
   sudo apt update
   
   sudo apt install -y \
