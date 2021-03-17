@@ -152,8 +152,9 @@ simple() {
   
   sudo ufw default deny incoming
   sudo ufw default allow outgoing
-  sudo ufw allow from 192.168.20.0/24 # allow from within LAN
+  sudo ufw allow from 192.168.20.0/24
   sudo ufw enable
+  sudo ufw allow syncthing
   
   # ------------------------------------------------------------------------------
   # Clean up and upgrade
