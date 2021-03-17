@@ -341,6 +341,8 @@ simple() {
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
+  ln -s -f ~/dotfiles/config/.gtkrc-2.0 ~/.gtkrc-2.0
+  ln -s -f ~/dotfiles/config/gtk-3.0/settings.ini ~/gtk-3.0/settings.ini
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
