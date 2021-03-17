@@ -10,7 +10,7 @@ The easiest way to get started is to clone this repo and running `install.sh`:
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash install.sh
 ```
 
-## Brief system overview
+## Brief overview
 
 | Component           | What                                            |
 | --------------------| :-----------------------------------------------|
