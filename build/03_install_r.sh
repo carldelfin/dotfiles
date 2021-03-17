@@ -3,8 +3,8 @@
 # ==============================================================================
 #
 # This script installs the latest version of R and Radian
-#
 # https://www.r-project.org/
+# https://github.com/randy3k/radian
 #
 # ==============================================================================
 
@@ -37,4 +37,4 @@ simple() {
 }
 
 simple
-echo -e "\033[1;32mInstallation OK\033[0m"
+echo -e "\033[1;32mR and Radian installation OK\033[0m"
