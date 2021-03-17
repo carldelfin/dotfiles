@@ -12,7 +12,6 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash inst
 
 ## Brief system overview
 
-| Type                | What                                              | Description                   |
-| --------------------| --------------------------------------------------| ------------------------------|
-| Distro              | [Pop_OS!](https://pop.system76.com/) 20.10        | Test
-| WM                  | [BSPWM](https://github.com/baskerville/bspwm)     | Test
+| Distro              | [Pop_OS! 20.10](https://pop.system76.com/)
+| WM                  | [bspwm](https://github.com/baskerville/bspwm)
+| Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)
