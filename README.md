@@ -16,4 +16,7 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash inst
 | --------------------| :-----------------------------------------------|
 | Distro              | [Pop_OS! 20.10](https://pop.system76.com/)      |
 | WM                  | [bspwm](https://github.com/baskerville/bspwm)   |
+| Theme               | [Pop-dark](https://github.com/pop-os/gtk-theme) |
+| Icons               | [Pop](https://github.com/pop-os/icon-theme)     |
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)       |
+| Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode) |
