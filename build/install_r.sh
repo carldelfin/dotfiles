@@ -33,8 +33,6 @@ simple() {
   else
       echo "Radian is already installed"
   fi
-  
-  Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans"), repos="https://cloud.r-project.org")'
 
 }
 
