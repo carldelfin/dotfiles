@@ -17,6 +17,8 @@ bspc config normal_border_color   \#ABB2BF
 
 bspc rule -a Arandr state=floating
 
+# picom
+picom --config ~/dotfiles/config/picom/picom.conf &
 # polybar
 ~/dotfiles/scripts/launch.sh
 
