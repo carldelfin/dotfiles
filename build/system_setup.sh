@@ -27,7 +27,7 @@ simple() {
 
   sudo apt install -y \
   xorg bspwm kitty polybar suckless-tools rofi pass \
-  make unzip curl ufw lxapperance apt-listbugs \
+  make unzip curl ufw lxappearance apt-listbugs \
   alsa-utils pulseaudio libavcodec-extra qpdf \
   okular ranger feh syncthing arandr htop \
   neofetch jq neovim qt5-style-plugins firefox-esr \
