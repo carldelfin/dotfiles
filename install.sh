@@ -49,11 +49,12 @@ simple() {
   neofetch jq neovim qt5-style-plugins
   
   # ------------------------------------------------------------------------------
-  # TexLive
+  # TexLive and Pandoc
   # https://www.tug.org/texlive/
+  # https://pandoc.org/
   # ------------------------------------------------------------------------------
   
-  sudo apt install -y texlive texlive-latex-extra
+  sudo apt install -y texlive texlive-latex-extra pandoc
   
   # ------------------------------------------------------------------------------
   # KVM
@@ -61,10 +62,7 @@ simple() {
   # ------------------------------------------------------------------------------
   
   sudo apt install -y \
-  qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
   
-  sudo adduser `id -un` libvirt
-  sudo adduser `id -un` kvm
   
   # ------------------------------------------------------------------------------
   # vim-plug
@@ -156,49 +154,6 @@ simple() {
   fi
   
   # ------------------------------------------------------------------------------
-  # R
-  # https://www.r-project.org/
-  # ------------------------------------------------------------------------------
-  
-  KEY=/usr/local/share/keyrings/marutter.key
-
-  if [ -f "$KEY" ]; then
-      echo "$KEY already exists"
-  else
-      wget -q -O marutter.key "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe298a3a825c0d65dfd57cbb651716619e084dab9"
-      if ! file marutter.key | grep -q "PGP public key"; then
-          echo "marutter.key does not appear to be a valid PGP key - aborting!"
-          exit 1
-      else
-        sudo mkdir -p /usr/local/share/keyrings/
-        sudo mv marutter.key /usr/local/share/keyrings/
-        echo "deb [signed-by=/usr/local/share/keyrings/marutter.key] https://cloud.r-project.org/bin/linux/ubuntu groovy-cran40/" | sudo tee -a /etc/apt/sources.list
-      fi
-  fi
-
-  sudo apt update
-  
-  sudo apt install -y \
-  r-base r-base-dev \
-  libclang-dev libssl-dev \
-  libcurl4-openssl-dev libxt-dev \
-  libopenblas-dev liblapack-dev libopencv-dev \
-  libcairo2-dev libnode-dev
-  
-  # ------------------------------------------------------------------------------
-  # Radian
-  # https://github.com/randy3k/radian
-  # ------------------------------------------------------------------------------
-  
-  if ! command -v radian &> /dev/null; then
-      sudo apt install -y python3-pip
-      pip install -U radian
-      ln -s -f ~/dotfiles/config/.radian_profile ~/.radian_profile
-  else
-      echo "Radian is already installed"
-  fi
-  
-  # ------------------------------------------------------------------------------
   # Signal
   # https://signal.org
   # ------------------------------------------------------------------------------
@@ -238,33 +193,6 @@ simple() {
       cd
   else
       echo "zoom is already installed"
-  fi
-  
-  # ------------------------------------------------------------------------------
-  # Zotero
-  # https://www.zotero.org/
-  # ------------------------------------------------------------------------------
-  
-  if ! command -v zotero &> /dev/null; then
-      KEY=/usr/local/share/keyrings/zotero.key
-
-      if [ -f "$KEY" ]; then
-          echo "$KEY already exists"
-      else
-          wget -q -O zotero.key "https://github.com/retorquere/zotero-deb/releases/download/apt-get/deb.gpg.key"
-          if ! file zotero.key | grep -q "PGP public key"; then
-              echo "zotero.key does not appear to be a valid PGP key - aborting!"
-              exit 1
-          else
-              sudo mkdir -p /usr/local/share/keyrings/
-              sudo mv zotero.key /usr/local/share/keyrings/
-              echo "deb [signed-by=/usr/local/share/keyrings/zotero.key] https://github.com/retorquere/zotero-deb/releases/download/apt-get/ ./" | sudo tee -a /etc/apt/sources.list.d/zotero.list
-          fi
-      fi
-      sudo apt update
-      sudo apt install -y zotero
-  else
-      echo "Zotero is already installed"
   fi
 
   
