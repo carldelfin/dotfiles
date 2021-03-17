@@ -19,6 +19,7 @@ bspc rule -a Arandr state=floating
 
 # picom
 picom --config ~/dotfiles/config/picom/picom.conf &
+
 # polybar
 ~/dotfiles/scripts/launch.sh
 
