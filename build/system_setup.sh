@@ -26,11 +26,11 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  bspwm kitty polybar suckless-tools rofi pass \
-  libavcodec-extra qpdf inkscape\
+  xorg bspwm kitty polybar suckless-tools rofi pass \
+  alsa-utils pulseaudio libavcodec-extra qpdf \
   okular ranger feh syncthing arandr htop \
   neofetch jq neovim qt5-style-plugins
-  
+
   # ------------------------------------------------------------------------------
   # vim-plug
   # https://github.com/junegunn/vim-plug
