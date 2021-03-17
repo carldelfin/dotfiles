@@ -64,7 +64,7 @@ function MENU {
 }
 
 # menu loop
-while MENU && read -e -p "Select by pressing the corresponding number (press again to deselect), then ENTER when done: " -n1 SELECTION && [[ -n "$SELECTION" ]]; do
+while MENU && read -e -p "Select by pressing the corresponding number (press again to deselect), then ENTER when done: " -n2 SELECTION && [[ -n "$SELECTION" ]]; do
     clear
     if [[ "$SELECTION" == *[[:digit:]]* && $SELECTION -ge 1 && $SELECTION -le ${#options[@]} ]]; then
         (( SELECTION-- ))
