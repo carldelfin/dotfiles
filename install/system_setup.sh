@@ -132,7 +132,7 @@ simple() {
   # Set up symlinks and paths
   # ------------------------------------------------------------------------------
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim}
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
