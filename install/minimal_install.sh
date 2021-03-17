@@ -87,7 +87,7 @@ simple() {
   fi
   
   # rofi-bluetooth
-    if ! command -v rofi-bluetooth &> /dev/null; then
+  if ! command -v rofi-bluetooth &> /dev/null; then
       cd /tmp
       wget https://raw.githubusercontent.com/carldelfin/rofi-bluetooth/master/rofi-bluetooth
       sudo mv rofi-bluetooth /usr/local/bin
