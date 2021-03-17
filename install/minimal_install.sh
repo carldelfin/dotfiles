@@ -41,42 +41,72 @@ simple() {
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   
   # passmenu
-  sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
-  sudo chmod +x /usr/bin/passmenu
-  
+  if ! command -v passmenu &> /dev/null; then
+      sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
+      sudo chmod +x /usr/bin/passmenu
+      exit
+  else
+      echo "passmenu already installed"
+      exit
+  fi
+
   # rofi-pass
-  cd /tmp
-  wget https://github.com/carnager/rofi-pass/archive/master.zip
-  unzip master.zip
-  rm master.zip
-  cd rofi-pass-master
-  sudo make
-  mkdir -p ~/.config/rofi-pass
-  mv config.example ~/.config/rofi-pass/config
-  cd ..
-  sudo rm -rf rofi-pass-master
-  cd
+  if ! command -v passmenu &> /dev/null; then
+      cd /tmp
+      wget https://github.com/carnager/rofi-pass/archive/master.zip
+      unzip master.zip
+      rm master.zip
+      cd rofi-pass-master
+      sudo make
+      mkdir -p ~/.config/rofi-pass
+      mv config.example ~/.config/rofi-pass/config
+      cd ..
+      sudo rm -rf rofi-pass-master
+      cd
+      exit
+  else
+      echo "rofi-pass already installed"
+      exit
+  fi
   
   # rofi-power-menu
-  cd /tmp
-  wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
-  sudo mv rofi-power-menu /usr/local/bin
-  sudo chmod +x /usr/local/bin/rofi-power-menu
-  cd
+    if ! command -v passmenu &> /dev/null; then
+      cd /tmp
+      wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
+      sudo mv rofi-power-menu /usr/local/bin
+      sudo chmod +x /usr/local/bin/rofi-power-menu
+      cd
+      exit
+  else
+      echo "rofi-power-menu already installed"
+      exit
+  fi
   
   # rofi-bluetooth
-  cd /tmp
-  wget https://raw.githubusercontent.com/carldelfin/rofi-bluetooth/master/rofi-bluetooth
-  sudo mv rofi-bluetooth /usr/local/bin
-  sudo chmod +x /usr/local/bin/rofi-bluetooth
-  cd
+    if ! command -v rofi-bluetooth &> /dev/null; then
+      cd /tmp
+      wget https://raw.githubusercontent.com/carldelfin/rofi-bluetooth/master/rofi-bluetooth
+      sudo mv rofi-bluetooth /usr/local/bin
+      sudo chmod +x /usr/local/bin/rofi-bluetooth
+      cd
+      exit
+  else
+      echo "rofi-bluetooth already installed"
+      exit
+  fi
   
   # mullvad
-  cd /tmp
-  wget https://mullvad.net/media/app/MullvadVPN-2020.7_amd64.deb
-  sudo apt install -y ./*.deb
-  rm *.deb
-  cd
+  if ! command -v mullvad &> /dev/null; then
+      cd /tmp
+      wget https://mullvad.net/media/app/MullvadVPN-2020.7_amd64.deb
+      sudo apt install -y ./*.deb
+      rm *.deb
+      cd
+      exit
+  else
+      echo "mullvad already installed"
+      exit
+  fi
 
   # ------------------------------------------------------------------------------
   # Remove redundant packages 
