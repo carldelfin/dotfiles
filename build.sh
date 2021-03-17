@@ -4,10 +4,13 @@
 #
 # This script makes it possible to select what to install from my dotfiles
 #
-# It's based on work by Nathan Davieau and MestreLion from
-# https://serverfault.com/a/777849
+# It's based on work by dols3m and sergiofbsilva from
+# https://stackoverflow.com/a/54261882/317605
+# and
+# https://stackoverflow.com/users/8207842/dols3m
 #
 # ==============================================================================
+
 
 # define colors
 GREEN='\033[1;32m'
@@ -53,7 +56,7 @@ function MENU {
     echo ""
     echo "---------------------------------------------------------------------"
     for NUM in ${!options[@]}; do
-        echo -e $(( NUM+1 ))" "[""${GREEN4}${choices[NUM]:- }"${NC}"]" ${options[NUM]}"
+        echo -e $(( NUM+1 ))" "[""${GREEN}${choices[NUM]:- }"${NC}"]" ${options[NUM]}"
     done
     echo "---------------------------------------------------------------------"
     echo "$ERROR"
