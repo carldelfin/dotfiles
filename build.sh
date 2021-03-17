@@ -20,6 +20,7 @@ options[1]="Kernel upgrade"
 options[2]="System setup"
 options[3]="Install R and Radian"
 options[4]="Install Zotero"
+options[5]="Install TexLive"
 
 # define actions based on options
 function ACTIONS {
@@ -37,6 +38,9 @@ function ACTIONS {
     fi
     if [[ ${choices[4]} ]]; then
         source ~/dotfiles/build/04_install_zotero.sh
+    fi
+    if [[ ${choices[5]} ]]; then
+        source ~/dotfiles/build/05_install_texlive.sh
     fi
 }
 
