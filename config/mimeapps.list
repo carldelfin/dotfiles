@@ -1,5 +1,5 @@
 [Default Applications]
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+application/pdf=okularApplication_pdf.desktop
 
 [Added Associations]
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+application/pdf=okularApplication_pdf.desktop;
