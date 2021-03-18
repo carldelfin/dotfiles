@@ -12,13 +12,13 @@
 
 ## Install <a name = "install"></a>
 
-With that said, the easiest way to get started *is* to clone this repo and running `build.sh`:
+With the abvove in mind, the easiest way to get started *is* to clone this repo and running `build.sh`:
 
 ```bash
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
 ```
 
-# Overview <a name = "overview"></a>
+## Overview <a name = "overview"></a>
 
 | Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
