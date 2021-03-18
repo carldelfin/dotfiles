@@ -15,7 +15,7 @@ check_status() {
   if [ "$gui_ip" = "127.0.0.1:8384" ]; then
     echo $gui_ip
   else
-    echo "%{F#FBB86C}sync off%{F-}"
+    echo "%{F#E97F22}sync off%{F-}"
   fi
 }
 
