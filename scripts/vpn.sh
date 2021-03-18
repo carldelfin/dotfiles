@@ -22,7 +22,7 @@ vpn_report() {
 	elif [ "$vpn_status" = "Connecting" ]; then
 		echo "%{F#D2D2D2}connecting...%{F-}"
 	else
-		echo "%{F#A0520B}vpn off%{F-}"
+		echo "%{F#E97F22}vpn off%{F-}"
 	fi
 }
 
