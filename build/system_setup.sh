@@ -37,8 +37,8 @@ simple() {
   
   sudo apt install -y \
   xorg bspwm picom kitty polybar suckless-tools rofi \
-  pass ufw rsync unzip curl make gcc feh arandr \
-  jq 
+  pass ufw rsync unzip curl make gcc feh arandr ranger \
+  jq syncthing apt-listbugs
   
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -87,17 +87,6 @@ simple() {
       echo "rofi-bluetooth is already installed"
   fi
   
-  # --------------------------------------------------------------------------------------------------
-  # Day-to-day applications
-  # --------------------------------------------------------------------------------------------------
-  
-  sudo apt install -y \
-  ranger neovim syncthing inkscape
-  
-  apt-listbugs qpdf okular \
-  nautilus neofetch     htop  firefox-esr
-  
-  
   # Mullvad
   if ! command -v mullvad &> /dev/null; then
       cd /tmp
@@ -109,70 +98,50 @@ simple() {
       echo "Mullvad is already installed"
   fi
   
-
-  
-  
-  #sudo apt install -y \
-  #libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
-  #libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev \
-  #libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev \
-  #libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev \
-  #libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-  
-  #git clone https://github.com/yshui/picom
-  #cd picom
-  #git submodule update --init --recursive
-  #meson --buildtype=release . build
-  #sudo ninja -C build install
-  
-  
-  
-
-  
   # --------------------------------------------------------------------------------------------------
-  # KVM
+  # Day-to-day applications
   # --------------------------------------------------------------------------------------------------
   
-  sudo apt install -y \
-  qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+  sudo apt install -y neovim inkscape okular qpdf htop firefox-esr
   
-  sudo adduser `id -un` libvirt
-  sudo adduser `id -un` kvm
-  
-  # --------------------------------------------------------------------------------------------------
-  # Appearance
-  # --------------------------------------------------------------------------------------------------
-  
-  sudo apt install -y \
-  lxappearance materia-gtk-theme papirus-icon-theme qt5-style-plugins
-  
-  # --------------------------------------------------------------------------------------------------
-  # Sound
-  # --------------------------------------------------------------------------------------------------
-  
-  sudo apt install -y pulseaudio alsa-utils libavcodec-extra 
-  
-  # --------------------------------------------------------------------------------------------------
   # vim-plug
-  # https://github.com/junegunn/vim-plug
-  # --------------------------------------------------------------------------------------------------
-  
   if [ -d "$HOME/.vim/plugged" ]; then
       echo "vim-plug is already installed"
   else
       sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
-  
-  # ==================================================================================================
-  # Install fonts 
-  # ==================================================================================================
-  
+
   # --------------------------------------------------------------------------------------------------
-  # Fira Code
-  # https://github.com/tonsky/FiraCode
+  # Virtual machines
   # --------------------------------------------------------------------------------------------------
   
+  sudo apt install -y \
+  qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
+  
+  sudo adduser `id -un` libvirt
+  sudo adduser `id -un` kvm
+  
+  # --------------------------------------------------------------------------------------------------
+  # Containers
+  # --------------------------------------------------------------------------------------------------
+  
+  # TODO
+  
+  # --------------------------------------------------------------------------------------------------
+  # Sound
+  # --------------------------------------------------------------------------------------------------
+  
+  sudo apt install -y alsa-utils pulseaudio libavcodec-extra 
+  
+  # --------------------------------------------------------------------------------------------------
+  # Appearance
+  # --------------------------------------------------------------------------------------------------
+  
+  sudo apt install -y \
+  lxappearance materia-gtk-theme papirus-icon-theme qt5-style-plugins neofetch
+  
+  # Fira Code font
   if fc-list | grep -q FiraCode; then
       echo "Fira Code is already installed"
   else
@@ -191,11 +160,7 @@ simple() {
       rm -rf ttf
   fi
 
-  # --------------------------------------------------------------------------------------------------
   # Font Awesome
-  # https://fontawesome.com/
-  # --------------------------------------------------------------------------------------------------
-  
   if fc-list | grep -q "Font Awesome"; then
       echo "Font Awesome is already installed"
   else
@@ -209,11 +174,7 @@ simple() {
       cd
   fi
   
-  # --------------------------------------------------------------------------------------------------
   # Fira Sans
-  # https://github.com/pop-os/fonts
-  # --------------------------------------------------------------------------------------------------
-  
   if fc-list | grep -q "Fira Sans"; then
       echo "Fira Sans is already installed"
   else
