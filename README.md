@@ -5,9 +5,10 @@
 ## Table of Contents
 
 * [Install](#install)
+* [System at a glance](#system_at_a_glance)
 * [Overview](#overview)
-* [Details](#details)
-    * [Applications](#applications)
+    * [System essentials](#system_essentials)
+    * [Day-to-day applications](#day_to_day_applications)
 
 ## Install <a name = "install"></a>
 
@@ -17,7 +18,7 @@ With the abvove in mind, the easiest way to get started *is* to clone this repo 
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
 ```
 
-## Overview <a name = "overview"></a>
+## System at a glance <a name = "system_at_a_glance"></a>
 
 | Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
@@ -29,7 +30,7 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode)|
 
-## Details <a name = "details"></a>
+## Overview <a name = "overview"></a>
 
 ### System essentials <a name = "system_essentials"></a>
 
@@ -55,6 +56,13 @@ I like to keep my system to a bare minimum, or at least having control over what
 * [jq](https://stedolan.github.io/jq/) - Lightweight command line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
 * [ranger](https://github.com/ranger/ranger) - Minimalistic command line file manager.
 
-### Applications <a name = "applications"></a>
+### Day-to-day applications <a name = "day_to_day_applications"></a>
+
+My day-to-day applications are also installed using `build/system_setup.sh`. These are programs and applications I use either every day or at least on a regular basis, but that not necessarily is what **you** would use.
+
+* [Neovim](https://neovim.io/) - 
+* [Syncthing](https://syncthing.net/)
+* [Mullvad](https://mullvad.net/sv/) - 
+* [Inkscape](https://inkscape.org/) -
 
 #### 
