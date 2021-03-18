@@ -54,12 +54,12 @@ I like to keep my system to a bare minimum, or at least having control over what
 * [feh](https://feh.finalrewind.org/) - Lightweight image viewer, used to set the wallpaper.
 * [arandr](https://christian.amsuess.com/tools/arandr/) - ARandR, or Another XRandR GUI, is a frontend to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
 * [jq](https://stedolan.github.io/jq/) - Lightweight command line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
-* [ranger](https://github.com/ranger/ranger) - Minimalistic command line file manager.
 
 ### Day-to-day applications <a name = "day_to_day_applications"></a>
 
-My day-to-day applications are also installed using `build/system_setup.sh`. These are programs and applications I use either every day or at least on a regular basis, but that not necessarily is what **you** would use.
+My day-to-day applications are also installed using `build/system_setup.sh`. These are programs and applications I use either every day or at least on a regular basis, but that may be exchanged or omitted based on personal preference.
 
+* [ranger](https://github.com/ranger/ranger) - Minimalistic command line file manager.
 * [Neovim](https://neovim.io/) - 
 * [Syncthing](https://syncthing.net/)
 * [Mullvad](https://mullvad.net/sv/) - 
