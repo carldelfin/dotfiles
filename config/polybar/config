@@ -81,21 +81,21 @@ type = internal/bspwm
 
 label-focused = %name%
 label-focused-foreground = #ddb566
-label-focused-background = #4E4E4E
+label-focused-background = #1b1d22
 label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-foreground = #ddb566
-label-occupied-background = #32353e
+label-occupied-foreground = #cfd3de
+label-occupied-background = #1b1d22
 label-occupied-padding = 1
 
 label-urgent = %name%
+label-urgent-foreground = #e6e8ee
 label-urgent-background = #1b1d22
-label-urgent-foreground = #b53f36
 label-urgent-padding = 1
 
 label-empty = %name%
-label-empty-foreground = #545454
+label-empty-foreground = #464f67
 label-empty-background = #1b1d22
 label-empty-padding = 1
 
