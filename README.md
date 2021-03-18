@@ -57,7 +57,7 @@ I like to keep my system to a bare minimum, or at least having some degree of co
 * [curl](https://curl.se/) - Command-line tool for transferring data.
 * [make](https://www.gnu.org/software/make/) - Required to build and install packages using [makefiles](https://www.gnu.org/software/make/manual/make.html#Introduction).
 * [gcc](https://gcc.gnu.org/) - Provides front-ends and compilers for several languages, including C, C++ and Fortran.
-* [feh](https://feh.finalrewind.org/) - Lightweight image viewer, used to set the wallpaper.
+* [hsetroot](https://github.com/himdel/hsetroot - Required to set a plain color for desktop background.
 * [arandr](https://christian.amsuess.com/tools/arandr/) - Front-end to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
 * [ranger](https://github.com/ranger/ranger) - Minimalistic command-line file manager.
 * [jq](https://stedolan.github.io/jq/) - Lightweight command-line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
