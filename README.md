@@ -34,4 +34,14 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 ### Why Debian? <a name = "why_debian"></a>
 
+### System <a name = "system"></a>
+
+#### bspwm
+
+#### sxhkd
+
+#### polybar
+
 ### Applications <a name = "applications"></a>
+
+#### 
