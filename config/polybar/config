@@ -17,10 +17,10 @@ screenchange-reload = true
 [colors]
 ; ------------------------------------------------------------------------------
 
-background = #00282828
-background-alt = #00282828
-foreground = #D2D2D2
-foreground-alt = #D2D2D2
+background = #1E1E1E
+background-alt = #1E1E1E
+foreground = #D4D4D4
+foreground-alt = #D4D4D4
 primary = #F0A767
 secondary = #F0A767
 alert = #F0A767
@@ -80,13 +80,13 @@ enable-ipc = true
 type = internal/bspwm
 
 label-focused = %name%
-label-focused-foreground = #D2D2D2
+label-focused-foreground = #D4D4D4
 label-focused-background = #4E4E4E
 label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-foreground = #D2D2D2
-label-occupied-background = #00282828
+label-occupied-foreground = #D4D4D4
+label-occupied-background = #1E1E1E
 label-occupied-padding = 1
 
 label-urgent = %name%
@@ -96,7 +96,7 @@ label-urgent-padding = 1
 
 label-empty = %name%
 label-empty-foreground = #545454
-label-empty-background = #00282828
+label-empty-background = #1E1E1E
 label-empty-padding = 1
 
 ; ------------------------------------------------------------------------------
