@@ -61,7 +61,7 @@ I like to keep my system to a bare minimum, or at least having some degree of co
 * [jq](https://stedolan.github.io/jq/) - Lightweight command-line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
 * [Mullvad](https://mullvad.net/sv/) - [VPN](https://en.wikipedia.org/wiki/Virtual_private_network) that tunnels traffic between my machine and the internet.
 * [Syncthing](https://syncthing.net/) - Secure and easy to use continuous file synchronization program.
-* [apt-listbugs](https://manpages.debian.org/testing/apt-listbugs/apt-listbugs.1.en.html) - Retrieves bug reports from the Debian Bug Tracking System, invoked when installing using [APT](https://en.wikipedia.org/wiki/APT_(software)) in order to check whether the installation/upgrade is safe. 
+* [apt-listbugs](https://manpages.debian.org/testing/apt-listbugs/apt-listbugs.1.en.html) - Retrieves bug reports from the Debian Bug Tracking System in order to check whether an installation/upgrade is safe. 
 
 ### Day-to-day applications <a name = "day_to_day_applications"></a>
 
