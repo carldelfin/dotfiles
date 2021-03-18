@@ -9,6 +9,10 @@
 * [Overview](#overview)
     * [System essentials](#system_essentials)
     * [Day-to-day applications](#day_to_day_applications)
+    * [Virtual machines](#virtual_machines)
+    * [Containers](#containers)
+    * [Sound](#sound)
+    * [Appearance](#appearance)
 
 ## Install <a name = "install"></a>
 
@@ -63,7 +67,7 @@ I like to keep my system to a bare minimum, or at least having some degree of co
 
 My day-to-day applications are also installed using `build/system_setup.sh`. These are programs I use on a regular basis, but that may be exchanged or removed based on personal preference.
 
-* [Neovim](https://neovim.io/) - My primary editor, a continuation and extension of [Vim](https://www.vim.org/). 
+* [Neovim](https://neovim.io/) - My primary editor, a continuation and extension of [Vim](https://www.vim.org/). I also install [vim-plug](https://github.com/junegunn/vim-plug) by default. 
 * [Inkscape](https://inkscape.org/) - Powerful vector graphics software
 * [Okular](https://okular.kde.org/) - Universal document viewer, primarily used for viewing PDFs.
 * [qpdf](https://github.com/qpdf/qpdf) - Command-line program for structural PDF transformation, such as cutting pages.
@@ -88,8 +92,21 @@ For compute-intensive research, or projects that involve a lot of data preproces
 
 ### Sound <a name = "sound"></a>
 
+A minimal install comes without sound, so these packages are required:
+
 * [alsa-utils](https://github.com/alsa-project/alsa-utils) - Command-line utilities for the [Advanced Linux Sound Architecture (ALSA) project](https://www.alsa-project.org/wiki/Main_Page).
 * [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) - Interface engine between pplications and ALSA.
 * [libavcodec-extra](https://packages.debian.org/buster/libavcodec-extra) - Additional codec support.
 
-#### 
+### Appearance <a name = "appearance"></a>
+
+I rarely install a full [desktop environment](https://en.wikipedia.org/wiki/Desktop_environment), which means that I must customize the appearance of applications myself.
+
+* [lxappearance](https://wiki.lxde.org/sv/LXAppearance) - Used to change themes, icons, and cursors.
+* [materia-gtk-theme](https://github.com/nana-4/materia-theme) - Material Design theme for GNOME/GTK based applications.
+* [papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) - Free and open source SVG icon theme.
+* [qt5-style-plugins](https://packages.debian.org/bullseye/qt5-style-plugins) - Required for Okular to follow the system theme.
+* [neofetch](https://github.com/dylanaraps/neofetch) - What would a Linux system be without some command-line system information tool?
+* [Fira Code](https://github.com/tonsky/FiraCode) - Terminal emulator font with ligature support.
+* [Font Awesome](https://fontawesome.com/) - Icons used in Polybar.
+* [Fira Sans](https://github.com/pop-os/fonts) - Nice looking font, the semi-bold version of which is used in Polybar.
