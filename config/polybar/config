@@ -17,8 +17,8 @@ screenchange-reload = true
 [colors]
 ; ------------------------------------------------------------------------------
 
-background = #aa282828
-background-alt = #aa282828
+background = #00282828
+background-alt = #00282828
 foreground = #D2D2D2
 foreground-alt = #D2D2D2
 primary = #FBB86C
@@ -86,7 +86,7 @@ label-focused-padding = 1
 
 label-occupied = %name%
 label-occupied-foreground = #D2D2D2
-label-occupied-background = #282828
+label-occupied-background = #00282828
 label-occupied-padding = 1
 
 label-urgent = %name%
@@ -96,7 +96,7 @@ label-urgent-padding = 1
 
 label-empty = %name%
 label-empty-foreground = #6D6D6D
-label-empty-background = #282828
+label-empty-background = #00282828
 label-empty-padding = 1
 
 ; ------------------------------------------------------------------------------
