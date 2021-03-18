@@ -21,9 +21,9 @@ background = #00282828
 background-alt = #00282828
 foreground = #D2D2D2
 foreground-alt = #D2D2D2
-primary = #A0520B
-secondary = #A0520B
-alert = #A0520B
+primary = #E97F22
+secondary = #E97F22
+alert = #E97F22
 
 ; ------------------------------------------------------------------------------
 [bar/cmd]
@@ -80,7 +80,7 @@ enable-ipc = true
 type = internal/bspwm
 
 label-focused = %name%
-label-focused-foreground = #F0C674
+label-focused-foreground = #D2D2D2
 label-focused-background = #4E4E4E
 label-focused-padding = 1
 
@@ -95,7 +95,7 @@ label-urgent-foreground = #F2F2F2
 label-urgent-padding = 1
 
 label-empty = %name%
-label-empty-foreground = #6D6D6D
+label-empty-foreground = #545454
 label-empty-background = #00282828
 label-empty-padding = 1
 
