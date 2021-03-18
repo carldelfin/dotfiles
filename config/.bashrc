@@ -80,7 +80,7 @@ fi
 ################################################################################
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;36m\]\h \[\e[37m\]in \[\e[1;93m\]\w \n \[\e[2;49;39m\]\$ \[\e[0m\]'
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;32m\]\h \[\e[37m\]in \[\e[1;32m\]\w \n \[\e[2;49;39m\]\$ \[\e[0m\]'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -89,7 +89,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-     PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;36m\]\h \[\e[37m\]in \[\e[1;933m\]\w \n \[\e[2;49;39m\]\$ \[\e[0m\]'
+     PS1='${debian_chroot:+($debian_chroot)}\[\e[1;32m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;32m\]\h \[\e[37m\]in \[\e[1;32m\]\w \n \[\e[2;49;39m\]\$ \[\e[0m\]'
     ;;
 *)
     ;;
