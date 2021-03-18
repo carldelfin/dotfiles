@@ -33,7 +33,7 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 ### System essentials <a name = "system_essentials"></a>
 
-I like to keep my system to a bare minimum, or at least having control over what is installed and not. Although some may prefer to use [Arch](https://archlinux.org/) btw, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. This is what I use on my machines, and also what is installed using `build/system_setup.sh`:
+I like to keep my system to a bare minimum, or at least having control over what is installed and not. Although some may prefer to use [Arch](https://archlinux.org/) btw, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. The following is a list of the essential programs I use on my machines. Everything on this list is installed using `build/system_setup.sh`:
 
 * [xorg](https://www.x.org/wiki/) - Provides the fundamental visual display capabilities of the system.
 * [bspwm](https://github.com/baskerville/bspwm) - The Binary Space Partitioning Window Manager, bspwm, is a slim and highly configurable [tiling](https://en.wikipedia.org/wiki/Tiling_window_manager) window manager.
@@ -52,6 +52,8 @@ I like to keep my system to a bare minimum, or at least having control over what
 * [gcc](https://gcc.gnu.org/) - GCC, or the GNU Compiler Collection, provides frontends and compilers for several languages, including C, C++ and Fortran.
 * [feh](https://feh.finalrewind.org/) - Lightweight image viewer, used to set the wallpaper.
 * [arandr](https://christian.amsuess.com/tools/arandr/) - ARandR, or Another XRandR GUI, is a frontend to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
+* [jq](https://stedolan.github.io/jq/) - Lightweight command line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
+* [ranger](https://github.com/ranger/ranger) - Minimalistic command line file manager.
 
 ### Applications <a name = "applications"></a>
 
