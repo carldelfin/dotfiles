@@ -59,7 +59,7 @@ font-3 = "Font Awesome 5 Free:style=Solid:size=11;3"
 
 modules-left = bspwm
 modules-center = date
-modules-right = filesystem upgrades memory cpu temperature wlan eth vpn sync battery bluetooth pulseaudio
+modules-right = filesystem upgrades memory cpu temperature wlan eth vpn battery bluetooth pulseaudio
 
 wm-restack = bspwm
 
