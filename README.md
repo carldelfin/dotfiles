@@ -4,8 +4,8 @@
 
 ## Table of Contents
 
-* [Install](#install)
 * [System at a glance](#system_at_a_glance)
+* [Install](#install)
 * [Overview](#overview)
     * [System essentials](#system_essentials)
     * [Day-to-day applications](#day_to_day_applications)
@@ -13,14 +13,6 @@
     * [Containers](#containers)
     * [Sound](#sound)
     * [Appearance](#appearance)
-
-## Install <a name = "install"></a>
-
-With the abvove in mind, the easiest way to get started *is* to clone this repo and running `build.sh`:
-
-```bash
-git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
-```
 
 ## System at a glance <a name = "system_at_a_glance"></a>
 
@@ -33,6 +25,14 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 | Icons               | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode)|
+
+## Install <a name = "install"></a>
+
+With the abvove in mind, the easiest way to get started *is* to clone this repo and running `build.sh`:
+
+```bash
+git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
+```
 
 ## Overview <a name = "overview"></a>
 
