@@ -53,16 +53,16 @@ I like to keep my system to a bare minimum, or at least having control over what
 * [gcc](https://gcc.gnu.org/) - GCC, or the GNU Compiler Collection, provides frontends and compilers for several languages, including C, C++ and Fortran.
 * [feh](https://feh.finalrewind.org/) - Lightweight image viewer, used to set the wallpaper.
 * [arandr](https://christian.amsuess.com/tools/arandr/) - ARandR, or Another XRandR GUI, is a frontend to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
+* [ranger](https://github.com/ranger/ranger) - Minimalistic command line file manager.
 * [jq](https://stedolan.github.io/jq/) - Lightweight command line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
+* [Mullvad](https://mullvad.net/sv/) - [VPN](https://en.wikipedia.org/wiki/Virtual_private_network) that tunnels traffic between my machine and the internet.
+* [Syncthing](https://syncthing.net/) - Secure and easy to use continuous file synchronization program used to keep relevant files synced between my machines.
 
 ### Day-to-day applications <a name = "day_to_day_applications"></a>
 
-My day-to-day applications are also installed using `build/system_setup.sh`. These are programs and applications I use either every day or at least on a regular basis, but that may be exchanged or omitted based on personal preference.
+My day-to-day applications are also installed using `build/system_setup.sh`. These are programs I use on a regular basis, but that may be exchanged or removed based on personal preference.
 
-* [ranger](https://github.com/ranger/ranger) - Minimalistic command line file manager.
 * [Neovim](https://neovim.io/) - 
-* [Syncthing](https://syncthing.net/)
-* [Mullvad](https://mullvad.net/sv/) - 
 * [Inkscape](https://inkscape.org/) -
 
 #### 
