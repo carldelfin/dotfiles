@@ -40,8 +40,8 @@ I like to keep my system to a bare minimum, or at least having control over what
 * [picom](https://github.com/yshui/picom) - A stand-alone compositor for X.org that enables transparency and shadows.
 * [kitty](https://sw.kovidgoyal.net/kitty/) - My terminal of choice; flexible, keyboard oriented, and fast.
 * [polybar](https://github.com/polybar/polybar) - An easy to use and configurable status bar.
-* [suckless-tools](https://tools.suckless.org/) - Provides [dmenu](https://tools.suckless.org/dmenu/), wich is required for [passmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu).
-* [rofi](https://github.com/davatorium/rofi) - Application launcher and replacement for dmenu
+* [suckless-tools](https://tools.suckless.org/) - Provides [dmenu](https://tools.suckless.org/dmenu/), which is required for [passmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu).
+* [rofi](https://github.com/davatorium/rofi) - Application launcher and replacement for dmenu.
 * [pass](https://www.passwordstore.org/) - Lightweight, fast and super easy password managment. 
 * [rofi-pass](https://github.com/carnager/rofi-pass) - Front-end to `pass` using `rofi`.
 
