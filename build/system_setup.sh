@@ -36,27 +36,11 @@ simple() {
   # --------------------------------------------------------------------------------------------------
   
   sudo apt install -y \
-  xorg bspwm picom kitty polybar suckless-tools rofi pass rsync \
-  neovim make gcc unzip curl ufw apt-listbugs qpdf okular \
-  nautilus neofetch ranger feh syncthing arandr htop jq firefox-esr
+  xorg bspwm picom kitty polybar suckless-tools rofi \
+  pass ufw rsync unzip curl make gcc feh arandr \
+  jq 
   
-  #sudo apt install -y \
-  #libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
-  #libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev \
-  #libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev \
-  #libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev \
-  #libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-  
-  #git clone https://github.com/yshui/picom
-  #cd picom
-  #git submodule update --init --recursive
-  #meson --buildtype=release . build
-  #sudo ninja -C build install
-  
-  # --------------------------------------------------------------------------------------------------
-  # passmenu
-  # --------------------------------------------------------------------------------------------------
-  
+  # passmenu  
   if ! command -v passmenu &> /dev/null; then
       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
       sudo chmod +x /usr/bin/passmenu
@@ -64,11 +48,7 @@ simple() {
       echo "passmenu is already installed"
   fi
 
-  # --------------------------------------------------------------------------------------------------
   # rofi-pass
-  # https://github.com/carnager/rofi-pass
-  # --------------------------------------------------------------------------------------------------
-  
   if ! command -v rofi-pass &> /dev/null; then
       cd /tmp
       wget https://github.com/carnager/rofi-pass/archive/master.zip
@@ -85,11 +65,7 @@ simple() {
       echo "rofi-pass is already installed"
   fi
   
-  # --------------------------------------------------------------------------------------------------
   # rofi-power-menu
-  # https://github.com/jluttine/rofi-power-menu
-  # --------------------------------------------------------------------------------------------------
-
   if ! command -v rofi-power-menu &> /dev/null; then
       cd /tmp
       wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
@@ -99,12 +75,8 @@ simple() {
   else
       echo "rofi-power-menu is already installed"
   fi
- 
-  # --------------------------------------------------------------------------------------------------
+   
   # rofi-bluetooth
-  # https://github.com/ClydeDroid/rofi-bluetooth
-  # --------------------------------------------------------------------------------------------------
-
   if ! command -v rofi-bluetooth &> /dev/null; then
       cd /tmp
       wget https://raw.githubusercontent.com/ClydeDroid/rofi-bluetooth/master/rofi-bluetooth
@@ -116,10 +88,17 @@ simple() {
   fi
   
   # --------------------------------------------------------------------------------------------------
-  # Mullvad
-  # https://mullvad.net
+  # Day-to-day applications
   # --------------------------------------------------------------------------------------------------
   
+  sudo apt install -y \
+  ranger neovim syncthing inkscape
+  
+  apt-listbugs qpdf okular \
+  nautilus neofetch     htop  firefox-esr
+  
+  
+  # Mullvad
   if ! command -v mullvad &> /dev/null; then
       cd /tmp
       wget https://mullvad.net/media/app/MullvadVPN-2020.7_amd64.deb
@@ -129,6 +108,26 @@ simple() {
   else
       echo "Mullvad is already installed"
   fi
+  
+
+  
+  
+  #sudo apt install -y \
+  #libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev \
+  #libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev \
+  #libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev \
+  #libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev \
+  #libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+  
+  #git clone https://github.com/yshui/picom
+  #cd picom
+  #git submodule update --init --recursive
+  #meson --buildtype=release . build
+  #sudo ninja -C build install
+  
+  
+  
+
   
   # --------------------------------------------------------------------------------------------------
   # KVM
