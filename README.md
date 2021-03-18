@@ -80,4 +80,16 @@ I use QEMU/KVM to create virtual machines for testing things, including these do
 * [virt-manager](https://wiki.debian.org/libvirt) - GUI tool to manage virtual machines.
 * [bridge-utils](https://wiki.debian.org/BridgeNetworkConnections) - Enables network sharing between host and virtual machine.
 
+### Containers <a name = "containers"></a>
+
+For compute-intensive research, or projects that involve a lot of data preprocessing and manipulation, I like ensure reproducibility by using containers. I previously used [Docker](https://www.docker.com/), but now prefer [Singularity](https://sylabs.io/singularity/).
+
+**TODO**
+
+### Sound <a name = "sound"></a>
+
+* [alsa-utils](https://github.com/alsa-project/alsa-utils) - Command-line utilities for the [Advanced Linux Sound Architecture (ALSA) project](https://www.alsa-project.org/wiki/Main_Page).
+* [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) - Interface engine between pplications and ALSA.
+* [libavcodec-extra](https://packages.debian.org/buster/libavcodec-extra) - Additional codec support.
+
 #### 
