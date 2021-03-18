@@ -18,7 +18,7 @@ fi
 polybar -c ~/dotfiles/config/polybar/config cmd &
 
 # launch picom
-picom --config ~/dotfiles/config/picom/picom.conf
+picom --config ~/dotfiles/config/picom/picom.conf &
 
 # set desktop background
 hsetroot -solid "#1b1d22"
