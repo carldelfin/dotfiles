@@ -33,10 +33,17 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 ### System essentials <a name = "system_essentials"></a>
 
-I like to keep my system to a bare minimum, or at least having control over what is installed and not. Although some may prefer to use [Arch](https://archlinux.org/) btw, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. This is what I use on my machines:
+I like to keep my system to a bare minimum, or at least having control over what is installed and not. Although some may prefer to use [Arch](https://archlinux.org/) btw, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. This is what I use on my machines, and also what is installed using `build/system_setup.sh`:
 
 * [xorg](https://www.x.org/wiki/) - X.Org Server provides the fundamental visual display capabilities of the system.
 * [bspwm](https://github.com/baskerville/bspwm) - bspwm, or the Binary Space Partitioning Window Manager, is a slim and highly configurable [tiling](https://en.wikipedia.org/wiki/Tiling_window_manager) window manager.
+* [picom](https://github.com/yshui/picom) - A stand-alone compositor for X.org that enables transparency and shadows.
+* [kitty](https://sw.kovidgoyal.net/kitty/) - My terminal of choice; flexible, keyboard oriented, and fast.
+* [polybar](https://github.com/polybar/polybar) - An easy to use and configurable status bar.
+* [suckless-tools](https://tools.suckless.org/) - Provides [dmenu](https://tools.suckless.org/dmenu/), wich is required for [passmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu).
+* [rofi](https://github.com/davatorium/rofi) - Application launcher and replacement for dmenu
+* [pass](https://www.passwordstore.org/) - Lightweight, fast and super easy password managment. 
+* [rofi-pass](https://github.com/carnager/rofi-pass) - Front-end to `pass` using `rofi`.
 
 ### Applications <a name = "applications"></a>
 
