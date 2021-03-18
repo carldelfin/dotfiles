@@ -123,7 +123,7 @@ function prompt_for_multiselect {
 }
 
 # possible options
-OPTIONS_VALUES=("Exit" "Initial system setup" "Install R and Radian" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom")
+OPTIONS_VALUES=("Exit" "Initial system setup" "Install R and Radian" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom", "Install Singularity")
 
 for i in "${!OPTIONS_VALUES[@]}"; do
 	OPTIONS_STRING+="${OPTIONS_VALUES[$i]};"
@@ -151,6 +151,9 @@ function ACTIONS {
     fi
     if [ "${SELECTED[6]}" == "true" ]; then
         source ~/dotfiles/build/install_zoom.sh
+    fi
+    if [ "${SELECTED[7]}" == "true" ]; then
+        source ~/dotfiles/build/install_singularity.sh
     fi
 }
 
