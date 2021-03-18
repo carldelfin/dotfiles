@@ -37,7 +37,7 @@ simple() {
   
   sudo apt install -y \
   xorg bspwm picom kitty polybar suckless-tools rofi \
-  pass ufw rsync unzip curl make gcc feh hsetroot arandr ranger \
+  pass ufw rsync unzip curl make gcc hsetroot arandr ranger \
   jq syncthing apt-listbugs
   
   # passmenu  
