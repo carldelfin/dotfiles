@@ -7,7 +7,6 @@
 * [Install](#install)
 * [Overview](#overview)
 * [Details](#details)
-    * [Why Debian?](#why_debian)
     * [Applications](#applications)
 
 ## Install <a name = "install"></a>
@@ -32,15 +31,12 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 ## Details <a name = "details"></a>
 
-### Why Debian? <a name = "why_debian"></a>
+### System essentials <a name = "system_essentials"></a>
 
-### System <a name = "system"></a>
+I like to keep my system to a bare minimum, or at least having control over what is installed and not. Although some may prefer to use [Arch](https://archlinux.org/) btw, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. This is what I use on my machines:
 
-#### bspwm
-
-#### sxhkd
-
-#### polybar
+* [xorg](https://www.x.org/wiki/) - X.Org Server provides the fundamental visual display capabilities of the system.
+* [bspwm](https://github.com/baskerville/bspwm) - bspwm, or the Binary Space Partitioning Window Manager, is a slim and highly configurable [tiling](https://en.wikipedia.org/wiki/Tiling_window_manager) window manager.
 
 ### Applications <a name = "applications"></a>
 
