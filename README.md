@@ -34,35 +34,50 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 ### System essentials <a name = "system_essentials"></a>
 
-I like to keep my system to a bare minimum, or at least having control over what is installed and not. Although some may prefer to use [Arch](https://archlinux.org/) btw, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. The following is a list of the essential programs I use on my machines. Everything on this list is installed using `build/system_setup.sh`:
+I like to keep my system to a bare minimum, or at least having some degree of control over which package gets installed and why. Although some may prefer to use [Arch Linux](https://archlinux.org/) (btw) to achieve this, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I usually opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. The following is a list of (relatively) essential packages, in the order they are installed using `build/system_setup.sh`:
 
 * [xorg](https://www.x.org/wiki/) - Provides the fundamental visual display capabilities of the system.
-* [bspwm](https://github.com/baskerville/bspwm) - The Binary Space Partitioning Window Manager, bspwm, is a slim and highly configurable [tiling](https://en.wikipedia.org/wiki/Tiling_window_manager) window manager.
-* [picom](https://github.com/yshui/picom) - A stand-alone compositor for X.org that enables transparency and shadows.
-* [kitty](https://sw.kovidgoyal.net/kitty/) - My terminal of choice; flexible, keyboard oriented, and fast.
-* [polybar](https://github.com/polybar/polybar) - An easy to use and configurable status bar.
+* [bspwm](https://github.com/baskerville/bspwm) - Highly configurable [tiling](https://en.wikipedia.org/wiki/Tiling_window_manager) window manager.
+* [picom](https://github.com/yshui/picom) - Stand-alone compositor for X.org that enables transparency and shadows.
+* [kitty](https://sw.kovidgoyal.net/kitty/) - Flexible, keyboard oriented, and fast terminal emulator.
+* [polybar](https://github.com/polybar/polybar) - Easy to use and configurable status bar.
 * [suckless-tools](https://tools.suckless.org/) - Provides [dmenu](https://tools.suckless.org/dmenu/), which is required for [passmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu).
 * [rofi](https://github.com/davatorium/rofi) - Application launcher and replacement for dmenu.
 * [pass](https://www.passwordstore.org/) - Lightweight, fast and super easy password managment. 
 * [rofi-pass](https://github.com/carnager/rofi-pass) - Front-end to pass using rofi.
-* [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) - Easy to use frontend to [iptables](https://linux.die.net/man/8/iptables).
+* [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) - Easy to use front-end to [iptables](https://linux.die.net/man/8/iptables).
 * [rsync](https://linux.die.net/man/1/rsync) - Fast and flexible file synchronizer.
 * [unzip](https://linux.die.net/man/1/unzip) - You guessed it; it unzips archives.
-* [curl](https://curl.se/) - Command line tool for transferring data.
-* [make](https://www.gnu.org/software/make/) - GNU Make is required to build and install packages using [makefiles](https://www.gnu.org/software/make/manual/make.html#Introduction).
-* [gcc](https://gcc.gnu.org/) - GCC, or the GNU Compiler Collection, provides frontends and compilers for several languages, including C, C++ and Fortran.
+* [curl](https://curl.se/) - Command-line tool for transferring data.
+* [make](https://www.gnu.org/software/make/) - Required to build and install packages using [makefiles](https://www.gnu.org/software/make/manual/make.html#Introduction).
+* [gcc](https://gcc.gnu.org/) - Provides front-ends and compilers for several languages, including C, C++ and Fortran.
 * [feh](https://feh.finalrewind.org/) - Lightweight image viewer, used to set the wallpaper.
-* [arandr](https://christian.amsuess.com/tools/arandr/) - ARandR, or Another XRandR GUI, is a frontend to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
-* [ranger](https://github.com/ranger/ranger) - Minimalistic command line file manager.
-* [jq](https://stedolan.github.io/jq/) - Lightweight command line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
+* [arandr](https://christian.amsuess.com/tools/arandr/) - Front-end to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
+* [ranger](https://github.com/ranger/ranger) - Minimalistic command-line file manager.
+* [jq](https://stedolan.github.io/jq/) - Lightweight command-line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
 * [Mullvad](https://mullvad.net/sv/) - [VPN](https://en.wikipedia.org/wiki/Virtual_private_network) that tunnels traffic between my machine and the internet.
-* [Syncthing](https://syncthing.net/) - Secure and easy to use continuous file synchronization program used to keep relevant files synced between my machines.
+* [Syncthing](https://syncthing.net/) - Secure and easy to use continuous file synchronization program.
+* [apt-listbugs](https://manpages.debian.org/testing/apt-listbugs/apt-listbugs.1.en.html) - Retrieves bug reports from the Debian Bug Tracking System, invoked when installing using [APT](https://en.wikipedia.org/wiki/APT_(software)) in order to check whether the installation/upgrade is safe. 
 
 ### Day-to-day applications <a name = "day_to_day_applications"></a>
 
 My day-to-day applications are also installed using `build/system_setup.sh`. These are programs I use on a regular basis, but that may be exchanged or removed based on personal preference.
 
-* [Neovim](https://neovim.io/) - 
-* [Inkscape](https://inkscape.org/) -
+* [Neovim](https://neovim.io/) - My primary editor, a continuation and extension of [Vim](https://www.vim.org/). 
+* [Inkscape](https://inkscape.org/) - Powerful vector graphics software
+* [Okular](https://okular.kde.org/) - Universal document viewer, primarily used for viewing PDFs.
+* [qpdf](https://github.com/qpdf/qpdf) - Command-line program for structural PDF transformation, such as cutting pages.
+* [htop](https://htop.dev/) - Interactive process viewer and system monitor.
+* [Firefox](https://www.mozilla.org/en-US/) - Web browser.
+
+### Virtual machines <a name = "virtual_machines"></a>
+
+I use QEMU/KVM to create virtual machines for testing things, including these dotfiles. The nomeclature is [a bit of a mess](https://serverfault.com/a/391932), but as far as I've understood things, [KVM](https://www.linux-kvm.org/page/Main_Page) or Kernel Virtual Machine is the virtualization technology in the Linux kernel, wheras [QEMU](https://www.qemu.org/) is a machine emulator and virtualizer that may use KVM. When used together, [KVM handles CPU and memory access while QEMU emulates other hardware resources](https://serverfault.com/a/208694). The following packages are installed:
+
+* [qemu-system](https://packages.debian.org/bullseye/qemu-system) - Provides binaries for full system emulation.
+* [libvirt-daemon-system](https://wiki.debian.org/libvirt) - Provides the libvirtd service.
+* [libvirt-clients](https://wiki.debian.org/libvirt) - Command-line tools to manage virtual machines.
+* [virt-manager](https://wiki.debian.org/libvirt) - GUI tool to manage virtual machines.
+* [bridge-utils](https://wiki.debian.org/BridgeNetworkConnections) - Enables network sharing between host and virtual machine.
 
 #### 
