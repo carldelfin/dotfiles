@@ -86,9 +86,7 @@ I use QEMU/KVM to create virtual machines for testing things, including these do
 
 ### Containers <a name = "containers"></a>
 
-For compute-intensive research, or projects that involve a lot of data preprocessing and manipulation, I like ensure reproducibility by using containers. I previously used [Docker](https://www.docker.com/), but now prefer [Singularity](https://sylabs.io/singularity/).
-
-**TODO**
+For compute-intensive research, or projects that involve a lot of data preprocessing and manipulation, I like ensure reproducibility by using containers. I previously used [Docker](https://www.docker.com/), but now prefer [Singularity](https://sylabs.io/singularity/). Since I only use Singularity on my workstation, this install is optional and performed by `build/install_singularity.sh`.
 
 ### Sound <a name = "sound"></a>
 
