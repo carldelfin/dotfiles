@@ -43,13 +43,15 @@ I like to keep my system to a bare minimum, or at least having control over what
 * [suckless-tools](https://tools.suckless.org/) - Provides [dmenu](https://tools.suckless.org/dmenu/), which is required for [passmenu](https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu).
 * [rofi](https://github.com/davatorium/rofi) - Application launcher and replacement for dmenu.
 * [pass](https://www.passwordstore.org/) - Lightweight, fast and super easy password managment. 
-* [rofi-pass](https://github.com/carnager/rofi-pass) - Front-end to `pass` using `rofi`.
+* [rofi-pass](https://github.com/carnager/rofi-pass) - Front-end to pass using rofi.
 * [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) - Easy to use frontend to [iptables](https://linux.die.net/man/8/iptables).
 * [rsync](https://linux.die.net/man/1/rsync) - Fast and flexible file synchronizer.
 * [unzip](https://linux.die.net/man/1/unzip) - You guessed it; it unzips archives.
 * [curl](https://curl.se/) - Command line tool for transferring data.
 * [make](https://www.gnu.org/software/make/) - GNU Make is required to build and install packages using [makefiles](https://www.gnu.org/software/make/manual/make.html#Introduction).
 * [gcc](https://gcc.gnu.org/) - GCC, or the GNU Compiler Collection, provides frontends and compilers for several languages, including C, C++ and Fortran.
+* [feh](https://feh.finalrewind.org/) - Lightweight image viewer, used to set the wallpaper.
+* [arandr](https://christian.amsuess.com/tools/arandr/) - ARandR, or Another XRandR GUI, is a frontend to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
 
 ### Applications <a name = "applications"></a>
 
