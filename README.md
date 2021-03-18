@@ -35,8 +35,8 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 I like to keep my system to a bare minimum, or at least having control over what is installed and not. Although some may prefer to use [Arch](https://archlinux.org/) btw, I have used Debian and its derivatives for many, many years now and grown quite fond of them. Thus, I opt for a [Debian minimal install](https://www.debian.org/CD/netinst/). Given the obvious barebones nature of a minimal install, quite a few things are required in order to get the system up and running. This is what I use on my machines, and also what is installed using `build/system_setup.sh`:
 
-* [xorg](https://www.x.org/wiki/) - X.Org Server provides the fundamental visual display capabilities of the system.
-* [bspwm](https://github.com/baskerville/bspwm) - bspwm, or the Binary Space Partitioning Window Manager, is a slim and highly configurable [tiling](https://en.wikipedia.org/wiki/Tiling_window_manager) window manager.
+* [xorg](https://www.x.org/wiki/) - Provides the fundamental visual display capabilities of the system.
+* [bspwm](https://github.com/baskerville/bspwm) - The Binary Space Partitioning Window Manager, bspwm, is a slim and highly configurable [tiling](https://en.wikipedia.org/wiki/Tiling_window_manager) window manager.
 * [picom](https://github.com/yshui/picom) - A stand-alone compositor for X.org that enables transparency and shadows.
 * [kitty](https://sw.kovidgoyal.net/kitty/) - My terminal of choice; flexible, keyboard oriented, and fast.
 * [polybar](https://github.com/polybar/polybar) - An easy to use and configurable status bar.
@@ -44,6 +44,12 @@ I like to keep my system to a bare minimum, or at least having control over what
 * [rofi](https://github.com/davatorium/rofi) - Application launcher and replacement for dmenu.
 * [pass](https://www.passwordstore.org/) - Lightweight, fast and super easy password managment. 
 * [rofi-pass](https://github.com/carnager/rofi-pass) - Front-end to `pass` using `rofi`.
+* [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) - Easy to use frontend to [iptables](https://linux.die.net/man/8/iptables).
+* [rsync](https://linux.die.net/man/1/rsync) - Fast and flexible file synchronizer.
+* [unzip](https://linux.die.net/man/1/unzip) - You guessed it; it unzips archives.
+* [curl](https://curl.se/) - Command line tool for transferring data.
+* [make](https://www.gnu.org/software/make/) - GNU Make is required to build and install packages using [makefiles](https://www.gnu.org/software/make/manual/make.html#Introduction).
+* [gcc](https://gcc.gnu.org/) - GCC, or the GNU Compiler Collection, provides frontends and compilers for several languages, including C, C++ and Fortran.
 
 ### Applications <a name = "applications"></a>
 
