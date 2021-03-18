@@ -11,7 +11,7 @@ if cat /proc/cpuinfo | grep "vendor" | uniq | grep -q "AMD"; then
   k10temp_dir=$(grep -lr "k10temp" /sys/class/hwmon/* -s | sed 's,/*[^/]\+/*$,,')
   export HWMON_DIR=$k10temp_dir/temp3_input # CCD1
 else
-  export HWMON_DIR="/sys/class/hwmon/hwmon0/temp1_input"# CCD1
+  export HWMON_DIR="/sys/class/hwmon/hwmon0/temp1_input"
 fi
 
 # launch polybar
