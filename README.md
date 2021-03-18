@@ -98,7 +98,7 @@ A minimal install comes without sound, so these packages are required:
 
 ### Appearance <a name = "appearance"></a>
 
-I rarely install a full [desktop environment](https://en.wikipedia.org/wiki/Desktop_environment), which means that I must customize the appearance of applications myself.
+Not using a full [desktop environment](https://en.wikipedia.org/wiki/Desktop_environment) leaves a lot of room for customizing appearance of, well, everything. I try to keep things uniform and fairly minimal.
 
 * [lxappearance](https://wiki.lxde.org/sv/LXAppearance) - Used to change themes, icons, and cursors.
 * [materia-gtk-theme](https://github.com/nana-4/materia-theme) - Material Design theme for GNOME/GTK based applications.
