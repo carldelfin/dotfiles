@@ -2,6 +2,8 @@
 
 [Dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments) are hidden files often used to configure applications and various system settings. This repo contains my own dotfiles, currently based around [Debian Testing](https://wiki.debian.org/DebianTesting), as well as scripts for automatically getting my machines up and running after a clean OS install. For a general introduction to dotfiles, check out [GitHub does dotfiles](https://dotfiles.github.io/). Note that my dotfiles are the result of years of constant tweaking and tinkering. They work for me, but may not work for you. Thus, review the code and remove things you don’t want or need. [Do not fork](https://www.anishathalye.com/2014/08/03/managing-your-dotfiles/) my dotfiles or run `build.sh` unless you know what your are doing.
 
+I use my computers almost exclusively for research, and this is reflected in my dotfiles. Some programs, like [neovim](https://neovim.io/), are setup in a very specific manner, suited to my tastes. Some projects I work on may require certain applications that I use intensively for a while, and then tend to forget about. This repo thus also serves as a kind of wiki for myself. Perhaps you might find it useful, too. 
+
 ## Table of Contents
 
 * [System at a glance](#system_at_a_glance)
