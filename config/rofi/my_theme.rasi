@@ -7,12 +7,12 @@
 */
 
 * {
-    text-color:                  #DFDFDF;
-    background-color:            #282828;
+    text-color:                  #D4D4D4;
+    background-color:            #2B2B2B;
     dark-text:                   #242424;
     lightbg:                     #534c48;
-    red:                         #f15d22;
-    orange:                      #FBB86C; 
+    red:                         #F14C4C;
+    orange:                      #DFC58D; 
 
     selected-normal-foreground:  @dark-text;
     normal-foreground:           @foreground;
