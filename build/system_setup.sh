@@ -38,7 +38,7 @@ simple() {
   sudo apt install -y \
   xorg bspwm picom kitty polybar suckless-tools rofi \
   pass ufw rsync unzip curl make gcc hsetroot arandr ranger \
-  jq syncthing apt-listbugs
+  lightdm jq syncthing apt-listbugs
   
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
