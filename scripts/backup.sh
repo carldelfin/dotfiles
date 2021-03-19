@@ -1,39 +1,31 @@
-#!/bin/bash
-
-
-
 # -----------------------------------------------------------------------------------
 # daily backup
 # -----------------------------------------------------------------------------------
 
-rsync -az --delete --quiet /home /media/cmd/backup
-rsync -az --delete --quiet /home /media/cmd/backup_1
-rsync -az --delete --quiet -e ssh /home cmd@192.168.20.57:/media/backup_3
+# to internal drives
+rsync -az --delete --quiet /home /media/cmd/internal1
+rsync -az --delete --quiet /home /media/cmd/internal2
+
+# over LAN
+rsync -az --delete --quiet -e ssh /home cmd@192.168.20.74:/media/backup_1/daily_mirror
 
 # -----------------------------------------------------------------------------------
 # weekly backup
 # -----------------------------------------------------------------------------------
 
 # is today friday?
-# dayofweek=$(date +"%u")
-# if [ "${dayofweek}" -eq 5 ];
-# then
-#     # if friday, do regular mirroring plus weekly backup
-#     rsync -az --delete --quiet /home /media/cmd/backup/mirror
-#     rsync -az --delete --quiet /home /media/cmd/backup_2/mirror
-#     rsync -az --delete --quiet -e ssh /home cmd@192.168.20.57:/media/backup_3/mirror
-# 
-#     # delete backups older than one month (30 days) to save space
-#     find /media/cmd/archive -maxdepth 1 -type f -name "*.tar.xz" -mtime +30 -exec rm -rf {} \;
-#     
-#     # use multicore tar
-#     export XZ_DEFAULTS="-T 12 "
-#     
-#     today=$(date +"%Y%m%d")
-#     tar -cJf /media/cmd/backup_${today}.tar.xz /media/cmd/mirror/
-#     tar -cJf /media/cmd/archive/backup_${today}.tar.xz cmd@192.168.20.57:/media/backup_3/backup/
-# else
-#     rsync -az --delete --quiet /home /media/cmd/backup/mirror
-#     rsync -az --delete --quiet /home /media/cmd/backup_2/mirror
-#     rsync -az --delete --quiet -e ssh /home cmd@192.168.20.57:/media/backup_3/mirror
-# fi
+dayofweek=$(date +"%u")
+if [ "${dayofweek}" -eq 5 ]; then
+
+    # delete backups older than three months (90 days) to save space
+    find /media/cmd/internal1 -maxdepth 1 -type f -name "*.tar.xz" -mtime +90 -exec rm -rf {} \;
+    find /media/cmd/internal2 -maxdepth 2 -type f -name "*.tar.xz" -mtime +90 -exec rm -rf {} \;
+    
+    # set date
+    today=$(date +"%Y%m%d")
+    
+    # create tarballs 
+    tar -cJf /media/cmd/internal1/backup_${today}.tar.xz /media/cmd/internal1/home
+    tar -cJf /media/cmd/internal2/backup_${today}.tar.xz /media/cmd/internal2/home
+    rsync -az --delete --quiet -e ssh /media/cmd/internal2/backup_${today}.tar.xz cmd@192.168.20.74:/media/backup_1/weekly_backup
+fi
