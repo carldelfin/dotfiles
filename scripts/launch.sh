@@ -21,7 +21,7 @@ polybar -c ~/dotfiles/config/polybar/polybar.conf cmd &
 picom --config ~/dotfiles/config/picom/picom.conf &
 
 # set desktop background
-hsetroot -solid "#1B1D22"
+hsetroot -solid "#272727"
 
 # enable sound
 pulseaudio --start
