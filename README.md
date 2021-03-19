@@ -60,6 +60,7 @@ I like to keep my system to a bare minimum, or at least having some degree of co
 * [hsetroot](https://github.com/himdel/hsetroot) - Required to set a plain color for desktop background.
 * [arandr](https://christian.amsuess.com/tools/arandr/) - Front-end to [XRandR](https://www.x.org/wiki/Projects/XRandR/), used to configure monitors and screen resolution.
 * [ranger](https://github.com/ranger/ranger) - Minimalistic command-line file manager.
+* [nautilus](https://wiki.gnome.org/Apps/Files) - Non-minimalistic GUI file manager.
 * [lightdm](https://github.com/canonical/lightdm) - Lightweight display manager.
 * [jq](https://stedolan.github.io/jq/) - Lightweight command-line [JSON](https://en.wikipedia.org/wiki/JSON) processor, used by `scripts/sync.sh`.
 * [Mullvad](https://mullvad.net/sv/) - [VPN](https://en.wikipedia.org/wiki/Virtual_private_network) that tunnels traffic between my machine and the internet.
