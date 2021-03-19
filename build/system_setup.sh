@@ -80,10 +80,10 @@ simple() {
       echo "rofi-power-menu is already installed"
   fi
    
-  # rofi-bluetooth
+  # rofi-bluetooth (own fork using my custom theme)
   if ! command -v rofi-bluetooth &> /dev/null; then
       cd /tmp
-      wget https://raw.githubusercontent.com/ClydeDroid/rofi-bluetooth/master/rofi-bluetooth
+      wget https://raw.githubusercontent.com/carldelfin/rofi-bluetooth/master/rofi-bluetooth
       sudo mv rofi-bluetooth /usr/local/bin
       sudo chmod +x /usr/local/bin/rofi-bluetooth
       cd
