@@ -30,4 +30,4 @@ pulseaudio --start
 syncthing -no-browser
 
 # set correct mouse cursor
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
