@@ -35,6 +35,10 @@ simple() {
   # Essentials
   # --------------------------------------------------------------------------------------------------
   
+  echo ""
+  echo -e "\033[1;33mInstalling system essentials...\033[0m"
+  echo ""
+  
   sudo apt install -y \
   xorg bspwm picom kitty polybar suckless-tools rofi \
   pass ufw rsync unzip curl make gcc hsetroot arandr ranger \
@@ -102,6 +106,10 @@ simple() {
   # Day-to-day applications
   # --------------------------------------------------------------------------------------------------
   
+  echo ""
+  echo -e "\033[1;33mInstalling day-to-day applications...\033[0m"
+  echo ""
+  
   sudo apt install -y neovim inkscape okular qpdf htop firefox-esr
   
   # vim-plug
@@ -116,6 +124,10 @@ simple() {
   # Virtual machines
   # --------------------------------------------------------------------------------------------------
   
+  echo ""
+  echo -e "\033[1;33mInstalling QEMU/KVM...\033[0m"
+  echo ""
+  
   sudo apt install -y \
   qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
   
@@ -123,20 +135,22 @@ simple() {
   sudo adduser `id -un` kvm
   
   # --------------------------------------------------------------------------------------------------
-  # Containers
-  # --------------------------------------------------------------------------------------------------
-  
-  # TODO
-  
-  # --------------------------------------------------------------------------------------------------
   # Sound
   # --------------------------------------------------------------------------------------------------
+  
+  echo ""
+  echo -e "\033[1;33mInstalling sound packages...\033[0m"
+  echo ""
   
   sudo apt install -y alsa-utils pulseaudio libavcodec-extra 
   
   # --------------------------------------------------------------------------------------------------
   # Appearance
   # --------------------------------------------------------------------------------------------------
+  
+  echo ""
+  echo -e "\033[1;33mInstalling appearance-related packages...\033[0m"
+  echo ""
   
   sudo apt install -y \
   lxappearance materia-gtk-theme papirus-icon-theme qt5-style-plugins neofetch
@@ -194,6 +208,10 @@ simple() {
   # Make sure relevant configs and scripts are executable
   # ==================================================================================================
   
+  echo ""
+  echo -e "\033[1;33mMaking sure configs and scripts are executable...\033[0m"
+  echo ""
+  
   sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
   sudo chmod +x ~/dotfiles/scripts/launch.sh
   sudo chmod +x ~/dotfiles/scripts/vpn.sh
@@ -205,6 +223,10 @@ simple() {
   # ==================================================================================================
   # Set up symlinks and paths
   # ==================================================================================================
+  
+  echo ""
+  echo -e "\033[1;33mSetting up symlinks and paths...\033[0m"
+  echo ""
   
   mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim,gtk-3.0}
   ranger --copy-config=all
@@ -228,8 +250,12 @@ simple() {
   fi
 
   # ==================================================================================================
-  # Enable UFW
+  # Configure UFW
   # ==================================================================================================
+  
+  echo ""
+  echo -e "\033[1;33mConfiguring UFW...\033[0m"
+  echo ""
   
   sudo ufw default deny incoming
   sudo ufw default allow outgoing
