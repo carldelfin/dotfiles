@@ -1,9 +1,6 @@
 /**
- * Author: Carl Delfin
- *
- * This theme is a slightly modified variant of the original made by Primetoxinz:
+ * This theme is a modified variant of Pop-Dark made by Primetoxinz:
  * https://github.com/davatorium/rofi-themes/blob/master/Official%20Themes/Pop-Dark.rasi
- *
 */
 
 * {
