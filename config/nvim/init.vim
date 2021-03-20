@@ -51,7 +51,10 @@ call plug#end()
 
 set mouse=n
 set ma
-set number
+
+" show relative line number
+set relativenumber
+
 set autoindent
 set si 
 set showmatch
