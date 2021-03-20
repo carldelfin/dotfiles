@@ -112,7 +112,7 @@ set nosplitright
 " --------------------------------------------------------------
 
 " use tab as local leader
-let maplocalleader = "\<tab>"
+let maplocalleader = "'"
 
 " toggle NERDTree using control+t
 nnoremap <C-t> :NERDTreeToggle<CR>
