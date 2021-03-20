@@ -1,3 +1,4 @@
+# push changes in dotfiles to github
 dotpush() {
 	cd ~/dotfiles
     	git add .
@@ -7,5 +8,12 @@ dotpush() {
 		git commit -m "$*"
 	fi
     	git push
+	cd
+}
+
+# pull changes in dotfiles from github
+dotpull() {
+	cd ~/dotfiles
+	git pull
 	cd
 }
