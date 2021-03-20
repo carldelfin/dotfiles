@@ -73,6 +73,10 @@ let g:pandoc#modules#disabled = ["folding"]
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
+" let NERDTree and CtrlP show hidden files by default
+let NERDTreeShowHidden = 1
+let g:ctrlp_show_hidden = 1
+
 " --------------------------------------------------------------
 " R specific settings
 " --------------------------------------------------------------

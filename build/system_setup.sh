@@ -232,6 +232,7 @@ simple() {
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
+  ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
   ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
   ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
