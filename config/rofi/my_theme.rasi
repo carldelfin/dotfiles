@@ -5,11 +5,11 @@
 
 * {
     text-color:                  #D4D4D4;
-    background-color:            #444444;
+    background-color:            #343434;
     dark-text:                   #242424;
     lightbg:                     #534c48;
     red:                         #F14C4C;
-    orange:                      #DFC58D; 
+    orange:                      #FABE4F; 
 
     selected-normal-foreground:  @dark-text;
     normal-foreground:           @foreground;
