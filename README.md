@@ -72,8 +72,8 @@ I like to keep my system to a bare minimum, or at least having some degree of co
 My day-to-day applications are also installed using `build/system_setup.sh`. These are programs I use on a regular basis, but that may be exchanged or removed based on personal preference.
 
 * [Neovim](https://neovim.io/) - My primary editor, a continuation and extension of [Vim](https://www.vim.org/). I also install [vim-plug](https://github.com/junegunn/vim-plug) by default. 
-* [Inkscape](https://inkscape.org/) - Powerful vector graphics software
-* [Okular](https://okular.kde.org/) - Universal document viewer, primarily used for viewing PDFs.
+* [Inkscape](https://inkscape.org/) - Powerful vector graphics software.
+* [Zathura](https://pwmt.org/projects/zathura/) - Minimal, customizable document viewer.
 * [qpdf](https://github.com/qpdf/qpdf) - Command-line program for structural PDF transformation, such as cutting pages.
 * [htop](https://htop.dev/) - Interactive process viewer and system monitor.
 * [Firefox](https://www.mozilla.org/en-US/) - Web browser.
