@@ -90,4 +90,9 @@ if [ -d "/usr/local/freesurfer" ]; then
   source $FREESURFER_HOME/SetUpFreeSurfer.sh
 fi
 
+# make sure okular follows system theme
+export QT_QPA_PLATFORMTHEME=gtk2
+
 PATH=$PATH:~/.local/bin
+
+
