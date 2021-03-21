@@ -64,7 +64,7 @@ let g:rout_follow_colorscheme = 1
 let g:Rout_more_colors = 1
 
 " use okular to view tex output
-let g:vimtex_view_method = 'okular'
+let g:vimtex_view_method = 'zathura'
 
 " allow buffers to be hidden if modified
 set hidden
@@ -89,9 +89,9 @@ autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | ca
 autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 
 let R_in_buffer=0
-let R_term_cmd = 'kitty'
-let R_openpdf = 2
-let R_pdfviewer = "okular"
+let R_term_cmd = "kitty"
+let R_openpdf = 1
+let R_pdfviewer = "zathura"
 
 " Radian settings
 let R_app = "radian"

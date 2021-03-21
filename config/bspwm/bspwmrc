@@ -16,5 +16,6 @@ bspc config focused_border_color  \#777777
 bspc config normal_border_color   \#383838
 
 bspc rule -a Arandr state=floating
+bspc rule -a Zathura state=tiled
 
 ~/dotfiles/scripts/launch.sh
