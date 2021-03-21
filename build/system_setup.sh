@@ -119,30 +119,6 @@ simple() {
       sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
-
-  # --------------------------------------------------------------------------------------------------
-  # Virtual machines
-  # --------------------------------------------------------------------------------------------------
-  
-  echo ""
-  echo -e "\033[1;33mInstalling QEMU/KVM...\033[0m"
-  echo ""
-  
-  sudo apt install -y \
-  qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
-  
-  sudo adduser `id -un` libvirt
-  sudo adduser `id -un` kvm
-  
-  # --------------------------------------------------------------------------------------------------
-  # Sound
-  # --------------------------------------------------------------------------------------------------
-  
-  echo ""
-  echo -e "\033[1;33mInstalling sound packages...\033[0m"
-  echo ""
-  
-  sudo apt install -y alsa-utils pulseaudio libavcodec-extra 
   
   # --------------------------------------------------------------------------------------------------
   # Appearance
@@ -204,6 +180,30 @@ simple() {
   
   fc-cache -f
   
+  # --------------------------------------------------------------------------------------------------
+  # Sound
+  # --------------------------------------------------------------------------------------------------
+  
+  echo ""
+  echo -e "\033[1;33mInstalling sound packages...\033[0m"
+  echo ""
+  
+  sudo apt install -y alsa-utils pulseaudio libavcodec-extra
+
+  # --------------------------------------------------------------------------------------------------
+  # Virtual machines
+  # --------------------------------------------------------------------------------------------------
+  
+  echo ""
+  echo -e "\033[1;33mInstalling QEMU/KVM...\033[0m"
+  echo ""
+  
+  sudo apt install -y \
+  qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
+  
+  sudo adduser `id -un` libvirt
+  sudo adduser `id -un` kvm 
+    
   # ==================================================================================================
   # Make sure relevant configs and scripts are executable
   # ==================================================================================================
