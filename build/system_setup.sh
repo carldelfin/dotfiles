@@ -153,7 +153,7 @@ simple() {
   echo ""
   
   sudo apt install -y \
-  lxappearance materia-gtk-theme papirus-icon-theme qt5-style-plugins neofetch
+  materia-gtk-theme papirus-icon-theme neofetch
   
   # Fira Code font
   if fc-list | grep -q FiraCode; then
