@@ -149,7 +149,7 @@ simple() {
   # --------------------------------------------------------------------------------------------------
   
   echo ""
-  echo -e "\033[1;33mInstalling appearance-related packages...\033[0m"
+  echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
   echo ""
   
   sudo apt install -y \
