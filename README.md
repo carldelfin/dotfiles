@@ -104,10 +104,8 @@ A minimal install comes without sound, so these packages are required:
 
 Not using a full [desktop environment](https://en.wikipedia.org/wiki/Desktop_environment) leaves a lot of room for customizing appearance of, well, everything. I try to keep things uniform and fairly minimal.
 
-* [lxappearance](https://wiki.lxde.org/sv/LXAppearance) - Used to change themes, icons, and cursors.
 * [materia-gtk-theme](https://github.com/nana-4/materia-theme) - Material Design theme for GNOME/GTK based applications.
 * [papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) - Free and open source SVG icon theme.
-* [qt5-style-plugins](https://packages.debian.org/bullseye/qt5-style-plugins) - Required for Okular to follow the system theme.
 * [neofetch](https://github.com/dylanaraps/neofetch) - What would a Linux system be without some command-line system information tool?
 * [Fira Code](https://github.com/tonsky/FiraCode) - Terminal emulator font with ligature support.
 * [Font Awesome](https://fontawesome.com/) - Icons used in Polybar.
