@@ -210,7 +210,6 @@ simple() {
   sudo adduser `id -un` libvirt
   sudo adduser `id -un` kvm 
     
->>>>>>> 4b785f2abede275bcdc2cd6b810e3c4e6bd434c8
   # ==================================================================================================
   # Make sure relevant configs and scripts are executable
   # ==================================================================================================
