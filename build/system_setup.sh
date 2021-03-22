@@ -110,7 +110,7 @@ simple() {
   echo -e "\033[1;33mInstalling day-to-day applications...\033[0m"
   echo ""
   
-  sudo apt install -y neovim inkscape zathura qpdf htop firefox-esr mpv transmission
+  sudo apt install -y neovim inkscape zathura qpdf htop firefox-esr
   
   # vim-plug
   if [ -d "$HOME/.vim/plugged" ]; then
