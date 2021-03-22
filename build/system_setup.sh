@@ -204,6 +204,12 @@ simple() {
   
   fc-cache -f
   
+  # --------------------------------------------------------------------------------------------------
+  # Remove unecessary packages
+  # --------------------------------------------------------------------------------------------------
+ 
+  sudo apt remove nano 
+
   # ==================================================================================================
   # Make sure relevant configs and scripts are executable
   # ==================================================================================================
@@ -234,6 +240,7 @@ simple() {
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
   ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
+  ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
   ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
@@ -246,10 +253,6 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   
-  if ! cat /etc/environment | grep -q "QT_QPA_PLATFORMTHEME=gtk2"; then
-      echo "QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
-  fi
-
   # ==================================================================================================
   # Configure UFW
   # ==================================================================================================
