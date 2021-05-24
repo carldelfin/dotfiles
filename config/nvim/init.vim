@@ -15,7 +15,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lifepillar/vim-mucomplete'
 
 " better R syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " airline status
 Plug 'vim-airline/vim-airline'
@@ -53,13 +53,12 @@ Plug 'phaazon/hop.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " nvimtree.lua
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'kyazdani42/nvim-web-devicons' " for file icons
+"Plug 'kyazdani42/nvim-tree.lua'
+"Plug 'ryanoasis/vim-devicons'
 
 " bbye
 Plug 'moll/vim-bbye'
-
 
 Plug 'karb94/neoscroll.nvim'
 
@@ -122,8 +121,7 @@ if exists('+termguicolors')
 endif
 
 set termguicolors
-lua require'bufferline'.setup{}
-
+lua require('bufferline').setup()
 lua require('neoscroll').setup()
 
 let g:airline_powerline_fonts = 1
@@ -216,15 +214,15 @@ let mapleader = ","
 let maplocalleader="\<space>"
 
 " toggle NvimTree
-nnoremap <C-n> :NvimTreeToggle<CR>
+"nnoremap <C-n> :NvimTreeToggle<CR>
 
 " select buffers using df
 noremap <silent> df :BufferLinePick<CR>
 tnoremap <silent> df <Nop> 
 
-let g:nvim_tree_auto_open = 1
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_indent_markers = 1
+"let g:nvim_tree_auto_open = 1
+"let g:nvim_tree_auto_close = 1
+"let g:nvim_tree_indent_markers = 1
 
 " fuzzy search
 nmap <C-p> :FZF<CR>
@@ -261,10 +259,10 @@ highlight CursorLineNr term=bold gui=bold guifg=LightGreen
 highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
 
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "bash", "r", "latex", "python", "yaml", "toml", "regex", "json", "comment" },
-  highlight = {enable = true},
-}
+--require'nvim-treesitter.configs'.setup {
+--  ensure_installed = { "bash", "r", "latex", "python", "yaml", "toml", "regex", "json", "comment" },
+--  highlight = {enable = true},
+--}
 
 require('bufferline').setup {
   options = {
