@@ -146,7 +146,7 @@ simple() {
   rm master.zip
   cd
 
-  # Fira Code + Nerd Font patch
+  # Fira Code font
   if fc-list | grep -q FiraCode; then
       echo "Fira Code is already installed"
   else
@@ -163,7 +163,6 @@ simple() {
       rm -rf woff2
       rm -rf variable_ttf
       rm -rf ttf
-      wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
   fi
 
   # Font Awesome
