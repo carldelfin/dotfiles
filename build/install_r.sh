@@ -2,7 +2,9 @@
 
 ####################################################################################################
 #
-# This script installs the latest version of R
+# This script installs the latest version of R, along with commonly used and/or required packages
+# for optimal Linux performance
+#
 # https://www.r-project.org/
 #
 ####################################################################################################
