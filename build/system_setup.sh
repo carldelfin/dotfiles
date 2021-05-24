@@ -122,8 +122,6 @@ simple() {
   fi
 
   # nodejs (required for coc.nvim)
-  #curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
-  #sudo apt-get install -y nodejs
   curl -sL install-node.now.sh/lts | sudo bash
 
   # --------------------------------------------------------------------------------------------------
