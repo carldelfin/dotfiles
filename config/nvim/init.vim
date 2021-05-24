@@ -25,6 +25,9 @@ let g:airline#extensions#tabline#enabled = 0
 " line indentation
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '|'
+let g:indentLine_setColors = 0
+let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indent_blankline_char = '|'
 let g:indent_blankline_space_char = " "
 
@@ -51,6 +54,9 @@ Plug 'phaazon/hop.nvim'
 
 " fuzzy find
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'chengzeyi/fzf-preview.vim'
+let g:fzf_command_prefix = 'FZF'
 
 " nvimtree.lua
 "Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -121,8 +127,9 @@ if exists('+termguicolors')
 endif
 
 set termguicolors
+
 lua require('bufferline').setup()
-lua require('neoscroll').setup()
+"lua require('neoscroll').setup()
 
 let g:airline_powerline_fonts = 1
 
@@ -217,7 +224,7 @@ let maplocalleader="\<space>"
 "nnoremap <C-n> :NvimTreeToggle<CR>
 
 " select buffers using df
-noremap <silent> df :BufferLinePick<CR>
+nnoremap <silent> df :BufferLinePick<CR>
 tnoremap <silent> df <Nop> 
 
 "let g:nvim_tree_auto_open = 1
@@ -225,7 +232,7 @@ tnoremap <silent> df <Nop>
 "let g:nvim_tree_indent_markers = 1
 
 " fuzzy search
-nmap <C-p> :FZF<CR>
+noremap <C-p> :FZF<CR>
 
 " use return to send R code
 vmap <Return> <Plug>RDSendSelection
@@ -260,13 +267,15 @@ highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
 
 lua <<EOF
 --require'nvim-treesitter.configs'.setup {
---  ensure_installed = { "bash", "r", "latex", "python", "yaml", "toml", "regex", "json", "comment" },
---  highlight = {enable = true},
+--ensure_installed = {"r", "bash", "comment", "latex", "python", "toml", "yaml", "regex", "json"},
+--  highlight = {
+--    enable = true
+--    },
 --}
 
 require('bufferline').setup {
   options = {
     offsets = {{filetype = "NvimTree", text = "", highlight = "Directory"}},
-  },
+  }
 }
 EOF
