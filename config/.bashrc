@@ -77,8 +77,7 @@ alias ll='ls -alF --color=auto'
 alias l='ls -CF --color=auto'
 alias ..='cd ..'
 alias c='clear'
-
-alias weather='Rscript ~/dotfiles/scripts/weather.R'
+alias vim="nvim"
 
 # ------------------------------------------------------------------------------
 # environment variables
@@ -91,5 +90,3 @@ if [ -d "/usr/local/freesurfer" ]; then
 fi
 
 PATH=$PATH:~/.local/bin
-
-
