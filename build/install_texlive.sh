@@ -2,7 +2,8 @@
 
 ####################################################################################################
 #
-# This script installs the latest version of TexLive and Pandoc
+# This script installs the latest version of TexLive and Pandoc, including support for XeLaTex
+#
 # https://www.tug.org/texlive/
 # https://pandoc.org/
 #
@@ -19,7 +20,7 @@ catch() {
 }
 
 simple() {
-  sudo apt install -y texlive texlive-latex-extra pandoc
+  sudo apt install -y texlive texlive-latex-extra texlive-xetex pandoc
 }
 
 simple
