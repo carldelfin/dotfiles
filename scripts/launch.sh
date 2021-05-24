@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+# enable correct mouse cursor
+xsetroot -cursor_name left_ptr &
 
 # terminate already running bar instances
 killall -q polybar
