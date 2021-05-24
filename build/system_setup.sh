@@ -128,7 +128,7 @@ simple() {
   fi
 
   # nodejs (required for coc.nvim)
-  curl -sL install-node.now.sh/lts | sudo bash
+  #curl -sL install-node.now.sh/lts | sudo bash
 
   # --------------------------------------------------------------------------------------------------
   # Appearance
