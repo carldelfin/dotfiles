@@ -13,7 +13,7 @@ I use my computers almost exclusively for research, and this is reflected in my 
 | Bar                 | [Polybar](https://github.com/polybar/polybar)|
 | Theme               | [Adwaita One Dark](https://github.com/lonr/adwaita-one-dark)|
 | Icons               | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)|
-| Wallpaper           | [Pop Nord](https://www.reddit.com/r/pop_os/comments/ksq20s/pop_nord_background/)|
+| Wallpaper           | [Pop One Dark](https://github.com/carldelfin/dotfiles/blob/main/wallpapers/pop_one_dark.png)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode)|
 
