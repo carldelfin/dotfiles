@@ -29,8 +29,5 @@ picom --config ~/dotfiles/config/picom/picom.conf &
 # set desktop background
 feh --bg-scale --randomize ~/dotfiles/wallpapers/* &
 
-# enable sound
-pulseaudio --start
-
 # start syncthing
 syncthing -no-browser
