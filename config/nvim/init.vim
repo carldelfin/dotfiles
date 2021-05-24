@@ -1,162 +1,276 @@
-" --------------------------------------------------------------
+" ---------------------------------------------------------------------------------------------------------------------
 " plugins
-" --------------------------------------------------------------
+" ---------------------------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
 
-" ncm2 and related
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'roxma/nvim-yarp'
-Plug 'sirver/ultiSnips'
-Plug 'gaalcaras/ncm-R'
-
-" nvim-r and related
+" nvim-r 
 Plug 'jalvesaq/Nvim-R'
 Plug 'jalvesaq/R-Vim-runtime'
 
-" airline
+" omnicompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" completion using tab
+Plug 'lifepillar/vim-mucomplete'
+
+" better R syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" airline status
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 0
 
-" nerdtree
-Plug 'preservim/nerdtree'
-
-" appearance
+" line indentation
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'Yggdroot/indentLine'
-Plug 'tomasiser/vim-code-dark'
+let g:indent_blankline_char = '|'
+let g:indent_blankline_space_char = " "
+
+" highlight yanks
 Plug 'machakann/vim-highlightedyank'
 
-" buffer control
-Plug 'ap/vim-buftabline'
-Plug 'kien/ctrlp.vim'
+" colorscheme
+Plug 'rakr/vim-one'
 
-" citations
+ " buffer tabs
+Plug 'akinsho/nvim-bufferline.lua'
+
+" pandoc
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-augroup ncm2
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    set completeopt=noinsert,menuone,noselect
-    inoremap <c-c> <ESC>
-augroup END
+" fade inactive buffers
+Plug 'TaDaa/vimade'
+let g:vimade = {}
+let g:vimade.fadelevel = 0.7
+
+" hop.nvim
+Plug 'phaazon/hop.nvim'
+
+" fuzzy find
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" nvimtree.lua
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ryanoasis/vim-devicons'
+
+" bbye
+Plug 'moll/vim-bbye'
+
+
+Plug 'karb94/neoscroll.nvim'
 
 call plug#end()
+
+" ---------------------------------------------------------------------------------------------------------------------
+" settings
+" ---------------------------------------------------------------------------------------------------------------------
+
+" tabs
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" no highlight during search
+set nohlsearch
+
+" allow buffers to be hidden if modified
+set hidden
+
+" show hybrid line numbers
+set number relativenumber
+
+" case insensitive search until cap
+set smartcase
+
+" highlight current line
+set cursorline 
+
+" turn off error bells
+set noerrorbells
+
+" turn off swapping and backup
+set noswapfile
+set nobackup
+
+" use incremental search
+set incsearch
+
+" use eight lines of scrolloff
+set scrolloff=8
+
+" try to keep within 120 characters
+set colorcolumn=120
+
+" allow mouse in normal mode
+set mouse=n
+
+" highlight matched parens, brackets, beginning and end of code blocks
+set showmatch
+
+" ---------------------------------------------------------------------------------------------------------------------
+" appearance
+" ---------------------------------------------------------------------------------------------------------------------
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+set termguicolors
+lua require'bufferline'.setup{}
+
+lua require('neoscroll').setup()
+
+let g:airline_powerline_fonts = 1
+
+syntax enable
+syntax on
+
+set encoding=utf8
+set t_Co=256
+set t_ut=
+
+let g:airline_theme = 'one'
+let g:one_allow_italics = 1
+
+colorscheme one
+
+set guifont=Fira\ Code\ Regular\ Nerd\ Font\ Complete:h15 
 
 " --------------------------------------------------------------
 " various settings
 " --------------------------------------------------------------
 
-set mouse=n
-set ma
+" mucomplete settings
+set completeopt+=menuone,noselect
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
+let g:mucomplete#enable_auto_at_startup = 1
 
-" show relative line number
-set relativenumber
-
-set autoindent
-set si 
-set showmatch
-
-" make sure R follows colorscheme
-let g:rout_follow_colorscheme = 1
-let g:Rout_more_colors = 1
-
-" use okular to view tex output
+" use zathura to view tex output
 let g:vimtex_view_method = 'zathura'
 
-" allow buffers to be hidden if modified
-set hidden
-
-" disable folding of vim-pandoc plugin
-let g:pandoc#modules#disabled = ["folding"]
-
-" exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-
-" let NERDTree and CtrlP show hidden files by default
-let NERDTreeShowHidden = 1
-let g:ctrlp_show_hidden = 1
+" no folding on startup with vim-pandoc
+let g:pandoc#modules#disabled = ["folding", "spell"]
+let g:pandoc#syntax#conceal#use = 0
 
 " --------------------------------------------------------------
 " R specific settings
 " --------------------------------------------------------------
 
+" highlight chunk headers as r code
+let rrst_syn_hl_chunk = 1
+let rmd_syn_hl_chunk = 1
+
 " open R automatically when opening .R and .Rmd files
 autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 
-let R_in_buffer=0
-let R_term_cmd = "kitty"
+" make sure R follows colorscheme
+let g:rout_follow_colorscheme = 1
+let g:Rout_more_colors = 1
+
+" quit R automatically when closing nvim
+autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
+
+" allow syntax folding, but unfolded when open
+let r_syntax_folding = 1
+set nofoldenable
+
+" startup libraries
+let R_start_libs = 'base,stats,graphics,grDevices,utils,methods,tidyverse'
+
+" R may open PDFs once, using zathura, then update that window
 let R_openpdf = 1
 let R_pdfviewer = "zathura"
 
-" Radian settings
-let R_app = "radian"
-let R_cmd = "R"
-let R_hl_term = 0
-let R_args = []  " if you had set any
-let R_bracketed_paste = 1
+" use Ctrl+Space to do omnicompletion:
+if has('nvim') || has('gui_running')
+    inoremap <C-Space> <C-x><C-o>
+else
+    inoremap <Nul> <C-x><C-o>
+endif
 
-" object browser
-let R_objbr_place = 'script,right'
-let R_objbr_place = 'console,left'
-let R_objbr_w = 20
+" don't turn _ into <- 
+let R_assign = 0
 
-" console settings
-let R_rconsole_width = 100
-let R_min_editor_width = 100
-set nosplitright
+" always place console to the right 
+let R_rconsole_width = 57
+let R_min_editor_width = 18
+
+" always place object browser to the right with specific width
+let R_objbr_place = "RIGHT"
+let R_objbr_w = 30
 
 " --------------------------------------------------------------
 " keybindings
 " --------------------------------------------------------------
 
-" use tab as local leader
-let maplocalleader = "'"
+" leader keys
+let mapleader = ","
+let maplocalleader="\<space>"
 
-" toggle NERDTree using control+t
-nnoremap <C-t> :NERDTreeToggle<CR>
+" toggle NvimTree
+nnoremap <C-n> :NvimTreeToggle<CR>
 
-" move between windows using control+jikl
-nnoremap <C-j> <C-w>h
-nnoremap <C-k> <C-w>j
-nnoremap <C-i> <C-w>k
-nnoremap <C-l> <C-w>l
+" select buffers using df
+noremap <silent> df :BufferLinePick<CR>
+tnoremap <silent> df <Nop> 
 
-" use space to send R code
-vmap <Space> <Plug>RDSendSelection
-nmap <Space> <Plug>RDSendLine
+let g:nvim_tree_auto_open = 1
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_indent_markers = 1
 
-" copy/paste using control+v and control+p
-"vmap <C-c> "+yi
-"vmap <C-x> "+c
-"vmap <C-v> c<ESC>"+p
-"imap <C-v> <ESC>"+pa
+" fuzzy search
+nmap <C-p> :FZF<CR>
+
+" use return to send R code
+vmap <Return> <Plug>RDSendSelection
+nmap <Return> <Plug>RDSendLine
 
 " open Nvim-R object browser
 vmap <C-o> <LocalLeader>ro
 nmap <C-o> <LocalLeader>ro
 
-" toggle between buffers with control+w and control+q
-nnoremap <C-w> :bnext<CR>
-nnoremap <C-q> :bprev<CR>
+" remap Esc to kj
+inoremap kj <Esc>
 
-" activate CtrlP using control+p
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" move between windows using control+ijkl
+nnoremap <C-h> <C-w>h " left
+nnoremap <C-j> <C-w>j " down
+nnoremap <C-k> <C-w>k " up
+nnoremap <C-l> <C-w>l " right
 
-" --------------------------------------------------------------
-" appearance
-" --------------------------------------------------------------
+" jump to char using bigram
+nnoremap <LocalLeader>j <cmd>HopChar1<cr>
+nnoremap <LocalLeader>k <cmd>HopChar2<cr>
+"nmap <C-c> <cmd>HopPattern><cr>
+noremap <LocalLeader>l <cmd>HopLine<cr>
+"nmap <C-a> <cmd>HopWord<cr>
 
-syntax enable
-syntax on
-set encoding=utf8
-set t_Co=256
-set t_ut=
-colorscheme codedark
-set cursorline
-let g:airline_theme='codedark'
+" modify linenumber colors 
+highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
+highlight CursorLineNr term=bold gui=bold guifg=LightGreen
+
+" modify background color
+highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    },
+}
+
+require('bufferline').setup {
+  options = {
+    offsets = {{filetype = "NvimTree", text = "", highlight = "Directory"}},
+  }
+}
