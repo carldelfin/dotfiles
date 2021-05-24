@@ -17,11 +17,17 @@ fi
 # launch polybar
 polybar -c ~/dotfiles/config/polybar/polybar.conf cmd &
 
+# terminate already running picom instances
+killall -q picom
+
+# wait until the processes have been shut down
+while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
+
 # launch picom
 picom --config ~/dotfiles/config/picom/picom.conf &
 
 # set desktop background
-hsetroot -solid "#272727"
+feh --bg-scale --randomize ~/dotfiles/wallpapers/* &
 
 # enable sound
 pulseaudio --start
