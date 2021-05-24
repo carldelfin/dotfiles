@@ -1,5 +1,5 @@
-#!/bin/bash
-
+#!/bin/sh
+#
 #			 _               _   _       _             _     
 #			| |             (_) | |     | |           | |    
 #			| |__    _   _   _  | |   __| |      ___  | |__  
@@ -24,7 +24,7 @@ NC='\033[0m'
 
 function prompt_for_multiselect {
 
-    # little helpers for terminal print control and key input
+    # helpers for terminal print control and key input
     ESC=$( printf "\033")
     cursor_blink_on()   { printf "$ESC[?25h"; }
     cursor_blink_off()  { printf "$ESC[?25l"; }
@@ -119,7 +119,7 @@ function prompt_for_multiselect {
 }
 
 # possible options
-OPTIONS_VALUES=("Exit" "Initial system setup" "Install R and Radian" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom" "Install Singularity")
+OPTIONS_VALUES=("Exit" "Initial system setup" "Install R" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom" "Install Singularity")
 
 for i in "${!OPTIONS_VALUES[@]}"; do
 	OPTIONS_STRING+="${OPTIONS_VALUES[$i]};"
