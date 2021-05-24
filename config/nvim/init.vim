@@ -262,15 +262,13 @@ highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "javascript" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    },
+  ensure_installed = { "bash", "r", "latex", "python", "yaml", "toml", "regex", "json", "comment" },
+  highlight = {enable = true},
 }
 
 require('bufferline').setup {
   options = {
     offsets = {{filetype = "NvimTree", text = "", highlight = "Directory"}},
-  }
+  },
 }
+EOF
