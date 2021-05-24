@@ -254,7 +254,7 @@ simple() {
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   
-  # now that symlinks are fixed, install neovim plugins
+  # now that symlinks are set up, install neovim plugins
   nvim --headless +PlugInstall +qall
   
   # ==================================================================================================
