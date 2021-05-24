@@ -248,9 +248,10 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
- 
-  #mkdir -p ~/{Documents,Downloads}
-
+  
+  # now that symlinks are fixed, install neovim plugins
+  nvim --headless +PlugInstall +qall
+  
   # ==================================================================================================
   # Configure UFW
   # ==================================================================================================
