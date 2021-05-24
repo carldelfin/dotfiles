@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ####################################################################################################
 #
@@ -31,18 +31,13 @@ simple() {
   # Install packages
   # ==================================================================================================
   
-  # --------------------------------------------------------------------------------------------------
-  # Essentials
-  # --------------------------------------------------------------------------------------------------
-  
   echo ""
-  echo -e "\033[1;33mInstalling system essentials...\033[0m"
+  echo -e "\033[1;33mInstalling packages...\033[0m"
   echo ""
   
   sudo apt install -y \
-  xorg bspwm picom kitty polybar suckless-tools rofi \
-  pass ufw rsync unzip curl make gcc hsetroot arandr ranger \
-  nautilus lightdm jq syncthing apt-listbugs
+      bspwm picom kitty polybar suckless-tools rofi pass \
+      feh arandr syncthing inkscape zathura ranger
   
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -101,17 +96,20 @@ simple() {
   else
       echo "Mullvad is already installed"
   fi
-  
-  # --------------------------------------------------------------------------------------------------
-  # Day-to-day applications
-  # --------------------------------------------------------------------------------------------------
-  
-  echo ""
-  echo -e "\033[1;33mInstalling day-to-day applications...\033[0m"
-  echo ""
-  
-  sudo apt install -y neovim inkscape zathura qpdf htop firefox-esr
-  
+
+  # neovim
+  if ! command -v nvim &> /dev/null; then
+      cd /tmp
+      curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+      chmod u+x nvim.appimage
+      ./nvim.appimage --appimage-extract
+      sudo mv squashfs-root / && sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+      rm nvim.appimage
+      cd
+  else
+      echo "Neovim is already installed"
+  fi
+
   # vim-plug
   if [ -d "$HOME/.vim/plugged" ]; then
       echo "vim-plug is already installed"
@@ -119,7 +117,12 @@ simple() {
       sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
-  
+
+  # nodejs (required for coc.nvim)
+  #curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
+  #sudo apt-get install -y nodejs
+  curl -sL install-node.now.sh/lts | sudo bash
+
   # --------------------------------------------------------------------------------------------------
   # Appearance
   # --------------------------------------------------------------------------------------------------
@@ -128,10 +131,21 @@ simple() {
   echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
   echo ""
   
-  sudo apt install -y \
-  materia-gtk-theme papirus-icon-theme neofetch
+  sudo apt install -y papirus-icon-theme neofetch
   
-  # Fira Code font
+  # Adwaita One Dark
+  sudo mkdir -p /usr/share/themes
+  cd /tmp
+  wget https://github.com/lonr/adwaita-one-dark/archive/refs/heads/master.zip
+  unzip master.zip
+  cd adwaita-one-dark-master
+  sudo cp -r Adwaita-One-Dark /usr/share/themes/
+  cd ..
+  rm -rf adwaita-one-dark-master
+  rm master.zip
+  cd
+
+  # Fira Code + Nerd Font patch
   if fc-list | grep -q FiraCode; then
       echo "Fira Code is already installed"
   else
@@ -148,6 +162,7 @@ simple() {
       rm -rf woff2
       rm -rf variable_ttf
       rm -rf ttf
+      wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
   fi
 
   # Font Awesome
@@ -164,27 +179,7 @@ simple() {
       cd
   fi
   
-  # Fira Sans
-  if fc-list | grep -q "Fira Sans"; then
-      echo "Fira Sans is already installed"
-  else
-      mkdir -p ~/.local/share/fonts
-      cd /tmp
-      wget https://github.com/pop-os/fonts/archive/master.zip
-      unzip *.zip
-      mv fonts-master/fira/*.otf ~/.local/share/fonts/
-      rm *.zip
-      rm -rf fonts-master
-      cd
-  fi
-  
   fc-cache -f
-  
-  # --------------------------------------------------------------------------------------------------
-  # Remove unecessary packages
-  # --------------------------------------------------------------------------------------------------
- 
-  sudo apt remove nano 
 
   # --------------------------------------------------------------------------------------------------
   # Sound
@@ -194,7 +189,7 @@ simple() {
   echo -e "\033[1;33mInstalling sound packages...\033[0m"
   echo ""
   
-  sudo apt install -y alsa-utils pulseaudio libavcodec-extra
+  sudo apt install -y libavcodec-extra
 
   # --------------------------------------------------------------------------------------------------
   # Virtual machines
@@ -224,17 +219,16 @@ simple() {
   sudo chmod +x ~/dotfiles/scripts/sync.sh
   sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
-  sudo chmod +x ~/dotfiles/scripts/weather.R
 
   # ==================================================================================================
-  # Set up symlinks and paths
+  # Set up directories and symlinks
   # ==================================================================================================
   
   echo ""
-  echo -e "\033[1;33mSetting up symlinks and paths...\033[0m"
+  echo -e "\033[1;33mSetting up directories and symlinks...\033[0m"
   echo ""
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim,gtk-3.0}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim,.gtkrc-2.0,gtk-3.0,zathura}
   ranger --copy-config=all
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
@@ -252,7 +246,10 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
-  
+  ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
+ 
+  #mkdir -p ~/{Documents,Downloads}
+
   # ==================================================================================================
   # Configure UFW
   # ==================================================================================================
