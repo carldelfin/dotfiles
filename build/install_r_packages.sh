@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #####################################################################################################
 #
@@ -20,14 +20,14 @@ simple() {
 
   Rscript -e 'dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)'
   Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER"))'
-  Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans", "pander", "rmarkdown", "devtools"))'
-
+  Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans", "pander", "rmarkdown", "devtools", "here", "reshape2", "patchwork", "RColorBrewer", "janitor", "data.table", "kableExtra"))'
+  Rscript -e 'devtools::install_git("https://github.com/JanMarvin/readspss.git")'
 }
 
 simple
 
 echo ""
 echo -e "\033[1;32m"--------------------------------------------------------------------------------------------------"\033[0m"
-echo -e "\033[1;32mR packages installation OK\033[0m"
+echo -e "\033[1;32mR package installation OK\033[0m"
 echo -e "\033[1;32m"--------------------------------------------------------------------------------------------------"\033[0m"
 echo ""
