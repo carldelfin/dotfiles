@@ -9,7 +9,7 @@ Plug 'jalvesaq/Nvim-R'
 Plug 'jalvesaq/R-Vim-runtime'
 
 " omnicompletion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " completion using tab
 Plug 'lifepillar/vim-mucomplete'
