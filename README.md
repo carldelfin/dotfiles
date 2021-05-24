@@ -11,7 +11,7 @@ I use my computers almost exclusively for research, and this is reflected in my 
 | Distro              | [Pop!_OS](https://pop.system76.com/)|
 | WM                  | [bspwm](https://github.com/baskerville/bspwm)|
 | Bar                 | [Polybar](https://github.com/polybar/polybar)|
-| Theme               | [Materia Dark](https://github.com/nana-4/materia-theme)|
+| Theme               | [Adwaita One Dark](https://github.com/lonr/adwaita-one-dark)|
 | Icons               | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [Fira Code](https://github.com/tonsky/FiraCode)|
