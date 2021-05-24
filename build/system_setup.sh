@@ -37,7 +37,7 @@ simple() {
   
   sudo apt install -y \
       bspwm picom kitty polybar suckless-tools rofi pass \
-      feh arandr syncthing inkscape zathura ranger
+      feh arandr syncthing inkscape zathura ranger python3-pip
   
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -106,6 +106,9 @@ simple() {
       sudo mv squashfs-root / && sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
       rm nvim.appimage
       cd
+      
+      pip3 install pynvim
+      
   else
       echo "Neovim is already installed"
   fi
