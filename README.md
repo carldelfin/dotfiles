@@ -18,7 +18,7 @@ I use my computers almost exclusively for research, and this is reflected in my 
 
 ## Install <a name = "install"></a>
 
-With the above in mind, the easiest way to get started *is* to clone this repo and running `build.sh`:
+With the above in mind, the easiest way to get started *is* to clone this repo and just executing `build.sh`:
 
 ```bash
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
