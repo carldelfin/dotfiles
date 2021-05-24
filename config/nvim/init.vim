@@ -145,8 +145,6 @@ let g:one_allow_italics = 1
 
 colorscheme one
 
-set guifont=Fira\ Code\ Regular\ Nerd\ Font\ Complete:h15 
-
 " --------------------------------------------------------------
 " various settings
 " --------------------------------------------------------------
