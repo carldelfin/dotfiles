@@ -21,21 +21,15 @@ catch() {
 }
 
 simple() {
-
-  # update indices
-  sudo apt update -qq
-  
-  # install two helper packages we need
-  sudo apt install --no-install-recommends software-properties-common dirmngr
-  
+ 
   # import the signing key (by Michael Rutter) for these repo
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
   
   # add the R 4.0 repo
   sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
   
-  # update again
-  sudo apt update
+  # update
+  sudo apt update -qq
   
   # install
   sudo apt install --no-install-recommends -y \
