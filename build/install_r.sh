@@ -1,10 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 ####################################################################################################
 #
-# This script installs the latest version of R and Radian
+# This script installs the latest version of R
 # https://www.r-project.org/
-# https://github.com/randy3k/radian
 #
 ####################################################################################################
 
@@ -25,21 +24,12 @@ simple() {
   libcurl4-openssl-dev libssl-dev libxt-dev \
   libopenblas-dev liblapack-dev libopencv-dev \
   libcairo2-dev libnode-dev
-  
-  if ! command -v radian &> /dev/null; then
-      sudo apt install -y python3-pip
-      pip3 install -U radian
-      ln -s -f ~/dotfiles/config/.radian_profile ~/.radian_profile
-  else
-      echo "Radian is already installed"
-  fi
-
 }
 
 simple
 
 echo ""
 echo -e "\033[1;32m"--------------------------------------------------------------------------------------------------"\033[0m"
-echo -e "\033[1;32mR and Radian installation OK\033[0m"
+echo -e "\033[1;32mR installation OK\033[0m"
 echo -e "\033[1;32m"--------------------------------------------------------------------------------------------------"\033[0m"
 echo ""
