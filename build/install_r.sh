@@ -32,11 +32,17 @@ simple() {
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
   
   # add the R 4.0 and c2d4u repos
-  sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu hirsute-cran40/"
+  sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
   sudo add-apt-repository ppa:c2d4u.team/c2d4u4.0+
   
+  # update again
+  sudo apt update
+  
+  # install
+  sudo apt install --no-install-recommends -y \
+  r-base r-base-dev
+  
   sudo apt install -y \
-  r-base r-base-dev \
   libclang-dev libssl-dev libxml2-dev \
   libcurl4-openssl-dev libssl-dev libxt-dev \
   libopenblas-dev liblapack-dev libopencv-dev \
