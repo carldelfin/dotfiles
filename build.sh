@@ -156,9 +156,10 @@ function ACTIONS {
 clear
 
 echo ""
-echo "--------------------------------------------------------------------------------------------------"
-echo "Navigate using arrows, select using SPACE (press again to deselect), press ENTER when done"
-echo "--------------------------------------------------------------------------------------------------"
+echo "--------------------------------------------------"
+echo " Navigate using arrows, select using SPACE"
+echo " (press again to deselect), press ENTER when done "
+echo "--------------------------------------------------"
 echo ""
 
 prompt_for_multiselect SELECTED "$OPTIONS_STRING"
