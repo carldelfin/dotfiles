@@ -77,7 +77,8 @@ alias ll='ls -alF --color=auto'
 alias l='ls -CF --color=auto'
 alias ..='cd ..'
 alias c='clear'
-alias vim="nvim"
+alias vim="/usr/bin/nvim.appimage"
+alias nvim="/usr/bin/nvim.appimage"
 
 # ------------------------------------------------------------------------------
 # environment variables
