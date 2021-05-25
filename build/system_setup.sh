@@ -113,7 +113,7 @@ simple() {
       
       pip3 install pynvim
       
-      ./usr/bin/nvim.appimage --headless +PlugInstall +qall
+      /usr/bin/nvim.appimage --headless +PlugInstall +qall
 
   else
       echo "Neovim is already installed"
