@@ -26,6 +26,14 @@ catch() {
 }
 
 simple() {
+  
+  # ==================================================================================================
+  # Ask for hostname
+  # ==================================================================================================
+
+  echo ""
+  read -p 'Select hostname: ' system_hostname
+  hostnamectl set-hostname $system_hostname
 
   # ==================================================================================================
   # Make sure system is up to date
@@ -125,9 +133,6 @@ simple() {
       sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
-
-  # nodejs (required for coc.nvim)
-  #curl -sL install-node.now.sh/lts | sudo bash
 
   # --------------------------------------------------------------------------------------------------
   # Appearance
@@ -261,7 +266,7 @@ simple() {
   sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
   sudo ufw enable
   sudo ufw allow syncthing
- 
+  
 }
 
 simple

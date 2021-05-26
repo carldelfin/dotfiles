@@ -91,3 +91,4 @@ if [ -d "/usr/local/freesurfer" ]; then
 fi
 
 PATH=$PATH:~/.local/bin
+export FZF_DEFAULT_COMMAND="find -L"

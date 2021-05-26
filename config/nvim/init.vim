@@ -122,7 +122,7 @@ endif
 set termguicolors
 
 lua require('bufferline').setup()
-"lua require('neoscroll').setup()
+lua require('neoscroll').setup()
 
 let g:airline_powerline_fonts = 1
 
@@ -213,6 +213,7 @@ let maplocalleader="\<space>"
 
 " toggle NvimTree
 nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <C-r> :NvimTreeRefresh<CR>
 
 " select buffers using df
 nnoremap <silent> df :BufferLinePick<CR>
