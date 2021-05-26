@@ -1,31 +1,48 @@
 # -----------------------------------------------------------------------------------
-# daily backup
+# daily mirror and backup
 # -----------------------------------------------------------------------------------
 
-# to internal drives
-rsync -az --delete --quiet /home /media/cmd/internal1
-rsync -az --delete --quiet /home /media/cmd/internal2
+# do we have a log file?
+mkdir -p ~/logs
 
-# over LAN
-rsync -az --delete --quiet -e ssh /home cmd@192.168.20.74:/media/backup_1/daily_mirror
-
-# -----------------------------------------------------------------------------------
-# weekly backup
-# -----------------------------------------------------------------------------------
-
-# is today friday?
-dayofweek=$(date +"%u")
-if [ "${dayofweek}" -eq 5 ]; then
-
-    # delete backups older than three months (90 days) to save space
-    find /media/cmd/internal1 -maxdepth 1 -type f -name "*.tar.xz" -mtime +90 -exec rm -rf {} \;
-    find /media/cmd/internal2 -maxdepth 2 -type f -name "*.tar.xz" -mtime +90 -exec rm -rf {} \;
-    
-    # set date
-    today=$(date +"%Y%m%d")
-    
-    # create tarballs 
-    tar -cJf /media/cmd/internal1/backup_${today}.tar.xz /media/cmd/internal1/home
-    tar -cJf /media/cmd/internal2/backup_${today}.tar.xz /media/cmd/internal2/home
-    rsync -az --delete --quiet -e ssh /media/cmd/internal2/backup_${today}.tar.xz cmd@192.168.20.74:/media/backup_1/weekly_backup
+if [ ! -f ~/logs/backup.log  ]
+then
+    touch ~/logs/backup.log
 fi
+
+dirs_to_sync=(~/.gnupg ~/.ssh ~/.password-store ~/dotfiles ~/Documents ~/Downloads ~/Zotero ~/qmk_firmware/keyboards)
+
+for i in "${dirs_to_sync[@]}"; do
+	
+	rsync -az --delete --quiet $i /media/cmd/mirror/
+	now=$(date "+%Y-%m-%d %H:%M:%S")
+	echo "$now Syncing $i to /media/cmd/mirror complete" >> ~/logs/backup.log
+
+	rsync -az --delete --quiet $i /media/cmd/archive/mirror
+	now=$(date "+%Y-%m-%d %H:%M:%S")
+	echo "$now Syncing $i to /media/cmd/archive/mirror complete" >> ~/logs/backup.log
+done
+
+# check disk usage on /media/cmd/archive
+# TODO: refactor this to someting simpler
+percent_used=$(df -hl /media/cmd/archive | awk '{print $5}' | tail -n1 | sed 's/%//')
+
+# if 95% or more of available disk space is used, delete the oldest tarball
+if [[ $percent_used -ge 95 ]]
+then               
+    cd /media/cmd/archive/tarballs
+    rm "$(ls -t | tail -1)"
+    cd
+	now=$(date "+%Y-%m-%d %H:%M:%S")
+    echo "$now Limited disk space on /media/cmd/archive ($percent_used% is used), had to delete oldest tarball" >> ~/logs/backup.log
+else
+	now=$(date "+%Y-%m-%d %H:%M:%S")
+	echo "$now Note! $percent_used% of disk space on /media/cmd/archive is used" >> ~/logs/backup.log
+fi
+
+    
+# create tarball 
+#today=$(date +"%Y%m%d")
+#tar -cJf /media/cmd/archive/tarballs/mirror_${today}.tar.xz /media/cmd/archive/mirror
+#now=$(date "+%Y-%m-%d %H:%M:%S")
+#echo "$now Tarball of /media/cmd/archive/mirror complete" >> ~/logs/backup.log

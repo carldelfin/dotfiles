@@ -16,7 +16,7 @@ super + d
 
 # rofi power menu
 super + shift + x
-  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete' -width 16 -lines 6
+  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
 
 super + comma
   	amixer -D pulse sset Master 5%-
