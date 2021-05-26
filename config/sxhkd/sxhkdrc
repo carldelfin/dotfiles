@@ -12,7 +12,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show run -theme my_theme -font 'JetBrains\ Mono\ Medium\ Nerd\ Font\ Complete 12' -width 26
+	rofi -show run -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
 
 # rofi power menu
 super + shift + x
