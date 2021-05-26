@@ -59,7 +59,6 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
      PS1='${debian_chroot:+($debian_chroot)}\[\e[1;93m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;93m\]\h \[\e[37m\]in \[\e[1;93m\]\w \n \[\e[2;49;39m\]\$ \[\e[0m\]'
