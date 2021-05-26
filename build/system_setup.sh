@@ -239,6 +239,7 @@ simple() {
   ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
   ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+  sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
@@ -251,19 +252,19 @@ simple() {
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   
   # now that symlinks are setup, install neovim plugins
-  /usr/bin/nvim.appimage --headless +PlugInstall +qall
+  /usr/bin/nvim.appimage --headless +pluginstall +qall
   
   # ==================================================================================================
-  # Configure UFW
+  # configure ufw
   # ==================================================================================================
   
   echo ""
-  echo -e "\033[1;33mConfiguring UFW...\033[0m"
+  echo -e "\033[1;33mconfiguring ufw...\033[0m"
   echo ""
   
   sudo ufw default deny incoming
   sudo ufw default allow outgoing
-  sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
+  sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within lan
   sudo ufw enable
   sudo ufw allow syncthing
   
