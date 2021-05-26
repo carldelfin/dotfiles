@@ -2,8 +2,9 @@
 
 #####################################################################################################
 #
-# This script installs the latest version of Zotero
+# This script installs the latest version of Zotero as well as a Java runtime environment (JRE)
 # https://www.zotero.org/
+# https://openjdk.java.net/
 # 
 #####################################################################################################
 
@@ -35,7 +36,7 @@ simple() {
           fi
       fi
       sudo apt update
-      sudo apt install -y zotero
+      sudo apt install -y zotero default-jre
   else
       echo "Zotero is already installed"
   fi
