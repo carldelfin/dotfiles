@@ -14,9 +14,6 @@ Plug 'jalvesaq/R-Vim-runtime'
 " completion using tab
 Plug 'lifepillar/vim-mucomplete'
 
-" better R syntax highlighting
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 " airline status
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -223,7 +220,6 @@ let maplocalleader="\<space>"
 
 " select buffers using df
 nnoremap <silent> df :BufferLinePick<CR>
-tnoremap <silent> df <Nop> 
 
 "let g:nvim_tree_auto_open = 1
 "let g:nvim_tree_auto_close = 1
@@ -264,13 +260,6 @@ highlight CursorLineNr term=bold gui=bold guifg=LightGreen
 highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
 
 lua <<EOF
---require'nvim-treesitter.configs'.setup {
---ensure_installed = {"r", "bash", "comment", "latex", "python", "toml", "yaml", "regex", "json"},
---  highlight = {
---    enable = true
---    },
---}
-
 require('bufferline').setup {
   options = {
     offsets = {{filetype = "NvimTree", text = "", highlight = "Directory"}},
