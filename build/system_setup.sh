@@ -152,23 +152,15 @@ simple() {
   rm master.zip
   cd
 
-  # Fira Code font
-  if fc-list | grep -q FiraCode; then
-      echo "Fira Code is already installed"
+  # JetBrainsMono with Nerd Font patch
+  if fc-list | grep -q JetaBrains; then
+      echo "JetBrainsMono is already installed"
   else
       mkdir -p ~/.local/share/fonts
       cd ~/.local/share/fonts
-      wget https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
+      wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
       unzip *.zip
-      mv ~/.local/share/fonts/ttf/*.ttf ~/.local/share/fonts
-      rm *.txt
-      rm *.html
       rm *.zip
-      rm *.css
-      rm -rf woff
-      rm -rf woff2
-      rm -rf variable_ttf
-      rm -rf ttf
   fi
 
   # Font Awesome
