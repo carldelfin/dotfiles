@@ -12,7 +12,7 @@
    viewBox="0 0 910.16664 381.00001"
    version="1.1"
    id="svg877"
-   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
    sodipodi:docname="pop_one_dark.svg"
    inkscape:export-filename="/home/cmd/Documents/pop_one_dark.png"
    inkscape:export-xdpi="100"
@@ -27,16 +27,16 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.25"
-     inkscape:cx="-1544.8671"
-     inkscape:cy="1381.565"
+     inkscape:cx="1997.6292"
+     inkscape:cy="1663.5257"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
-     inkscape:window-width="3436"
+     inkscape:window-width="1716"
      inkscape:window-height="1406"
-     inkscape:window-x="0"
+     inkscape:window-x="1720"
      inkscape:window-y="30"
      inkscape:window-maximized="0"
      inkscape:pagecheckerboard="true"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -69,7 +69,8 @@
        x="86.783325"
        y="95.25" />
     <g
-       id="g1506">
+       id="g1506"
+       transform="matrix(0.55237708,0,0,0.55237708,242.55194,127.90825)">
       <path
          style="fill:#61afef;fill-opacity:1;stroke-width:0.261108"
          id="path2"
