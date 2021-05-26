@@ -8,9 +8,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'jalvesaq/Nvim-R'
 Plug 'jalvesaq/R-Vim-runtime'
 
-" omnicompletion
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " completion using tab
 Plug 'lifepillar/vim-mucomplete'
 
@@ -54,13 +51,14 @@ Plug 'chengzeyi/fzf-preview.vim'
 let g:fzf_command_prefix = 'FZF'
 
 " nvimtree.lua
-"Plug 'kyazdani42/nvim-web-devicons' " for file icons
-"Plug 'kyazdani42/nvim-tree.lua'
-"Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ryanoasis/vim-devicons'
 
 " bbye
 Plug 'moll/vim-bbye'
 
+" smooth scrolling
 Plug 'karb94/neoscroll.nvim'
 
 call plug#end()
@@ -214,14 +212,14 @@ let mapleader = ","
 let maplocalleader="\<space>"
 
 " toggle NvimTree
-"nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
 
 " select buffers using df
 nnoremap <silent> df :BufferLinePick<CR>
 
-"let g:nvim_tree_auto_open = 1
-"let g:nvim_tree_auto_close = 1
-"let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_auto_open = 1
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_indent_markers = 1
 
 " fuzzy search
 noremap <C-p> :FZF<CR>
