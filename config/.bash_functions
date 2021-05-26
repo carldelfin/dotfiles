@@ -3,7 +3,7 @@ dotpush() {
 	cd ~/dotfiles
     	git add .
     	if [ -z "$1" ]; then
-    		git commit -m "Minor changes"
+    		git commit -m "Automated dotfiles commit + push via terminal"
 	else
 		git commit -m "$*"
 	fi
