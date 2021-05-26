@@ -119,7 +119,7 @@ function prompt_for_multiselect {
 }
 
 # possible options
-OPTIONS_VALUES=("Exit" "Initial system setup" "Install R" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom" "Install Singularity")
+OPTIONS_VALUES=("Exit" "Initial system setup" "Install R" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom" "Install Singularity" "Install QMK")
 
 for i in "${!OPTIONS_VALUES[@]}"; do
 	OPTIONS_STRING+="${OPTIONS_VALUES[$i]};"
@@ -150,6 +150,9 @@ function ACTIONS {
     fi
     if [ "${SELECTED[7]}" == "true" ]; then
         source ~/dotfiles/build/install_singularity.sh
+    fi
+    if [ "${SELECTED[8]}" == "true" ]; then
+        source ~/dotfiles/build/install_qmk.sh
     fi
 }
 

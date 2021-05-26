@@ -43,8 +43,9 @@ simple() {
   
   sudo apt install -y \
       bspwm picom kitty polybar suckless-tools rofi pass \
-      feh arandr syncthing inkscape zathura ranger python3-pip
-  
+      feh arandr syncthing inkscape zathura ranger python3-pip \
+      exfat-fuse exfat-utils
+
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
