@@ -268,6 +268,17 @@ simple() {
   sudo ufw enable
   sudo ufw allow syncthing
   
+  # ==================================================================================================
+  # setup a cron job for backups
+  # ==================================================================================================
+
+  cd /tmp
+  crontab -l > tmp_cron
+  echo "0 18 * * * bash ~/dotfiles/scripts/backup.sh" >> tmp_cron
+  crontab tmp_cron
+  rm tmp_cron
+  cd
+
 }
 
 simple

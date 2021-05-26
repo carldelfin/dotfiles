@@ -91,3 +91,4 @@ fi
 
 PATH=$PATH:~/.local/bin
 export FZF_DEFAULT_COMMAND="find -L"
+export EDITOR="/usr/bin/nvim.appimage"
