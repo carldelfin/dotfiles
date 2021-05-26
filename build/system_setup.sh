@@ -269,15 +269,18 @@ simple() {
   sudo ufw allow syncthing
   
   # ==================================================================================================
-  # setup a cron job for backups
+  # setup a cron job for backups (only for primary workstation; neuromancer)
   # ==================================================================================================
 
-  cd /tmp
-  crontab -l > tmp_cron
-  echo "0 18 * * * bash ~/dotfiles/scripts/backup.sh" >> tmp_cron
-  crontab tmp_cron
-  rm tmp_cron
-  cd
+  host=$(hostname)
+  if [ $host == neuromancer ]; then
+      cd /tmp
+      crontab -l > tmp_cron
+      echo "0 18 * * * bash ~/dotfiles/scripts/backup.sh" >> tmp_cron
+      crontab tmp_cron
+      rm tmp_cron
+      cd
+  fi
 
 }
 
