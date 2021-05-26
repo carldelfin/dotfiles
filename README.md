@@ -15,7 +15,7 @@ I use my computers almost exclusively for research, and this is reflected in my 
 | Icons               | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)|
 | Wallpaper           | [Pop One Dark](https://github.com/carldelfin/dotfiles/blob/main/wallpaper/pop_one_dark.png)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
-| Terminal font       | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono) (with [Nord Font patch](https://www.nerdfonts.com/font-downloads)|
+| Terminal font       | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono) + [Nord Font patch](https://www.nerdfonts.com/font-downloads)|
 
 ## Install <a name = "install"></a>
 
