@@ -112,8 +112,6 @@ simple() {
       cd
       
       pip3 install pynvim
-      
-      /usr/bin/nvim.appimage --headless +PlugInstall +qall
 
   else
       echo "Neovim is already installed"
@@ -245,7 +243,10 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
-    
+  
+  # now that symlinks are setup, install neovim plugins
+  /usr/bin/nvim.appimage --headless +PlugInstall +qall
+  
   # ==================================================================================================
   # Configure UFW
   # ==================================================================================================
