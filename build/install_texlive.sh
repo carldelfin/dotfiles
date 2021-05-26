@@ -20,7 +20,7 @@ catch() {
 }
 
 simple() {
-  sudo apt install -y texlive texlive-latex-extra texlive-xetex pandoc
+  sudo apt install -y texlive texlive-latex-extra texlive-xetex pandoc pandoc-citeproc
 }
 
 simple
