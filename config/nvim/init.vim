@@ -20,12 +20,10 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 0
 
 " line indentation
-Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '|'
-let g:indentLine_setColors = 0
-let g:indentLine_defaultGroup = 'SpecialKey'
-let g:indent_blankline_char = '|'
+let g:indentLine_char = '▏'
+Plug 'lukas-reineke/indent-blankline.nvim'
+let g:indent_blankline_char = '▏'
 let g:indent_blankline_space_char = " "
 
 " highlight yanks
