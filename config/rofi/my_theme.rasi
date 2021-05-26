@@ -5,11 +5,11 @@
 
 * {
     text-color:                  #e4e1dc;
-    background-color:            #282C34;
+    background-color:            #1e222a;
     dark-text:                   #242424;
     lightbg:                     #534c48;
     red:                         #F14C4C;
-    green:                       #e5c07b; 
+    orange:                      #e5c07b; 
 
     selected-normal-foreground:  @dark-text;
     normal-foreground:           @foreground;
@@ -20,18 +20,18 @@
     active-foreground:           @foreground;
     selected-active-foreground:  @foreground;
     alternate-normal-foreground: @foreground;
-    alternate-active-background: @green;
+    alternate-active-background: @orange;
     bordercolor:                 @foreground;
     normal-background:           @background;
-    selected-normal-background:  @green;
-    separatorcolor:              @green;
+    selected-normal-background:  @orange;
+    separatorcolor:              @orange;
     spacing:                     2;
     urgent-background:           @red;
     alternate-urgent-foreground: @foreground;
     selected-urgent-background:  @red;
     alternate-active-foreground: @foreground;
-    selected-active-background:  @green;
-    active-background:           @green;
+    selected-active-background:  @orange;
+    active-background:           @orange;
 }
 #window {
     border:     0;
