@@ -12,9 +12,10 @@ Plug 'jalvesaq/R-Vim-runtime'
 Plug 'lifepillar/vim-mucomplete'
 
 " airline status
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline#extensions#tabline#enabled = 0
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"let g:airline#extensions#tabline#enabled = 0
+Plug 'hoob3rt/lualine.nvim'
 
 " line indentation
 Plug 'Yggdroot/indentLine'
@@ -27,7 +28,8 @@ let g:indent_blankline_space_char = " "
 Plug 'machakann/vim-highlightedyank'
 
 " colorscheme
-Plug 'rakr/vim-one'
+"Plug 'rakr/vim-one'
+Plug 'marko-cerovac/material.nvim'
 
  " buffer tabs
 Plug 'akinsho/nvim-bufferline.lua'
@@ -121,10 +123,7 @@ endif
 
 set termguicolors
 
-lua require('bufferline').setup()
 lua require('neoscroll').setup()
-
-let g:airline_powerline_fonts = 1
 
 syntax enable
 syntax on
@@ -133,10 +132,24 @@ set encoding=utf8
 set t_Co=256
 set t_ut=
 
-let g:airline_theme = 'one'
-let g:one_allow_italics = 1
+autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252
+autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg
 
-colorscheme one
+lua <<EOF
+-- Example config in lua
+vim.g.material_style = 'darker'
+vim.g.material_italic_comments = true
+vim.g.material_italic_keywords = true
+vim.g.material_italic_functions = true
+vim.g.material_italic_variables = false
+vim.g.material_contrast = true
+vim.g.material_borders = false
+vim.g.material_disable_background = false
+vim.g.material_custom_colors = { bg = "#1e222a", bg_alt = "#1e222a", comments = "#c5c5c5"}
+
+-- Load the colorscheme
+require('material').set()
+EOF
 
 " --------------------------------------------------------------
 " various settings
@@ -254,12 +267,39 @@ highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
 highlight CursorLineNr term=bold gui=bold guifg=LightGreen
 
 " modify background color
-highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
+"highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
 
 lua <<EOF
 require('bufferline').setup {
   options = {
     offsets = {{filetype = "NvimTree", text = "", highlight = "Directory"}},
   }
+}
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'material-nvim',
+    section_separators = {'', ''},
+    component_separators = {'', ''},
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
 }
 EOF
