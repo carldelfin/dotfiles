@@ -132,12 +132,10 @@ set encoding=utf8
 set t_Co=256
 set t_ut=
 
-autocmd ColorScheme * highlight highlight NvimTreeBg guibg=#2B4252
-autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg
 
 lua <<EOF
 -- Example config in lua
-vim.g.material_style = 'darker'
+vim.g.material_style = 'ocean deep'
 vim.g.material_italic_comments = true
 vim.g.material_italic_keywords = true
 vim.g.material_italic_functions = true
@@ -145,7 +143,7 @@ vim.g.material_italic_variables = false
 vim.g.material_contrast = true
 vim.g.material_borders = false
 vim.g.material_disable_background = false
-vim.g.material_custom_colors = { bg = "#1e222a", bg_alt = "#1e222a", comments = "#c5c5c5"}
+--vim.g.material_custom_colors = { bg = "#1e222a", bg_alt = "#1e222a", comments = "#c5c5c5"}
 
 -- Load the colorscheme
 require('material').set()
