@@ -1,8 +1,5 @@
 [Default Applications]
-application/eps=zathura.desktop
-application/pdf=zathura.desktop
-application/postscript=zathura.desktop
-application/x-eps=zathura.desktop
-image/eps=zathura.desktop
-image/vnd.djvu=zathura.desktop
-image/x-eps=zathura.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+
+[Added Associations]
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
