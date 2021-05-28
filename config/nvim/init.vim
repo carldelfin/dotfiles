@@ -11,10 +11,7 @@ Plug 'jalvesaq/R-Vim-runtime'
 " completion using tab
 Plug 'lifepillar/vim-mucomplete'
 
-" airline status
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"let g:airline#extensions#tabline#enabled = 0
+" lualine.nvim
 Plug 'hoob3rt/lualine.nvim'
 
 " line indentation
@@ -28,7 +25,6 @@ let g:indent_blankline_space_char = " "
 Plug 'machakann/vim-highlightedyank'
 
 " colorscheme
-"Plug 'rakr/vim-one'
 Plug 'marko-cerovac/material.nvim'
 
  " buffer tabs
@@ -132,18 +128,17 @@ set encoding=utf8
 set t_Co=256
 set t_ut=
 
-
 lua <<EOF
 -- Example config in lua
-vim.g.material_style = 'ocean deep'
+vim.g.material_style = "darker"
 vim.g.material_italic_comments = true
 vim.g.material_italic_keywords = true
 vim.g.material_italic_functions = true
 vim.g.material_italic_variables = false
-vim.g.material_contrast = true
-vim.g.material_borders = false
+vim.g.material_contrast = false
+vim.g.material_borders = true 
 vim.g.material_disable_background = false
---vim.g.material_custom_colors = { bg = "#1e222a", bg_alt = "#1e222a", comments = "#c5c5c5"}
+--vim.g.material_custom_colors = {bg = "#1e122a", comments = "#414a64"}
 
 -- Load the colorscheme
 require('material').set()
@@ -262,7 +257,7 @@ noremap <LocalLeader>l <cmd>HopLine<cr>
 
 " modify linenumber colors 
 highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
-highlight CursorLineNr term=bold gui=bold guifg=LightGreen
+"highlight CursorLineNr term=bold gui=bold guifg=LightGreen
 
 " modify background color
 "highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
