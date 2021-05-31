@@ -104,7 +104,7 @@ simple() {
   # Mullvad
   if ! command -v mullvad &> /dev/null; then
       cd /tmp
-      wget https://mullvad.net/media/app/MullvadVPN-2020.7_amd64.deb
+      wget https://mullvad.net/media/app/MullvadVPN-2021.3_amd64.deb
       sudo apt install -y ./*.deb
       rm *.deb
       cd
