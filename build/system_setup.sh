@@ -143,7 +143,7 @@ simple() {
   echo ""
   
   # JetBrainsMono with Nerd Font patch
-  if fc-list | grep -q JetaBrains; then
+  if fc-list | grep -q JetBrains; then
       echo "JetBrainsMono is already installed"
   else
       mkdir -p ~/.local/share/fonts
@@ -238,7 +238,7 @@ simple() {
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   
   # now that symlinks are setup, install neovim plugins
-  /usr/bin/nvim.appimage --headless +pluginstall +qall
+  /usr/bin/nvim.appimage --headless +PlugInstall +qall
   
   # ==================================================================================================
   # configure ufw
