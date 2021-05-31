@@ -78,7 +78,7 @@ alias ..='cd ..'
 alias c='clear'
 alias vim="/usr/bin/nvim.appimage"
 alias nvim="/usr/bin/nvim.appimage"
-
+alias zathura="tabbed -c zathura -e"
 # ------------------------------------------------------------------------------
 # environment variables
 # ------------------------------------------------------------------------------
