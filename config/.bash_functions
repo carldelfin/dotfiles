@@ -17,3 +17,9 @@ dotpull() {
 	git pull
 	cd
 }
+
+# open zathura in tabbed mode
+ztab() {
+    tabbed -c zathura "$1" -e
+}
+
