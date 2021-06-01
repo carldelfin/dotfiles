@@ -271,7 +271,7 @@ require('bufferline').setup {
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'material-nvim',
+    theme = 'material',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
