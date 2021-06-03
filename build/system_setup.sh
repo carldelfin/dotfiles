@@ -141,6 +141,18 @@ simple() {
   echo ""
   echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
   echo ""
+
+  # Adwaita One Dark
+  sudo mkdir -p /usr/share/themes
+  cd /tmp
+  wget https://github.com/lonr/adwaita-one-dark/archive/refs/heads/master.zip
+  unzip master.zip
+  cd adwaita-one-dark-master
+  sudo cp -r Adwaita-One-Dark /usr/share/themes/
+  cd ..
+  rm -rf adwaita-one-dark-master
+  rm master.zip
+  cd
   
   # JetBrainsMono with Nerd Font patch
   if fc-list | grep -q JetBrains; then
