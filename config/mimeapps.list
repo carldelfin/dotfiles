@@ -1,5 +1,5 @@
 [Default Applications]
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+application/pdf=qpdfview.desktop;
 
 [Added Associations]
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+application/pdf=qpdfview.desktop;

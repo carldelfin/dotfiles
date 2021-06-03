@@ -42,7 +42,7 @@ fi
 
     
 # create tarball 
-#today=$(date +"%Y%m%d")
-#tar -cJf /media/cmd/archive/tarballs/mirror_${today}.tar.xz /media/cmd/archive/mirror
-#now=$(date "+%Y-%m-%d %H:%M:%S")
-#echo "$now Tarball of /media/cmd/archive/mirror complete" >> ~/logs/backup.log
+today=$(date +"%Y%m%d")
+tar -cJf /media/cmd/archive/tarballs/mirror_${today}.tar.xz /media/cmd/archive/mirror
+now=$(date "+%Y-%m-%d %H:%M:%S")
+echo "$now Tarball of /media/cmd/archive/mirror complete" >> ~/logs/backup.log
