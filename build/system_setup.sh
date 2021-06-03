@@ -221,6 +221,7 @@ simple() {
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
+  ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
   ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
   ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0

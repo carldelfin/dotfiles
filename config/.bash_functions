@@ -3,7 +3,7 @@ dotpush() {
 	cd ~/dotfiles
     	git add .
     	if [ -z "$1" ]; then
-    		git commit -m "Automated dotfiles commit + push via terminal"
+    		git commit -m "Automated dotfiles commit + push from terminal"
 	else
 		git commit -m "$*"
 	fi
@@ -15,6 +15,25 @@ dotpush() {
 dotpull() {
 	cd ~/dotfiles
 	git pull
+	cd
+}
+
+# push changes in website to github
+webpush() {
+	cd ~/Documents/private/carldelfin.github.io
+    	git add .
+    	if [ -z "$1" ]; then
+    		git commit -m "Automated website commit + push via terminal"
+	else
+		git commit -m "$*"
+	fi
+    	git push
+	cd
+}
+
+# pull changes in website from github
+webpull() {
+	cd ~/Documents/private/carldelfin.github.ipull
 	cd
 }
 

@@ -15,17 +15,15 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'hoob3rt/lualine.nvim'
 
 " line indentation
-Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '▏'
-Plug 'lukas-reineke/indent-blankline.nvim'
-let g:indent_blankline_char = '▏'
-let g:indent_blankline_space_char = " "
+Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 
 " highlight yanks
 Plug 'machakann/vim-highlightedyank'
 
 " colorscheme
-Plug 'marko-cerovac/material.nvim'
+"Plug 'marko-cerovac/material.nvim'
+Plug 'tjdevries/colorbuddy.vim'
+Plug 'Th3Whit3Wolf/onebuddy'
 
  " buffer tabs
 Plug 'akinsho/nvim-bufferline.lua'
@@ -112,6 +110,17 @@ set showmatch
 " appearance
 " ---------------------------------------------------------------------------------------------------------------------
 
+let g:indentLine_char='│'
+let g:indent_blankline_space_char='·'
+let g:indent_blankline_filetype_exclude=['term']
+let g:indent_blankline_show_first_indent_level=v:true
+let g:indent_blankline_show_trailing_blankline_indent=v:false
+
+" Filetype {{{
+filetype plugin indent on
+" }}}
+"
+
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -128,21 +137,7 @@ set encoding=utf8
 set t_Co=256
 set t_ut=
 
-lua <<EOF
--- Example config in lua
-vim.g.material_style = "darker"
-vim.g.material_italic_comments = true
-vim.g.material_italic_keywords = true
-vim.g.material_italic_functions = true
-vim.g.material_italic_variables = false
-vim.g.material_contrast = false
-vim.g.material_borders = true 
-vim.g.material_disable_background = false
---vim.g.material_custom_colors = {bg = "#1e122a", comments = "#414a64"}
-
--- Load the colorscheme
-require('material').set()
-EOF
+lua require('colorbuddy').colorscheme('onebuddy')
 
 " --------------------------------------------------------------
 " various settings
@@ -257,10 +252,10 @@ noremap <LocalLeader>l <cmd>HopLine<cr>
 
 " modify linenumber colors 
 highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
-"highlight CursorLineNr term=bold gui=bold guifg=LightGreen
+highlight CursorLineNr term=bold gui=bold guifg=LightGreen
 
 " modify background color
-"highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
+highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
 
 lua <<EOF
 require('bufferline').setup {
@@ -271,7 +266,7 @@ require('bufferline').setup {
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'material',
+    theme = 'onedark',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
