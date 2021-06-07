@@ -24,7 +24,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tjdevries/colorbuddy.vim'
 Plug 'Th3Whit3Wolf/onebuddy'
 
- " buffer tabs
+" buffer tabs
 Plug 'akinsho/nvim-bufferline.lua'
 
 " pandoc
@@ -246,11 +246,15 @@ nnoremap <C-k> <C-w>k " up
 nnoremap <C-l> <C-w>l " right
 
 " jump to char using bigram
-nnoremap <LocalLeader>j <cmd>HopChar1<cr>
+" nnoremap <LocalLeader>j <cmd>HopChar1<cr>
 nnoremap <LocalLeader>k <cmd>HopChar2<cr>
 "nmap <C-c> <cmd>HopPattern><cr>
 noremap <LocalLeader>l <cmd>HopLine<cr>
 "nmap <C-a> <cmd>HopWord<cr>
+
+lua << EOF
+vim.api.nvim_set_keymap('n', '<LocalLeader>j', "<cmd>lua require'hop'.hint_words()<cr>", {})
+EOF
 
 " modify linenumber colors 
 highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
@@ -293,3 +297,8 @@ require'lualine'.setup {
   extensions = {}
 }
 EOF
+
+highlight HopNextKey guifg=#ff007c gui=bold ctermfg=198 cterm=bold
+highlight HopNextKey1 guifg=#00dfff guibg=#262b35 gui=bold ctermfg=45 cterm=bold
+highlight HopNextKey2 guifg=#2b8db3 guibg=#262b35 ctermfg=33
+highlight HopUnmatched guifg=#666666 guibg=#262b35 ctermfg=242
