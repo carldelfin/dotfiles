@@ -21,7 +21,6 @@ Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 Plug 'machakann/vim-highlightedyank'
 
 " colorscheme
-"Plug 'marko-cerovac/material.nvim'
 Plug 'tjdevries/colorbuddy.vim'
 Plug 'Th3Whit3Wolf/onebuddy'
 
@@ -56,6 +55,9 @@ Plug 'moll/vim-bbye'
 
 " smooth scrolling
 Plug 'karb94/neoscroll.nvim'
+
+" save sessions
+Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -165,8 +167,8 @@ let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 
 " open R automatically when opening .R and .Rmd files
-autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
-autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+"autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+"autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 
 " make sure R follows colorscheme
 let g:rout_follow_colorscheme = 1
@@ -219,7 +221,7 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 " select buffers using df
 nnoremap <silent> df :BufferLinePick<CR>
 
-let g:nvim_tree_auto_open = 1
+let g:nvim_tree_auto_open = 0
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_indent_markers = 1
 

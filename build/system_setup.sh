@@ -52,7 +52,10 @@ simple() {
   sudo apt install -y \
       bspwm picom kitty polybar suckless-tools rofi pass \
       feh arandr syncthing inkscape zathura ranger python3-pip \
-      exfat-fuse exfat-utils htop
+      exfat-fuse exfat-utils htop tmux
+    
+  # tmux tpm 
+   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -236,6 +239,7 @@ simple() {
   ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
   ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
   ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
+  ln -s -f ~/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
   ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
   sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
