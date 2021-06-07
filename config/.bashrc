@@ -94,8 +94,13 @@ alias zathura="ztab"
 
 # freesurfer
 if [ -d "/usr/local/freesurfer" ]; then
-  export FREESURFER_HOME=/usr/local/freesurfer
-  source $FREESURFER_HOME/SetUpFreeSurfer.sh
+    export FREESURFER_HOME=/usr/local/freesurfer
+    source $FREESURFER_HOME/SetUpFreeSurfer.sh
+fi
+
+# matlab 
+if [ -d "/usr/local/matlab" ]; then
+    export _JAVA_AWT_WM_NONREPARENTING=1
 fi
 
 PATH=$PATH:~/.local/bin
