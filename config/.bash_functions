@@ -1,6 +1,7 @@
 # push changes in dotfiles to github
 dotpush() {
 	cd ~/dotfiles
+        git pull # to avoid conflicts
     	git add .
     	if [ -z "$1" ]; then
     		git commit -m "Automated dotfiles commit + push from terminal"
@@ -21,6 +22,7 @@ dotpull() {
 # push changes in website to github
 webpush() {
 	cd ~/Documents/private/carldelfin.github.io
+        git pull # to avoid conflicts
     	git add .
     	if [ -z "$1" ]; then
     		git commit -m "Automated website commit + push via terminal"
