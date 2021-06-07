@@ -71,9 +71,9 @@ esac
 # autostart tmux
 # ------------------------------------------------------------------------------
 
-#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#  exec tmux
-#fi
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
 
 # ------------------------------------------------------------------------------
 # aliases
@@ -99,7 +99,7 @@ if [ -d "/usr/local/freesurfer" ]; then
 fi
 
 # matlab 
-if [ -d "/usr/local/matlab" ]; then
+if [ -d "/usr/local/MATLAB" ]; then
     export _JAVA_AWT_WM_NONREPARENTING=1
 fi
 

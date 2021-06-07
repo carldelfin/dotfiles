@@ -246,15 +246,10 @@ nnoremap <C-k> <C-w>k " up
 nnoremap <C-l> <C-w>l " right
 
 " jump to char using bigram
-" nnoremap <LocalLeader>j <cmd>HopChar1<cr>
+nnoremap <LocalLeader>j <cmd>HopWord<cr>
 nnoremap <LocalLeader>k <cmd>HopChar2<cr>
 "nmap <C-c> <cmd>HopPattern><cr>
-noremap <LocalLeader>l <cmd>HopLine<cr>
-"nmap <C-a> <cmd>HopWord<cr>
-
-lua << EOF
-vim.api.nvim_set_keymap('n', '<LocalLeader>j', "<cmd>lua require'hop'.hint_words()<cr>", {})
-EOF
+"noremap <LocalLeader>l <cmd>HopLine<cr>
 
 " modify linenumber colors 
 highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
