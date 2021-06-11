@@ -23,7 +23,7 @@ simple() {
                                  "pander", "rmarkdown", "blogdown", "devtools", "here", "reshape2", "patchwork",
                                  "RColorBrewer", "janitor", "data.table", "kableExtra", "performance",
                                  "officer", "flextable", "bayesplot", "haven", "lavaan", "blavaan",
-                                 "lintr", "GPArotation", "vroom"))'
+                                 "lintr", "GPArotation", "vroom", "ggseg"))'
   Rscript -e 'devtools::install_git("https://github.com/JanMarvin/readspss.git")'
 }
 

@@ -34,12 +34,13 @@ simple() {
   # install
   sudo apt install --no-install-recommends -y \
   r-base r-base-dev
-  
+ 
+  # packages required for certain R libraries
   sudo apt install -y \
   libclang-dev libssl-dev libxml2-dev \
   libcurl4-openssl-dev libssl-dev libxt-dev \
   libopenblas-dev liblapack-dev libopencv-dev \
-  libcairo2-dev libnode-dev
+  libcairo2-dev libnode-dev libgdal-dev libudunits2-dev
 }
 
 simple
