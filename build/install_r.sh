@@ -40,7 +40,9 @@ simple() {
   libclang-dev libssl-dev libxml2-dev \
   libcurl4-openssl-dev libssl-dev libxt-dev \
   libopenblas-dev liblapack-dev libopencv-dev \
-  libcairo2-dev libnode-dev libgdal-dev libudunits2-dev
+  libcairo2-dev libnode-dev libgdal-dev \
+  libudunits2-dev libprotobuf-dev protobuf-compiler \
+  libjq-dev libmagick++-dev
 }
 
 simple
