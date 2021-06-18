@@ -247,9 +247,9 @@ nnoremap <C-l> <C-w>l " right
 
 " jump to char using bigram
 nnoremap <LocalLeader>j <cmd>HopWord<cr>
-nnoremap <LocalLeader>k <cmd>HopChar2<cr>
+nnoremap <LocalLeader>h <cmd>HopChar2<cr>
 "nmap <C-c> <cmd>HopPattern><cr>
-"noremap <LocalLeader>l <cmd>HopLine<cr>
+nnoremap <LocalLeader>k <cmd>HopLine<cr>
 
 " modify linenumber colors 
 highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
