@@ -59,6 +59,9 @@ Plug 'karb94/neoscroll.nvim'
 " save sessions
 Plug 'tpope/vim-obsession'
 
+" todo lists
+Plug 'aserebryakov/vim-todo-lists'
+
 call plug#end()
 
 " ---------------------------------------------------------------------------------------------------------------------
