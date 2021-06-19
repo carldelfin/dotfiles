@@ -209,6 +209,11 @@ let R_min_editor_width = 18
 let R_objbr_place = "RIGHT"
 let R_objbr_w = 30
 
+" LSP settings
+"let g:LanguageClient_serverCommands = {
+"    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
+"    \ }
+
 " --------------------------------------------------------------
 " keybindings
 " --------------------------------------------------------------
