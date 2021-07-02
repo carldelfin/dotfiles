@@ -31,6 +31,9 @@ Plug 'akinsho/nvim-bufferline.lua'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
+" vimtex
+Plug 'lervag/vimtex'
+
 " fade inactive buffers
 Plug 'TaDaa/vimade'
 let g:vimade = {}
@@ -54,10 +57,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'moll/vim-bbye'
 
 " smooth scrolling
-Plug 'karb94/neoscroll.nvim'
+" Plug 'karb94/neoscroll.nvim'
 
 " save sessions
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 
 " todo lists
 Plug 'aserebryakov/vim-todo-lists'
@@ -133,8 +136,6 @@ endif
 
 set termguicolors
 
-lua require('neoscroll').setup()
-
 syntax enable
 syntax on
 
@@ -208,11 +209,6 @@ let R_min_editor_width = 18
 " always place object browser to the right with specific width
 let R_objbr_place = "RIGHT"
 let R_objbr_w = 30
-
-" LSP settings
-"let g:LanguageClient_serverCommands = {
-"    \ 'r': ['R', '--slave', '-e', 'languageserver::run()'],
-"    \ }
 
 " --------------------------------------------------------------
 " keybindings
