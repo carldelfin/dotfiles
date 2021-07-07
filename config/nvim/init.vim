@@ -56,12 +56,6 @@ Plug 'ryanoasis/vim-devicons'
 " bbye
 Plug 'moll/vim-bbye'
 
-" smooth scrolling
-" Plug 'karb94/neoscroll.nvim'
-
-" save sessions
-" Plug 'tpope/vim-obsession'
-
 " todo lists
 Plug 'aserebryakov/vim-todo-lists'
 
@@ -71,7 +65,6 @@ call plug#end()
 " settings
 " ---------------------------------------------------------------------------------------------------------------------
 
-" tabs
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -217,15 +210,16 @@ let R_objbr_w = 30
 " leader keys
 let mapleader = ","
 let maplocalleader="\<space>"
+inoremap kj <Esc>
 
 " toggle NvimTree
 nnoremap <C-n> :NvimTreeToggle<CR>
-"nnoremap <C-r> :NvimTreeRefresh<CR>
+"nnoremap <A-y> :NvimTreeRefresh<CR>
 
 " select buffers using df
-nnoremap <silent> df :BufferLinePick<CR>
+nnoremap <silent> tt :BufferLinePick<CR>
 
-let g:nvim_tree_auto_open = 0
+let g:nvim_tree_auto_open = 1
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_indent_markers = 1
 
@@ -240,20 +234,17 @@ nmap <Return> <Plug>RDSendLine
 vmap <C-o> <LocalLeader>ro
 nmap <C-o> <LocalLeader>ro
 
-" remap Esc to kj
-inoremap kj <Esc>
-
-" move between windows using control+ijkl
-nnoremap <C-h> <C-w>h " left
-nnoremap <C-j> <C-w>j " down
-nnoremap <C-k> <C-w>k " up
-nnoremap <C-l> <C-w>l " right
+" move between windows using alt + mnei
+nnoremap <A-m> <C-w>h " left
+nnoremap <A-n> <C-w>j " down
+nnoremap <A-e> <C-w>k " up
+nnoremap <A-i> <C-w>l " right
 
 " jump to char using bigram
-nnoremap <LocalLeader>j <cmd>HopWord<cr>
-nnoremap <LocalLeader>h <cmd>HopChar2<cr>
+nnoremap <LocalLeader>s <cmd>HopLine<cr>
+nnoremap <LocalLeader>t <cmd>HopWord<cr>
+nnoremap <LocalLeader>g <cmd>HopChar2<cr>
 "nmap <C-c> <cmd>HopPattern><cr>
-nnoremap <LocalLeader>k <cmd>HopLine<cr>
 
 " modify linenumber colors 
 highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
