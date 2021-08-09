@@ -15,7 +15,7 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'hoob3rt/lualine.nvim'
 
 " line indentation
-Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " highlight yanks
 Plug 'machakann/vim-highlightedyank'
@@ -58,6 +58,9 @@ Plug 'moll/vim-bbye'
 
 " todo lists
 Plug 'aserebryakov/vim-todo-lists'
+
+" smooth scrolling
+Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 
@@ -210,29 +213,30 @@ let R_objbr_w = 30
 " leader keys
 let mapleader = ","
 let maplocalleader="\<space>"
-inoremap kj <Esc>
 
 " toggle NvimTree
-nnoremap <C-n> :NvimTreeToggle<CR>
-"nnoremap <A-y> :NvimTreeRefresh<CR>
+nnoremap <A-p> :NvimTreeToggle<CR>
+nnoremap <A-b> :NvimTreeRefresh<CR>
 
 " select buffers using df
 nnoremap <silent> tt :BufferLinePick<CR>
+nnoremap <silent> <A-s> :BufferLineCyclePrev<CR>
+nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
 
 let g:nvim_tree_auto_open = 1
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_indent_markers = 1
 
 " fuzzy search
-noremap <C-p> :FZF<CR>
+noremap <A-f> :FZF<CR>
 
 " use return to send R code
 vmap <Return> <Plug>RDSendSelection
 nmap <Return> <Plug>RDSendLine
 
 " open Nvim-R object browser
-vmap <C-o> <LocalLeader>ro
-nmap <C-o> <LocalLeader>ro
+vmap <A-o> <LocalLeader>ro
+nmap <A-o> <LocalLeader>ro
 
 " move between windows using alt + mnei
 nnoremap <A-m> <C-w>h " left

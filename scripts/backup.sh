@@ -10,7 +10,7 @@ then
     touch ~/logs/backup.log
 fi
 
-dirs_to_sync=(~/.gnupg ~/.ssh ~/.password-store ~/dotfiles ~/Documents ~/Downloads ~/Zotero ~/qmk_firmware/keyboards)
+dirs_to_sync=(~/.gnupg ~/.ssh ~/.password-store ~/dotfiles ~/Documents ~/Downloads ~/Zotero ~/qmk_firmware)
 
 for i in "${dirs_to_sync[@]}"; do
 	
