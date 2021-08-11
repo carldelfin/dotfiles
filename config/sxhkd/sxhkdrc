@@ -35,7 +35,7 @@ super + f
 # ------------------------------------------------------------------------------
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + alt + {q,f}
 	bspc {quit,wm -r}
 
 # close and kill

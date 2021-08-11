@@ -18,7 +18,7 @@ unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 
-# press i to toggle recolor
+# press r to toggle recolor
 map [normal] r recolor
 map [fullscreen] r recolor
 
@@ -29,14 +29,14 @@ map [fullscreen] R rotate
 # open document in best-fit width mode by default
 set adjust-open "best-fit"
 
-# scroll up and down using jk
-map [normal]     j scroll down
-map [fullscreen] j scroll down
-map [normal]     k scroll up
-map [fullscreen] k scroll up
+# scroll up and down using ne
+map [normal]     n scroll down
+map [fullscreen] n scroll down
+map [normal]     e scroll up
+map [fullscreen] e scroll up
 
-# jump pages with hl
-map [normal]     h navigate previous
-map [fullscreen] h navigate previous
-map [normal]     l navigate next
-map [fullscreen] l navigate next
+# jump pages with mi
+map [normal]     m navigate previous
+map [fullscreen] m navigate previous
+map [normal]     i navigate next
+map [fullscreen] i navigate next
