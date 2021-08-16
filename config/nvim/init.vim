@@ -21,8 +21,10 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'machakann/vim-highlightedyank'
 
 " colorscheme
-Plug 'tjdevries/colorbuddy.vim'
-Plug 'Th3Whit3Wolf/onebuddy'
+"Plug 'tjdevries/colorbuddy.vim'
+"Plug 'Th3Whit3Wolf/onebuddy'
+"Plug 'ghifarit53/tokyonight-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " buffer tabs
 Plug 'akinsho/nvim-bufferline.lua'
@@ -61,6 +63,8 @@ Plug 'aserebryakov/vim-todo-lists'
 
 " smooth scrolling
 Plug 'psliwka/vim-smoothie'
+
+Plug 'caenrique/nvim-toggle-terminal'
 
 call plug#end()
 
@@ -131,15 +135,18 @@ if exists('+termguicolors')
 endif
 
 set termguicolors
-
-syntax enable
+" syntax enable
 syntax on
 
 set encoding=utf8
 set t_Co=256
 set t_ut=
 
-lua require('colorbuddy').colorscheme('onebuddy')
+"lua require('colorbuddy').colorscheme('onebuddy')
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
 
 " --------------------------------------------------------------------------------------------------
 " various settings
@@ -214,6 +221,9 @@ let R_objbr_w = 30
 let mapleader = ","
 let maplocalleader="\<space>"
 
+nnoremap <silent> <A-z> :ToggleTerminal<Enter>
+tnoremap <silent> <A-z> <C-\><C-n>:ToggleTerminal<Enter>
+
 " toggle NvimTree
 nnoremap <A-p> :NvimTreeToggle<CR>
 nnoremap <A-b> :NvimTreeRefresh<CR>
@@ -251,11 +261,11 @@ nnoremap <LocalLeader>g <cmd>HopChar2<cr>
 "nmap <C-c> <cmd>HopPattern><cr>
 
 " modify linenumber colors 
-highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
-highlight CursorLineNr term=bold gui=bold guifg=LightGreen
+"highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
+"highlight CursorLineNr term=bold gui=bold guifg=LightGreen
 
 " modify background color
-highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1e222a
+highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1a1b26
 
 lua <<EOF
 require('bufferline').setup {
@@ -266,7 +276,7 @@ require('bufferline').setup {
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'onedark',
+    theme = 'tokyonight',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
@@ -296,4 +306,4 @@ highlight HopNextKey guifg=#ff007c gui=bold ctermfg=198 cterm=bold
 highlight HopNextKey1 guifg=#00dfff guibg=#262b35 gui=bold ctermfg=45 cterm=bold
 highlight HopNextKey2 guifg=#2b8db3 guibg=#262b35 ctermfg=33
 highlight HopUnmatched guifg=#666666 guibg=#262b35 ctermfg=242
-highlight Comment guifg=#00b0b3 guibg=#262b35 ctermfg=242
+"highlight Comment guifg=#F7768E guibg=#382e4a ctermfg=242

@@ -145,17 +145,22 @@ simple() {
   echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
   echo ""
 
-  # Adwaita One Dark
+  # Tokyo Night GTK
   sudo mkdir -p /usr/share/themes
   cd /tmp
-  wget https://github.com/lonr/adwaita-one-dark/archive/refs/heads/master.zip
+  wget https://github.com/koiosdev/Tokyo-Night-Linux/archive/refs/heads/master.zip
   unzip master.zip
-  cd adwaita-one-dark-master
-  sudo cp -r Adwaita-One-Dark /usr/share/themes/
-  cd ..
-  rm -rf adwaita-one-dark-master
+  cd Tokyo-Night-Linux-master/usr/share/themes
+  sudo cp -r TokyoNight /usr/share/themes/
+  cd /tmp
+  rm -rf Tokyo-Night-Linux-master 
   rm master.zip
   cd
+
+  # Numix icons
+  sudo add-apt-repository ppa:numix/ppa
+  sudo apt-get update
+  sudo apt-get install numix-icon-theme
   
   # JetBrainsMono with Nerd Font patch
   if fc-list | grep -q JetBrains; then

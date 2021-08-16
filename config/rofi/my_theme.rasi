@@ -4,12 +4,12 @@
 */
 
 * {
-    text-color:                  #e4e1dc;
-    background-color:            #1e222a;
+    text-color:                  #c0caf5;
+    background-color:            #12121A;
     dark-text:                   #242424;
     lightbg:                     #534c48;
     red:                         #F14C4C;
-    orange:                      #e5c07b; 
+    orange:                      #9ece6a; 
 
     selected-normal-foreground:  @dark-text;
     normal-foreground:           @foreground;
