@@ -30,7 +30,7 @@ while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 picom --config ~/dotfiles/config/picom/picom.conf &
 
 # set desktop background
-feh --bg-scale ~/dotfiles/wallpaper/pop_one_dark.png &
+feh --bg-scale ~/dotfiles/wallpaper/vines.jpg &
 
 # start syncthing
 syncthing -no-browser
