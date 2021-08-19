@@ -192,11 +192,11 @@ simple() {
   echo -e "\033[1;33mInstalling QEMU/KVM...\033[0m"
   echo ""
   
-  sudo apt install -y \
-  qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
+  #sudo apt install -y \
+  #qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
   
-  sudo adduser `id -un` libvirt
-  sudo adduser `id -un` kvm 
+  #sudo adduser `id -un` libvirt
+  #sudo adduser `id -un` kvm 
   
   # ==================================================================================================
   # Make sure relevant configs and scripts are executable
