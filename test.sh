@@ -240,7 +240,7 @@ simple() {
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   
   # now that symlinks are setup, install neovim plugins
-  /usr/bin/nvim.appimage --headless +PlugInstall +qall
+  #/usr/bin/nvim.appimage --headless +PlugInstall +qall
   
   # ==================================================================================================
   # configure ufw
