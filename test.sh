@@ -145,11 +145,6 @@ simple() {
   # Numix icons
   sudo apt-get install numix-icon-theme
   
-  # Pop icons
-  sudo apt-add-repository ppa:system76/pop
-  sudo apt update
-  sudo apt install pop-fonts
-  
   # JetBrainsMono with Nerd Font patch
   if fc-list | grep -q JetBrains; then
       echo "JetBrainsMono is already installed"
