@@ -242,6 +242,20 @@ simple() {
   # now that symlinks are setup, install neovim plugins
   /usr/bin/nvim.appimage --headless +PlugInstall +qall
   
+  # ==================================================================================================
+  # configure ufw
+  # ==================================================================================================
+  
+  echo ""
+  echo -e "\033[1;33mconfiguring ufw...\033[0m"
+  echo ""
+  
+  sudo ufw default deny incoming
+  sudo ufw default allow outgoing
+  sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within lan
+  sudo ufw enable
+  sudo ufw allow syncthing
+  
 }
 
 simple
