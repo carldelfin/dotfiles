@@ -4,74 +4,151 @@
 
 call plug#begin('~/.vim/plugged')
 
-" nvim-r 
+Plug 'neovim/nvim-lspconfig'
 Plug 'jalvesaq/Nvim-R'
 Plug 'jalvesaq/R-Vim-runtime'
-
-" completion using tab
-Plug 'lifepillar/vim-mucomplete'
-
-" lualine.nvim
-Plug 'hoob3rt/lualine.nvim'
-
-" line indentation
-Plug 'lukas-reineke/indent-blankline.nvim'
-
-" highlight yanks
-Plug 'machakann/vim-highlightedyank'
-
-" colorscheme
-"Plug 'tjdevries/colorbuddy.vim'
-"Plug 'Th3Whit3Wolf/onebuddy'
-"Plug 'ghifarit53/tokyonight-vim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
-" buffer tabs
-Plug 'akinsho/nvim-bufferline.lua'
-
-" pandoc
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-
-" vimtex
 Plug 'lervag/vimtex'
-
-" fade inactive buffers
-Plug 'TaDaa/vimade'
-let g:vimade = {}
-let g:vimade.fadelevel = 0.7
-
-" hop.nvim
-Plug 'phaazon/hop.nvim'
-
-" fuzzy find
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'chengzeyi/fzf-preview.vim'
-let g:fzf_command_prefix = 'FZF'
-
-" nvimtree.lua
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-lua/completion-nvim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'ryanoasis/vim-devicons'
-
-" bbye
+Plug 'machakann/vim-highlightedyank'
+Plug 'akinsho/nvim-bufferline.lua'
+Plug 'phaazon/hop.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'onsails/lspkind-nvim'
 Plug 'moll/vim-bbye'
-
-" todo lists
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'aserebryakov/vim-todo-lists'
-
-" smooth scrolling
-Plug 'psliwka/vim-smoothie'
-
-Plug 'caenrique/nvim-toggle-terminal'
+Plug 'karb94/neoscroll.nvim'
 
 call plug#end()
+
+" --------------------------------------------------------------------------------------------------
+" LUA config
+" --------------------------------------------------------------------------------------------------
+
+lua << EOF
+
+-- indent blankline
+require("indent_blankline").setup {
+    char = "│",
+    buftype_exclude = {"terminal"},
+    space_char = ' ',
+    show_first_indent_level = true,
+    show_trailing_blankline_indent = false
+}
+
+-- smooth scrollling
+require('neoscroll').setup()
+
+-- R language server
+require'lspconfig'.r_language_server.setup{}
+
+-- bufferline
+require("bufferline").setup{
+    options = {
+        close_command = "Bdelete",
+        separator_style = "slant",
+        always_show_bufferline = true
+    }
+}
+
+-- treesitter
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false
+    }
+}
+
+-- LSP diagnostics
+vim.lsp.diagnostic.show_line_diagnostics()
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+)
+
+-- lualine
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'tokyonight',
+    section_separators = {'', ''},
+    component_separators = {'', ''},
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+
+-- lsplind
+require('lspkind').init({
+    with_text = true,
+    preset = 'default',
+    symbol_map = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "פּ",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
+    },
+})
+
+EOF
 
 " --------------------------------------------------------------------------------------------------
 " settings
 " --------------------------------------------------------------------------------------------------
 
+" completion
+autocmd BufEnter * lua require'completion'.on_attach()
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+
+" indentation
+filetype plugin indent on
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -114,49 +191,33 @@ set mouse=n
 " highlight matched parens, brackets, beginning and end of code blocks
 set showmatch
 
-" --------------------------------------------------------------------------------------------------
-" appearance
-" --------------------------------------------------------------------------------------------------
+" no redraw during macros
+set lazyredraw
 
-let g:indentLine_char='│'
-let g:indent_blankline_space_char='·'
-let g:indent_blankline_filetype_exclude=['term']
-let g:indent_blankline_show_first_indent_level=v:true
-let g:indent_blankline_show_trailing_blankline_indent=v:false
+ " turn off folding
+set nofoldenable
 
-" Filetype {{{
-filetype plugin indent on
-" }}}
-"
+" terminal coloring and syntax highlight
+set termguicolors
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-set termguicolors
-" syntax enable
 syntax on
 
 set encoding=utf8
 set t_Co=256
 set t_ut=
 
-"lua require('colorbuddy').colorscheme('onebuddy')
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
-
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
 colorscheme tokyonight
 
 " --------------------------------------------------------------------------------------------------
 " various settings
 " --------------------------------------------------------------------------------------------------
-
-" mucomplete settings
-set completeopt+=menuone,noselect
-set shortmess+=c   " Shut off completion messages
-set belloff+=ctrlg " If Vim beeps during completion
-let g:mucomplete#enable_auto_at_startup = 1
 
 " use zathura to view tex output
 let g:vimtex_view_method = 'zathura'
@@ -174,8 +235,8 @@ let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 
 " open R automatically when opening .R and .Rmd files
-"autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
-"autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 
 " make sure R follows colorscheme
 let g:rout_follow_colorscheme = 1
@@ -184,23 +245,12 @@ let g:Rout_more_colors = 1
 " quit R automatically when closing nvim
 autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
-" allow syntax folding, but unfolded when open
-let r_syntax_folding = 1
-set nofoldenable
-
-" startup libraries
-let R_start_libs = 'base,stats,graphics,grDevices,utils,methods,tidyverse'
+" don't allow syntax folding
+let r_syntax_folding = 0
 
 " R may open PDFs once, using zathura, then update that window
 let R_openpdf = 1
 let R_pdfviewer = "zathura"
-
-" use Ctrl+Space to do omnicompletion:
-if has('nvim') || has('gui_running')
-    inoremap <C-Space> <C-x><C-o>
-else
-    inoremap <Nul> <C-x><C-o>
-endif
 
 " don't turn _ into <- 
 let R_assign = 0
@@ -221,89 +271,36 @@ let R_objbr_w = 30
 let mapleader = ","
 let maplocalleader="\<space>"
 
-nnoremap <silent> <A-z> :ToggleTerminal<Enter>
-tnoremap <silent> <A-z> <C-\><C-n>:ToggleTerminal<Enter>
+" telescope
+nnoremap <A-f> <cmd>Telescope file_browser hidden=true<cr>
+nnoremap <A-p> <cmd>Telescope find_files hidden=true<cr>
 
-" toggle NvimTree
-nnoremap <A-p> :NvimTreeToggle<CR>
-nnoremap <A-b> :NvimTreeRefresh<CR>
-
-" select buffers using df
-nnoremap <silent> tt :BufferLinePick<CR>
-nnoremap <silent> <A-s> :BufferLineCyclePrev<CR>
-nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
-
-let g:nvim_tree_auto_open = 1
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_indent_markers = 1
-
-" fuzzy search
-noremap <A-f> :FZF<CR>
-
-" use return to send R code
+" send R code
 vmap <Return> <Plug>RDSendSelection
 nmap <Return> <Plug>RDSendLine
 
-" open Nvim-R object browser
+" Nvim-R object browser
 vmap <A-o> <LocalLeader>ro
 nmap <A-o> <LocalLeader>ro
 
-" move between windows using alt + mnei
+" window movement
 nnoremap <A-m> <C-w>h " left
 nnoremap <A-n> <C-w>j " down
 nnoremap <A-e> <C-w>k " up
 nnoremap <A-i> <C-w>l " right
 
-" jump to char using bigram
-nnoremap <LocalLeader>s <cmd>HopLine<cr>
-nnoremap <LocalLeader>t <cmd>HopWord<cr>
-nnoremap <LocalLeader>g <cmd>HopChar2<cr>
-"nmap <C-c> <cmd>HopPattern><cr>
+" hop 
+nnoremap <A-s> <cmd>HopLine<cr>
+nnoremap <A-t> <cmd>HopWord<cr>
+nnoremap <A-g> <cmd>HopChar2<cr>
 
-" modify linenumber colors 
-"highlight LineNr term=bold cterm=NONE ctermbg=NONE gui=NONE guifg=DarkGray
-"highlight CursorLineNr term=bold gui=bold guifg=LightGreen
+" buffer control 
+nnoremap <silent> tt :BufferLinePick<CR>
+nnoremap <silent> <A-m> :BufferLineCyclePrev<CR>
+nnoremap <silent> <A-i> :BufferLineCycleNext<CR>
+nnoremap <silent> <S-A-m> :BufferLineMovePrev<CR>
+nnoremap <silent> <S-A-i> :BufferLineMoveNext<CR>
 
-" modify background color
-highlight Normal cterm=NONE ctermbg=17 gui=NONE guibg=#1a1b26
-
-lua <<EOF
-require('bufferline').setup {
-  options = {
-    offsets = {{filetype = "NvimTree", text = "", highlight = "Directory"}},
-  }
-}
-require'lualine'.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'tokyonight',
-    section_separators = {'', ''},
-    component_separators = {'', ''},
-    disabled_filetypes = {}
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}
-EOF
-
-highlight HopNextKey guifg=#ff007c gui=bold ctermfg=198 cterm=bold
-highlight HopNextKey1 guifg=#00dfff guibg=#262b35 gui=bold ctermfg=45 cterm=bold
-highlight HopNextKey2 guifg=#2b8db3 guibg=#262b35 ctermfg=33
-highlight HopUnmatched guifg=#666666 guibg=#262b35 ctermfg=242
-"highlight Comment guifg=#F7768E guibg=#382e4a ctermfg=242
+" completion popup navigation
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
