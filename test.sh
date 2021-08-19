@@ -93,8 +93,9 @@ simple() {
   if ! command -v mullvad &> /dev/null; then
       cd /tmp
       wget https://mullvad.net/download/app/deb/latest
-      sudo apt install -y ./*.deb
-      rm *.deb
+      cp latest latest.deb
+      sudo apt install -y ./latest.deb
+      rm latest.deb latest
       cd
   else
       echo "Mullvad is already installed"
