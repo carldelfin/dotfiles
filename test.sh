@@ -212,6 +212,36 @@ simple() {
   sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
   
+  # ==================================================================================================
+  # Set up directories and symlinks
+  # ==================================================================================================
+  
+  echo ""
+  echo -e "\033[1;33mSetting up directories and symlinks...\033[0m"
+  echo ""
+  
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
+
+  ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
+  ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
+  ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
+  ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
+  ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
+  ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
+  ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+  sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
+  ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
+  ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
+  ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
+  ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+  ln -s -f ~/dotfiles/config/rofi/my_theme.rasi ~/.config/rofi/my_theme.rasi
+  ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
+  ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
+  ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
+  
+  # now that symlinks are setup, install neovim plugins
+  /usr/bin/nvim.appimage --headless +PlugInstall +qall
+  
 }
 
 simple
