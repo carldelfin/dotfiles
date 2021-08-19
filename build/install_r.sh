@@ -22,16 +22,6 @@ catch() {
 
 simple() {
  
-  # import the signing key (by Michael Rutter)
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-  
-  # add the R 4.0 repo
-  sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-  
-  # update
-  sudo apt update -qq
-  
-  # install
   sudo apt install --no-install-recommends -y \
   r-base r-base-dev
  
