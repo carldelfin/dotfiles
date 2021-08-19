@@ -184,6 +184,34 @@ simple() {
   
   fc-cache -f
   
+  # --------------------------------------------------------------------------------------------------
+  # Virtual machines
+  # --------------------------------------------------------------------------------------------------
+  
+  echo ""
+  echo -e "\033[1;33mInstalling QEMU/KVM...\033[0m"
+  echo ""
+  
+  sudo apt install -y \
+  qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
+  
+  sudo adduser `id -un` libvirt
+  sudo adduser `id -un` kvm 
+  
+  # ==================================================================================================
+  # Make sure relevant configs and scripts are executable
+  # ==================================================================================================
+  
+  echo ""
+  echo -e "\033[1;33mMaking sure configs and scripts are executable...\033[0m"
+  echo ""
+  
+  sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
+  sudo chmod +x ~/dotfiles/scripts/launch.sh
+  sudo chmod +x ~/dotfiles/scripts/vpn.sh
+  sudo chmod +x ~/dotfiles/scripts/upgrades.sh
+  sudo chmod +x ~/dotfiles/scripts/backup.sh
+  
 }
 
 simple
