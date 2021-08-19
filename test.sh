@@ -36,7 +36,7 @@ simple() {
   xorg x11-xserver-utils \
   bspwm sxhkd picom kitty polybar suckless-tools rofi pass arandr \
   software-properties-common apt-transport-https build-essential \
-  ca-certificates dirmngr make cmake libgtk-3-dev apt-listbugs \
+  ca-certificates dirmngr make cmake gcc libgtk-3-dev apt-listbugs \
   zathura nautilus feh unzip htop syncthing ufw rsync neofetch firefox \
   alsa-utils pulseaudio libavcodec-extra 
 }
