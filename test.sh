@@ -12,6 +12,14 @@ catch() {
 
 simple() {
 
+  # ==================================================================================================
+  # Ask for hostname
+  # ==================================================================================================
+
+  echo ""
+  read -p 'Select hostname: ' system_hostname
+  hostnamectl set-hostname $system_hostname
+
   # ------------------------------------------------------------------------------
   # Upgrade to Debian Sid
   # ------------------------------------------------------------------------------
@@ -89,7 +97,7 @@ simple() {
       echo "rofi-bluetooth is already installed"
   fi
   
-  # Mullvad
+  # mullvad
   if ! command -v mullvad &> /dev/null; then
       cd /tmp
       wget https://mullvad.net/download/app/deb/latest
@@ -99,16 +107,6 @@ simple() {
       cd
   else
       echo "Mullvad is already installed"
-  fi
-
-  # signal
-  if ! command -v signal-desktop & /dev/null; then
-      wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
-      cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
-      echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-      sudo apt update && sudo apt install signal-desktop
-  else
-      echo "Signal is already installed"
   fi
 
   # neovim
@@ -141,7 +139,7 @@ simple() {
   echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
   echo ""
 
-  # Tokyo Night GTK
+  # tokyo night gtk theme
   sudo mkdir -p /usr/share/themes
   cd /tmp
   wget https://github.com/koiosdev/Tokyo-Night-Linux/archive/refs/heads/master.zip
@@ -153,10 +151,10 @@ simple() {
   rm master.zip
   cd
 
-  # Numix icons
+  # numix icons
   sudo apt-get install numix-icon-theme
   
-  # JetBrainsMono with Nerd Font patch
+  # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
       echo "JetBrainsMono is already installed"
   else
@@ -167,7 +165,7 @@ simple() {
       rm *.zip
   fi
 
-  # Font Awesome
+  # font awesome
   if fc-list | grep -q "Font Awesome"; then
       echo "Font Awesome is already installed"
   else
@@ -181,7 +179,7 @@ simple() {
       cd
   fi
   
-  # Google fonts
+  # various google fonts
   if fc-list | grep -q "Roboto"; then
       echo "Google fonts are already installed"
   else
@@ -194,20 +192,6 @@ simple() {
   fi
   
   fc-cache -f
-  
-  # --------------------------------------------------------------------------------------------------
-  # Virtual machines
-  # --------------------------------------------------------------------------------------------------
-  
-  #echo ""
-  #echo -e "\033[1;33mInstalling QEMU/KVM...\033[0m"
-  #echo ""
-  
-  #sudo apt install -y \
-  #qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
-  
-  #sudo adduser `id -un` libvirt
-  #sudo adduser `id -un` kvm 
   
   # ==================================================================================================
   # Make sure relevant configs and scripts are executable
