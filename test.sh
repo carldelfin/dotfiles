@@ -90,15 +90,25 @@ simple() {
   fi
   
   # Mullvad
-  #if ! command -v mullvad &> /dev/null; then
-  #    cd /tmp
-  #    wget https://mullvad.net/media/app/MullvadVPN-2021.3_amd64.deb
-  #    sudo apt install -y ./*.deb
-  #    rm *.deb
-  #    cd
-  #else
-  #    echo "Mullvad is already installed"
-  #fi
+  if ! command -v mullvad &> /dev/null; then
+      cd /tmp
+      wget https://mullvad.net/download/app/deb/latest
+      sudo apt install -y ./*.deb
+      rm *.deb
+      cd
+  else
+      echo "Mullvad is already installed"
+  fi
+
+  # signal
+  if ! command -v signal-desktop & /dev/null; then
+      wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+      cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+      echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+      sudo apt update && sudo apt install signal-desktop
+  else
+      echo "Signal is already installed"
+  fi
 
   # neovim
   if ! command -v nvim &> /dev/null; then
@@ -239,9 +249,6 @@ simple() {
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   
-  # now that symlinks are setup, install neovim plugins
-  #/usr/bin/nvim.appimage --headless +PlugInstall +qall
-  
   # ==================================================================================================
   # configure ufw
   # ==================================================================================================
@@ -259,6 +266,7 @@ simple() {
 }
 
 simple
+
 echo ""
 echo -e "\033[1;32mEverything is set up, time to reboot!\033[0m"
 echo ""
