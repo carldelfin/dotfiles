@@ -11,7 +11,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'carldelfin/akaishi.nvim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -225,6 +225,10 @@ let g:vimtex_view_method = 'zathura'
 " no folding on startup with vim-pandoc
 let g:pandoc#modules#disabled = ["folding", "spell"]
 let g:pandoc#syntax#conceal#use = 0
+
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
 
 " --------------------------------------------------------------------------------------------------
 " R specific settings
