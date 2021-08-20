@@ -38,9 +38,3 @@ webpull() {
 	cd ~/Documents/private/carldelfin.github.ipull
 	cd
 }
-
-# open zathura in tabbed mode
-ztab() {
-    tabbed -c zathura "$1" -e
-}
-
