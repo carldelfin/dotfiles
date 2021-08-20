@@ -1,61 +1,55 @@
-#o/bin/sh
-
-####################################################################################################
-#
-# This script installs things that are required either by the system or by me. Although larger 
-# applications are installed using separate scripts, please note that quite a lot is installed 
-# during system setup as well. In addition, UFW is configured, and several symlinks are setup.
-#
-# As always, do not blindly use this script!
-#
-####################################################################################################
-
-# ==================================================================================================
-# Define a try catch function
-# Based on: https://medium.com/@dirk.avery/the-bash-trap-trap-ce6083f36700
-# ==================================================================================================
+#!/bin/sh
 
 set -e
 trap 'catch $? $LINENO' EXIT
 
 catch() {
-    if [ "$1" != "0" ]; then
+  if [ "$1" != "0" ]; then
     echo -e "\033[1;31mInstallation failed!\033[0m"
     echo -e "\033[1;31mError $1 occurred on $2\033[0m"
   fi
 }
 
 simple() {
-  
+
   # ==================================================================================================
   # Ask for hostname
   # ==================================================================================================
 
   echo ""
   read -p 'Select hostname: ' system_hostname
-  hostnamectl set-hostname $system_hostname
+  sudo hostnamectl set-hostname $system_hostname
 
-  # ==================================================================================================
-  # Make sure system is up to date
-  # ==================================================================================================
+  # ------------------------------------------------------------------------------
+  # Upgrade to Debian Sid
+  # ------------------------------------------------------------------------------
   
-  sudo apt update && sudo apt upgrade -y
+  echo 'deb http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sid.list
+  echo 'deb-src http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sidsrc.list
 
-  # ==================================================================================================
+  sudo cp /tmp/sid.list /etc/apt/sources.list.d/
+  sudo cp /tmp/sidsrc.list /etc/apt/sources.list.d/
+  
+  rm /tmp/sid.list
+  rm /tmp/sidsrc.list
+  
+  sudo apt update
+  sudo apt full-upgrade -y
+  
+  # ------------------------------------------------------------------------------
   # Install packages
-  # ==================================================================================================
-  
-  echo ""
-  echo -e "\033[1;33mInstalling packages...\033[0m"
-  echo ""
-  
+  # ------------------------------------------------------------------------------
+
   sudo apt install -y \
-      bspwm picom kitty polybar suckless-tools rofi pass \
-      feh arandr syncthing inkscape zathura ranger python3-pip \
-      exfat-fuse exfat-utils htop tmux
-    
-  # tmux tpm 
-   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  xorg x11-xserver-utils bspwm sxhkd picom kitty polybar \
+  suckless-tools rofi pass arandr software-properties-common \
+  apt-transport-https build-essential ca-certificates dirmngr \
+  make cmake gcc libgtk-3-dev apt-listbugs zathura nautilus \
+  feh unzip htop syncthing ufw rsync neofetch firefox alsa-utils \
+  pulseaudio libavcodec-extra curl python3-pip exfat-fuse exfat-utils
+
+  # libreoffice
+  sudo apt install -y libreoffice
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -104,12 +98,13 @@ simple() {
       echo "rofi-bluetooth is already installed"
   fi
   
-  # Mullvad
+  # mullvad
   if ! command -v mullvad &> /dev/null; then
       cd /tmp
-      wget https://mullvad.net/media/app/MullvadVPN-2021.3_amd64.deb
-      sudo apt install -y ./*.deb
-      rm *.deb
+      wget https://mullvad.net/download/app/deb/latest
+      cp latest latest.deb
+      sudo apt install -y ./latest.deb
+      rm latest.deb latest
       cd
   else
       echo "Mullvad is already installed"
@@ -136,7 +131,7 @@ simple() {
       sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
-
+  
   # --------------------------------------------------------------------------------------------------
   # Appearance
   # --------------------------------------------------------------------------------------------------
@@ -145,24 +140,10 @@ simple() {
   echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
   echo ""
 
-  # Tokyo Night GTK
-  sudo mkdir -p /usr/share/themes
-  cd /tmp
-  wget https://github.com/koiosdev/Tokyo-Night-Linux/archive/refs/heads/master.zip
-  unzip master.zip
-  cd Tokyo-Night-Linux-master/usr/share/themes
-  sudo cp -r TokyoNight /usr/share/themes/
-  cd /tmp
-  rm -rf Tokyo-Night-Linux-master 
-  rm master.zip
-  cd
-
-  # Numix icons
-  sudo add-apt-repository ppa:numix/ppa
-  sudo apt-get update
-  sudo apt-get install numix-icon-theme
+  # materia gtk theme and numix icons
+  sudo apt install -y materia-gtk-theme numix-icon-theme
   
-  # JetBrainsMono with Nerd Font patch
+  # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
       echo "JetBrainsMono is already installed"
   else
@@ -173,7 +154,7 @@ simple() {
       rm *.zip
   fi
 
-  # Font Awesome
+  # font awesome
   if fc-list | grep -q "Font Awesome"; then
       echo "Font Awesome is already installed"
   else
@@ -187,32 +168,20 @@ simple() {
       cd
   fi
   
+  # various google fonts
+  if fc-list | grep -q "Roboto"; then
+      echo "Google fonts are already installed"
+  else
+      mkdir -p ~/.local/share/fonts
+      cd /tmp
+      wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
+      unzip fonts.zip -d ~/.local/share/fonts
+      rm -rf fonts.zip
+      cd
+  fi
+  
   fc-cache -f
-
-  # --------------------------------------------------------------------------------------------------
-  # Sound
-  # --------------------------------------------------------------------------------------------------
   
-  echo ""
-  echo -e "\033[1;33mInstalling sound packages...\033[0m"
-  echo ""
-  
-  sudo apt install -y libavcodec-extra
-
-  # --------------------------------------------------------------------------------------------------
-  # Virtual machines
-  # --------------------------------------------------------------------------------------------------
-  
-  echo ""
-  echo -e "\033[1;33mInstalling QEMU/KVM...\033[0m"
-  echo ""
-  
-  sudo apt install -y \
-  qemu-system libvirt-daemon-system libvirt-clients virt-manager bridge-utils
-  
-  sudo adduser `id -un` libvirt
-  sudo adduser `id -un` kvm 
-    
   # ==================================================================================================
   # Make sure relevant configs and scripts are executable
   # ==================================================================================================
@@ -224,10 +193,9 @@ simple() {
   sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
   sudo chmod +x ~/dotfiles/scripts/launch.sh
   sudo chmod +x ~/dotfiles/scripts/vpn.sh
-  sudo chmod +x ~/dotfiles/scripts/sync.sh
   sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
-
+  
   # ==================================================================================================
   # Set up directories and symlinks
   # ==================================================================================================
@@ -236,15 +204,13 @@ simple() {
   echo -e "\033[1;33mSetting up directories and symlinks...\033[0m"
   echo ""
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,ranger,nvim,.gtkrc-2.0,gtk-3.0,zathura}
-  ranger --copy-config=all
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
   ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
   ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
   ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
-  ln -s -f ~/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
   ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
   sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
@@ -254,13 +220,8 @@ simple() {
   ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
   ln -s -f ~/dotfiles/config/rofi/my_theme.rasi ~/.config/rofi/my_theme.rasi
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
-  ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-  ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
-  
-  # now that symlinks are setup, install neovim plugins
-  /usr/bin/nvim.appimage --headless +PlugInstall +qall
   
   # ==================================================================================================
   # configure ufw
@@ -276,25 +237,10 @@ simple() {
   sudo ufw enable
   sudo ufw allow syncthing
   
-  # ==================================================================================================
-  # setup a cron job for backups (only for primary workstation; neuromancer)
-  # ==================================================================================================
-
-  host=$(hostname)
-  if [ $host == neuromancer ]; then
-      cd /tmp
-      crontab -l > tmp_cron
-      echo "0 18 * * * bash ~/dotfiles/scripts/backup.sh" >> tmp_cron
-      crontab tmp_cron
-      rm tmp_cron
-      cd
-  fi
-
 }
 
 simple
 
 echo ""
-echo -e "\033[1;32m"--------------------------------------------------------------------------------------------------"\033[0m"
-echo -e "\033[1;32mSystem setup OK\033[0m"
-echo -e "\033[1;32m"--------------------------------------------------------------------------------------------------"\033[0m"
+echo -e "\033[1;32mEverything is set up, time to reboot!\033[0m"
+echo ""
