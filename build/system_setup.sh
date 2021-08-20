@@ -140,8 +140,20 @@ simple() {
   echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
   echo ""
 
-  # materia gtk theme and numix icons
-  sudo apt install -y materia-gtk-theme numix-icon-theme
+  # tokyo night gtk theme
+  sudo mkdir -p /usr/share/themes
+  cd /tmp
+  wget https://github.com/koiosdev/Tokyo-Night-Linux/archive/refs/heads/master.zip
+  unzip master.zip
+  cd Tokyo-Night-Linux-master/usr/share/themes
+  sudo cp -r TokyoNight /usr/share/themes/
+  cd /tmp
+  rm -rf Tokyo-Night-Linux-master 
+  rm master.zip
+  cd
+
+  # numix icons
+  sudo apt install -y numix-icon-theme
   
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
