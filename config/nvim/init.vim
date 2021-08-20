@@ -81,7 +81,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'material',
+    theme = 'gruvbox',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
@@ -218,15 +218,15 @@ set t_ut=
 "let g:tokyonight_italic_functions = 1
 "colorscheme tokyonight
 
-"let g:gruvbox_contrast_dark = "hard"
-"set background=dark " or light if you want light mode
-"colorscheme gruvbox
+let g:gruvbox_contrast_dark = "hard"
+set background=dark " or light if you want light mode
+colorscheme gruvbox
 
-let g:material_italic_strings = v:true
-let g:material_italic_functions = v:true
-let g:material_italic_comments = v:true
-let g:material_style = 'darker'
-colorscheme material
+"let g:material_italic_strings = v:true
+"let g:material_italic_functions = v:true
+"let g:material_italic_comments = v:true
+"let g:material_style = 'darker'
+"colorscheme material
 
 " --------------------------------------------------------------------------------------------------
 " various settings
