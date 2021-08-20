@@ -49,7 +49,9 @@ simple() {
   alsa-utils pulseaudio libavcodec-extra \
   curl python3-pip exfat-fuse exfat-utils
 
-  
+  # libreoffice
+  sudo apt install -y libreoffice
+
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
