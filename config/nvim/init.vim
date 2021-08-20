@@ -12,6 +12,9 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'folke/tokyonight.nvim'
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'marko-cerovac/material.nvim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -78,7 +81,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'material',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
@@ -211,9 +214,19 @@ set encoding=utf8
 set t_Co=256
 set t_ut=
 
-let g:tokyonight_style = "night"
-let g:tokyonight_italic_functions = 1
-colorscheme tokyonight
+"let g:tokyonight_style = "night"
+"let g:tokyonight_italic_functions = 1
+"colorscheme tokyonight
+
+"let g:gruvbox_contrast_dark = "hard"
+"set background=dark " or light if you want light mode
+"colorscheme gruvbox
+
+let g:material_italic_strings = v:true
+let g:material_italic_functions = v:true
+let g:material_italic_comments = v:true
+let g:material_style = 'darker'
+colorscheme material
 
 " --------------------------------------------------------------------------------------------------
 " various settings
@@ -308,3 +321,6 @@ nnoremap <silent> <S-A-i> :BufferLineMoveNext<CR>
 " completion popup navigation
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" material style
+nnoremap <LocalLeader>mm :lua require('material.functions').toggle_style()<CR>
