@@ -13,6 +13,7 @@
 | Icons               | [Numix](https://github.com/numixproject/numix-icon-theme)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) + [Nord Font patch](https://www.nerdfonts.com/font-downloads)|
+| Editor              | [Neovim](https://neovim.io/)|
 
 ## Install <a name = "install"></a>
 
