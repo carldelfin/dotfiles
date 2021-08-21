@@ -9,7 +9,7 @@
     dark-text:                   #242424;
     lightbg:                     #534c48;
     red:                         #F14C4C;
-    orange:                      #9ece6a; 
+    orange:                      #e0af68; 
 
     selected-normal-foreground:  @dark-text;
     normal-foreground:           @foreground;

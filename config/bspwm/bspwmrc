@@ -12,8 +12,8 @@ bspc config split_ratio             0.50
 bspc config borderless_monocle      true
 bspc config gapless_monocle         true
 
-bspc config focused_border_color    \#454963 
-bspc config normal_border_color     \#15161e
+bspc config focused_border_color    \#b38c53 
+bspc config normal_border_color     \#594629
 
 bspc rule -a Arandr                 state=floating
 bspc rule -a matlab                 state=floating

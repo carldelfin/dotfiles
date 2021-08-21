@@ -46,10 +46,8 @@ simple() {
   apt-transport-https build-essential ca-certificates dirmngr \
   make cmake gcc libgtk-3-dev apt-listbugs zathura nautilus \
   feh unzip htop syncthing ufw rsync neofetch firefox alsa-utils \
-  pulseaudio libavcodec-extra curl python3-pip exfat-fuse exfat-utils
-
-  # libreoffice
-  sudo apt install -y libreoffice
+  pulseaudio libavcodec-extra curl python3-pip exfat-fuse \
+  exfat-utils libreoffice
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -240,7 +238,7 @@ simple() {
   # ==================================================================================================
   
   echo ""
-  echo -e "\033[1;33mconfiguring ufw...\033[0m"
+  echo -e "\033[1;33mConfiguring ufw...\033[0m"
   echo ""
   
   sudo ufw default deny incoming
