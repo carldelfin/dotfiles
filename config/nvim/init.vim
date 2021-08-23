@@ -294,16 +294,16 @@ nnoremap <A-e> <C-w>k " up
 nnoremap <A-i> <C-w>l " right
 
 " hop 
-nnoremap <A-s> <cmd>HopLine<cr>
-nnoremap <A-t> <cmd>HopWord<cr>
-nnoremap <A-g> <cmd>HopChar2<cr>
+nnoremap <A-c> <cmd>HopLine<cr>
+nnoremap <A-d> <cmd>HopWord<cr>
+"nnoremap <A-v> <cmd>HopChar2<cr>
 
 " buffer control 
 nnoremap <silent> tt :BufferLinePick<CR>
-nnoremap <silent> <A-m> :BufferLineCyclePrev<CR>
-nnoremap <silent> <A-i> :BufferLineCycleNext<CR>
-nnoremap <silent> <S-A-m> :BufferLineMovePrev<CR>
-nnoremap <silent> <S-A-i> :BufferLineMoveNext<CR>
+nnoremap <silent> <A-s> :BufferLineCyclePrev<CR>
+nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
+nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
+nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 
 " completion popup navigation
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
