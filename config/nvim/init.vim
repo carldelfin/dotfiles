@@ -25,6 +25,7 @@ Plug 'moll/vim-bbye'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'karb94/neoscroll.nvim'
+Plug 'lifepillar/vim-mucomplete'
 
 call plug#end()
 
@@ -219,6 +220,12 @@ colorscheme tokyonight
 " various settings
 " --------------------------------------------------------------------------------------------------
 
+" mucomplete settings
+set completeopt+=menuone,noselect
+set shortmess+=c
+set belloff+=ctrlg
+let g:mucomplete#enable_auto_at_startup = 1
+
 " use zathura to view tex output
 let g:vimtex_view_method = 'zathura'
 
@@ -306,8 +313,8 @@ nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
 nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 
 " completion popup navigation
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+""inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " material style
 nnoremap <LocalLeader>mm :lua require('material.functions').toggle_style()<CR>

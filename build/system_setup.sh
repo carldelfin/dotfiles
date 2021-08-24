@@ -47,7 +47,7 @@ simple() {
   make cmake gcc libgtk-3-dev apt-listbugs zathura nautilus \
   feh unzip htop syncthing ufw rsync neofetch firefox alsa-utils \
   pulseaudio libavcodec-extra curl python3-pip exfat-fuse \
-  exfat-utils libreoffice
+  exfat-utils libreoffice pandoc
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
