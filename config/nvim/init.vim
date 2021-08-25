@@ -224,7 +224,7 @@ set t_ut=
 
 " change colors using LL cs
 lua << EOF
-vim.api.nvim_set_keymap('n', '<LocalLeader>cc', [[<Cmd>lua require('onedark').toggle()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<LocalLeader>mm', [[<Cmd>lua require('onedark').toggle()<CR>]], { noremap = true, silent = true })
 EOF
 
 let g:onedark_style = 'warm'
@@ -330,5 +330,3 @@ nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 "inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 ""inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" material style
-nnoremap <LocalLeader>mm :lua require('material.functions').toggle_style()<CR>

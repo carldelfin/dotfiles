@@ -53,7 +53,7 @@ source ~/dotfiles/config/.bash_functions
 # ------------------------------------------------------------------------------
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;93m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;93m\]\h \[\e[37m\]in \[\e[1;93m\]\w \n \[\e[2;49;39m\]\$ \[\e[0m\]'
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;93m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;93m\]\h \[\e[37m\]in \[\e[1;93m\]\w \n \[\e[2;49;39m\]\$ \[\033[00m\]'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -61,7 +61,7 @@ unset color_prompt force_color_prompt
 
 case "$TERM" in
 xterm*|rxvt*)
-     PS1='${debian_chroot:+($debian_chroot)}\[\e[1;93m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;93m\]\h \[\e[37m\]in \[\e[1;93m\]\w \n \[\e[2;49;39m\]\$ \[\e[0m\]'
+     PS1='${debian_chroot:+($debian_chroot)}\[\e[1;93m\]\u\[\e[0m\] \[\e[1;37m\]on \[\e[1;93m\]\h \[\e[37m\]in \[\e[1;93m\]\w \n \[\e[2;49;39m\]\$ \[\033[00m\]'
     ;;
 *)
     ;;
