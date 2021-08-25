@@ -181,7 +181,7 @@ simple() {
   fi
   
   # various google fonts
-  if fc-list | grep -q "Roboto"; then
+  if fc-list | grep -q "Merriweather"; then
       echo "Google fonts are already installed"
   else
       mkdir -p ~/.local/share/fonts
