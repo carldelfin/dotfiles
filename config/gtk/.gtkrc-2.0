@@ -1,5 +1,5 @@
-gtk-theme-name="TokyoNight"
-gtk-icon-theme-name="Numix"
+gtk-theme-name="Pop-dark"
+gtk-icon-theme-name="Pop"
 gtk-cursor-theme-name=Pop
 gtk-font-name="Sans 10"
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
