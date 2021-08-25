@@ -11,7 +11,11 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+
 Plug 'folke/tokyonight.nvim'
+
+Plug 'navarasu/onedark.nvim'
+
 Plug 'nvim-lua/completion-nvim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -79,7 +83,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'onedark',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
@@ -212,9 +216,13 @@ set encoding=utf8
 set t_Co=256
 set t_ut=
 
-let g:tokyonight_style = "night"
-let g:tokyonight_italic_functions = 1
-colorscheme tokyonight
+" change colors using LL cs
+lua << EOF
+vim.api.nvim_set_keymap('n', '<LocalLeader>cc', [[<Cmd>lua require('onedark').toggle()<CR>]], { noremap = true, silent = true })
+EOF
+
+let g:onedark_style = 'warm'
+colorscheme onedark
 
 " --------------------------------------------------------------------------------------------------
 " various settings
