@@ -11,11 +11,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-
-Plug 'folke/tokyonight.nvim'
-
 Plug 'navarasu/onedark.nvim'
-
 Plug 'nvim-lua/completion-nvim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -30,6 +26,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'karb94/neoscroll.nvim'
 Plug 'lifepillar/vim-mucomplete'
+Plug 'sunjon/shade.nvim'
 
 call plug#end()
 
@@ -139,6 +136,15 @@ require('lspkind').init({
       Operator = "",
       TypeParameter = ""
     },
+})
+
+-- shade
+require'shade'.setup({
+  overlay_opacity = 50,
+  opacity_step = 1,
+  keys = {
+    toggle           = '<LocalLeader>sh',
+  }
 })
 
 EOF
