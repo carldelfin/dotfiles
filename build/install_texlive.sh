@@ -20,10 +20,10 @@ catch() {
 }
 
 simple() {
-  sudo apt install -y texlive texlive-latex-extra texlive-fonts-extra texlive-xetex pandoc pandoc-citeproc latexmk
-  tlmgr init-usertree
-  tlmgr install fontspec
-  tlgmr install ifsym
+  sudo apt install -y texlive texlive-latex-extra texlive-fonts-extra texlive-xetex pandoc-citeproc latexmk
+  #tlmgr init-usertree
+  #tlmgr install fontspec
+  #tlgmr install ifsym
 }
 
 simple

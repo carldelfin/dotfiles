@@ -41,9 +41,9 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  bspwm kitty polybar suckless-tools rofi pass \
-  apt-transport-https cmake zathura feh htop syncthing \
-  libavcodec-extra python3-pip pandoc
+  bspwm picom kitty polybar suckless-tools rofi pass \
+  apt-transport-https cmake zathura feh htop \
+  syncthing libavcodec-extra python3-pip pandoc
   #xorg x11-xserver-utils \
   #sxhkd picom 
   #arandr software-properties-common \
@@ -85,17 +85,6 @@ simple() {
       cd
   else
       echo "rofi-power-menu is already installed"
-  fi
-   
-  # rofi-bluetooth (own fork using my custom theme)
-  if ! command -v rofi-bluetooth &> /dev/null; then
-      cd /tmp
-      wget https://raw.githubusercontent.com/carldelfin/rofi-bluetooth/master/rofi-bluetooth
-      sudo mv rofi-bluetooth /usr/local/bin
-      sudo chmod +x /usr/local/bin/rofi-bluetooth
-      cd
-  else
-      echo "rofi-bluetooth is already installed"
   fi
   
   # mullvad

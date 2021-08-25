@@ -25,7 +25,6 @@ Plug 'moll/vim-bbye'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'karb94/neoscroll.nvim'
-Plug 'lifepillar/vim-mucomplete'
 Plug 'sunjon/shade.nvim'
 
 call plug#end()
@@ -143,7 +142,7 @@ require'shade'.setup({
   overlay_opacity = 50,
   opacity_step = 1,
   keys = {
-    toggle           = '<LocalLeader>sh',
+    toggle           = '<A-v>',
   }
 })
 
@@ -224,21 +223,16 @@ set t_ut=
 
 " change colors using LL cs
 lua << EOF
-vim.api.nvim_set_keymap('n', '<LocalLeader>mm', [[<Cmd>lua require('onedark').toggle()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-b>', [[<Cmd>lua require('onedark').toggle()<CR>]], { noremap = true, silent = true })
 EOF
 
 let g:onedark_style = 'warm'
 colorscheme onedark
 
+
 " --------------------------------------------------------------------------------------------------
 " various settings
 " --------------------------------------------------------------------------------------------------
-
-" mucomplete settings
-set completeopt+=menuone,noselect
-set shortmess+=c
-set belloff+=ctrlg
-let g:mucomplete#enable_auto_at_startup = 1
 
 " use zathura to view tex output
 let g:vimtex_view_method = 'zathura'
@@ -301,7 +295,7 @@ nnoremap <A-f> <cmd>Telescope file_browser hidden=true<cr>
 nnoremap <A-p> <cmd>Telescope find_files hidden=true<cr>
 
 " send R code
-vmap <Return> <Plug>RDSendSelection
+vmap <Return> <Plug>RDSendSection
 nmap <Return> <Plug>RDSendLine
 
 " Nvim-R object browser
@@ -326,7 +320,11 @@ nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
 nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
 nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 
-" completion popup navigation
-"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-""inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" completion
+inoremap <A-Space> <C-x><C-o>
 
+highlight HopNextKey guifg=#ff007c guibg=#262b35 gui=bold ctermfg=198 cterm=bold
+highlight HopNextKey1 guifg=#00dfff guibg=#262b35 gui=bold ctermfg=45 cterm=bold
+highlight HopNextKey2 guifg=#2b8db3 guibg=#262b35 ctermfg=33
+highlight HopUnmatched guifg=#666666 guibg=#262b35 ctermfg=242
+"highlight Comment guifg=#F7768E guibg=#382e4a ctermfg=242
