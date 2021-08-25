@@ -24,30 +24,32 @@ simple() {
   # Upgrade to Debian Sid
   # ------------------------------------------------------------------------------
   
-  echo 'deb http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sid.list
-  echo 'deb-src http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sidsrc.list
+  #echo 'deb http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sid.list
+  #echo 'deb-src http://deb.debian.org/debian/ sid main contrib non-free' >/tmp/sidsrc.list
 
-  sudo cp /tmp/sid.list /etc/apt/sources.list.d/
-  sudo cp /tmp/sidsrc.list /etc/apt/sources.list.d/
+  #sudo cp /tmp/sid.list /etc/apt/sources.list.d/
+  #sudo cp /tmp/sidsrc.list /etc/apt/sources.list.d/
   
-  rm /tmp/sid.list
-  rm /tmp/sidsrc.list
+  #rm /tmp/sid.list
+  #rm /tmp/sidsrc.list
   
-  sudo apt update
-  sudo apt full-upgrade -y
+  #sudo apt update
+  #sudo apt full-upgrade -y
   
   # ------------------------------------------------------------------------------
   # Install packages
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  xorg x11-xserver-utils bspwm sxhkd picom kitty polybar \
-  suckless-tools rofi pass arandr software-properties-common \
-  apt-transport-https build-essential ca-certificates dirmngr \
-  make cmake gcc libgtk-3-dev apt-listbugs zathura nautilus \
-  feh unzip htop syncthing ufw rsync neofetch firefox alsa-utils \
-  pulseaudio libavcodec-extra curl python3-pip exfat-fuse \
-  exfat-utils libreoffice pandoc
+  bspwm kitty polybar suckless-tools rofi pass \
+  apt-transport-https cmake zathura feh htop syncthing \
+  libavcodec-extra python3-pip pandoc
+  #xorg x11-xserver-utils \
+  #sxhkd picom 
+  #arandr software-properties-common \
+  # build-essential ca-certificates dirmngr make gcc libgtk-3-dev apt-listbugs nautilus \
+  # unzip ufw rsync neofetch firefox alsa-utils pulseaudio curl
+  # exfat-fuse exfat-utils libreoffice 
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -139,19 +141,19 @@ simple() {
   echo ""
 
   # tokyo night gtk theme
-  sudo mkdir -p /usr/share/themes
-  cd /tmp
-  wget https://github.com/koiosdev/Tokyo-Night-Linux/archive/refs/heads/master.zip
-  unzip master.zip
-  cd Tokyo-Night-Linux-master/usr/share/themes
-  sudo cp -r TokyoNight /usr/share/themes/
-  cd /tmp
-  rm -rf Tokyo-Night-Linux-master 
-  rm master.zip
-  cd
+  #sudo mkdir -p /usr/share/themes
+  #cd /tmp
+  #wget https://github.com/koiosdev/Tokyo-Night-Linux/archive/refs/heads/master.zip
+  #unzip master.zip
+  #cd Tokyo-Night-Linux-master/usr/share/themes
+  #sudo cp -r TokyoNight /usr/share/themes/
+  #cd /tmp
+  #rm -rf Tokyo-Night-Linux-master 
+  #rm master.zip
+  #cd
 
   # numix icons
-  sudo apt install -y numix-icon-theme
+  #sudo apt install -y numix-icon-theme
   
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
@@ -218,12 +220,12 @@ simple() {
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
-  ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
-  ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
-  ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
-  ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
-  ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
-  sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
+  #ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
+  #ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
+  #ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
+  #ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
+  #ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+  #sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
