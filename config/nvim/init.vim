@@ -11,7 +11,8 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'navarasu/onedark.nvim'
+Plug 'nvim-treesitter/playground'
+Plug 'carldelfin/nvcode-color-schemes.vim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -26,6 +27,10 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'akinsho/nvim-toggleterm.lua'
+Plug 'terrortylor/nvim-comment'
+Plug 'svermeulen/vim-subversive'
 
 call plug#end()
 
@@ -66,6 +71,15 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
         additional_vim_regex_highlighting = false
     }
+}
+
+require "nvim-treesitter.configs".setup {
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false -- Whether the query persists across vim sessions
+  }
 }
 
 -- LSP diagnostics
@@ -146,6 +160,12 @@ require'shade'.setup({
   }
 })
 
+-- toggleterm
+require("toggleterm").setup()
+
+-- comments
+require('nvim_comment').setup()
+
 EOF
 
 " --------------------------------------------------------------------------------------------------
@@ -222,13 +242,15 @@ set t_Co=256
 set t_ut=
 
 " change colors using LL cs
-lua << EOF
-vim.api.nvim_set_keymap('n', '<A-b>', [[<Cmd>lua require('onedark').toggle()<CR>]], { noremap = true, silent = true })
-EOF
+"lua << EOF
+"vim.api.nvim_set_keymap('n', '<A-b>', [[<Cmd>lua require('onedark').toggle()<CR>]], { noremap = true, silent = true })
+"EOF
 
-let g:onedark_style = 'warm'
-colorscheme onedark
+"let g:onedark_style = 'warmer'
+let g:nvcode_termcolors=256
+colorscheme test 
 
+lua require'colorizer'.setup()
 
 " --------------------------------------------------------------------------------------------------
 " various settings
@@ -241,10 +263,6 @@ let g:vimtex_view_method = 'zathura'
 let g:pandoc#modules#disabled = ["folding", "spell"]
 let g:pandoc#syntax#conceal#use = 0
 
-" netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-
 " --------------------------------------------------------------------------------------------------
 " R specific settings
 " --------------------------------------------------------------------------------------------------
@@ -254,8 +272,8 @@ let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 
 " open R automatically when opening .R and .Rmd files
-autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
-autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+"autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+"autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 
 " make sure R follows colorscheme
 let g:rout_follow_colorscheme = 1
@@ -308,10 +326,19 @@ nnoremap <A-n> <C-w>j " down
 nnoremap <A-e> <C-w>k " up
 nnoremap <A-i> <C-w>l " right
 
+" window resize 
+nnoremap <C-A-m> :vertical resize -2<CR> " left
+nnoremap <C-A-n> :resize +2<CR> " down
+nnoremap <C-A-e> :resize -2<CR> " up
+nnoremap <C-A-i> :vertical resize +2<CR> " right
+
 " hop 
 nnoremap <A-c> <cmd>HopLine<cr>
 nnoremap <A-d> <cmd>HopWord<cr>
-"nnoremap <A-v> <cmd>HopChar2<cr>
+nnoremap <A-v> <cmd>HopChar2<cr>
+
+" comments
+" gcc
 
 " buffer control 
 nnoremap <silent> tt :BufferLinePick<CR>
@@ -320,6 +347,9 @@ nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
 nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
 nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 
+" replace
+nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
+
 " completion
 inoremap <A-Space> <C-x><C-o>
 
@@ -327,4 +357,3 @@ highlight HopNextKey guifg=#ff007c guibg=#262b35 gui=bold ctermfg=198 cterm=bold
 highlight HopNextKey1 guifg=#00dfff guibg=#262b35 gui=bold ctermfg=45 cterm=bold
 highlight HopNextKey2 guifg=#2b8db3 guibg=#262b35 ctermfg=33
 highlight HopUnmatched guifg=#666666 guibg=#262b35 ctermfg=242
-"highlight Comment guifg=#F7768E guibg=#382e4a ctermfg=242
