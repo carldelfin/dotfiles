@@ -4,26 +4,16 @@
 
 call plug#begin('~/.vim/plugged')
 
-"Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
 Plug 'jalvesaq/Nvim-R'
 Plug 'jalvesaq/R-Vim-runtime'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
-
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'gaalcaras/ncm-R'
-Plug 'sirver/UltiSnips'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'lifepillar/vim-mucomplete'
-
-"Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-"Plug 'nvim-treesitter/playground'
-"Plug 'carldelfin/nvcode-color-schemes.vim'
-"Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/playground'
+Plug 'carldelfin/nvcode-color-schemes.vim'
+Plug 'nvim-lua/completion-nvim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'machakann/vim-highlightedyank'
@@ -31,7 +21,7 @@ Plug 'akinsho/nvim-bufferline.lua'
 Plug 'phaazon/hop.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-"Plug 'onsails/lspkind-nvim'
+Plug 'onsails/lspkind-nvim'
 Plug 'moll/vim-bbye'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'aserebryakov/vim-todo-lists'
@@ -40,14 +30,13 @@ Plug 'sunjon/shade.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'akinsho/nvim-toggleterm.lua'
 Plug 'terrortylor/nvim-comment'
-"Plug 'svermeulen/vim-subversive'
+Plug 'svermeulen/vim-subversive'
 
 call plug#end()
 
 " --------------------------------------------------------------------------------------------------
 " LUA config
 " --------------------------------------------------------------------------------------------------
-
 
 lua << EOF
 
@@ -64,7 +53,7 @@ require("indent_blankline").setup {
 require('neoscroll').setup()
 
 -- R language server
--- require'lspconfig'.r_language_server.setup()
+require'lspconfig'.r_language_server.setup()
 
 -- bufferline
 require("bufferline").setup{
@@ -76,29 +65,29 @@ require("bufferline").setup{
 }
 
 -- treesitter
---require'nvim-treesitter.configs'.setup {
---    ensure_installed = "maintained",
---    highlight = {
---        enable = true,
---        additional_vim_regex_highlighting = false
---    }
---}
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false
+    }
+}
 
---require "nvim-treesitter.configs".setup {
---  playground = {
---    enable = true,
---    disable = {},
---    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
---    persist_queries = false -- Whether the query persists across vim sessions
---  }
---}
+require "nvim-treesitter.configs".setup {
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false -- Whether the query persists across vim sessions
+  }
+}
 
 -- LSP diagnostics
---vim.lsp.diagnostic.show_line_diagnostics()
---vim.lsp.handlers["textDocument/publishDiagnostics"] =
- --   vim.lsp.with(
-  --  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
---)
+vim.lsp.diagnostic.show_line_diagnostics()
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+)
 
 -- lualine
 require'lualine'.setup {
@@ -129,6 +118,39 @@ require'lualine'.setup {
   extensions = {}
 }
 
+-- lsplind
+require('lspkind').init({
+    with_text = true,
+    preset = 'default',
+    symbol_map = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "פּ",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
+    },
+})
+
 -- shade
 require'shade'.setup({
   overlay_opacity = 50,
@@ -151,13 +173,9 @@ EOF
 " --------------------------------------------------------------------------------------------------
 
 " completion
-"autocmd BufEnter * lua require'completion'.on_attach()
-autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufEnter * lua require'completion'.on_attach()
+set completeopt=menuone,noinsert,noselect
 set shortmess+=c
-set completeopt-=preview
-set completeopt+=longest,menuone,noselect
-
-let g:mucomplete#enable_auto_at_startup = 1
 
 " indentation
 filetype plugin indent on
@@ -229,8 +247,8 @@ set t_ut=
 "EOF
 
 "let g:onedark_style = 'warmer'
-"let g:nvcode_termcolors=256
-"colorscheme test 
+let g:nvcode_termcolors=256
+colorscheme test 
 
 lua require'colorizer'.setup()
 
@@ -254,8 +272,8 @@ let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 
 " open R automatically when opening .R and .Rmd files
-"autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
-"autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+autocmd FileType r if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
+autocmd FileType rmd if string(g:SendCmdToR) == "function('SendCmdToR_fake')" | call StartR("R") | endif
 
 " make sure R follows colorscheme
 let g:rout_follow_colorscheme = 1
@@ -333,7 +351,7 @@ nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
 
 " completion
-"inoremap <A-Space> <C-x><C-o>
+inoremap <A-Space> <C-x><C-o>
 
 highlight HopNextKey guifg=#ff007c guibg=#262b35 gui=bold ctermfg=198 cterm=bold
 highlight HopNextKey1 guifg=#00dfff guibg=#262b35 gui=bold ctermfg=45 cterm=bold
