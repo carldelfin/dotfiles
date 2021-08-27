@@ -5,10 +5,99 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'jalvesaq/Nvim-R'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'lervag/vimtex'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'machakann/vim-highlightedyank'
+Plug 'akinsho/nvim-bufferline.lua'
+Plug 'phaazon/hop.nvim'
+Plug 'moll/vim-bbye'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'karb94/neoscroll.nvim'
+Plug 'sunjon/shade.nvim'
+Plug 'gko/vim-coloresque'
 
 call plug#end()
+
+" --------------------------------------------------------------------------------------------------
+" LUA config
+" --------------------------------------------------------------------------------------------------
+
+lua << EOF
+
+-- indent blankline
+require("indent_blankline").setup {
+    char = "│",
+    buftype_exclude = {"terminal"},
+    space_char = ' ',
+    show_first_indent_level = true,
+    show_trailing_blankline_indent = false,
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+        "IndentBlanklineIndent3",
+        "IndentBlanklineIndent4",
+        "IndentBlanklineIndent5",
+        "IndentBlanklineIndent6",
+    },
+}
+
+-- smooth scrolling
+require('neoscroll').setup()
+
+-- bufferline
+require("bufferline").setup{
+    options = {
+        close_command = "Bdelete",
+        separator_style = "slant",
+        always_show_bufferline = true
+    }
+}
+
+-- lualine
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'onedark',
+    section_separators = {'', ''},
+    component_separators = {'', ''},
+    disabled_filetypes = {}
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+
+-- shade
+require'shade'.setup({
+  overlay_opacity = 50,
+  opacity_step = 1,
+  keys = { toggle = '<A-v>' }
+})
+
+EOF
+
+" --------------------------------------------------------------------------------------------------
+" settings
+" --------------------------------------------------------------------------------------------------
 
 set completeopt-=preview
 set completeopt+=menu,menuone,noinsert,noselect
@@ -73,9 +162,27 @@ set nofoldenable
 set termguicolors
 syntax on
 
+" --------------------------------------------------------------------------------------------------
+" various settings
+" --------------------------------------------------------------------------------------------------
+
+" use zathura to view tex output
+let g:vimtex_view_method = 'zathura'
+
+" no folding on startup with vim-pandoc
+let g:pandoc#modules#disabled = ["folding", "spell"]
+let g:pandoc#syntax#conceal#use = 0
+
+" --------------------------------------------------------------------------------------------------
+" R specific settings
+" --------------------------------------------------------------------------------------------------
+
 " highlight chunk headers as r code
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
+let R_hi_fun = 1
+let R_hi_fun_paren = 1
+let R_hi_fun_globenv = 1
 
 " make sure R follows colorscheme
 let g:rout_follow_colorscheme = 1
@@ -98,7 +205,6 @@ let R_assign = 1
 let R_assign_map = '<<'
 
 colorscheme northernlights 
-lua require'colorizer'.setup()
 
 " --------------------------------------------------------------------------------------------------
 " keybindings
@@ -138,8 +244,20 @@ nnoremap <C-A-i> :vertical resize +2<CR> " right
 " replace
 nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
 
+" hop 
+nnoremap <A-c> <cmd>HopLine<cr>
+nnoremap <A-d> <cmd>HopWord<cr>
+nnoremap <A-v> <cmd>HopChar2<cr>
+
+" buffer control 
+nnoremap <silent> tt :BufferLinePick<CR>
+nnoremap <silent> <A-s> :BufferLineCyclePrev<CR>
+nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
+nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
+nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
+
 " Output the current syntax group
-nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+nnoremap jj :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
