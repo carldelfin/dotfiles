@@ -5,19 +5,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'jalvesaq/Nvim-R'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'norcalli/nvim-colorizer.lua'
 
 call plug#end()
-
-set completeopt-=preview
-set completeopt+=menu,menuone,noinsert,noselect
-set shortmess+=c
-
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#chains = {}
-let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
-let g:mucomplete#chains.unite = []
 
 " indentation
 filetype plugin indent on
@@ -87,18 +76,15 @@ autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "functio
 " don't allow syntax folding
 let r_syntax_folding = 0
 
-let R_args = ['--no-save', '--quiet']
-
 " R may open PDFs once, using zathura, then update that window
 let R_openpdf = 1
 let R_pdfviewer = "zathura"
 
-" << turns into <-  
-let R_assign = 1
-let R_assign_map = '<<'
+" don't turn _ into <- 
+let R_assign = 0
 
-colorscheme northernlights 
-lua require'colorizer'.setup()
+" << turns into <-  
+let R_assign_map = '<<'
 
 " --------------------------------------------------------------------------------------------------
 " keybindings
@@ -137,9 +123,4 @@ nnoremap <C-A-i> :vertical resize +2<CR> " right
 
 " replace
 nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
-
-" Output the current syntax group
-nnoremap <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 

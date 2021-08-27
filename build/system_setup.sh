@@ -206,6 +206,7 @@ simple() {
   echo ""
   
   mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
+  mkdir -p ~/.config/nvim/colors
 
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
@@ -222,6 +223,8 @@ simple() {
   ln -s -f ~/dotfiles/config/rofi/my_theme.rasi ~/.config/rofi/my_theme.rasi
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
+  ln -s -f ~/dotfiles/config/nvim/colors/southernlights.vim ~/.config/nvim/colors/southernlights.vim
+  ln -s -f ~/dotfiles/config/nvim/colors/northernlights.vim ~/.config/nvim/colors/northernlights.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   
   # ==================================================================================================
