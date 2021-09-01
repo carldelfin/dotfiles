@@ -43,9 +43,9 @@ simple() {
   sudo apt install -y \
   bspwm picom kitty polybar suckless-tools rofi pass \
   apt-transport-https build-essential zathura feh htop \
-  syncthing libavcodec-extra python3-pip pandoc \
+  syncthing libavcodec-extra python3-pip pandoc ranger \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice software-properties-common
+  exfat-fuse libreoffice software-properties-common 
   # make cmake
   #arandr  \
   # build-essential dirmngr make gcc libgtk-3-dev apt-listbugs nautilus \
@@ -214,8 +214,8 @@ simple() {
   #ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
   #ln -s -f ~/dotfiles/config/.xinitrc ~/.xinitrc
   #ln -s -f ~/dotfiles/config/.xsessionrc ~/.xsessionrc
-  ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
-  ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+  #ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
+  #ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
   #sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
