@@ -21,8 +21,11 @@ catch() {
 }
 
 simple() {
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+  
+  echo "deb http://cloud.r-project.org/bin/linux/debian bullseye-cran40/" | sudo tee -a /etc/apt/sources.list
  
-  sudo apt install --no-install-recommends -y \
+  sudo apt update && sudo apt install -y \
   r-base r-base-dev
  
   # packages required for certain R libraries
