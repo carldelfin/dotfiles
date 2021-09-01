@@ -27,7 +27,7 @@ simple() {
   sudo apt install -y \
   bspwm picom kitty polybar suckless-tools rofi pass \
   apt-transport-https build-essential zathura feh htop \
-  syncthing libavcodec-extra python3-pip pandoc ranger nautilus \
+  syncthing libavcodec-extra python3-pip pandoc ranger \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
   exfat-fuse libreoffice software-properties-common arandr
 
@@ -111,9 +111,9 @@ simple() {
   
   # nordic gtk
   cd /tmp
-  wget https://github.com/EliverLara/Nordic/releases/download/2.0.0/Nordic-darker.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/download/2.0.0/Nordic-v40.tar.xz
   sudo tar -xvf Nordic-darker.tar.xz -C /usr/share/themes
-  rm Nordic-darker.tar.xz
+  rm Nordic-v40.tar.xz
   cd
   
   # jetbrainsmono with nerd font patch
