@@ -193,12 +193,18 @@ simple() {
   ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
   ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
   ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
+  ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
   ln -s -f ~/dotfiles/config/rofi/my_theme.rasi ~/.config/rofi/my_theme.rasi
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/nvim/colors/southernlights.vim ~/.config/nvim/colors/southernlights.vim
   ln -s -f ~/dotfiles/config/nvim/colors/northernlights.vim ~/.config/nvim/colors/northernlights.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
+  
+  # get some ranger utils
+  cd ~/.config/ranger
+  git clone https://github.com/SL-RU/ranger_udisk_menu
+  cd
   
   # ==================================================================================================
   # configure ufw
