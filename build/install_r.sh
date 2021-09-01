@@ -21,10 +21,14 @@ catch() {
 }
 
 simple() {
+
+  # import proper key 
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
   
+  # add repository
   echo "deb http://cloud.r-project.org/bin/linux/debian bullseye-cran40/" | sudo tee -a /etc/apt/sources.list
  
+  # install
   sudo apt update && sudo apt install -y \
   r-base r-base-dev
  
