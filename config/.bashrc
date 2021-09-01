@@ -76,6 +76,7 @@ alias ll='ls -alF --color=auto'
 alias l='ls -CF --color=auto'
 alias ..='cd ..'
 alias c='clear'
+alias rc='ranger'
 alias vim="/usr/bin/nvim.appimage"
 alias nvim="/usr/bin/nvim.appimage"
 
