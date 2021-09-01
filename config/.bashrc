@@ -95,7 +95,11 @@ if [ -d "/usr/local/MATLAB" ]; then
     export _JAVA_AWT_WM_NONREPARENTING=1
 fi
 
+# neovim
 PATH=$PATH:~/.local/bin
 export FZF_DEFAULT_COMMAND="find -L"
 export EDITOR="/usr/bin/nvim.appimage"
 PATH="$HOME/.local/bin:$PATH"
+
+# ranger
+RANGER_LOAD_DEFAULT_RC=false
