@@ -251,9 +251,8 @@ colorscheme northernlights
 let mapleader = ","
 let maplocalleader="\<space>"
 
-" telescope
-nnoremap <A-f> <cmd>Telescope file_browser hidden=true<cr>
-nnoremap <A-p> <cmd>Telescope find_files hidden=true<cr>
+" fzf
+nnoremap <A-f> <cmd>FZF<cr>
 
 " send R code
 vmap <Return> <Plug>RDSendSection
@@ -263,7 +262,7 @@ nmap <Return> <Plug>RDSendLine
 vmap <A-o> <LocalLeader>ro
 nmap <A-o> <LocalLeader>ro
 
-" Use Ctrl+Space to do omnicompletion:
+" omnicompletion (redundant?)
 if has('nvim') || has('gui_running')
     inoremap <C-Space> <C-x><C-o>
 else
@@ -286,9 +285,8 @@ nnoremap <C-A-i> :vertical resize +2<CR> " right
 nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
 
 " hop 
-nnoremap <A-c> <cmd>HopLine<cr>
+nnoremap <A-c> <cmd>HopChar2<cr>
 nnoremap <A-d> <cmd>HopWord<cr>
-nnoremap <A-v> <cmd>HopChar2<cr>
 
 " buffer control 
 nnoremap <silent> tt :BufferLinePick<CR>
