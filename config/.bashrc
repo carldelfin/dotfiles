@@ -79,7 +79,7 @@ alias c='clear'
 alias rc='ranger'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
-alias nn='nnn -c'
+alias nn='nnn -cHP'
 
 # ------------------------------------------------------------------------------
 # environment variables
