@@ -9,24 +9,93 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'lifepillar/vim-mucomplete'
-Plug 'hoob3rt/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'akinsho/nvim-bufferline.lua'
 Plug 'phaazon/hop.nvim'
 Plug 'moll/vim-bbye'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
-Plug 'gko/vim-coloresque'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
+
+"
+"
+"
+
+let g:currentmode={
+      \ 'n'  : 'n',
+      \ 'v'  : 'v',
+      \ 'V'  : 'vl',
+      \ ''   : 'vb',
+      \ 'i'  : 'i',
+      \ 'R'  : 'r',
+      \ 'Rv' : 'rv',
+      \ 'c'  : 'c',
+      \ 't'  : 'f',
+      \}
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%#NormalColor#%{(g:currentmode[mode()]=='n')?'\ \ normal\ ':''}
+set statusline+=%#InsertColor#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
+set statusline+=%#ReplaceColor#%{(g:currentmode[mode()]=='r')?'\ \ replace\ ':''}
+set statusline+=%#ReplaceColor#%{(g:currentmode[mode()]=='rv')?'\ \ v-replace\ ':''}
+set statusline+=%#VisualColor#%{(g:currentmode[mode()]=='v')?'\ \ visual\ ':''}
+set statusline+=%#VisualColor#%{(g:currentmode[mode()]=='vl')?'\ \ v-line\ ':''}
+set statusline+=%#VisualColor#%{(g:currentmode[mode()]=='vb')?'\ \ v-block\ ':''}
+set statusline+=%#CommandColor#%{(g:currentmode[mode()]=='c')?'\ \ command\ ':''}
+set statusline+=%#NormalColor#%{(g:currentmode[mode()]=='f')?'\ \ find\ ':''}
+set statusline+=%4*
+set statusline+=%{StatuslineGit()}
+set statusline+=%1*
+set statusline+=\ 
+set statusline+=%t
+set statusline+=\ 
+set statusline+=%2*
+set statusline+=%=
+set statusline+=%{strlen(&fenc)?&fenc:'none'}
+set statusline+=\  
+set statusline+=\| 
+set statusline+=\  
+set statusline+=%{&ff}
+set statusline+=\  
+set statusline+=\| 
+set statusline+=\  
+set statusline+=%{expand(&filetype)}
+set statusline+=\ 
+set statusline+=%3*
+set statusline+=\ 
+set statusline+=%P
+set statusline+=\ 
+set statusline+=%4*
+set statusline+=\ 
+set statusline+=%02v
+set statusline+=\  
+set statusline+=%l
+set statusline+=\:
+set statusline+=%L
+set statusline+=\ 
 
 " --------------------------------------------------------------------------------------------------
 " LUA config
 " --------------------------------------------------------------------------------------------------
 
 lua << EOF
+
+require('telescope').setup{}
 
 -- indent blankline
 require("indent_blankline").setup {
@@ -55,35 +124,6 @@ require("bufferline").setup{
         separator_style = "slant",
         always_show_bufferline = true
     }
-}
-
--- lualine
-require'lualine'.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'onedark',
-    section_separators = {'', ''},
-    component_separators = {'', ''},
-    disabled_filetypes = {}
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
 }
 
 -- shade
@@ -213,6 +253,10 @@ colorscheme northernlights
 " leader keys
 let mapleader = ","
 let maplocalleader="\<space>"
+
+" telescope
+nnoremap <A-f> <cmd>Telescope file_browser hidden=true<cr>
+nnoremap <A-p> <cmd>Telescope find_files hidden=true<cr>
 
 " send R code
 vmap <Return> <Plug>RDSendSection
