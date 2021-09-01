@@ -106,8 +106,15 @@ simple() {
   # --------------------------------------------------------------------------------------------------
   
   echo ""
-  echo -e "\033[1;33mInstalling fonts...\033[0m"
+  echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
   echo ""
+  
+  # nordic gtk
+  cd /tmp
+  wget https://github.com/EliverLara/Nordic/releases/download/2.0.0/Nordic-darker.tar.xz
+  sudo tar -xvf Nordic-darker.tar.xz -C /usr/share/themes
+  rm Nordic-darker.tar.xz
+  cd
   
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
