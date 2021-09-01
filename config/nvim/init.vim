@@ -285,7 +285,7 @@ nnoremap <C-A-i> :vertical resize +2<CR> " right
 nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
 
 " hop 
-nnoremap <A-c> <cmd>HopChar2<cr>
+nnoremap <A-c> <cmd>HopPattern<cr>
 nnoremap <A-d> <cmd>HopWord<cr>
 
 " buffer control 
