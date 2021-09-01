@@ -16,15 +16,14 @@ Plug 'moll/vim-bbye'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-"
-"
-"
+" --------------------------------------------------------------------------------------------------
+" Status line
+" --------------------------------------------------------------------------------------------------
 
 let g:currentmode={
       \ 'n'  : 'n',
@@ -95,8 +94,6 @@ set statusline+=\
 
 lua << EOF
 
-require('telescope').setup{}
-
 -- indent blankline
 require("indent_blankline").setup {
     char = "│",
@@ -156,7 +153,7 @@ set expandtab
 set smartindent
 
 " no highlight during search
-set nohlsearch
+" set nohlsearch
 
 " allow buffers to be hidden if modified
 set hidden
