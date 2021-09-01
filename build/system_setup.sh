@@ -42,14 +42,15 @@ simple() {
 
   sudo apt install -y \
   bspwm picom kitty polybar suckless-tools rofi pass \
-  apt-transport-https cmake zathura feh htop \
-  syncthing libavcodec-extra python3-pip pandoc
-  #xorg x11-xserver-utils \
-  #sxhkd picom 
+  apt-transport-https build-essential zathura feh htop \
+  syncthing libavcodec-extra python3-pip pandoc \
+  xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
+  exfat-fuse libreoffice
+  # make cmake
   #arandr software-properties-common \
-  # build-essential ca-certificates dirmngr make gcc libgtk-3-dev apt-listbugs nautilus \
-  # unzip ufw rsync neofetch firefox alsa-utils pulseaudio curl
-  # exfat-fuse exfat-utils libreoffice 
+  # build-essential dirmngr make gcc libgtk-3-dev apt-listbugs nautilus \
+  # rsync neofetch firefox 
+  #  exfat-utils  
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
