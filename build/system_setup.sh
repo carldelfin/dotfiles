@@ -45,12 +45,7 @@ simple() {
   apt-transport-https build-essential zathura feh htop \
   syncthing libavcodec-extra python3-pip pandoc ranger \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice software-properties-common 
-  # make cmake
-  #arandr  \
-  # build-essential dirmngr make gcc libgtk-3-dev apt-listbugs nautilus \
-  # rsync neofetch firefox 
-  #  exfat-utils  
+  exfat-fuse libreoffice software-properties-common arandr
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -127,23 +122,8 @@ simple() {
   # --------------------------------------------------------------------------------------------------
   
   echo ""
-  echo -e "\033[1;33mInstalling themes and fonts...\033[0m"
+  echo -e "\033[1;33mInstalling fonts...\033[0m"
   echo ""
-
-  # tokyo night gtk theme
-  #sudo mkdir -p /usr/share/themes
-  #cd /tmp
-  #wget https://github.com/koiosdev/Tokyo-Night-Linux/archive/refs/heads/master.zip
-  #unzip master.zip
-  #cd Tokyo-Night-Linux-master/usr/share/themes
-  #sudo cp -r TokyoNight /usr/share/themes/
-  #cd /tmp
-  #rm -rf Tokyo-Night-Linux-master 
-  #rm master.zip
-  #cd
-
-  # numix icons
-  #sudo apt install -y numix-icon-theme
   
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
@@ -194,7 +174,6 @@ simple() {
   
   sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
   sudo chmod +x ~/dotfiles/scripts/launch.sh
-  sudo chmod +x ~/dotfiles/scripts/vpn.sh
   sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
   
