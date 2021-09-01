@@ -82,6 +82,10 @@ alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
 alias vf='vim $(fzf --height 40% --reverse)'
 
+# work related
+alias pro='cd ~/Documents/work/projects'
+alias pri='cd ~/Documents/private'
+
 # ------------------------------------------------------------------------------
 # environment variables
 # ------------------------------------------------------------------------------
