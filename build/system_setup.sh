@@ -29,7 +29,8 @@ simple() {
   apt-transport-https build-essential zathura feh htop \
   syncthing libavcodec-extra python3-pip pandoc ranger \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice software-properties-common arandr
+  exfat-fuse libreoffice software-properties-common arandr \
+  fzf
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
