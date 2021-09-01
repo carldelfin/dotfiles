@@ -71,7 +71,7 @@ esac
 # aliases
 # ------------------------------------------------------------------------------
 
-alias ls='nnn -de'
+alias ls='ls -A'
 alias ll='ls -alF --color=auto'
 alias l='ls -CF --color=auto'
 alias ..='cd ..'
@@ -79,7 +79,6 @@ alias c='clear'
 alias rc='ranger'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
-alias nn='nnn -cHP'
 
 # ------------------------------------------------------------------------------
 # environment variables
@@ -100,12 +99,3 @@ PATH=$PATH:~/.local/bin
 export FZF_DEFAULT_COMMAND="find -L"
 export EDITOR="/usr/bin/nvim.appimage"
 PATH="$HOME/.local/bin:$PATH"
-
-# ------------------------------------------------------------------------------
-# nnn
-# ------------------------------------------------------------------------------
-
-export NNN_BMS='d:~/Documents;p:~/Documents/work/projects;D:~/Downloads/'
-export NNN_SSHFS="sshfs -o follow_symlinks"        # make sshfs follow symlinks on the remote
-export NNN_COLORS="2136"                           # use a different color for each context
-export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
