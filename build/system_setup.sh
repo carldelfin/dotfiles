@@ -45,9 +45,9 @@ simple() {
   apt-transport-https build-essential zathura feh htop \
   syncthing libavcodec-extra python3-pip pandoc \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice
+  exfat-fuse libreoffice software-properties-common
   # make cmake
-  #arandr software-properties-common \
+  #arandr  \
   # build-essential dirmngr make gcc libgtk-3-dev apt-listbugs nautilus \
   # rsync neofetch firefox 
   #  exfat-utils  
