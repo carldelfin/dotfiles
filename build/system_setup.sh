@@ -43,7 +43,7 @@ simple() {
   sudo apt install -y \
   bspwm picom kitty polybar suckless-tools rofi pass \
   apt-transport-https build-essential zathura feh htop \
-  syncthing libavcodec-extra python3-pip pandoc ranger \
+  syncthing libavcodec-extra python3-pip pandoc nnn \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
   exfat-fuse libreoffice software-properties-common arandr
 
@@ -185,11 +185,9 @@ simple() {
   echo -e "\033[1;33mSetting up directories and symlinks...\033[0m"
   echo ""
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
   mkdir -p ~/.config/nvim/colors
   
-  ranger --copy-config=all
-
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
   #ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
@@ -202,8 +200,6 @@ simple() {
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
   ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-  ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-  ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
   ln -s -f ~/dotfiles/config/rofi/my_theme.rasi ~/.config/rofi/my_theme.rasi
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
