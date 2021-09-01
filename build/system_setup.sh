@@ -112,7 +112,7 @@ simple() {
   # nordic gtk
   cd /tmp
   wget https://github.com/EliverLara/Nordic/releases/download/2.0.0/Nordic-v40.tar.xz
-  sudo tar -xvf Nordic-darker.tar.xz -C /usr/share/themes
+  sudo tar -xvf Nordic-v40.tar.xz -C /usr/share/themes
   rm Nordic-v40.tar.xz
   cd
   
