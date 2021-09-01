@@ -71,14 +71,15 @@ esac
 # aliases
 # ------------------------------------------------------------------------------
 
-alias ls='ls -A --color=auto'
+alias ls='nnn -de'
 alias ll='ls -alF --color=auto'
 alias l='ls -CF --color=auto'
 alias ..='cd ..'
 alias c='clear'
 alias rc='ranger'
-alias vim="/usr/bin/nvim.appimage"
-alias nvim="/usr/bin/nvim.appimage"
+alias vim='/usr/bin/nvim.appimage'
+alias nvim='/usr/bin/nvim.appimage'
+alias nn='nnn -c'
 
 # ------------------------------------------------------------------------------
 # environment variables
