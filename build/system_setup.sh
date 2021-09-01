@@ -43,7 +43,7 @@ simple() {
   sudo apt install -y \
   bspwm picom kitty polybar suckless-tools rofi pass \
   apt-transport-https build-essential zathura feh htop \
-  syncthing libavcodec-extra python3-pip pandoc nnn \
+  syncthing libavcodec-extra python3-pip pandoc nnn trash-cli \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
   exfat-fuse libreoffice software-properties-common arandr
 
