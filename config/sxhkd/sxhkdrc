@@ -66,6 +66,16 @@ super + {_,shift + }q
 # focus/swap
 # ------------------------------------------------------------------------------
 
+# add focused window to a tabbed instance in given direction
+super + t; {m,n,e,i}
+    tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
+
+# remove one tab from tabbed
+super + t; r
+    tabbed=$(bspc query -N -n focused); \
+    child=$(tabc.sh $tabbed list | head -n1); \
+    tabc.sh $tabbed remove $child
+    
 # move focus with mnei
 super + {m,n,e,i}
 	bspc node -f {west,south,north,east}
