@@ -84,6 +84,7 @@ alias vf='vim $(fzf --height 40% --reverse)'
 
 alias pro='cd ~/Documents/work/projects'
 alias pri='cd ~/Documents/private'
+alias dt='cd ~/dotfiles'
 
 # ------------------------------------------------------------------------------
 # environment variables
