@@ -206,6 +206,7 @@ simple() {
   # get some ranger utils
   cd ~/.config/ranger
   git clone https://github.com/SL-RU/ranger_udisk_menu
+  git clone https://github.com/cdump/ranger-devicons2
   cd
   
   # ==================================================================================================
