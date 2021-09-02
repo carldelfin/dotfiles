@@ -160,7 +160,6 @@ simple() {
   sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/vpn.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
-  sudo chmod +x ~/dotfiles/scripts/tabc.sh
   
   # ==================================================================================================
   # Set up directories, symlinks, and configs
