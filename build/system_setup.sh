@@ -27,10 +27,9 @@ simple() {
   sudo apt install -y \
   bspwm picom kitty polybar suckless-tools rofi pass \
   apt-transport-https build-essential zathura feh htop \
-  syncthing libavcodec-extra python3-pip pandoc ranger \
+  syncthing libavcodec-extra python3-pip ranger fzf \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice software-properties-common arandr \
-  fzf
+  exfat-fuse libreoffice software-properties-common arandr
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -188,7 +187,7 @@ simple() {
   ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
   ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
-  sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
+  #sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
@@ -203,14 +202,25 @@ simple() {
   ln -s -f ~/dotfiles/config/nvim/colors/northernlights.vim ~/.config/nvim/colors/northernlights.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   
-  # get some ranger utils
+  # ==================================================================================================
+  # Plugins for ranger and neovim
+  # ==================================================================================================
+  
+  echo ""
+  echo -e "\033[1;33mInstalling plugins for ranger and neovim...\033[0m"
+  echo ""
+  
+  # ranger
   cd ~/.config/ranger
   git clone https://github.com/SL-RU/ranger_udisk_menu
   git clone https://github.com/cdump/ranger-devicons2
   cd
   
+  # neovim
+  /usr/bin/nvim.appimage --headless +PlugInstall +qall
+  
   # ==================================================================================================
-  # configure ufw
+  # Configure ufw
   # ==================================================================================================
   
   echo ""
