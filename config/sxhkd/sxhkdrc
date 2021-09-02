@@ -75,7 +75,7 @@ super + t; r
     tabbed=$(bspc query -N -n focused); \
     child=$(tabc.sh $tabbed list | head -n1); \
     tabc.sh $tabbed remove $child
-    
+
 # move focus with mnei
 super + {m,n,e,i}
 	bspc node -f {west,south,north,east}
