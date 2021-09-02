@@ -211,10 +211,8 @@ simple() {
   echo ""
   
   # ranger
-  cd ~/.config/ranger
-  git clone https://github.com/SL-RU/ranger_udisk_menu
-  git clone https://github.com/cdump/ranger-devicons2
-  cd
+  git clone https://github.com/SL-RU/ranger_udisk_menu ~/.config/ranger/ranger_udisk_menu
+  git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
   
   # neovim
   /usr/bin/nvim.appimage --headless +PlugInstall +qall
