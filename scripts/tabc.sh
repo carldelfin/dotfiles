@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Usage:
-# tabc.sh <command>
+# tabc.sh <tabbed-id> <command>
 # Commands:
-#    add <direction-of-tabbed> <window-id> - Add window to tabbed
+#    add <window-id> 	- Add window to tabbed
 #    remove <window-id> - Remove window from tabbed
-#    list <tabbed-id> - List all clients of tabbed
+#    list				- List all clients of tabbed
 
 #
 # Functions
@@ -25,39 +25,30 @@ function get_clients {
 # Get class of a wid
 function get_class {
 	id=$1
-  if [ -z $id ]; then
-    echo ""
-  else
-	  xprop -id $id | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p'
-  fi
+	xprop -id $id | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p'
 }
 
 #
 # Main Program
 #
 
-cmd=$1
-if [ $cmd = "add" ]; then
-  	tabbedid=$(bspc query -N -n $2)
-  	if [ -z $tabbedid ]; then
-    		tabbed &
-    		sleep 0.1
-    		tabbedid=$(xdotool search --class tabbed | tail -n1)
-  	fi
+tabbed=$1; shift
+if [ "$(get_class $tabbed)" != "tabbed" ]; then
+	echo "Not an instance of tabbed" 2>&1
 fi
+
+cmd=$1; shift
 
 case $cmd in
 	add)
-		wid=$3
+		wid=$1; shift
 		xdotool windowreparent $wid $tabbed
 		;;
 	remove)
-		wid=$2
-    		tabbedid=$(bspc query -N -n focused)
+		wid=$1; shift
 		xdotool windowreparent $wid $(get_root_wid)
 		;;
 	list)
-		tabbedid=$2
 		get_clients $tabbed
 		;;
 esac
