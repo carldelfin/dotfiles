@@ -17,7 +17,7 @@ simple() {
   # ------------------------------------------------------------------------------
 
   sudo apt install -y \
-  bspwm picom kitty polybar suckless-tools rofi pass pinentry-qt \
+  bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
   apt-transport-https build-essential zathura feh htop \
   syncthing libavcodec-extra python3-pip ranger fzf \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
