@@ -11,14 +11,6 @@ catch() {
 }
 
 simple() {
-
-  # ==================================================================================================
-  # Ask for hostname
-  # ==================================================================================================
-
-  echo ""
-  read -p 'Select hostname: ' system_hostname
-  sudo hostnamectl set-hostname $system_hostname
   
   # ------------------------------------------------------------------------------
   # Install packages
@@ -170,7 +162,7 @@ simple() {
   sudo chmod +x ~/dotfiles/scripts/backup.sh
   
   # ==================================================================================================
-  # Set up directories and symlinks
+  # Set up directories, symlinks, and configs
   # ==================================================================================================
   
   echo ""
@@ -187,7 +179,6 @@ simple() {
   ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
   ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
   ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
-  #sudo ln -s -f ~/dotfiles/config/gtk/index.theme /usr/share/icons/default/index.theme
   ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
   ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
   ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
