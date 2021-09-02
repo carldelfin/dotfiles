@@ -87,8 +87,6 @@ alias pri='cd ~/Documents/private'
 alias dt='cd ~/dotfiles'
 alias dtv='cd ~/dotfiles && vim'
 
-alias zathura='tabbed -c -r 2 zathura -e id'
-
 # ------------------------------------------------------------------------------
 # environment variables
 # ------------------------------------------------------------------------------
