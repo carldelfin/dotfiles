@@ -76,13 +76,12 @@ alias ll='ls -alF --color=auto'
 alias l='ls -CF --color=auto'
 alias ..='cd ..'
 alias c='clear'
+alias e='exit'
 alias rr='ranger'
-alias ee='exit'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
 alias vf='vim $(fzf --height 40% --reverse)'
 
-# work related
 alias pro='cd ~/Documents/work/projects'
 alias pri='cd ~/Documents/private'
 
