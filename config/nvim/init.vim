@@ -144,6 +144,7 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = {}
 let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
 let g:mucomplete#chains.unite = []
+let g:mucomplete#completion_delay = 1
 
 " indentation
 filetype plugin indent on

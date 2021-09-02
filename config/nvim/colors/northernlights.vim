@@ -15,15 +15,15 @@ endif
 
 let colors_name = "northernlights"
 
-" afternoon backgound: #434c5e
+" afternoon backgound: #3b4252
 " evening backgound: #3b4252
 
 " -------------------------------------------------------------------------
 " UI
 " -------------------------------------------------------------------------
 
-hi Normal                       guifg=#eceff4       guibg=#434c5e
-hi LineNr	                    guifg=#747f94       guibg=#434c5e
+hi Normal                       guifg=#eceff4       guibg=#3b4252
+hi LineNr	                    guifg=#747f94       guibg=#3b4252
 hi CursorLineNr	                guifg=#b7c2d7       guibg=#4c566a       gui=bold
 hi VertSplit	                guifg=#505050	    guibg=#4c566a       gui=none
 hi ColorColumn                                      guibg=#4c566a
@@ -33,17 +33,17 @@ hi CursorLine	                                    guibg=#4c566a
 " Statusline
 " -------------------------------------------------------------------------
 
-hi StatusLine                   guifg=#eceff4       guibg=#434c5e       gui=none
-hi StatusLineNC                 guifg=#e5e9f0       guibg=#434c5e       gui=none
+hi StatusLine                   guifg=#eceff4       guibg=#3b4252       gui=none
+hi StatusLineNC                 guifg=#e5e9f0       guibg=#3b4252       gui=none
 hi User1                        guifg=#eceff4       guibg=#4c566a 
 hi User2                        guifg=#e5e9f0       guibg=#4c566a           
 hi User3                        guifg=#e5e9f0       guibg=#4c566a           
 hi User4                        guifg=#e5e9f0       guibg=#3B4252           
-hi NormalColor                  guifg=#434c5e       guibg=#a3be8c
-hi InsertColor                  guifg=#434c5e       guibg=#88c0d0
-hi ReplaceColor                 guifg=#434c5e       guibg=#bf616a
-hi VisualColor                  guifg=#434c5e       guibg=#ebcb8b
-hi CommandColor                 guifg=#434c5e       guibg=#d778dd
+hi NormalColor                  guifg=#3b4252       guibg=#a3be8c
+hi InsertColor                  guifg=#3b4252       guibg=#88c0d0
+hi ReplaceColor                 guifg=#3b4252       guibg=#bf616a
+hi VisualColor                  guifg=#3b4252       guibg=#ebcb8b
+hi CommandColor                 guifg=#3b4252       guibg=#d778dd
 
 " -------------------------------------------------------------------------
 " Indent Blankline 
@@ -97,7 +97,7 @@ hi pandocOperator               guifg=#eceff4
 " Code, generic
 " -------------------------------------------------------------------------
 
-hi MatchParen                   guifg=#434c5e       guibg=#8fbcbb
+hi MatchParen                   guifg=#3b4252       guibg=#8fbcbb
 hi Boolean                      guifg=#ebcb8b
 hi Constant	                    guifg=#ebcb8b
 hi Comment	                    guifg=#6d7a96
