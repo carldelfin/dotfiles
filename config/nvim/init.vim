@@ -17,7 +17,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'ryanoasis/vim-devicons'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -184,7 +183,7 @@ let R_assign = 1
 let R_assign_map = '<<'
 
 "colorscheme northernlights 
-let ayucolor="mirage" 
+let ayucolor = "mirage" 
 colorscheme ayu
 
 " --------------------------------------------------------------------------------------------------
