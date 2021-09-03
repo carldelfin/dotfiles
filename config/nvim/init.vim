@@ -17,82 +17,23 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
+
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'carldelfin/ayu-vim' 
 
 call plug#end()
-
-" --------------------------------------------------------------------------------------------------
-" Status line
-" --------------------------------------------------------------------------------------------------
-
-let g:currentmode={
-      \ 'n'  : 'n',
-      \ 'v'  : 'v',
-      \ 'V'  : 'vl',
-      \ ''   : 'vb',
-      \ 'i'  : 'i',
-      \ 'R'  : 'r',
-      \ 'Rv' : 'rv',
-      \ 'c'  : 'c',
-      \ 't'  : 'f',
-      \}
-
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-
-set laststatus=2
-set statusline=
-set statusline+=%#NormalColor#%{(g:currentmode[mode()]=='n')?'\ \ normal\ ':''}
-set statusline+=%#InsertColor#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
-set statusline+=%#ReplaceColor#%{(g:currentmode[mode()]=='r')?'\ \ replace\ ':''}
-set statusline+=%#ReplaceColor#%{(g:currentmode[mode()]=='rv')?'\ \ v-replace\ ':''}
-set statusline+=%#VisualColor#%{(g:currentmode[mode()]=='v')?'\ \ visual\ ':''}
-set statusline+=%#VisualColor#%{(g:currentmode[mode()]=='vl')?'\ \ v-line\ ':''}
-set statusline+=%#VisualColor#%{(g:currentmode[mode()]=='vb')?'\ \ v-block\ ':''}
-set statusline+=%#CommandColor#%{(g:currentmode[mode()]=='c')?'\ \ command\ ':''}
-set statusline+=%#NormalColor#%{(g:currentmode[mode()]=='f')?'\ \ find\ ':''}
-set statusline+=%4*
-set statusline+=%{StatuslineGit()}
-set statusline+=%1*
-set statusline+=\ 
-set statusline+=%t
-set statusline+=\ 
-set statusline+=%2*
-set statusline+=%=
-set statusline+=%{strlen(&fenc)?&fenc:'none'}
-set statusline+=\  
-set statusline+=\| 
-set statusline+=\  
-set statusline+=%{&ff}
-set statusline+=\  
-set statusline+=\| 
-set statusline+=\  
-set statusline+=%{expand(&filetype)}
-set statusline+=\ 
-set statusline+=%3*
-set statusline+=\ 
-set statusline+=%P
-set statusline+=\ 
-set statusline+=%4*
-set statusline+=\ 
-set statusline+=%02v
-set statusline+=\  
-set statusline+=%l
-set statusline+=\:
-set statusline+=%L
-set statusline+=\ 
 
 " --------------------------------------------------------------------------------------------------
 " LUA config
 " --------------------------------------------------------------------------------------------------
 
 lua << EOF
+
+require('lualine').setup{
+    options = {theme = 'ayu_dark'},
+    }
 
 -- indent blankline
 require("indent_blankline").setup {
@@ -242,7 +183,9 @@ let R_pdfviewer = "zathura"
 let R_assign = 1
 let R_assign_map = '<<'
 
-colorscheme northernlights 
+"colorscheme northernlights 
+let ayucolor="mirage" 
+colorscheme ayu
 
 " --------------------------------------------------------------------------------------------------
 " keybindings
