@@ -21,7 +21,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'carldelfin/ayu-vim' 
-
 call plug#end()
 
 " --------------------------------------------------------------------------------------------------
@@ -84,7 +83,6 @@ let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = {}
 let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
 let g:mucomplete#chains.unite = []
-let g:mucomplete#completion_delay = 1
 
 " indentation
 filetype plugin indent on
@@ -93,8 +91,11 @@ set shiftwidth=4
 set expandtab
 set smartindent
 
+" spelling and language
+set spelllang=en_us,sv
+
 " no highlight during search
-" set nohlsearch
+set nohlsearch
 
 " allow buffers to be hidden if modified
 set hidden
@@ -148,7 +149,7 @@ syntax on
 let g:vimtex_view_method = 'zathura'
 
 " no folding on startup with vim-pandoc
-let g:pandoc#modules#disabled = ["folding", "spell"]
+let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#syntax#conceal#use = 0
 
 " --------------------------------------------------------------------------------------------------
@@ -159,8 +160,8 @@ let g:pandoc#syntax#conceal#use = 0
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 let R_hi_fun = 1
-let R_hi_fun_paren = 1
-let R_hi_fun_globenv = 1
+let R_hi_fun_paren = 0
+let R_hi_fun_globenv = 0
 
 " make sure R follows colorscheme
 let g:rout_follow_colorscheme = 1
@@ -177,6 +178,9 @@ let R_args = ['--no-save', '--quiet']
 " R may open PDFs once, using zathura, then update that window
 let R_openpdf = 1
 let R_pdfviewer = "zathura"
+
+"let R_set_omnifunc = []
+"let R_auto_omni = []
 
 " << turns into <-  
 let R_assign = 1

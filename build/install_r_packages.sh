@@ -25,7 +25,6 @@ simple() {
                                  "officer", "flextable", "bayesplot", "haven", "lavaan", "blavaan",
                                  "lintr", "GPArotation", "vroom", "ggseg"))'
   Rscript -e 'devtools::install_git("https://github.com/JanMarvin/readspss.git")'
-  Rscript -e 'remotes::install_github("REditorSupport/languageserver")'
   Rscript -e 'options(repos = c(ggseg = "https://ggseg.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("ggsegExtra")'
 }
 
