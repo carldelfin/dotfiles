@@ -23,6 +23,14 @@ simple() {
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
   exfat-fuse libreoffice software-properties-common arandr
 
+  # install go
+  cd /tmp
+  wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
+  export PATH=$PATH:/usr/local/go/bin
+  rm go1.17.linux-amd64.tar.gz
+  cd
+
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
@@ -207,6 +215,11 @@ simple() {
   
   # neovim
   /usr/bin/nvim.appimage --headless +PlugInstall +qall
+
+  # make hexokinase
+  cd ~/.vim/plugged/vim-hexokinase
+  make hexokinase
+  cd
   
   # ==================================================================================================
   # Configure ufw

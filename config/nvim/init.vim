@@ -17,10 +17,12 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
+Plug 'terrortylor/nvim-comment'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'carldelfin/ayu-vim' 
+Plug 'rrethy/vim-hexokinase'
+
 call plug#end()
 
 " --------------------------------------------------------------------------------------------------
@@ -29,9 +31,17 @@ call plug#end()
 
 lua << EOF
 
+-- hop
+-- optimize keys for colemak-dh
+require('hop').setup{
+    keys = 'tnseriaoplfugmwydhcbjyvxzk', term_seq_bias = 0.5
+}
+
+require('nvim_comment').setup()
+
 require('lualine').setup{
     options = {theme = 'ayu_dark'},
-    }
+}
 
 -- indent blankline
 require("indent_blankline").setup {
@@ -74,6 +84,8 @@ EOF
 " --------------------------------------------------------------------------------------------------
 " settings
 " --------------------------------------------------------------------------------------------------
+
+let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 
 set completeopt-=preview
 set completeopt+=menu,menuone,noinsert,noselect
@@ -186,8 +198,17 @@ let R_pdfviewer = "zathura"
 let R_assign = 1
 let R_assign_map = '<<'
 
-"colorscheme northernlights 
-let ayucolor = "mirage" 
+function! ToggleCols()
+    if (ayucolor == "dark")
+      set background=darker 
+    else
+       set background=dark 
+    endif
+endfunction
+
+nnoremap <silent> <LocalLeader>zz :call ToggleCols()<cr>
+
+let ayucolor = "dark" 
 colorscheme ayu
 
 " --------------------------------------------------------------------------------------------------
