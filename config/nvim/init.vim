@@ -40,7 +40,7 @@ require('hop').setup{
 require('nvim_comment').setup()
 
 require('lualine').setup{
-    options = {theme = 'ayu_dark'},
+    options = {theme = 'onedark'},
 }
 
 -- indent blankline
@@ -185,33 +185,19 @@ autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "functio
 " don't allow syntax folding
 let r_syntax_folding = 0
 
+" quietly open R
 let R_args = ['--no-save', '--quiet']
 
 " R may open PDFs once, using zathura, then update that window
 let R_openpdf = 1
 let R_pdfviewer = "zathura"
 
-"let R_set_omnifunc = []
-"let R_auto_omni = []
-
 " << turns into <-  
 let R_assign = 1
 let R_assign_map = '<<'
 
-function! ToggleCols()
-    if (g:ayucolor == "dark")
-      let g:ayucolor = "darker" 
-      :colorscheme ayu
-    else
-      let g:ayucolor = "dark"
-      :colorscheme ayu
-    endif
-endfunction
-
-nnoremap <silent> <LocalLeader>zz :call ToggleCols()<cr>
-
 set background=dark
-let ayucolor = "dark" 
+let ayucolor = "darkest" 
 colorscheme ayu
 
 " --------------------------------------------------------------------------------------------------
