@@ -199,15 +199,18 @@ let R_assign = 1
 let R_assign_map = '<<'
 
 function! ToggleCols()
-    if (ayucolor == "dark")
-      set background=darker 
+    if (g:ayucolor == "dark")
+      let g:ayucolor = "darker" 
+      :colorscheme ayu
     else
-       set background=dark 
+      let g:ayucolor = "dark"
+      :colorscheme ayu
     endif
 endfunction
 
 nnoremap <silent> <LocalLeader>zz :call ToggleCols()<cr>
 
+set background=dark
 let ayucolor = "dark" 
 colorscheme ayu
 
