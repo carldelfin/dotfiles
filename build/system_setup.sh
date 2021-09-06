@@ -23,7 +23,7 @@ simple() {
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
   exfat-fuse libreoffice software-properties-common arandr zoxide
 
-  # install go
+  # go
   cd /tmp
   wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
   sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
