@@ -21,13 +21,12 @@ simple() {
   apt-transport-https build-essential zathura feh htop \
   syncthing libavcodec-extra python3-pip ranger fzf \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice software-properties-common arandr
+  exfat-fuse libreoffice software-properties-common arandr zoxide
 
   # install go
   cd /tmp
   wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
   sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
-  export PATH=$PATH:/usr/local/go/bin
   rm go1.17.linux-amd64.tar.gz
   cd
 
@@ -212,6 +211,7 @@ simple() {
   # ranger
   git clone https://github.com/SL-RU/ranger_udisk_menu ~/.config/ranger/ranger_udisk_menu
   git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
+  git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
   
   # neovim
   /usr/bin/nvim.appimage --headless +PlugInstall +qall

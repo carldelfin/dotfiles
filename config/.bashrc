@@ -81,16 +81,13 @@ alias rr='ranger'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
 alias vf='vim $(fzf --height 40% --reverse)'
-alias tok='cat .private/token | xclip -selection clipboard'
-
-alias pro='cd ~/Documents/work/projects'
-alias pri='cd ~/Documents/private'
-alias dt='cd ~/dotfiles'
-alias dtv='cd ~/dotfiles && vim'
 
 # ------------------------------------------------------------------------------
 # environment variables
 # ------------------------------------------------------------------------------
+
+# zoxide 
+eval "$(zoxide init bash)"
 
 # freesurfer
 if [ -d "/usr/local/freesurfer" ]; then
@@ -111,3 +108,6 @@ PATH="$HOME/.local/bin:$PATH"
 
 # ranger
 RANGER_LOAD_DEFAULT_RC=false
+
+# go
+export PATH=$PATH:/usr/local/go/bin
