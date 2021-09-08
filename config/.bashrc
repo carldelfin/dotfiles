@@ -87,7 +87,7 @@ alias vf='vim $(fzf --height 40% --reverse)'
 # ------------------------------------------------------------------------------
 
 # zoxide 
-eval "$(zoxide init bash)"
+eval "$(zoxide init bash --cmd t)"
 
 # freesurfer
 if [ -d "/usr/local/freesurfer" ]; then
