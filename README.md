@@ -7,12 +7,13 @@
 | Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
 | Distro              | [Debian 11](https://www.debian.org/News/2021/20210814)|
-| WM                  | [bspwm](https://github.com/baskerville/bspwm)|
+| Window manager      | [bspwm](https://github.com/baskerville/bspwm)|
 | Bar                 | [Polybar](https://github.com/polybar/polybar)|
 | Theme               | [Nordic](https://github.com/EliverLara/Nordic)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) + [Nord Font patch](https://www.nerdfonts.com/font-downloads)|
 | Editor              | [Neovim](https://neovim.io/)|
+| File manager        | [ranger](https://github.com/ranger/ranger)|
 
 ## Install <a name = "install"></a>
 
