@@ -150,7 +150,17 @@ set lazyredraw
 set nofoldenable
 
 " terminal coloring and syntax highlight
-set termguicolors
+
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 syntax on
 
 " --------------------------------------------------------------------------------------------------
@@ -185,8 +195,9 @@ autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "functio
 " don't allow syntax folding
 let r_syntax_folding = 0
 
-" quietly open R
+" quietly open R, always horizontal
 let R_args = ['--no-save', '--quiet']
+let R_rconsole_width = 0
 
 " R may open PDFs once, using zathura, then update that window
 let R_openpdf = 1
@@ -196,8 +207,12 @@ let R_pdfviewer = "zathura"
 let R_assign = 1
 let R_assign_map = '<<'
 
-set background=dark
-let ayucolor = "darkest" 
+" --------------------------------------------------------------------------------------------------
+" colors 
+" --------------------------------------------------------------------------------------------------
+
+set background = "dark" 
+let ayucolor = "darker" 
 colorscheme ayu
 
 " --------------------------------------------------------------------------------------------------
