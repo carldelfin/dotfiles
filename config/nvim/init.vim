@@ -33,9 +33,7 @@ lua << EOF
 
 -- hop
 -- optimize keys for colemak-dh
-require('hop').setup{
-    --keys = 'tnseriaoplfugmwydhcbjyvxzk', term_seq_bias = 0.5
-}
+require('hop').setup{}
 
 require('nvim_comment').setup()
 
@@ -211,8 +209,7 @@ let R_assign_map = '<<'
 " colors 
 " --------------------------------------------------------------------------------------------------
 
-set background = "dark" 
-let ayucolor = "darker" 
+let ayucolor = "dark" 
 colorscheme ayu
 
 " --------------------------------------------------------------------------------------------------
@@ -259,8 +256,8 @@ nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
 " hop 
 nnoremap <A-c> <cmd>HopPattern<cr>
 nnoremap <A-d> <cmd>HopWord<cr>
-nnoremap f <cmd>HopChar1<cr>
-omap f <cmd>HopChar1<cr>
+nnoremap s <cmd>HopChar1<cr>
+omap s <cmd>HopChar1<cr>
 
 " buffer control 
 nnoremap <silent> tt :BufferLinePick<CR>
