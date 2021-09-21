@@ -22,6 +22,7 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'carldelfin/ayu-vim' 
 Plug 'rrethy/vim-hexokinase'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -212,6 +213,9 @@ colorscheme ayu
 " --------------------------------------------------------------------------------------------------
 " keybindings
 " --------------------------------------------------------------------------------------------------
+
+" nerdtree
+nnoremap <C-t> :NERDTreeToggle<CR>
 
 " leader keys
 let mapleader = ","
