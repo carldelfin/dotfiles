@@ -32,7 +32,6 @@ call plug#end()
 lua << EOF
 
 -- hop
--- optimize keys for colemak-dh
 require('hop').setup{}
 
 require('nvim_comment').setup()
@@ -83,7 +82,7 @@ EOF
 " settings
 " --------------------------------------------------------------------------------------------------
 
-let g:Hexokinase_highlighters = [ 'backgroundfull' ]
+let g:Hexokinase_highlighters = ['backgroundfull']
 
 set completeopt-=preview
 set completeopt+=menu,menuone,noinsert,noselect
@@ -103,9 +102,6 @@ set smartindent
 
 " spelling and language
 set spelllang=en_us,sv
-
-" no highlight during search
-set nohlsearch
 
 " allow buffers to be hidden if modified
 set hidden
@@ -204,6 +200,7 @@ let R_pdfviewer = "zathura"
 " << turns into <-  
 let R_assign = 1
 let R_assign_map = '<<'
+
 
 " --------------------------------------------------------------------------------------------------
 " colors 
