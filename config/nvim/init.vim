@@ -144,6 +144,14 @@ set lazyredraw
  " turn off folding
 set nofoldenable
 
+set updatetime=300                      " Faster completion
+set timeoutlen=500                      " By default timeoutlen is 1000 ms
+
+set splitbelow                          " Horizontal splits will automatically be below
+set splitright                          " Vertical splits will automatically be to the right
+
+set formatoptions-=cro                  " Stop newline continution of comments
+
 " terminal coloring and syntax highlight
 
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -246,16 +254,16 @@ nnoremap <A-e> <C-w>k " up
 nnoremap <A-i> <C-w>l " right
 
 " window resize 
-nnoremap <C-A-m> :vertical resize -2<CR> " left
-nnoremap <C-A-n> :resize +2<CR> " down
-nnoremap <C-A-e> :resize -2<CR> " up
-nnoremap <C-A-i> :vertical resize +2<CR> " right
+nnoremap <S-A-m> :vertical resize -2<CR> " left
+nnoremap <S-A-n> :resize +2<CR> " down
+nnoremap <S-A-e> :resize -2<CR> " up
+nnoremap <S-A-i> :vertical resize +2<CR> " right
 
 " replace
 nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
 
 " hop 
-nnoremap <A-c> <cmd>HopPattern<cr>
+nnoremap <A-c> <cmd>HopChar2<cr>
 nnoremap <A-d> <cmd>HopWord<cr>
 nnoremap s <cmd>HopChar1<cr>
 omap s <cmd>HopChar1<cr>
