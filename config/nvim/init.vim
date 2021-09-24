@@ -229,6 +229,22 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 let mapleader = ","
 let maplocalleader="\<space>"
 
+" sensible defaults
+nnoremap Y y$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+nnoremap <leader><CR> :so %<CR>
+
 " fzf
 nnoremap <A-f> <cmd>FZF<cr>
 
