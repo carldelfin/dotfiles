@@ -23,6 +23,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'carldelfin/ayu-vim' 
 Plug 'rrethy/vim-hexokinase'
 Plug 'preservim/nerdtree'
+Plug 'preservim/vim-pencil'
 
 call plug#end()
 
@@ -170,6 +171,13 @@ syntax on
 " various settings
 " --------------------------------------------------------------------------------------------------
 
+" pencil
+let g:pencil#wrapModeDefault = 'soft'
+augroup pencil
+  autocmd!
+  autocmd FileType text,rmarkdown,markdown,mkd call pencil#init()
+augroup END
+
 " use zathura to view tex output
 let g:vimtex_view_method = 'zathura'
 
@@ -210,6 +218,10 @@ let R_pdfviewer = "zathura"
 let R_assign = 1
 let R_assign_map = '<<'
 
+" >> turns into %>%
+autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
+autocmd FileType rnoweb inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
+autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 
 " --------------------------------------------------------------------------------------------------
 " colors 
@@ -224,6 +236,10 @@ colorscheme ayu
 
 " nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
+
+" switch window orientation
+nnoremap <A-w> :wincmd H<CR>
+nnoremap <S-A-w> :wincmd J<CR>
 
 " leader keys
 let mapleader = ","

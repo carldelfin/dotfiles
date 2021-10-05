@@ -2,7 +2,7 @@ o ------------------------------------------------------------------------------
 # wm independent hotkeys
 # ------------------------------------------------------------------------------
 
-# make sxhkd reload its configuration files:
+# reload sxhkd config
 super + Escape
 	pkill -USR1 -x sxhkd
 	
@@ -15,18 +15,21 @@ super + s
 	rofi -show run -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
 
 # rofi power menu
-super + shift + x
+super + j
   	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
 
+# sound levels
 super + comma
   	amixer -D pulse sset Master 5%-
 
 super + period
   	amixer -D pulse sset Master 5%+
 
+# launch pass
 super + Tab
   	rofi-pass
-  
+
+# launch firefox
 super + f
 	firefox
 
@@ -58,7 +61,7 @@ super + {_,shift + }q
 super + {t,shift + t,s,f}
     bspc node -t {\~tiled,\~pseudo_tiled,\~floating,\~fullscreen}
 
-super + {space}
+super + space
     bspc node -t {floating}
 
 # set the node flags

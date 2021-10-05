@@ -22,9 +22,10 @@ simple() {
   Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans",
                                  "pander", "rmarkdown", "blogdown", "devtools", "here", "reshape2", "patchwork",
                                  "RColorBrewer", "janitor", "data.table", "kableExtra", "performance",
-                                 "officer", "flextable", "bayesplot", "haven", "lavaan", "blavaan",
-                                 "lintr", "GPArotation", "vroom", "ggseg"))'
+                                 "officer", "flextable", "bayesplot", "haven", "lavaan", "blavaan", "viridis",
+                                 "lintr", "GPArotation", "vroom", "ggseg", "xaringan", "xaringanthemer"))'
   Rscript -e 'devtools::install_git("https://github.com/JanMarvin/readspss.git")'
+  Rscript -e 'devtools::install_git("https://github.com/gadenbuie/xaringanExtra.git")'
   Rscript -e 'options(repos = c(ggseg = "https://ggseg.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("ggsegExtra")'
 }
 

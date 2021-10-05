@@ -18,7 +18,7 @@ simple() {
 
   sudo apt install -y \
   bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
-  apt-transport-https build-essential zathura feh htop \
+  apt-transport-https build-essential zathura feh htop xinput \
   syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
   exfat-fuse libreoffice software-properties-common arandr zoxide
@@ -167,6 +167,7 @@ simple() {
   sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/vpn.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
+  sudo chmod +x ~/dotfiles/scripts/keyboard_switcher.sh
   
   # ==================================================================================================
   # Set up directories, symlinks, and configs
