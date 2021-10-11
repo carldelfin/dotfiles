@@ -206,9 +206,9 @@ autocmd VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "functio
 " don't allow syntax folding
 let r_syntax_folding = 0
 
-" quietly open R, always horizontal
+" quietly open R
 let R_args = ['--no-save', '--quiet']
-let R_rconsole_width = 0
+let R_rconsole_width = 80
 
 " R may open PDFs once, using zathura, then update that window
 let R_openpdf = 1
@@ -292,7 +292,7 @@ nnoremap <S-A-e> :resize -2<CR> " up
 nnoremap <S-A-i> :vertical resize +2<CR> " right
 
 " replace
-nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<left><left>
+nnoremap <LocalLeader>r :%s/\<<C-r><C-w>\>//g<left><left>
 
 " hop 
 nnoremap <A-c> <cmd>HopChar2<cr>

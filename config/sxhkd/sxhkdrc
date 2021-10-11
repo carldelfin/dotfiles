@@ -18,6 +18,10 @@ super + s
 super + j
   	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
 
+# laptop keyboard toggle
+super + k
+    bash ~/dotfiles/scripts/keyboard_switcher.sh
+
 # sound levels
 super + comma
   	amixer -D pulse sset Master 5%-
@@ -45,28 +49,15 @@ super + alt + {q,f}
 super + {_,shift + }q
 	bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
-# super + m
-#	bspc desktop -l next
-
-# swap the current node and the biggest window
-#super + g
-#	bspc node -s biggest.window
-
 # ------------------------------------------------------------------------------
 # state/flags
 # ------------------------------------------------------------------------------
 
-# set the window state
-super + {t,shift + t,s,f}
-    bspc node -t {\~tiled,\~pseudo_tiled,\~floating,\~fullscreen}
-
 super + space
     bspc node -t {floating}
 
-# set the node flags
-#super + ctrl + {m,x,y,z}
-#	bspc node -g {marked,locked,sticky,private}
+super + shift + space
+    bspc node -t {tiled}
 
 # ------------------------------------------------------------------------------
 # focus/swap
