@@ -234,6 +234,10 @@ colorscheme ayu
 " keybindings
 " --------------------------------------------------------------------------------------------------
 
+" save and quit
+nnoremap <C-s> :w<CR>
+nnoremap <C-q> :q<CR>
+
 " nerdtree
 nnoremap <C-t> :NERDTreeToggle<CR>
 
@@ -292,7 +296,7 @@ nnoremap <S-A-e> :resize -2<CR> " up
 nnoremap <S-A-i> :vertical resize +2<CR> " right
 
 " replace
-nnoremap <LocalLeader>r :%s/\<<C-r><C-w>\>//g<left><left>
+" nnoremap <LocalLeader>r :%s/\<<C-r><C-w>\>//g<left><left>
 
 " hop 
 nnoremap <A-c> <cmd>HopChar2<cr>
