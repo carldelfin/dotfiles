@@ -12,11 +12,11 @@ super + Return
 
 # program launcher
 super + s
-	rofi -show run -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
+	rofi -show run -theme ayur -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
 
 # rofi power menu
 super + j
-  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme my_theme -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
+  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme ayur -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
 
 # laptop keyboard toggle
 super + k

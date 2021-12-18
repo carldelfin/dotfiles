@@ -1,5 +1,5 @@
 " --------------------------------------------------------------------------------------------------
-" plugins
+" Plugins
 " --------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
@@ -18,9 +18,8 @@ Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'terrortylor/nvim-comment'
-Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'carldelfin/ayu-vim' 
+Plug 'carldelfin/ayur' 
 Plug 'rrethy/vim-hexokinase'
 Plug 'preservim/nerdtree'
 Plug 'preservim/vim-pencil'
@@ -28,22 +27,42 @@ Plug 'preservim/vim-pencil'
 call plug#end()
 
 " --------------------------------------------------------------------------------------------------
-" LUA config
+" Status line 
+" --------------------------------------------------------------------------------------------------
+
+set laststatus=2
+set statusline=
+set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#InsertColor#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
+set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%1*
+set statusline+=\ 
+set statusline+=%f
+set statusline+=%=
+set statusline+=%{strlen(&fenc)?&fenc:'none'}
+set statusline+=\ 
+set statusline+=%y
+set statusline+=\ 
+set statusline+=%l
+set statusline+=: 
+set statusline+=%L
+set statusline+=\ 
+set statusline+=[ 
+set statusline+=%c
+set statusline+=] 
+
+" --------------------------------------------------------------------------------------------------
+" LUA configs
 " --------------------------------------------------------------------------------------------------
 
 lua << EOF
 
--- hop
 require('hop').setup{}
+require('nvim_comment').setup{}
+require('neoscroll').setup{}
 
-require('nvim_comment').setup()
-
-require('lualine').setup{
-    options = {theme = 'onedark'},
-}
-
--- indent blankline
-require("indent_blankline").setup {
+require("indent_blankline").setup{
     char = "│",
     buftype_exclude = {"terminal"},
     space_char = ' ',
@@ -55,40 +74,37 @@ require("indent_blankline").setup {
         "IndentBlanklineIndent3",
         "IndentBlanklineIndent4",
         "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-    },
+        "IndentBlanklineIndent6"}
 }
 
--- smooth scrolling
-require('neoscroll').setup()
-
--- bufferline
 require("bufferline").setup{
     options = {
         close_command = "Bdelete",
         separator_style = "slant",
-        always_show_bufferline = true
-    }
+        always_show_bufferline = true}
 }
 
--- shade
-require'shade'.setup({
+require'shade'.setup{
   overlay_opacity = 50,
   opacity_step = 1,
   keys = { toggle = '<A-v>' }
-})
+}
 
 EOF
 
 " --------------------------------------------------------------------------------------------------
-" settings
+" Various settings
 " --------------------------------------------------------------------------------------------------
 
+" hexokinase should highlight background
 let g:Hexokinase_highlighters = ['backgroundfull']
 
+" completion settings
 set completeopt-=preview
 set completeopt+=menu,menuone,noinsert,noselect
 set shortmess+=c
+set updatetime=300
+set timeoutlen=500
 
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = {}
@@ -145,31 +161,21 @@ set lazyredraw
  " turn off folding
 set nofoldenable
 
-set updatetime=300                      " Faster completion
-set timeoutlen=500                      " By default timeoutlen is 1000 ms
+" split settings
+set splitbelow
+set splitright
 
-set splitbelow                          " Horizontal splits will automatically be below
-set splitright                          " Vertical splits will automatically be to the right
-
-set formatoptions-=cro                  " Stop newline continution of comments
+" don't continue comment lines
+set formatoptions-=cro
 
 " terminal coloring and syntax highlight
-
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
 syntax on
 
-" --------------------------------------------------------------------------------------------------
-" various settings
-" --------------------------------------------------------------------------------------------------
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " pencil
 let g:pencil#wrapModeDefault = 'soft'
@@ -189,7 +195,6 @@ let g:pandoc#syntax#conceal#use = 0
 " R specific settings
 " --------------------------------------------------------------------------------------------------
 
-" highlight chunk headers as r code
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
 let R_hi_fun = 1
@@ -224,26 +229,15 @@ autocmd FileType rnoweb inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 
 " --------------------------------------------------------------------------------------------------
-" colors 
+" Colorscheme 
 " --------------------------------------------------------------------------------------------------
 
-let ayucolor = "darker" 
-colorscheme ayu
+let ayurcolor = "darker" 
+colorscheme ayur
 
 " --------------------------------------------------------------------------------------------------
-" keybindings
+" Keybindings
 " --------------------------------------------------------------------------------------------------
-
-" save and quit
-nnoremap <C-s> :w<CR>
-nnoremap <C-q> :q<CR>
-
-" nerdtree
-nnoremap <C-t> :NERDTreeToggle<CR>
-
-" switch window orientation
-nnoremap <A-w> :wincmd H<CR>
-nnoremap <S-A-w> :wincmd J<CR>
 
 " leader keys
 let mapleader = ","
@@ -265,16 +259,20 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <leader><CR> :so %<CR>
 
+" save and quit
+nnoremap <C-s> :w<CR>
+nnoremap <C-q> :q<CR>
+
+" toggle nerdtree
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" switch window orientation
+nnoremap <A-w> :wincmd H<CR>
+nnoremap <S-A-w> :wincmd J<CR>
+
 " fzf
 nnoremap <A-f> <cmd>FZF<cr>
 
-" send R code
-vmap <Return> <Plug>RDSendSection
-nmap <Return> <Plug>RDSendLine
-
-" Nvim-R object browser
-vmap <A-o> <LocalLeader>ro
-nmap <A-o> <LocalLeader>ro
 
 " omnicompletion (redundant?)
 if has('nvim') || has('gui_running')
@@ -295,9 +293,6 @@ nnoremap <S-A-n> :resize +2<CR> " down
 nnoremap <S-A-e> :resize -2<CR> " up
 nnoremap <S-A-i> :vertical resize +2<CR> " right
 
-" replace
-" nnoremap <LocalLeader>r :%s/\<<C-r><C-w>\>//g<left><left>
-
 " hop 
 nnoremap <A-c> <cmd>HopChar2<cr>
 nnoremap <A-d> <cmd>HopWord<cr>
@@ -311,8 +306,19 @@ nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
 nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
 nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 
-" Output the current syntax group
+" output the current syntax group
 nnoremap jj :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
+" --------------------------------------------------------------------------------------------------
+" R specific keybindings
+" --------------------------------------------------------------------------------------------------
+
+" send R code
+vmap <Return> <Plug>RDSendSection
+nmap <Return> <Plug>RDSendLine
+
+" Nvim-R object browser
+vmap <A-o> <LocalLeader>ro
+nmap <A-o> <LocalLeader>ro

@@ -21,7 +21,8 @@ simple() {
   apt-transport-https build-essential zathura feh htop xinput \
   syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice software-properties-common arandr zoxide
+  exfat-fuse libreoffice software-properties-common arandr zoxide \
+  tmux udiskie
 
   # go
   cd /tmp
@@ -177,7 +178,7 @@ simple() {
   echo -e "\033[1;33mSetting up directories and symlinks...\033[0m"
   echo ""
   
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura,tmux}
   
   ranger --copy-config=all
   
@@ -197,6 +198,7 @@ simple() {
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
+  ln -s -f ~/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
   
   # ==================================================================================================
   # Plugins for ranger and neovim

@@ -32,6 +32,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+export TERM="xterm-256color"
+
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 if ! shopt -oq posix; then
