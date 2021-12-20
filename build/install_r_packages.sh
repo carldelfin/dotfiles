@@ -23,7 +23,7 @@ simple() {
                                  "pander", "rmarkdown", "blogdown", "devtools", "here", "reshape2", "patchwork",
                                  "RColorBrewer", "janitor", "data.table", "kableExtra", "performance",
                                  "officer", "flextable", "bayesplot", "haven", "lavaan", "blavaan", "viridis",
-                                 "lintr", "GPArotation", "vroom", "ggseg", "xaringan", "xaringanthemer"))'
+                                 "lintr", "GPArotation", "vroom", "ggseg", "xaringan", "xaringanthemer", "blogdown"))'
   Rscript -e 'devtools::install_git("https://github.com/JanMarvin/readspss.git")'
   Rscript -e 'devtools::install_git("https://github.com/gadenbuie/xaringanExtra.git")'
   Rscript -e 'options(repos = c(ggseg = "https://ggseg.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("ggsegExtra")'

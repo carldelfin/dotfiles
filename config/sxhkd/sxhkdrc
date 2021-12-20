@@ -1,6 +1,6 @@
-o ------------------------------------------------------------------------------
-# wm independent hotkeys
-# ------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
+# WM independent hotkeys
+# --------------------------------------------------------------------------------------------------
 
 # reload sxhkd config
 super + Escape
@@ -12,11 +12,11 @@ super + Return
 
 # program launcher
 super + s
-	rofi -show run -theme ayur -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
+	rofi -show run -theme ~/dotfiles/config/rofi/ayur.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
 
 # rofi power menu
 super + j
-  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme ayur -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
+  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme ~/dotfiles/config/rofi/ayur.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
 
 # laptop keyboard toggle
 super + k
@@ -37,9 +37,9 @@ super + Tab
 super + f
 	firefox
 
-# ------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 # bspwm hotkeys
-# ------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 
 # quit/restart bspwm
 super + alt + {q,f}
@@ -49,9 +49,9 @@ super + alt + {q,f}
 super + {_,shift + }q
 	bspc node -{c,k}
 
-# ------------------------------------------------------------------------------
-# state/flags
-# ------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
+# State/flags
+# --------------------------------------------------------------------------------------------------
 
 super + space
     bspc node -t {floating}
@@ -59,9 +59,9 @@ super + space
 super + shift + space
     bspc node -t {tiled}
 
-# ------------------------------------------------------------------------------
-# focus/swap
-# ------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
+# Focus/swap
+# --------------------------------------------------------------------------------------------------
 
 # move focus with mnei
 super + {m,n,e,i}
@@ -87,29 +87,9 @@ super + {_,shift + }{m,n,e,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-# ------------------------------------------------------------------------------
-# preselect
-# ------------------------------------------------------------------------------
-
-# preselect the direction
-#super + ctrl + {m,n,e,i}
-#	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-#super + ctrl + {1-9}
-#	bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-#super + ctrl + space
-#	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-#super + ctrl + shift + space
-#	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-# ------------------------------------------------------------------------------
-# move/resize
-# ------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
+# Move/resize
+# --------------------------------------------------------------------------------------------------
 
 # expand a window by moving one of its side outward
 super + alt + {m,n,e,i}
