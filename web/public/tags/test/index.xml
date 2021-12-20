@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on </title>
+    <link>https://www.carldelfin.com/tags/test/</link>
+    <description>Recent content in test on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Carl Delfin</copyright>
+    <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://www.carldelfin.com/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Block Test</title>
+      <link>https://www.carldelfin.com/posts/code-block-test/</link>
+      <pubDate>Sun, 27 Jun 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://www.carldelfin.com/posts/code-block-test/</guid>
+      <description>CTRLif xinput list | grep -q &amp;quot;floating&amp;quot;; then
+Fenced code block:
+#!/bin/sh  if xinput list | grep -q &amp;#34;floating&amp;#34;; then xinput reattach &amp;#34;AT Translated Set 2 keyboard&amp;#34; 3 else xinput float &amp;#34;AT Translated Set 2 keyboard&amp;#34; fi Without line number
+(() =&amp;gt; { function createCopyButton(codeNode) { const copyBtn = document.createElement(&amp;#39;button&amp;#39;) copyBtn.className = &amp;#39;code-copy-btn&amp;#39; copyBtn.type = &amp;#39;button&amp;#39; copyBtn.innerText = &amp;#39;copy&amp;#39; copyBtn.parentElement = codeNode.parentElement let resetTimer copyBtn.addEventListener(&amp;#39;click&amp;#39;, () =&amp;gt; { navigator.clipboard.writeText(codeNode.innerText).then(() =&amp;gt; { copyBtn.</description>
+    </item>
+    
+  </channel>
+</rss>
