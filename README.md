@@ -6,6 +6,10 @@ Note that my dotfiles are in a constant state of change! They work for me (most 
 
 ## System at a glance <a name = "system_at_a_glance"></a>
 
+Testing a .gif version:
+
+![me](https://github.com/carldelfin/dotfiles/blob/main/test.gif)
+
 | Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
 | Distro              | [Debian 11](https://www.debian.org/News/2021/20210814)|
