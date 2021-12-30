@@ -19,7 +19,7 @@ super + j
   	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme ~/dotfiles/config/rofi/ayur.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
 
 # laptop keyboard toggle
-super + k
+super + a + k
     bash ~/dotfiles/scripts/keyboard_switcher.sh
 
 # sound levels
