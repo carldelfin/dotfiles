@@ -209,7 +209,6 @@ simple() {
   echo ""
   
   # ranger
-  git clone https://github.com/SL-RU/ranger_udisk_menu ~/.config/ranger/ranger_udisk_menu
   git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
   git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
   
