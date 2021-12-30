@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-# ==============================================================================
+# --------------------------------------------------------------------------------------------------
 #
 # This script checks the status of my VPN connection, and makes it possible
 # to toggle on and off using polybar.
@@ -10,7 +10,7 @@
 #
 # https://github.com/shervinsahba/polybar-vpn-controller
 #
-# ==============================================================================
+# --------------------------------------------------------------------------------------------------
 
 vpn_status=$(mullvad status | cut -d' ' -f3)
 ip_address=$(mullvad status | awk 'match($0,/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/){print substr($0,RSTART,RLENGTH)}')

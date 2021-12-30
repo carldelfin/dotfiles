@@ -1,6 +1,13 @@
-# -----------------------------------------------------------------------------------
-# daily mirror and backup
-# -----------------------------------------------------------------------------------
+#!/bin/sh
+
+# --------------------------------------------------------------------------------------------------
+#
+# This script performs daily backup of some important folders to harddrives on my workstation,
+# using a cronjob. Note that this is for redundancy purposes only, and not in itself sufficient.
+# 
+# Remember to follow best practices and keep offsite backups!
+#
+# --------------------------------------------------------------------------------------------------
 
 # do we have a log file?
 mkdir -p ~/logs
@@ -24,7 +31,7 @@ for i in "${dirs_to_sync[@]}"; do
 done
 
 # check disk usage on /media/cmd/archive
-# TODO: refactor this to someting simpler
+# TODO: perhaps refactor this to someting simpler?
 percent_used=$(df -hl /media/cmd/archive | awk '{print $5}' | tail -n1 | sed 's/%//')
 
 # if 95% or more of available disk space is used, delete the oldest tarball
