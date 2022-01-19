@@ -1,18 +1,18 @@
 # change page color to conform with system theme
 set recolor   
-set recolor-lightcolor "#272D38"
+set recolor-lightcolor "#282c34"
 set recolor-keephue
 
 # change background to conform with system theme
-set default-bg "#272D38"
+set default-bg "#282c34"
 
 # enable copy to clipboard
 set selection-clipboard clipboard
 
-# remove GUI completely
+# completely remove GUI 
 set guioptions none
 
-# pres f to toggle fullscreen
+# press f to toggle fullscreen
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen

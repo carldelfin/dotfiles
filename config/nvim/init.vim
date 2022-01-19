@@ -312,7 +312,8 @@ nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
 nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
 nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 
-" output the current syntax group
+" output the current syntax group 
+" (temporary; for developing colorscheme)
 nnoremap jj :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
