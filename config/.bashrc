@@ -83,6 +83,7 @@ alias rr='ranger'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
 alias vf='vim $(fzf --height 40% --reverse)'
+alias weather='Rscript ~/dotfiles/scripts/weather.R'
 
 # ------------------------------------------------------------------------------
 # environment variables

@@ -1,17 +1,5 @@
 #!/bin/sh
 
-# --------------------------------------------------------------------------------------------------
-#
-# This script checks the status of my VPN connection, and makes it possible
-# to toggle on and off using polybar.
-#
-# It is more or less just a slimmed down and slightly modified version of 
-# vpn_module.sh by Shervin S. (shervin@tuta.io):
-#
-# https://github.com/shervinsahba/polybar-vpn-controller
-#
-# --------------------------------------------------------------------------------------------------
-
 vpn_status=$(mullvad status | cut -d' ' -f3)
 ip_address=$(mullvad status | awk 'match($0,/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/){print substr($0,RSTART,RLENGTH)}')
 protocol=$(mullvad status | awk '{for(i=1;i<=NF;i++)if($i=="to")print $(i+1)}')

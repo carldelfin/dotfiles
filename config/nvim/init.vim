@@ -191,9 +191,9 @@ let g:vimtex_view_method = 'zathura'
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#syntax#conceal#use = 0
 
-" --------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------------------------
 " R specific settings
-" --------------------------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------------------------
 
 let rrst_syn_hl_chunk = 1
 let rmd_syn_hl_chunk = 1
@@ -298,7 +298,7 @@ nnoremap <S-A-i> :vertical resize +2<CR> " right
 
 " hop 
 nnoremap <A-c> <cmd>HopChar2<cr>
-nnoremap <A-d> <cmd>HopWord<cr>
+nnoremap <A-d> <cmd>HopPattern<cr>
 nnoremap s <cmd>HopChar1<cr>
 omap s <cmd>HopChar1<cr>
 

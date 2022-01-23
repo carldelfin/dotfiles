@@ -37,6 +37,10 @@ super + Tab
 super + f
 	firefox
 
+# screenshot window
+ctrl + alt + @x
+    scrot -u
+
 # --------------------------------------------------------------------------------------------------
 # bspwm hotkeys
 # --------------------------------------------------------------------------------------------------
@@ -50,14 +54,15 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 # --------------------------------------------------------------------------------------------------
-# State/flags
+# Switch between floating and tiled
 # --------------------------------------------------------------------------------------------------
 
 super + space
-    bspc node -t {floating}
-
-super + shift + space
-    bspc node -t {tiled}
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
 
 # --------------------------------------------------------------------------------------------------
 # Focus/swap
