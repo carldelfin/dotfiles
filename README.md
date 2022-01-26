@@ -12,6 +12,7 @@ Note that my dotfiles are in a constant state of change! They work for me (most 
 | Window manager      | [bspwm](https://github.com/baskerville/bspwm)|
 | Bar                 | [Polybar](https://github.com/polybar/polybar)|
 | Theme               | [Nordic](https://github.com/EliverLara/Nordic)|
+| Cursor              | [phinger-cursors](https://github.com/phisch/phinger-cursors)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) + [Nord Font patch](https://www.nerdfonts.com/font-downloads)|
 | Editor              | [Neovim](https://neovim.io/)|
