@@ -22,7 +22,7 @@ simple() {
   syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
   xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
   exfat-fuse libreoffice software-properties-common arandr zoxide \
-  tmux udiskie simplescreenrecorder peek mpv sqlite3
+  tmux udiskie simplescreenrecorder peek mpv
 
   # go
   cd /tmp
@@ -154,6 +154,9 @@ simple() {
   fi
   
   fc-cache -f
+
+  # phinger cursors
+  wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
   
   # ------------------------------------------------------------------------------------------------
   # Make sure relevant configs and scripts are executable
