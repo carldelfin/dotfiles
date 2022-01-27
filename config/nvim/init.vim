@@ -238,6 +238,22 @@ autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 let ayurcolor = "darker" 
 colorscheme ayur
 
+" make sure fzf follows ayur theme 
+let g:fzf_colors =
+            \ { 'fg':    ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'HopNextKey1'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'Normal', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'HopNextKey'],
+            \ 'info':    ['fg', 'Comment'],
+            \ 'border':  ['fg', 'Constant'],
+            \ 'prompt':  ['fg', 'Constant'],
+            \ 'pointer': ['fg', 'Comment'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment'] }
+
 " --------------------------------------------------------------------------------------------------
 " Keybindings
 " --------------------------------------------------------------------------------------------------
