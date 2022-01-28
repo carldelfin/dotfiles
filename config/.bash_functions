@@ -31,23 +31,3 @@ dotpull() {
 	git pull
 	cd
 }
-
-# push changes in website to github
-webpush() {
-	cd ~/Documents/private/carldelfin.github.io
-        git pull # to avoid conflicts
-    	git add .
-    	if [ -z "$1" ]; then
-    		git commit -m "Automated website commit + push via terminal"
-	else
-		git commit -m "$*"
-	fi
-    	git push
-	cd
-}
-
-# pull changes in website from github
-webpull() {
-	cd ~/Documents/private/carldelfin.github.ipull
-	cd
-}

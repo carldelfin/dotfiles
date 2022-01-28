@@ -191,6 +191,9 @@ let g:vimtex_view_method = 'zathura'
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#syntax#conceal#use = 0
 
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+
 " ------------------------------------------------------------------------------------------------
 " R specific settings
 " ------------------------------------------------------------------------------------------------
