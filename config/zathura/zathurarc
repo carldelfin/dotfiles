@@ -1,10 +1,10 @@
 # change page color to conform with system theme
 set recolor   
-set recolor-lightcolor "#242831"
+set recolor-lightcolor "#282c34"
 set recolor-keephue
 
 # change background to conform with system theme
-set default-bg "#242831"
+set default-bg "#282c34"
 
 # enable copy to clipboard
 set selection-clipboard clipboard
