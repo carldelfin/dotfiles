@@ -29,12 +29,6 @@ while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 # launch picom
 picom --config ~/dotfiles/config/picom/picom.conf &
 
-# launch protonmail bridge if installed
-if command -v /bin/protonmail-bridge &> /dev/null
-then
-    /bin/protonmail-bridge --no-window &
-fi
-
 # set desktop background
 feh --bg-scale ~/dotfiles/wallpaper/vines.jpg &
 

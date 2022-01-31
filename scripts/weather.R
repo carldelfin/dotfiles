@@ -11,6 +11,13 @@ if (!"jsonlite" %in% installed.packages()) {
   if (user_input != "y") stop("Aborting")
   install.packages("jsonlite")
 } else {
+
+
+if (!"jsonlite" %in% installed.packages()) {
+  user_input <- readline("The R package jsonlite is required, do you wish to install? (y/n) ")
+  if (user_input != "y") stop("Aborting")
+  install.packages("jsonlite")
+} else {
   
   bash_args <- commandArgs(trailingOnly = TRUE)
   gps_data <- jsonlite::fromJSON(paste0("https://geocode.xyz/", bash_args[1], "?json=1"))

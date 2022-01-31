@@ -130,6 +130,9 @@ set number relativenumber
 " case insensitive search until cap
 set smartcase
 
+" use incremental search
+set incsearch
+
 " highlight current line
 set cursorline 
 
@@ -139,9 +142,6 @@ set noerrorbells
 " turn off swapping and backup
 set noswapfile
 set nobackup
-
-" use incremental search
-set incsearch
 
 " use eight lines of scrolloff
 set scrolloff=8
@@ -238,8 +238,9 @@ autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 " Colorscheme 
 " --------------------------------------------------------------------------------------------------
 
-let ayurcolor = "darker" 
+let ayurcolor = "regular" 
 colorscheme ayur
+set background=dark
 
 " make sure fzf follows ayur theme 
 let g:fzf_colors =
