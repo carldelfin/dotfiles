@@ -11,18 +11,18 @@ catch() {
 }
 
 simple() {
-  
+
   # ------------------------------------------------------------------------------------------------
   # Install packages
   # ------------------------------------------------------------------------------------------------
 
   sudo apt install -y \
-  bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
-  apt-transport-https build-essential zathura feh htop xinput \
-  syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
-  xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  exfat-fuse libreoffice software-properties-common arandr zoxide \
-  tmux udiskie simplescreenrecorder mpv xdotool
+      bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
+      apt-transport-https build-essential zathura feh htop xinput \
+      syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
+      xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
+      exfat-fuse libreoffice software-properties-common arandr zoxide \
+      tmux udiskie simplescreenrecorder mpv xdotool cmake 
 
   # go
   cd /tmp
@@ -55,7 +55,7 @@ simple() {
   else
       echo "rofi-pass is already installed"
   fi
-  
+
   # rofi-power-menu
   if ! command -v rofi-power-menu &> /dev/null; then
       cd /tmp
@@ -66,7 +66,7 @@ simple() {
   else
       echo "rofi-power-menu is already installed"
   fi
-  
+
   # mullvad
   if ! command -v mullvad &> /dev/null; then
       cd /tmp
@@ -86,7 +86,7 @@ simple() {
       chmod u+x nvim.appimage
       sudo mv nvim.appimage /usr/bin/
       cd
-      
+
       pip3 install pynvim
 
   else
@@ -98,7 +98,7 @@ simple() {
       echo "vim-plug is already installed"
   else
       sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   fi
 
   # giph
@@ -107,22 +107,22 @@ simple() {
   sudo make install
   cd ..
   rm -rf giph
-  
+
   # ------------------------------------------------------------------------------------------------
   # Appearance
   # ------------------------------------------------------------------------------------------------
-  
+
   echo ""
   echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
   echo ""
-  
+
   # nordic gtk
   cd /tmp
   wget https://github.com/EliverLara/Nordic/releases/download/2.0.0/Nordic-v40.tar.xz
   sudo tar -xvf Nordic-v40.tar.xz -C /usr/share/themes
   rm Nordic-v40.tar.xz
   cd
-  
+
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
       echo "JetBrainsMono is already installed"
@@ -147,7 +147,7 @@ simple() {
       rm -rf fontawesome-free-5.15.2-desktop
       cd
   fi
-  
+
   # various google fonts
   if fc-list | grep -q "Merriweather"; then
       echo "Google fonts are already installed"
@@ -159,41 +159,41 @@ simple() {
       rm -rf fonts.zip
       cd
   fi
-  
+
   fc-cache -f
 
   # phinger cursors
   wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
-  
+
   # ------------------------------------------------------------------------------------------------
   # Make sure relevant configs and scripts are executable
   # ------------------------------------------------------------------------------------------------
-  
+
   echo ""
   echo -e "\033[1;33mMaking sure configs and scripts are executable...\033[0m"
   echo ""
-  
+
   sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
   sudo chmod +x ~/dotfiles/scripts/launch.sh
   sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/vpn.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
   sudo chmod +x ~/dotfiles/scripts/keyboard_switcher.sh
-  
+
   # ------------------------------------------------------------------------------------------------
   # Set up directories, symlinks, and configs
   # ------------------------------------------------------------------------------------------------
-  
+
   echo ""
   echo -e "\033[1;33mSetting up directories and symlinks...\033[0m"
   echo ""
-  
+
   mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura,tmux}
   mkdir -p ~/.icons/default
   touch ~/.icons/default/index.theme
-  
+
   ranger --copy-config=all
-  
+
   ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
   ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
   ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
@@ -212,19 +212,19 @@ simple() {
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   ln -s -f ~/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
   ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
-  
+
   # ------------------------------------------------------------------------------------------------
   # Plugins for ranger and neovim
   # ------------------------------------------------------------------------------------------------
-  
+
   echo ""
   echo -e "\033[1;33mInstalling plugins for ranger and neovim...\033[0m"
   echo ""
-  
+
   # ranger
   git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
   git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
-  
+
   # neovim
   /usr/bin/nvim.appimage --headless +PlugInstall +qall
 
@@ -232,15 +232,15 @@ simple() {
   cd ~/.vim/plugged/vim-hexokinase
   make hexokinase
   cd
-  
+
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
   # ------------------------------------------------------------------------------------------------
-  
+
   echo ""
   echo -e "\033[1;33mConfiguring ufw...\033[0m"
   echo ""
-  
+
   sudo ufw default deny incoming
   sudo ufw default allow outgoing
   sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN

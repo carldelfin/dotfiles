@@ -18,7 +18,7 @@ Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'terrortylor/nvim-comment'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'carldelfin/ayur' 
 Plug 'rrethy/vim-hexokinase'
 Plug 'preservim/nerdtree'
@@ -296,13 +296,12 @@ nnoremap <S-A-w> :wincmd J<CR>
 " fzf
 nnoremap <A-f> <cmd>FZF<cr>
 
-
 " omnicompletion (redundant?)
-if has('nvim') || has('gui_running')
-    inoremap <C-Space> <C-x><C-o>
-else
-    inoremap <Nul> <C-x><C-o>
-endif
+"if has('nvim') || has('gui_running')
+"    inoremap <C-Space> <C-x><C-o>
+"else
+"    inoremap <Nul> <C-x><C-o>
+"endif
 
 " window movement
 nnoremap <A-m> <C-w>h " left
