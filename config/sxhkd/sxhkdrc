@@ -37,8 +37,8 @@ super + Tab
 super + f
 	firefox
 
-# screenshot window
-super + shift + @x
+# screenshot current window
+super + p 
     scrot -u
 
 # screenshot all
