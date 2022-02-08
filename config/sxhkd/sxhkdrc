@@ -38,11 +38,11 @@ super + f
 	firefox
 
 # screenshot current window
-super + shift + p 
+super + shift + m 
     scrot -u
 
 # screenshot all
-ctrl + alt + p
+super + shift + control + m
 
 # --------------------------------------------------------------------------------------------------
 # bspwm hotkeys
