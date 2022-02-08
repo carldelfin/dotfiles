@@ -173,6 +173,7 @@ exe "hi! rNumber"                       .s:fg_paleyellow          .s:bg_none    
 exe "hi! rFloat"                        .s:fg_paleyellow          .s:bg_none            .s:fmt_none
 exe "hi! routNumber"                    .s:fg_paleyellow          .s:bg_none            .s:fmt_none
 exe "hi! routFloat"                     .s:fg_paleyellow          .s:bg_none            .s:fmt_none
+exe "hi! routNegFloat"                  .s:fg_paleyellow          .s:bg_none            .s:fmt_none
 
 " R Markdown
 exe "hi! rmdInLineDelim"                .s:fg_brightpurple        .s:bg_none            .s:fmt_bold
