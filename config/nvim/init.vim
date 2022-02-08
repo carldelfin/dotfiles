@@ -18,11 +18,10 @@ Plug 'karb94/neoscroll.nvim'
 Plug 'sunjon/shade.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'terrortylor/nvim-comment'
-Plug 'ryanoasis/vim-devicons'
-Plug 'carldelfin/ayur' 
 Plug 'rrethy/vim-hexokinase'
 Plug 'preservim/nerdtree'
 Plug 'preservim/vim-pencil'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -238,25 +237,11 @@ autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 " Colorscheme 
 " --------------------------------------------------------------------------------------------------
 
-let ayurcolor = "regular" 
-colorscheme ayur
-set background=dark
+"let onercolor = "regular" 
+"colorscheme oner.vim
+source ~/.config/nvim/colors/oner.vim
 
-" make sure fzf follows ayur theme 
-let g:fzf_colors =
-            \ { 'fg':    ['fg', 'Normal'],
-            \ 'bg':      ['bg', 'Normal'],
-            \ 'hl':      ['fg', 'HopNextKey1'],
-            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \ 'bg+':     ['bg', 'Normal', 'CursorColumn'],
-            \ 'hl+':     ['fg', 'HopNextKey'],
-            \ 'info':    ['fg', 'Comment'],
-            \ 'border':  ['fg', 'Constant'],
-            \ 'prompt':  ['fg', 'Constant'],
-            \ 'pointer': ['fg', 'Comment'],
-            \ 'marker':  ['fg', 'Keyword'],
-            \ 'spinner': ['fg', 'Label'],
-            \ 'header':  ['fg', 'Comment'] }
+set background=dark
 
 " --------------------------------------------------------------------------------------------------
 " Keybindings
@@ -333,6 +318,12 @@ nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
 nnoremap jj :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
+" reload config
+nnoremap ll :so%<CR>
+
+" mark word as correct
+nnoremap <A-g> zg
 
 " --------------------------------------------------------------------------------------------------
 " R specific keybindings

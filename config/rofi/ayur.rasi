@@ -2,14 +2,14 @@
  * This theme is a modified variant of Pop-Dark made by Primetoxinz:
  * https://github.com/davatorium/rofi-themes/blob/master/Official%20Themes/Pop-Dark.rasi
  * 
- * Made to conform with my overall colorscheme:
- * https://github.com/carldelfin/ayur
+ * Made to conform with my own colorscheme:
+ * https://github.com/carldelfin/oner
 */
 * {
     text-color:                  #eceff4;
-    background-color:            #272D38;
+    background-color:            #303440;
     dark-text:                   #37414c;
-    lightbg:                     #534c48;
+    lightbg:                     #576279;
     red:                         #ff4d76;
     orange:                      #ebcb8b; 
 
