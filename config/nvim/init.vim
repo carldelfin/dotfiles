@@ -239,7 +239,7 @@ autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 
 "let onercolor = "regular" 
 "colorscheme oner.vim
-source ~/.config/nvim/colors/oner.vim
+source ~/dotfiles/config/nvim/colors/oner.vim
 
 set background=dark
 
