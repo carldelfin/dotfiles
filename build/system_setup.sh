@@ -93,12 +93,12 @@ simple() {
       echo "Neovim is already installed"
   fi
 
-  # vim-plug
-  if [ -d "$HOME/.vim/plugged" ]; then
-      echo "vim-plug is already installed"
+  # packer
+  if [ -d "~/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+      echo "packer is already installed"
   else
-      sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   fi
 
   # giph
@@ -175,10 +175,9 @@ simple() {
 
   sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
   sudo chmod +x ~/dotfiles/scripts/launch.sh
-  sudo chmod +x ~/dotfiles/scripts/upgrades.sh
   sudo chmod +x ~/dotfiles/scripts/vpn.sh
   sudo chmod +x ~/dotfiles/scripts/backup.sh
-  sudo chmod +x ~/dotfiles/scripts/keyboard_switcher.sh
+  sudo chmod +x ~/dotfiles/scripts/keyboard_toggle.sh
 
   # ------------------------------------------------------------------------------------------------
   # Set up directories, symlinks, and configs
@@ -229,9 +228,9 @@ simple() {
   /usr/bin/nvim.appimage --headless +PlugInstall +qall
 
   # make hexokinase
-  cd ~/.vim/plugged/vim-hexokinase
-  make hexokinase
-  cd
+  #cd ~/.vim/plugged/vim-hexokinase
+  #make hexokinase
+  #cd
 
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
