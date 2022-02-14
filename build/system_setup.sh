@@ -22,14 +22,18 @@ simple() {
       syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
       xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
       exfat-fuse libreoffice software-properties-common arandr zoxide \
-      tmux udiskie simplescreenrecorder mpv xdotool cmake 
+      udiskie simplescreenrecorder mpv xdotool cmake 
 
   # go
-  cd /tmp
-  wget https://golang.org/dl/go1.17.7.linux-amd64.tar.gz
-  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.7.linux-amd64.tar.gz
-  rm go1.17.7.linux-amd64.tar.gz
-  cd
+  if ! command -v /usr/local/go/bin/go &> /dev/null; then
+      cd /tmp
+      wget https://golang.org/dl/go1.17.7.linux-amd64.tar.gz
+      sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.7.linux-amd64.tar.gz
+      rm go1.17.7.linux-amd64.tar.gz
+      cd
+  else
+      echo "go is already installed"
+  fi
 
   # passmenu  
   if ! command -v passmenu &> /dev/null; then
@@ -173,7 +177,7 @@ simple() {
   echo -e "\033[1;33mSetting up directories and symlinks...\033[0m"
   echo ""
 
-  mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura,tmux}
+  mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
   mkdir -p ~/.icons/default
   touch ~/.icons/default/index.theme
 
@@ -195,7 +199,6 @@ simple() {
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
   ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
-  ln -s -f ~/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
   ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
 
   # ------------------------------------------------------------------------------------------------
