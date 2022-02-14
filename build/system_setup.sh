@@ -27,8 +27,8 @@ simple() {
   # go
   cd /tmp
   wget https://golang.org/dl/go1.17.7.linux-amd64.tar.gz
-  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
-  rm go1.17.linux-amd64.tar.gz
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.7.linux-amd64.tar.gz
+  rm go1.17.7.linux-amd64.tar.gz
   cd
 
   # passmenu  
@@ -118,7 +118,7 @@ simple() {
 
   # nordic gtk
   cd /tmp
-  wget https://github.com/EliverLara/Nordic/releases/download/2.0.0/Nordic-v40.tar.xz
+  wget https://github.com/EliverLara/Nordic/releases/download/2.1.0/Nordic-v40.tar.xz
   sudo tar -xvf Nordic-v40.tar.xz -C /usr/share/themes
   rm Nordic-v40.tar.xz
   cd
@@ -140,23 +140,11 @@ simple() {
   else
       mkdir -p ~/.local/share/fonts
       cd /tmp
-      wget https://use.fontawesome.com/releases/v5.15.2/fontawesome-free-5.15.2-desktop.zip
+      wget https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-desktop.zip
       unzip *.zip
-      mv fontawesome-free-5.15.2-desktop/otfs/*.otf ~/.local/share/fonts/
+      mv fontawesome-free-6.0.0-desktop/otfs/*.otf ~/.local/share/fonts/
       rm *.zip
-      rm -rf fontawesome-free-5.15.2-desktop
-      cd
-  fi
-
-  # various google fonts
-  if fc-list | grep -q "Merriweather"; then
-      echo "Google fonts are already installed"
-  else
-      mkdir -p ~/.local/share/fonts
-      cd /tmp
-      wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
-      unzip fonts.zip -d ~/.local/share/fonts
-      rm -rf fonts.zip
+      rm -rf fontawesome-free-6.0.0-desktop
       cd
   fi
 
