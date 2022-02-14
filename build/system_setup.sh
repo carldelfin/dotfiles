@@ -121,9 +121,12 @@ simple() {
   echo ""
 
   # pop gtk
-  sudo add-apt-repository ppa:system76/pop
-  sudo apt update
-  sudo apt install pop-theme
+  sudo apt install sassc meson libglib2.0-dev 
+  git clone https://github.com/pop-os/gtk-theme.git
+  cd gtk-theme
+  meson build && cd build
+  ninja
+  ninja install
 
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
