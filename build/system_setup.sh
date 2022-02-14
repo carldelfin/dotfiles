@@ -221,9 +221,19 @@ simple() {
   echo -e "\033[1;33mInstalling plugins for ranger and neovim...\033[0m"
   echo ""
 
-  # ranger
-  git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
-  git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
+  # ranger zoxide
+  if [ ! -d "/home/cmd/.config/ranger/plugins/zoxide" ]; then
+      git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
+    else
+       echo "ranger zoxide is already installed"
+  fi
+  
+  # ranger zoxide
+  if [ ! -d "/home/cmd/.config/ranger/plugins/devicons2" ]; then
+      git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
+    else
+       echo "devicons2 is already installed"
+  fi
 
   # neovim
   #/usr/bin/nvim.appimage --headless +PlugInstall +qall
