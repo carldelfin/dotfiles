@@ -125,13 +125,18 @@ simple() {
   echo ""
 
   # pop gtk
-  sudo apt install sassc meson libglib2.0-dev 
-  git clone https://github.com/pop-os/gtk-theme.git
-  cd gtk-theme
-  meson build && cd build
-  ninja
-  sudo ninja install
-
+  #if [ ! -d "/home/cmd/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+      sudo apt install sassc meson libglib2.0-dev 
+      git clone https://github.com/pop-os/gtk-theme.git
+      cd gtk-theme
+      meson build && cd build
+      ninja
+      sudo ninja install
+      rm -rf gtk-theme
+  #else
+       #echo "pop gtk is already installed"
+  #fi
+  
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
       echo "JetBrainsMono is already installed"
