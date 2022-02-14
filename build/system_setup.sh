@@ -106,11 +106,15 @@ simple() {
   fi
 
   # giph
-  git clone https://github.com/phisch/giph.git
-  cd giph
-  sudo make install
-  cd ..
-  rm -rf giph
+  if ! command -v /usr/bin/nvim.appimage &> /dev/null; then
+      git clone https://github.com/phisch/giph.git
+      cd giph
+      sudo make install
+      cd ..
+      rm -rf giph
+  else
+       echo "giph is already installed"
+  fi
 
   # ------------------------------------------------------------------------------------------------
   # Appearance
@@ -217,7 +221,7 @@ simple() {
   git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
 
   # neovim
-  /usr/bin/nvim.appimage --headless +PlugInstall +qall
+  #/usr/bin/nvim.appimage --headless +PlugInstall +qall
 
   # make hexokinase
   #cd ~/.vim/plugged/vim-hexokinase
