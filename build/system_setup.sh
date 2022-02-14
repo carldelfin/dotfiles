@@ -80,7 +80,7 @@ simple() {
   fi
 
   # neovim
-  if ! command -v nvim &> /dev/null; then
+  if ! command -v /usr/bin/nvim.appimage &> /dev/null; then
       cd /tmp
       curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
       chmod u+x nvim.appimage
@@ -94,11 +94,11 @@ simple() {
   fi
 
   # packer
-  if [ -d "~/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-      echo "packer is already installed"
-  else
+  if [ ! -d "/home/cmd/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
       git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+          ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  else
+       echo "packer is already installed"
   fi
 
   # giph
