@@ -116,12 +116,10 @@ simple() {
   echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
   echo ""
 
-  # nordic gtk
-  cd /tmp
-  wget https://github.com/EliverLara/Nordic/releases/download/2.1.0/Nordic-v40.tar.xz
-  sudo tar -xvf Nordic-v40.tar.xz -C /usr/share/themes
-  rm Nordic-v40.tar.xz
-  cd
+  # pop gtk
+  sudo add-apt-repository ppa:system76/pop
+  sudo apt update
+  sudo apt install pop-theme
 
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
