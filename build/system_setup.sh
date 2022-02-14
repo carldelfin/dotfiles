@@ -126,7 +126,7 @@ simple() {
   cd gtk-theme
   meson build && cd build
   ninja
-  ninja install
+  sudo ninja install
 
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
