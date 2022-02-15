@@ -119,7 +119,7 @@ function prompt_for_multiselect {
 }
 
 # possible options
-OPTIONS_VALUES=("Exit" "Initial system setup" "Install R" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom" "Install Singularity" "Install QMK")
+OPTIONS_VALUES=("Exit" "Initial system setup" "Install R" "Install R packages" "Install Zotero" "Install TexLive" "Install Zoom and Teams" "Install Singularity" "Install QMK")
 
 for i in "${!OPTIONS_VALUES[@]}"; do
 	OPTIONS_STRING+="${OPTIONS_VALUES[$i]};"
