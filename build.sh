@@ -146,7 +146,7 @@ function ACTIONS {
         source ~/dotfiles/build/install_texlive.sh
     fi
     if [ "${SELECTED[6]}" == "true" ]; then
-        source ~/dotfiles/build/install_zoom.sh
+        source ~/dotfiles/build/install_zoom_and_teams.sh
     fi
     if [ "${SELECTED[7]}" == "true" ]; then
         source ~/dotfiles/build/install_singularity.sh
