@@ -1,10 +1,3 @@
-vim.cmd [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]]
-
 require('settings')
 require('keymaps')
 require('plugins/packer')
