@@ -253,6 +253,10 @@ simple() {
   #cd ~/.vim/plugged/vim-hexokinase
   #make hexokinase
   #cd
+  
+  # folders
+  mkdir -p /home/cmd/Downloads
+  mkdir -p /home/cmd/Documents
 
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
