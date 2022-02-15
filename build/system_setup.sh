@@ -125,18 +125,13 @@ simple() {
   echo ""
 
   # arc gtk
-  #if [ ! -d "/home/cmd/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-      sudo apt install -y gtk2-engines-murrine arc-theme
-      
-  #else
-       #echo "pop gtk is already installed"
-  #fi
+  sudo apt install -y gtk2-engines-murrine arc-theme
   
-  # papirus
+  # papirus icons
   sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
   sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
   sudo apt update
-  sudo apt install papirus-icon-theme
+  sudo apt install papirus-icon-theme libreoffice-style-papirus
   
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
