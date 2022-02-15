@@ -11,7 +11,7 @@ Note that my dotfiles are in a constant state of change! They work for me (most 
 | Distro              | [Debian 11](https://www.debian.org/News/2021/20210814)|
 | Window manager      | [bspwm](https://github.com/baskerville/bspwm)|
 | Bar                 | [Polybar](https://github.com/polybar/polybar)|
-| Theme               | [Arc-Dark](https://github.com/horst3180/arc-theme)|
+| Theme               | [Arc-Dark](https://github.com/jnsh/arc-theme)|
 | Icons               | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)|
 | Cursor              | [phinger-cursors](https://github.com/phisch/phinger-cursors)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
