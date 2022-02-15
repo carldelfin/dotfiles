@@ -124,18 +124,19 @@ simple() {
   echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
   echo ""
 
-  # pop gtk
+  # arc gtk
   #if [ ! -d "/home/cmd/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-      sudo apt install sassc meson libglib2.0-dev 
-      git clone https://github.com/pop-os/gtk-theme.git
-      cd gtk-theme
-      meson build && cd build
-      ninja
-      sudo ninja install
-      rm -rf gtk-theme
+      sudo apt install -y gtk2-engines-murrine arc-theme
+      
   #else
        #echo "pop gtk is already installed"
   #fi
+  
+  # papirus
+  sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
+  sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+  sudo apt update
+  sudo apt install papirus-icon-theme
   
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
