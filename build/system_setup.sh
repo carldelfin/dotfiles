@@ -35,7 +35,7 @@ simple() {
       echo "go is already installed"
   fi
 
-  # passmenu  
+  # passmenu
   if ! command -v passmenu &> /dev/null; then
       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
       sudo chmod +x /usr/bin/passmenu
@@ -126,13 +126,13 @@ simple() {
 
   # arc gtk
   sudo apt install -y gtk2-engines-murrine arc-theme
-  
+
   # papirus icons
   sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
   sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
   sudo apt update
   sudo apt install papirus-icon-theme libreoffice-style-papirus
-  
+
   # jetbrainsmono with nerd font patch
   if fc-list | grep -q JetBrains; then
       echo "JetBrainsMono is already installed"
@@ -143,7 +143,7 @@ simple() {
       unzip *.zip
       rm *.zip
   fi
-  
+
   # various google fonts
   if fc-list | grep -q "Merriweather"; then
       echo "Google fonts are already installed"
@@ -217,7 +217,6 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
   ln -s -f ~/dotfiles/config/rofi/ayur.rasi ~/.config/rofi/ayur.rasi
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
-  #ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
   ln -s ~/dotfiles/config/nvim/* ~/.config/nvim/
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
@@ -236,8 +235,8 @@ simple() {
     else
        echo "ranger zoxide is already installed"
   fi
-  
-  # ranger zoxide
+
+  # devicons2
   if [ ! -d "/home/cmd/.config/ranger/plugins/devicons2" ]; then
       git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
     else
@@ -245,14 +244,12 @@ simple() {
   fi
 
   # neovim
-  #/usr/bin/nvim.appimage --headless +PlugInstall +qall
-  #/usr/bin/nvim.appimage --headless +PackerCompile +PackerSync +qall
   /usr/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
   # make hexokinase
-  #cd ~/.vim/plugged/vim-hexokinase
-  #make hexokinase
-  #cd
+  cd /home/cmd/.local/share/nvim/site/pack/packer/start/vim-hexokinase
+  make hexokinase
+  cd
 
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
@@ -267,7 +264,7 @@ simple() {
   sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
   sudo ufw enable
   sudo ufw allow syncthing
-  
+
 }
 
 simple

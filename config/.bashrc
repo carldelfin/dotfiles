@@ -43,7 +43,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
- 
+
 # ------------------------------------------------------------------------------
 # source functions
 # ------------------------------------------------------------------------------
@@ -83,13 +83,13 @@ alias rr='ranger'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
 alias vf='vim $(fzf --height 40% --reverse)'
-alias weather='Rscript ~/dotfiles/scripts/weather.R'
+alias ff='fzf'
 
 # ------------------------------------------------------------------------------
 # environment variables
 # ------------------------------------------------------------------------------
 
-# zoxide 
+# zoxide
 eval "$(zoxide init bash --cmd t)"
 
 # freesurfer
@@ -98,7 +98,7 @@ if [ -d "/usr/local/freesurfer" ]; then
     source $FREESURFER_HOME/SetUpFreeSurfer.sh
 fi
 
-# matlab 
+# matlab
 if [ -d "/usr/local/MATLAB" ]; then
     export _JAVA_AWT_WM_NONREPARENTING=1
 fi

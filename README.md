@@ -27,8 +27,8 @@ With the above in mind, the easiest way to get started is to clone this repo and
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
 ```
 
-## Workflow
+## Caveats
 
-I use my computers (one workstation, one laptop, and one barebones acting as a central server) almost exclusively for research and research-related activities, and this is reflected in my dotfiles. Some applications, like [Neovim](https://neovim.io/), are setup specifically and chiefly with [R](https://www.r-project.org/) and [R Markdown](https://rmarkdown.rstudio.com/) in mind, using [Nvim-R](https://github.com/jalvesaq/Nvim-R), [vimtex](https://github.com/lervag/vimtex) and [vim-pandoc](https://github.com/vim-pandoc/vim-pandoc). Other small applications, like [zoxide](https://github.com/ajeetdsouza/zoxide), are used to increase productivity. 
+I use my computers (one workstation, one laptop, and one barebones acting as a central server) almost exclusively for research and research-related activities, and this is reflected in my dotfiles. Some applications, like [Neovim](https://neovim.io/), are setup specifically and chiefly with [R](https://www.r-project.org/) and [R Markdown](https://rmarkdown.rstudio.com/) in mind, using [Nvim-R](https://github.com/jalvesaq/Nvim-R), [vimtex](https://github.com/lervag/vimtex) and [vim-pandoc](https://github.com/vim-pandoc/vim-pandoc). Other small applications, like [zoxide](https://github.com/ajeetdsouza/zoxide), are used to increase productivity.
 
 One day, I plan to write a series of blog posts about my setup. Until then, the associated [wiki](https://github.com/carldelfin/dotfiles/wiki), although far from complete, serves as a kind of reference manual for myself. Perhaps you might find it useful, too.
