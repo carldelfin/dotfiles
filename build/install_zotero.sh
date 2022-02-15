@@ -2,9 +2,8 @@
 
 #####################################################################################################
 #
-# This script installs the latest version of Zotero as well as a Java runtime environment (JRE)
+# This script installs the latest version of Zotero
 # https://www.zotero.org/
-# https://openjdk.java.net/
 # 
 #####################################################################################################
 
