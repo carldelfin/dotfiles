@@ -6,7 +6,7 @@
 # for optimal Linux performance
 #
 # https://www.r-project.org/
-# https://cran.r-project.org/bin/linux/ubuntu/
+# https://cran.r-project.org/bin/linux/debian/
 #
 ####################################################################################################
 
@@ -23,7 +23,7 @@ catch() {
 simple() {
 
   # import proper key 
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
   
   # add repository
   echo "deb http://cloud.r-project.org/bin/linux/debian bullseye-cran40/" | sudo tee -a /etc/apt/sources.list
