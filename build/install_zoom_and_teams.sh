@@ -2,8 +2,9 @@
 
 #####################################################################################################
 #
-# This script installs the latest version of Zoom
+# This script installs the latest version of Zoom and Teams
 # https://zoom.us/
+# https://www.microsoft.com/en/microsoft-teams/group-chat-software
 #
 ##################################################################################################### 
 
