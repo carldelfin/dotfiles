@@ -21,9 +21,6 @@ catch() {
 
 simple() {
   sudo apt install -y pandoc texlive texlive-latex-extra texlive-fonts-extra texlive-xetex pandoc-citeproc latexmk
-  #tlmgr init-usertree
-  #tlmgr install fontspec
-  #tlgmr install ifsym
 }
 
 simple
