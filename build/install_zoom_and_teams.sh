@@ -25,7 +25,17 @@ simple() {
       rm *.deb
       cd
   else
-      echo "Zoom is already installed"
+      echo "zoom is already installed"
+  fi
+  
+  if ! command -v teams &> /dev/null; then
+      curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+      sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
+      sudo apt update
+      sudo apt install teams
+      cd /tmp
+  else
+      echo "teams is already installed"
   fi
 }
 
