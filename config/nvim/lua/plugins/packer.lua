@@ -1,7 +1,5 @@
-
-
 return require('packer').startup(function(use)
-  --use 'wbthomason/packer.nvim'
+      --use 'wbthomason/packer.nvim'
   use 'jalvesaq/Nvim-R'
   use 'vim-pandoc/vim-pandoc'
   use 'vim-pandoc/vim-pandoc-syntax'
@@ -28,9 +26,4 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
-end)
-
--- Add packages
-return packer.startup(function()
-
 end)
