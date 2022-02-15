@@ -1,5 +1,5 @@
 return require('packer').startup(function(use)
-      --use 'wbthomason/packer.nvim'
+  use 'wbthomason/packer.nvim'
   use 'jalvesaq/Nvim-R'
   use 'vim-pandoc/vim-pandoc'
   use 'vim-pandoc/vim-pandoc-syntax'
