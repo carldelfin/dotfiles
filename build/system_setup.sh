@@ -245,6 +245,7 @@ simple() {
 
   # neovim
   #/usr/bin/nvim.appimage --headless +PlugInstall +qall
+  /usr/bin/nvim.appimage --headless +PackerCompile +PackerSync +qall
 
   # make hexokinase
   #cd ~/.vim/plugged/vim-hexokinase
