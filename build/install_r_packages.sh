@@ -20,12 +20,12 @@ simple() {
   Rscript -e 'dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)'
   Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER"))'
   Rscript -e 'install.packages(c("tidyverse", "tidybayes", "brms", "caret", "psych", "emmeans", "rstan",
-                                 "pander", "rmarkdown", "blogdown", "devtools", "here", "reshape2", 
+                                 "pander", "rmarkdown", "blogdown", "devtools", "here", "reshape2",
                                  "patchwork", "RColorBrewer", "janitor", "data.table", "kableExtra",
                                  "performance", "officer", "flextable", "bayesplot", "haven",
                                  "lavaan", "blavaan", "viridis", "dbplyr", "DBI", "RSQLite",
-                                 "lintr", "GPArotation", "vroom", "ggseg", "xaringan", 
-                                 "xaringanthemer", "blogdown", "MASS"))'
+                                 "lintr", "GPArotation", "vroom", "ggseg", "xaringan",
+                                 "xaringanthemer", "blogdown", "MASS", "languageserver"))'
   Rscript -e 'devtools::install_git("https://github.com/JanMarvin/readspss.git")'
   Rscript -e 'devtools::install_git("https://github.com/gadenbuie/xaringanExtra.git")'
   Rscript -e 'options(repos = c(ggseg = "https://ggseg.r-universe.dev", CRAN = "https://cloud.r-project.org")); install.packages("ggsegExtra")'
