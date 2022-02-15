@@ -247,6 +247,7 @@ simple() {
   # neovim
   #/usr/bin/nvim.appimage --headless +PlugInstall +qall
   #/usr/bin/nvim.appimage --headless +PackerCompile +PackerSync +qall
+  /usr/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
   # make hexokinase
   #cd ~/.vim/plugged/vim-hexokinase
