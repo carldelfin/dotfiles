@@ -1,23 +1,11 @@
------------------------------------------------------------
--- Plugin manager configuration file
------------------------------------------------------------
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
 
--- Plugin manager: packer.nvim
--- https://github.com/wbthomason/packer.nvim
-
--- For information about installed plugins see the README
---- neovim-lua/README.md
---- https://github.com/brainfucksec/neovim-lua#readme
-
-
-local cmd = vim.cmd
-cmd [[packadd packer.nvim]]
-
-local packer = require 'packer'
-
--- Add packages
-return packer.startup(function()
-  use 'wbthomason/packer.nvim'
+return require('packer').startup(function(use)
+  --use 'wbthomason/packer.nvim'
   use 'jalvesaq/Nvim-R'
   use 'vim-pandoc/vim-pandoc'
   use 'vim-pandoc/vim-pandoc-syntax'
@@ -41,4 +29,12 @@ return packer.startup(function()
   use 'navarasu/onedark.nvim'
   use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' }}
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
+
+-- Add packages
+return packer.startup(function()
+
 end)
