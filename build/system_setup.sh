@@ -217,7 +217,8 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
   ln -s -f ~/dotfiles/config/rofi/ayur.rasi ~/.config/rofi/ayur.rasi
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
-  ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
+  #ln -s -f ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
+  ln -s ~/dotfiles/config/nvim/* ~/.config/nvim/
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
 
