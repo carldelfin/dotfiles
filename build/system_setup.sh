@@ -30,7 +30,7 @@ simple() {
       bspwm picom kitty polybar suckless-tools rofi pass \
       apt-transport-https build-essential feh xinput \
       python3-pip ranger fzf \
-      xorg unzip curl \
+      xorg unzip curl exfat-fuse \
       software-properties-common zoxide \
       xdotool cmake network-manager npm
 
