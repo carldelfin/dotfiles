@@ -16,15 +16,23 @@ simple() {
   # Install packages
   # ------------------------------------------------------------------------------------------------
 
+  # sudo apt install -y \
+  #     bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
+  #     apt-transport-https build-essential zathura feh htop xinput \
+  #     syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
+  #     xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
+  #     exfat-fuse libreoffice software-properties-common arandr zoxide \
+  #     udiskie simplescreenrecorder mpv xdotool cmake network-manager npm \
+  #     qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
+  #     libvirt-daemon virt-manager
+  #
   sudo apt install -y \
       bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
-      apt-transport-https build-essential zathura feh htop xinput \
-      syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
-      xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-      exfat-fuse libreoffice software-properties-common arandr zoxide \
-      udiskie simplescreenrecorder mpv xdotool cmake network-manager npm \
-      qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
-      libvirt-daemon virt-manager
+      apt-transport-https build-essential feh xinput \
+      -extra python3-pip ranger fzf \
+      xorg unzip ufw rsync alsa-utils pulseaudio curl \
+      exfat-fuse software-properties-common zoxide \
+      udiskie xdotool cmake network-manager npm \
 
   # kvm/qemu settings
   #sudo virsh net-start default
@@ -43,53 +51,53 @@ simple() {
       echo "go is already installed"
   fi
 
-  # passmenu
-  if ! command -v passmenu &> /dev/null; then
-      sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
-      sudo chmod +x /usr/bin/passmenu
-  else
-      echo "passmenu is already installed"
-  fi
-
-  # rofi-pass
-  if ! command -v rofi-pass &> /dev/null; then
-      cd /tmp
-      wget https://github.com/carnager/rofi-pass/archive/master.zip
-      unzip master.zip
-      rm master.zip
-      cd rofi-pass-master
-      sudo make
-      mkdir -p ~/.config/rofi-pass
-      mv config.example ~/.config/rofi-pass/config
-      cd ..
-      sudo rm -rf rofi-pass-master
-      cd
-  else
-      echo "rofi-pass is already installed"
-  fi
-
-  # rofi-power-menu
-  if ! command -v rofi-power-menu &> /dev/null; then
-      cd /tmp
-      wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
-      sudo mv rofi-power-menu /usr/local/bin
-      sudo chmod +x /usr/local/bin/rofi-power-menu
-      cd
-  else
-      echo "rofi-power-menu is already installed"
-  fi
-
-  # mullvad
-  if ! command -v mullvad &> /dev/null; then
-      cd /tmp
-      wget https://mullvad.net/download/app/deb/latest
-      cp latest latest.deb
-      sudo apt install -y ./latest.deb
-      rm latest.deb latest
-      cd
-  else
-      echo "Mullvad is already installed"
-  fi
+#   # passmenu
+#   if ! command -v passmenu &> /dev/null; then
+#       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
+#       sudo chmod +x /usr/bin/passmenu
+#   else
+#       echo "passmenu is already installed"
+#   fi
+#
+#   # rofi-pass
+#   if ! command -v rofi-pass &> /dev/null; then
+#       cd /tmp
+#       wget https://github.com/carnager/rofi-pass/archive/master.zip
+#       unzip master.zip
+#       rm master.zip
+#       cd rofi-pass-master
+#       sudo make
+#       mkdir -p ~/.config/rofi-pass
+#       mv config.example ~/.config/rofi-pass/config
+#       cd ..
+#       sudo rm -rf rofi-pass-master
+#       cd
+#   else
+#       echo "rofi-pass is already installed"
+#   fi
+#
+#   # rofi-power-menu
+#   if ! command -v rofi-power-menu &> /dev/null; then
+#       cd /tmp
+#       wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
+#       sudo mv rofi-power-menu /usr/local/bin
+#       sudo chmod +x /usr/local/bin/rofi-power-menu
+#       cd
+#   else
+#       echo "rofi-power-menu is already installed"
+#   fi
+#
+#   # mullvad
+#   if ! command -v mullvad &> /dev/null; then
+#       cd /tmp
+#       wget https://mullvad.net/download/app/deb/latest
+#       cp latest latest.deb
+#       sudo apt install -y ./latest.deb
+#       rm latest.deb latest
+#       cd
+#   else
+#       echo "Mullvad is already installed"
+#   fi
 
   # neovim
   if ! command -v /usr/bin/nvim.appimage &> /dev/null; then
@@ -103,14 +111,6 @@ simple() {
 
   else
       echo "Neovim is already installed"
-  fi
-
-  # packer
-  if [ ! -d "/home/cmd/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-      git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-          ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  else
-       echo "packer is already installed"
   fi
 
   # giph
@@ -230,11 +230,11 @@ simple() {
   ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
 
   # ------------------------------------------------------------------------------------------------
-  # Plugins for ranger and neovim
+  # ranger setup
   # ------------------------------------------------------------------------------------------------
 
   echo ""
-  echo -e "\033[1;33mInstalling plugins for ranger and neovim...\033[0m"
+  echo -e "\033[1;33mSetting up ranger...\033[0m"
   echo ""
 
   # ranger zoxide
@@ -251,16 +251,37 @@ simple() {
        echo "devicons2 is already installed"
   fi
 
-  # neovim
-  /usr/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  # ------------------------------------------------------------------------------------------------
+  # neovim setup
+  # ------------------------------------------------------------------------------------------------
+
+  echo ""
+  echo -e "\033[1;33mSetting up neovim...\033[0m"
+  echo ""
+
+  # packer
+  if [ ! -d "/home/cmd/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+      git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+          ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  else
+       echo "packer is already installed"
+  fi
+
+
+  # packer
+  #mkdir -p "$HOME/.local/share/nvim/site/pack/packer/opt"
+  #mkdir -p "$packer_dir"
+  #git clone --single-branch https://github.com/wbthomason/packer.nvim "${packer_dir}/packer.nvim"
+  /usr/bin/nvim.appimage --headless nvim +PackerCompile +PackerSync
+  #/usr/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
   # make hexokinase
-  cd /home/cmd/.local/share/nvim/site/pack/packer/start/vim-hexokinase
-  make hexokinase
-  cd
+  #cd /home/cmd/.local/share/nvim/site/pack/packer/start/vim-hexokinase
+  #make hexokinase
+  #cd
 
   # install bash language server
-  sudo npm i -g bash-language-server
+  #sudo npm i -g bash-language-server
 
   # ------------------------------------------------------------------------------------------------
   # Configure ufw

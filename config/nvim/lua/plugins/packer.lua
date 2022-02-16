@@ -1,4 +1,4 @@
-return require('packer').startup(function(use)
+return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'jalvesaq/Nvim-R'
   use 'vim-pandoc/vim-pandoc'
@@ -23,7 +23,4 @@ return require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' }}
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
-  if packer_bootstrap then
-    require('packer').sync()
-  end
 end)
