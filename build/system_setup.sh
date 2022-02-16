@@ -32,7 +32,7 @@ simple() {
       -extra python3-pip ranger fzf \
       xorg unzip ufw rsync alsa-utils pulseaudio curl \
       exfat-fuse software-properties-common zoxide \
-      udiskie xdotool cmake network-manager npm \
+      udiskie xdotool cmake network-manager npm
 
   # kvm/qemu settings
   #sudo virsh net-start default
