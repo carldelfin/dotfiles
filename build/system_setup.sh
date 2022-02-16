@@ -128,61 +128,61 @@ simple() {
   # Appearance
   # ------------------------------------------------------------------------------------------------
 
-  echo ""
-  echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
-  echo ""
-
-  # arc gtk
-  sudo apt install -y gtk2-engines-murrine arc-theme
-
-  # papirus icons
-  sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
-  sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
-  sudo apt update
-  sudo apt install papirus-icon-theme libreoffice-style-papirus
-
-  # jetbrainsmono with nerd font patch
-  if fc-list | grep -q JetBrains; then
-      echo "JetBrainsMono is already installed"
-  else
-      mkdir -p ~/.local/share/fonts
-      cd ~/.local/share/fonts
-      wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-      unzip *.zip
-      rm *.zip
-  fi
-
-  # various google fonts
-  if fc-list | grep -q "Merriweather"; then
-      echo "Google fonts are already installed"
-  else
-      mkdir -p ~/.local/share/fonts
-      cd /tmp
-      wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
-      unzip fonts.zip -d ~/.local/share/fonts
-      rm -rf fonts.zip
-      cd
-  fi
-
-  # font awesome
-  if fc-list | grep -q "Font Awesome"; then
-      echo "Font Awesome is already installed"
-  else
-      mkdir -p ~/.local/share/fonts
-      cd /tmp
-      wget https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-desktop.zip
-      unzip *.zip
-      mv fontawesome-free-6.0.0-desktop/otfs/*.otf ~/.local/share/fonts/
-      rm *.zip
-      rm -rf fontawesome-free-6.0.0-desktop
-      cd
-  fi
-
-  fc-cache -f
-
-  # phinger cursors
-  wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
-
+#   echo ""
+#   echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
+#   echo ""
+#
+#   # arc gtk
+#   sudo apt install -y gtk2-engines-murrine arc-theme
+#
+#   # papirus icons
+#   sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
+#   sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+#   sudo apt update
+#   sudo apt install papirus-icon-theme libreoffice-style-papirus
+#
+#   # jetbrainsmono with nerd font patch
+#   if fc-list | grep -q JetBrains; then
+#       echo "JetBrainsMono is already installed"
+#   else
+#       mkdir -p ~/.local/share/fonts
+#       cd ~/.local/share/fonts
+#       wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+#       unzip *.zip
+#       rm *.zip
+#   fi
+#
+#   # various google fonts
+#   if fc-list | grep -q "Merriweather"; then
+#       echo "Google fonts are already installed"
+#   else
+#       mkdir -p ~/.local/share/fonts
+#       cd /tmp
+#       wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
+#       unzip fonts.zip -d ~/.local/share/fonts
+#       rm -rf fonts.zip
+#       cd
+#   fi
+#
+#   # font awesome
+#   if fc-list | grep -q "Font Awesome"; then
+#       echo "Font Awesome is already installed"
+#   else
+#       mkdir -p ~/.local/share/fonts
+#       cd /tmp
+#       wget https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-desktop.zip
+#       unzip *.zip
+#       mv fontawesome-free-6.0.0-desktop/otfs/*.otf ~/.local/share/fonts/
+#       rm *.zip
+#       rm -rf fontawesome-free-6.0.0-desktop
+#       cd
+#   fi
+#
+#   fc-cache -f
+#
+#   # phinger cursors
+#   wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
+#
   # ------------------------------------------------------------------------------------------------
   # Make sure relevant configs and scripts are executable
   # ------------------------------------------------------------------------------------------------
