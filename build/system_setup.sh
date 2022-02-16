@@ -27,10 +27,10 @@ simple() {
       libvirt-daemon virt-manager
 
   # kvm/qemu settings
-  sudo virsh net-start default
-  sudo virsh net-autostart default
-  sudo modprobe vhost_net
-  sudo usermod -a -G libvirt $(whoami)
+  #sudo virsh net-start default
+  #sudo virsh net-autostart default
+  #sudo modprobe vhost_net
+  #sudo usermod -a -G libvirt $(whoami)
 
   # go
   if ! command -v /usr/local/go/bin/go &> /dev/null; then
