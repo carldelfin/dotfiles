@@ -29,7 +29,7 @@ simple() {
   sudo apt install -y \
       bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
       apt-transport-https build-essential feh xinput \
-      -extra python3-pip ranger fzf \
+      python3-pip ranger fzf \
       xorg unzip ufw rsync alsa-utils pulseaudio curl \
       exfat-fuse software-properties-common zoxide \
       udiskie xdotool cmake network-manager npm
