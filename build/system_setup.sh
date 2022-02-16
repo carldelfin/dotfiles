@@ -273,6 +273,7 @@ simple() {
   #mkdir -p "$packer_dir"
   #git clone --single-branch https://github.com/wbthomason/packer.nvim "${packer_dir}/packer.nvim"
   /usr/bin/nvim.appimage --headless +PackerCompile +PackerSync +qall
+  /usr/bin/nvim.appimage --headless +PackerInstall +qall
   #/usr/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
   # make hexokinase

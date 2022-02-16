@@ -4,8 +4,8 @@
 --   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 -- end
 
+require('settings')
+require('keymaps')
 require('plugins/packer')
 require('plugins/configs')
 require('plugins/nvim-lspconfig')
-require('settings')
-require('keymaps')
