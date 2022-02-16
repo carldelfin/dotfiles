@@ -270,11 +270,11 @@ simple() {
   echo -e "\033[1;33mConfiguring ufw...\033[0m"
   echo ""
 
-  sudo ufw default deny incoming
-  sudo ufw default allow outgoing
-  sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
-  sudo ufw enable
-  sudo ufw allow syncthing
+  #sudo ufw default deny incoming
+  #sudo ufw default allow outgoing
+  #sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
+  #sudo ufw enable
+  #sudo ufw allow syncthing
 
 }
 
