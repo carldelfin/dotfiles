@@ -22,7 +22,15 @@ simple() {
       syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
       xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
       exfat-fuse libreoffice software-properties-common arandr zoxide \
-      udiskie simplescreenrecorder mpv xdotool cmake network-manager npm
+      udiskie simplescreenrecorder mpv xdotool cmake network-manager npm \
+      qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
+      libvirt-daemon virt-manager
+
+  # kvm/qemu settings
+  sudo virsh net-start default
+  sudo virsh net-autostart default
+  sudo modprobe vhost_net
+  sudo usermod -a -G libvirt $(whoami)
 
   # go
   if ! command -v /usr/local/go/bin/go &> /dev/null; then
@@ -217,7 +225,7 @@ simple() {
   ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
   ln -s -f ~/dotfiles/config/rofi/ayur.rasi ~/.config/rofi/ayur.rasi
   ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
-  ln -s ~/dotfiles/config/nvim/* ~/.config/nvim/
+  ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
   ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
   ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
 
@@ -252,7 +260,7 @@ simple() {
   cd
 
   # install bash language server
-  npm i -g bash-language-server
+  sudo npm i -g bash-language-server
 
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
