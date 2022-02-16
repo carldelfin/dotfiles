@@ -27,12 +27,12 @@ simple() {
   #     libvirt-daemon virt-manager
   #
   sudo apt install -y \
-      bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
+      bspwm picom kitty polybar suckless-tools rofi pass \
       apt-transport-https build-essential feh xinput \
       python3-pip ranger fzf \
-      xorg unzip ufw rsync alsa-utils pulseaudio curl \
-      exfat-fuse software-properties-common zoxide \
-      udiskie xdotool cmake network-manager npm
+      xorg unzip curl \
+      software-properties-common zoxide \
+      xdotool cmake network-manager npm
 
   # kvm/qemu settings
   #sudo virsh net-start default
