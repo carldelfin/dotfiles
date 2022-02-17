@@ -25,13 +25,17 @@ simple() {
       udiskie simplescreenrecorder mpv xdotool network-manager npm lightdm
 
   # kvm/qemu 
-  #sudo apt install -y \
-  #    qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
-  #    libvirt-daemon virt-manager
-  #sudo virsh net-start default
-  #sudo virsh net-autostart default
-  #sudo modprobe vhost_net
-  #sudo usermod -a -G libvirt $(whoami)
+  if [[ $(systemd-detect-virt) = *kvm* ]]; then
+      echo "inside a virtual machine, skipping kvm install"
+  else
+      sudo apt install -y \
+          qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
+          libvirt-daemon virt-manager
+      sudo virsh net-start default
+      sudo virsh net-autostart default
+      sudo modprobe vhost_net
+      sudo usermod -a -G libvirt $(whoami)
+  fi
 
   # go
   if ! command -v go version &> /dev/null; then
@@ -278,17 +282,21 @@ simple() {
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
   # ------------------------------------------------------------------------------------------------
+  
+  # kvm/qemu 
+  if [[ $(systemd-detect-virt) = *kvm* ]]; then
+      echo "inside a virtual machine, skipping ufw setup"
+  else
+      echo ""
+      echo -e "\033[1;33mConfiguring ufw...\033[0m"
+      echo ""
 
-  echo ""
-  echo -e "\033[1;33mConfiguring ufw...\033[0m"
-  echo ""
-
-  #sudo ufw default deny incoming
-  #sudo ufw default allow outgoing
-  #sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
-  #sudo ufw enable
-  #sudo ufw allow syncthing
-
+      sudo ufw default deny incoming
+      sudo ufw default allow outgoing
+      sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
+      sudo ufw enable
+      sudo ufw allow syncthing
+  fi
 }
 
 simple
