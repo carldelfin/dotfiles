@@ -272,10 +272,16 @@ simple() {
   make hexokinase
   cd
 
-  # install bash language server
-  #sudo npm i -g bash-language-server
-  #sudo npm i -g pyright
-  
+  # install language servers
+  sudo npm i -g bash-language-server
+  sudo npm i -g pyright
+
+  cd /tmp
+  wget https://github.com/valentjn/ltex-ls/releases/download/15.2.0/ltex-ls-15.2.0-linux-x64.tar.gz
+  sudo tar -C /usr/local -xzf ltex-ls-15.2.0-linux-x86.tar.gz
+  export PATH=$PATH:/usr/local/go/bin
+
+
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
   # ------------------------------------------------------------------------------------------------

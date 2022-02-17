@@ -46,6 +46,7 @@ require("nvim-treesitter.configs").setup {
 
 require('lspconfig').bashls.setup {}
 require('lspconfig').pyright.setup {}
+require('lspconfig').ltex.setup {}
 require('lspconfig').r_language_server.setup {
   settings = {
     r = {
