@@ -116,4 +116,4 @@ RANGER_LOAD_DEFAULT_RC=false
 export PATH=$PATH:/usr/local/go/bin
 
 # ltex
-export PATH=$PATH:/home/cmd/.local/bin/ltex-ls-15.2.0-linux-x64/bin
+export PATH=$PATH:/home/cmd/.local/bin/ltex-ls-15.2.0/bin
