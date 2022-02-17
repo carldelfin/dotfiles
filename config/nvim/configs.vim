@@ -65,8 +65,8 @@ EOF
 
 " mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#completion_delay = 50
-let g:mucomplete#reopen_immediately = 0
+"let g:mucomplete#completion_delay = 50
+"let g:mucomplete#reopen_immediately = 0
 let g:mucomplete#chains = {
             \   'default': ['user', 'omni', 'keyn', 'c-n', 'path'],
             \   'vim': ['path', 'cmd', 'keyn'],
