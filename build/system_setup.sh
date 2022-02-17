@@ -259,21 +259,16 @@ simple() {
   echo -e "\033[1;33mSetting up neovim...\033[0m"
   echo ""
 
-  # packer
-  if [ ! -d "/home/cmd/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-      git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-          ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  else
-       echo "packer is already installed"
-  fi
+  # vim-plug
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+  /usr/bin/nvim.appimage --headless +PlugInstall +qall
 
   # packer
   #mkdir -p "$HOME/.local/share/nvim/site/pack/packer/opt"
   #mkdir -p "$packer_dir"
   #git clone --single-branch https://github.com/wbthomason/packer.nvim "${packer_dir}/packer.nvim"
-  /usr/bin/nvim.appimage --headless +PackerCompile +PackerSync +qall
-  /usr/bin/nvim.appimage --headless +PackerInstall +qall
   #/usr/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
   # make hexokinase
@@ -283,7 +278,8 @@ simple() {
 
   # install bash language server
   #sudo npm i -g bash-language-server
-
+  #sudo npm i -g pyright
+  
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
   # ------------------------------------------------------------------------------------------------
