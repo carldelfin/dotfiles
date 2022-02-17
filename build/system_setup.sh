@@ -32,7 +32,7 @@ simple() {
       python3-pip ranger fzf \
       xorg unzip curl exfat-fuse \
       software-properties-common zoxide \
-      xdotool cmake network-manager npm
+      xdotool network-manager npm
 
   # kvm/qemu settings
   #sudo virsh net-start default
@@ -41,7 +41,7 @@ simple() {
   #sudo usermod -a -G libvirt $(whoami)
 
   # go
-  if ! command -v /usr/local/go/bin/go &> /dev/null; then
+  if ! command -v go version &> /dev/null; then
       cd /tmp
       wget https://golang.org/dl/go1.17.7.linux-amd64.tar.gz
       sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.7.linux-amd64.tar.gz
@@ -263,18 +263,13 @@ simple() {
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+  # install plugins
   /usr/bin/nvim.appimage --headless +PlugInstall +qall
 
-  # packer
-  #mkdir -p "$HOME/.local/share/nvim/site/pack/packer/opt"
-  #mkdir -p "$packer_dir"
-  #git clone --single-branch https://github.com/wbthomason/packer.nvim "${packer_dir}/packer.nvim"
-  #/usr/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
   # make hexokinase
-  #cd /home/cmd/.local/share/nvim/site/pack/packer/start/vim-hexokinase
-  #make hexokinase
-  #cd
+  cd ~/.vim/plugged/vim-hexokinase
+  make hexokinase
+  cd
 
   # install bash language server
   #sudo npm i -g bash-language-server
