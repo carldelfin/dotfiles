@@ -16,25 +16,18 @@ simple() {
   # Install packages
   # ------------------------------------------------------------------------------------------------
 
-  # sudo apt install -y \
-  #     bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
-  #     apt-transport-https build-essential zathura feh htop xinput \
-  #     syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
-  #     xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
-  #     exfat-fuse libreoffice software-properties-common arandr zoxide \
-  #     udiskie simplescreenrecorder mpv xdotool cmake network-manager npm \
-  #     qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
-  #     libvirt-daemon virt-manager
-  #
   sudo apt install -y \
-      bspwm picom kitty polybar suckless-tools rofi pass \
-      apt-transport-https build-essential feh xinput \
-      python3-pip ranger fzf \
-      xorg unzip curl exfat-fuse \
-      software-properties-common zoxide \
-      xdotool network-manager npm
+      bspwm picom kitty polybar suckless-tools rofi pass pinentry-gnome3 \
+      apt-transport-https build-essential zathura feh htop xinput \
+      syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
+      xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
+      exfat-fuse libreoffice software-properties-common arandr zoxide \
+      udiskie simplescreenrecorder mpv xdotool network-manager npm
 
-  # kvm/qemu settings
+  # kvm/qemu 
+  #sudo apt install -y \
+  #    qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
+  #    libvirt-daemon virt-manager
   #sudo virsh net-start default
   #sudo virsh net-autostart default
   #sudo modprobe vhost_net
@@ -51,53 +44,53 @@ simple() {
       echo "go is already installed"
   fi
 
-#   # passmenu
-#   if ! command -v passmenu &> /dev/null; then
-#       sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
-#       sudo chmod +x /usr/bin/passmenu
-#   else
-#       echo "passmenu is already installed"
-#   fi
-#
-#   # rofi-pass
-#   if ! command -v rofi-pass &> /dev/null; then
-#       cd /tmp
-#       wget https://github.com/carnager/rofi-pass/archive/master.zip
-#       unzip master.zip
-#       rm master.zip
-#       cd rofi-pass-master
-#       sudo make
-#       mkdir -p ~/.config/rofi-pass
-#       mv config.example ~/.config/rofi-pass/config
-#       cd ..
-#       sudo rm -rf rofi-pass-master
-#       cd
-#   else
-#       echo "rofi-pass is already installed"
-#   fi
-#
-#   # rofi-power-menu
-#   if ! command -v rofi-power-menu &> /dev/null; then
-#       cd /tmp
-#       wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
-#       sudo mv rofi-power-menu /usr/local/bin
-#       sudo chmod +x /usr/local/bin/rofi-power-menu
-#       cd
-#   else
-#       echo "rofi-power-menu is already installed"
-#   fi
-#
-#   # mullvad
-#   if ! command -v mullvad &> /dev/null; then
-#       cd /tmp
-#       wget https://mullvad.net/download/app/deb/latest
-#       cp latest latest.deb
-#       sudo apt install -y ./latest.deb
-#       rm latest.deb latest
-#       cd
-#   else
-#       echo "Mullvad is already installed"
-#   fi
+  # passmenu
+  if ! command -v passmenu &> /dev/null; then
+      sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
+      sudo chmod +x /usr/bin/passmenu
+  else
+      echo "passmenu is already installed"
+  fi
+
+  # rofi-pass
+  if ! command -v rofi-pass &> /dev/null; then
+      cd /tmp
+      wget https://github.com/carnager/rofi-pass/archive/master.zip
+      unzip master.zip
+      rm master.zip
+      cd rofi-pass-master
+      sudo make
+      mkdir -p ~/.config/rofi-pass
+      mv config.example ~/.config/rofi-pass/config
+      cd ..
+      sudo rm -rf rofi-pass-master
+      cd
+  else
+      echo "rofi-pass is already installed"
+  fi
+
+  # rofi-power-menu
+  if ! command -v rofi-power-menu &> /dev/null; then
+      cd /tmp
+      wget https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu
+      sudo mv rofi-power-menu /usr/local/bin
+      sudo chmod +x /usr/local/bin/rofi-power-menu
+      cd
+  else
+      echo "rofi-power-menu is already installed"
+  fi
+
+  # mullvad
+  if ! command -v mullvad &> /dev/null; then
+      cd /tmp
+      wget https://mullvad.net/download/app/deb/latest
+      cp latest latest.deb
+      sudo apt install -y ./latest.deb
+      rm latest.deb latest
+      cd
+  else
+      echo "Mullvad is already installed"
+  fi
 
   # neovim
   if ! command -v /usr/bin/nvim.appimage &> /dev/null; then
@@ -128,61 +121,61 @@ simple() {
   # Appearance
   # ------------------------------------------------------------------------------------------------
 
-#   echo ""
-#   echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
-#   echo ""
-#
-#   # arc gtk
-#   sudo apt install -y gtk2-engines-murrine arc-theme
-#
-#   # papirus icons
-#   sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
-#   sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
-#   sudo apt update
-#   sudo apt install papirus-icon-theme libreoffice-style-papirus
-#
-#   # jetbrainsmono with nerd font patch
-#   if fc-list | grep -q JetBrains; then
-#       echo "JetBrainsMono is already installed"
-#   else
-#       mkdir -p ~/.local/share/fonts
-#       cd ~/.local/share/fonts
-#       wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-#       unzip *.zip
-#       rm *.zip
-#   fi
-#
-#   # various google fonts
-#   if fc-list | grep -q "Merriweather"; then
-#       echo "Google fonts are already installed"
-#   else
-#       mkdir -p ~/.local/share/fonts
-#       cd /tmp
-#       wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
-#       unzip fonts.zip -d ~/.local/share/fonts
-#       rm -rf fonts.zip
-#       cd
-#   fi
-#
-#   # font awesome
-#   if fc-list | grep -q "Font Awesome"; then
-#       echo "Font Awesome is already installed"
-#   else
-#       mkdir -p ~/.local/share/fonts
-#       cd /tmp
-#       wget https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-desktop.zip
-#       unzip *.zip
-#       mv fontawesome-free-6.0.0-desktop/otfs/*.otf ~/.local/share/fonts/
-#       rm *.zip
-#       rm -rf fontawesome-free-6.0.0-desktop
-#       cd
-#   fi
-#
-#   fc-cache -f
-#
-#   # phinger cursors
-#   wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
-#
+   echo ""
+   echo -e "\033[1;33mInstalling fonts and themes...\033[0m"
+   echo ""
+
+   # arc gtk
+   sudo apt install -y gtk2-engines-murrine arc-theme
+
+   # papirus icons
+   sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
+   sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+   sudo apt update
+   sudo apt install papirus-icon-theme libreoffice-style-papirus
+
+   # jetbrainsmono with nerd font patch
+   if fc-list | grep -q JetBrains; then
+       echo "JetBrainsMono is already installed"
+   else
+       mkdir -p ~/.local/share/fonts
+       cd ~/.local/share/fonts
+       wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+       unzip *.zip
+       rm *.zip
+   fi
+
+   # various google fonts
+   if fc-list | grep -q "Merriweather"; then
+       echo "Google fonts are already installed"
+   else
+       mkdir -p ~/.local/share/fonts
+       cd /tmp
+       wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
+       unzip fonts.zip -d ~/.local/share/fonts
+       rm -rf fonts.zip
+       cd
+   fi
+
+   # font awesome
+   if fc-list | grep -q "Font Awesome"; then
+       echo "Font Awesome is already installed"
+   else
+       mkdir -p ~/.local/share/fonts
+       cd /tmp
+       wget https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-desktop.zip
+       unzip *.zip
+       mv fontawesome-free-6.0.0-desktop/otfs/*.otf ~/.local/share/fonts/
+       rm *.zip
+       rm -rf fontawesome-free-6.0.0-desktop
+       cd
+   fi
+
+   fc-cache -f
+
+   # phinger cursors
+   wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
+
   # ------------------------------------------------------------------------------------------------
   # Make sure relevant configs and scripts are executable
   # ------------------------------------------------------------------------------------------------
@@ -279,7 +272,7 @@ simple() {
   cd /tmp
   wget https://github.com/valentjn/ltex-ls/releases/download/15.2.0/ltex-ls-15.2.0-linux-x64.tar.gz
   sudo tar -C ~/.local/bin -xzf ltex-ls-15.2.0-linux-x64.tar.gz
-  export PATH=$PATH:/.local/bin/ltex-ls-15.2.0-linux-x64/bin
+  export PATH=$PATH:/bin/ltex-ls-15.2.0-linux-x64/bin
 
 
   # ------------------------------------------------------------------------------------------------
