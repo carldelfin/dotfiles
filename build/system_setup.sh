@@ -278,8 +278,8 @@ simple() {
 
   cd /tmp
   wget https://github.com/valentjn/ltex-ls/releases/download/15.2.0/ltex-ls-15.2.0-linux-x64.tar.gz
-  sudo tar -C /usr/local -xzf ltex-ls-15.2.0-linux-x86.tar.gz
-  export PATH=$PATH:/usr/local/go/bin
+  sudo tar -C ~/.local/bin -xzf ltex-ls-15.2.0-linux-x64.tar.gz
+  export PATH=$PATH:/.local/bin/ltex-ls-15.2.0-linux-x64/bin
 
 
   # ------------------------------------------------------------------------------------------------
