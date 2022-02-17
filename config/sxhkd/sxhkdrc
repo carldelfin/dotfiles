@@ -43,6 +43,11 @@ super + shift + m
 
 # screenshot all
 super + shift + control + m
+    scrot
+
+# start udiskie as background process
+super + shift + u
+   udiskie & 
 
 # --------------------------------------------------------------------------------------------------
 # bspwm hotkeys

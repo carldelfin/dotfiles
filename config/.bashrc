@@ -82,8 +82,7 @@ alias e='exit'
 alias rr='ranger'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
-alias vf='vim $(fzf --height 40% --reverse)'
-alias ff='fzf'
+alias ff='vim $(fzf --height 40% --reverse)'
 
 # ------------------------------------------------------------------------------
 # environment variables

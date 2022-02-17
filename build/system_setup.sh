@@ -22,7 +22,7 @@ simple() {
       syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
       xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
       exfat-fuse libreoffice software-properties-common arandr zoxide \
-      udiskie simplescreenrecorder mpv xdotool network-manager npm lightdm
+      udiskie simplescreenrecorder mpv network-manager npm lightdm
 
   # kvm/qemu 
   if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -111,12 +111,15 @@ simple() {
   fi
 
   # giph
-  if ! command -v /usr/bin/nvim.appimage &> /dev/null; then
+  if ! command -v giph &> /dev/null; then
       git clone https://github.com/phisch/giph.git
       cd giph
       sudo make install
       cd ..
       rm -rf giph
+
+      # dependencies 
+      sudo apt install -y slop ffmpeg xdotool
   else
        echo "giph is already installed"
   fi
