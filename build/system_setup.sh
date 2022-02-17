@@ -22,7 +22,7 @@ simple() {
       syncthing libavcodec-extra python3-pip ranger fzf qpdfview \
       xorg unzip ufw rsync firefox-esr alsa-utils pulseaudio curl \
       exfat-fuse libreoffice software-properties-common arandr zoxide \
-      udiskie simplescreenrecorder mpv xdotool network-manager npm
+      udiskie simplescreenrecorder mpv xdotool network-manager npm lightdm
 
   # kvm/qemu 
   #sudo apt install -y \
