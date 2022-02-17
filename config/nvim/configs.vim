@@ -27,7 +27,12 @@ require("bufferline").setup{
     options = {
         close_command = "Bdelete",
         separator_style = "thin",
-        always_show_bufferline = true}}
+        always_show_bufferline = true,
+        offsets = {{
+            filetype = "NvimTree",
+            text = "File Explorer",
+            highlight = "Directory",
+            text_align = "left" }}}}
 
 require'shade'.setup{
   overlay_opacity = 50,
