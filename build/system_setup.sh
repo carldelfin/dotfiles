@@ -267,6 +267,7 @@ simple() {
   /usr/bin/nvim.appimage --headless +PlugInstall +qall
 
   # make hexokinase
+  export PATH=$PATH:/usr/local/go/bin
   cd ~/.vim/plugged/vim-hexokinase
   make hexokinase
   cd
