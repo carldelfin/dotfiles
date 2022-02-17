@@ -38,6 +38,7 @@ simple() {
       cd /tmp
       wget https://golang.org/dl/go1.17.7.linux-amd64.tar.gz
       sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.17.7.linux-amd64.tar.gz
+      rm go1.17.7.linux-amd64.tar.gz
       cd
   else
       echo "go is already installed"
@@ -56,6 +57,7 @@ simple() {
       cd /tmp
       wget https://github.com/carnager/rofi-pass/archive/master.zip
       unzip master.zip
+      rm master.zip
       cd rofi-pass-master
       sudo make
       mkdir -p ~/.config/rofi-pass
@@ -272,7 +274,6 @@ simple() {
   mkdir -p ~/.local/bin
   tar -C ~/.local/bin -xzf ltex-ls-15.2.0-linux-x64.tar.gz
   rm ltex-ls-15.2.0-linux-x64.tar.gz
-  cd
 
   # ------------------------------------------------------------------------------------------------
   # Configure ufw
