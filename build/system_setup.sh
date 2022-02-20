@@ -216,7 +216,7 @@ simple() {
     echo ""
 
     # create missing directories and files
-    mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura}
+    mkdir -p ~/.config/{bspwm,sxhkd,kitty,ranger,rofi,rofi-pass,nvim,.gtkrc-2.0,gtk-3.0,zathura,lightdm}
     mkdir -p ~/.icons/default
     touch ~/.icons/default/index.theme
 
@@ -241,6 +241,8 @@ simple() {
     ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
+    sudo ln -s -f ~/dotfiles/config/index.theme /usr/share/icons/default/index.theme
+    sudo ln -s -f ~/dotfiles/config/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf 
 
     # ----------------------------------------------------------------------------------------------
     # Ranger setup
