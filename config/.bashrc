@@ -85,6 +85,13 @@ alias nvim='/usr/bin/nvim.appimage'
 alias ff='vim $(fzf --height 40% --reverse)'
 
 # ------------------------------------------------------------------------------
+# bash autocomplete
+# ------------------------------------------------------------------------------
+
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
+# ------------------------------------------------------------------------------
 # environment variables
 # ------------------------------------------------------------------------------
 
@@ -116,3 +123,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 # ltex
 export PATH=$PATH:/home/cmd/.local/bin/ltex-ls-15.2.0/bin
+
+# xsecurelock
+export XSECURELOCK_AUTH_BACKGROUND_COLOR=rgb:40/44/52
+export XSECURELOCK_AUTH_FOREGROUND_COLOR=rgb:235/203/139

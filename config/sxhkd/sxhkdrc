@@ -16,7 +16,11 @@ super + s
 
 # rofi power menu
 super + j
-  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols" -theme ~/dotfiles/config/rofi/ayur.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 6
+  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols --choices=shutdown/reboot/logout" -theme ~/dotfiles/config/rofi/ayur.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 3
+
+# lock screen
+super + shift + j
+    env XSECURELOCK_AUTH_BACKGROUND_COLOR=rgb:40/44/52 XSECURELOCK_AUTH_TIMEOUT=10 XSECURELOCK_PASSWORD_PROMPT=time_hex xsecurelock &
 
 # laptop keyboard toggle
 super + a + k
@@ -84,18 +88,6 @@ super + {m,n,e,i}
 super + {_,shift + }{m,n,e,i}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
-# super + {p,b,comma,period}
-#	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous window in the current desktop
-#super + {_,shift + }c
-#	bspc node -f {next,prev}.local.!hidden.window
-
-# focus the next/previous desktop in the current monitor
-#super + bracket{left,right}
-#	bspc desktop -f {prev,next}.local
-
 # focus the older or newer node in the focus history
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
@@ -111,7 +103,3 @@ super + alt + {m,n,e,i}
 # contract a window by moving one of its side inward
 super + alt + shift + {m,n,e,i}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-#super + shift + {h,j,k,l}
-#	bspc node -v {-20 0,0 20,0 -20,20 0}

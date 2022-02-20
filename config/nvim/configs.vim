@@ -69,13 +69,13 @@ EOF
 " --------------------------------------------------------------------------------------------------
 
 " mucomplete
-let g:mucomplete#enable_auto_at_startup = 1
+"let g:mucomplete#enable_auto_at_startup = 0
 "let g:mucomplete#completion_delay = 50
 "let g:mucomplete#reopen_immediately = 0
-let g:mucomplete#chains = {
-            \   'default': ['user', 'omni', 'keyn', 'c-n', 'path'],
-            \   'vim': ['path', 'cmd', 'keyn'],
-            \ }
+"let g:mucomplete#chains = {
+"            \   'default': ['file', 'omni', 'keyn', 'dict'],
+"            \   'vim': ['file', 'cmd', 'keyn'],
+"            \ }
 
 " vimtex
 let g:vimtex_view_method = 'zathura'

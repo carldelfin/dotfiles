@@ -2,6 +2,9 @@
 let mapleader = ","
 let maplocalleader="\<space>"
 
+" completion
+inoremap <C-Space> <C-x><C-o>
+
 " sensible defaults
 nnoremap Y y$
 nnoremap n nzzzv
