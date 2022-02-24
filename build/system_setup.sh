@@ -206,21 +206,6 @@ simple() {
         cd
     fi
 
-    # material design icons
-    # if fc-list | grep -q "Material"; then
-    #     echo ""
-    #     echo -e "\033[0;35Material Icons are already installed, skipping...\033[0m"
-    #     echo ""
-    # else
-        mkdir -p ~/.local/share/fonts
-        cd ~/.local/share/fonts
-        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsOutlined-Regular.otf
-        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsRound-Regular.otf
-        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsSharp-Regular.otf
-        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsTwoTone-Regular.otf
-        cd
-    fi
-
     fc-cache -f
 
     # phinger cursors
