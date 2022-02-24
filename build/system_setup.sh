@@ -219,12 +219,12 @@ simple() {
         wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsSharp-Regular.otf
         wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsTwoTone-Regular.otf
         cd
-    # fi
+    fi
 
     fc-cache -f
 
     # phinger cursors
-    if [ ! -d "/use/share/icons/phinger-cursors" ]; then
+    if [ ! -d "/usr/share/icons/phinger-cursors" ]; then
         wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
     else
         echo ""
