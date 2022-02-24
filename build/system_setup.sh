@@ -29,7 +29,9 @@ simple() {
 
     # kvm/qemu 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
+        echo ""
         echo -e "\033[0;35mInside a virtual machine, skipping KVM/QEMU install...\033[0m"
+        echo ""
     else
         echo ""
         echo -e "\033[1;35mInstalling KVM/QEMU...\033[0m"
@@ -51,7 +53,9 @@ simple() {
         rm go1.17.7.linux-amd64.tar.gz
         cd
     else
+        echo ""
         echo -e "\033[0;35mGo is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # passmenu
@@ -59,7 +63,9 @@ simple() {
         sudo cp /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin/passmenu
         sudo chmod +x /usr/bin/passmenu
     else
+        echo ""
         echo -e "\033[0;35mpassmenu is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # rofi-pass
@@ -76,7 +82,9 @@ simple() {
         sudo rm -rf rofi-pass-master
         cd
     else
+        echo ""
         echo -e "\033[0;35mrofi-pass is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # rofi-power-menu
@@ -87,7 +95,9 @@ simple() {
         sudo chmod +x /usr/local/bin/rofi-power-menu
         cd
     else
+        echo ""
         echo -e "\033[0;35mrofi-power-menu is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # mullvad
@@ -99,7 +109,9 @@ simple() {
         rm latest.deb latest
         cd
     else
+        echo ""
         echo -e "\033[0;35mMullvad is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # neovim
@@ -113,7 +125,9 @@ simple() {
         pip3 install pynvim
 
     else
+        echo ""
         echo -e "\033[0;35mNeovim is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # giph
@@ -127,7 +141,9 @@ simple() {
         # dependencies 
         sudo apt install -y slop ffmpeg xdotool
     else
+        echo ""
         echo -e "\033[0;35mgiph is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # todo.txt-cli
@@ -136,11 +152,13 @@ simple() {
         cd /tmp
         wget https://github.com/todotxt/todo.txt-cli/archive/refs/tags/v2.12.0.zip
         unzip *.zip
-        cd todo.txt_cli-2.12.0
+        cd todo.txt-cli-2.12.0
         sudo make install
         cp /usr/local/etc/todo/config ~/.todo/config
     else
-        echo -e "\033[0;35mtodo.txt-clie is already installed, skipping...\033[0m"
+        echo ""
+        echo -e "\033[0;35mtodo.txt-cli is already installed, skipping...\033[0m"
+        echo ""
     fi
 
 
@@ -163,7 +181,9 @@ simple() {
 
     # jetbrainsmono with nerd font patch
     if fc-list | grep -q JetBrains; then
+        echo ""
         echo -e "\033[0;35mJetBrainsMono is already installed, skipping...\033[0m"
+        echo ""
     else
         mkdir -p ~/.local/share/fonts
         cd ~/.local/share/fonts
@@ -174,7 +194,9 @@ simple() {
 
     # various google fonts
     if fc-list | grep -q "Fira Sans"; then
+        echo ""
         echo -e "\033[0;35mGoogle fonts are already installed, skipping...\033[0m"
+        echo ""
     else
         mkdir -p ~/.local/share/fonts
         cd /tmp
@@ -186,7 +208,9 @@ simple() {
 
     # font awesome
     if fc-list | grep -q "Font Awesome"; then
+        echo ""
         echo -e "\033[0;35Font Awesome is already installed, skipping...\033[0m"
+        echo ""
     else
         mkdir -p ~/.local/share/fonts
         cd /tmp
@@ -204,7 +228,9 @@ simple() {
     if [ ! -d "/use/share/icons/phinger-cursors" ]; then
         wget -cO- https://github.com/phisch/phinger-cursors/releases/latest/download/phinger-cursors-variants.tar.bz2 | sudo tar xfj - -C /usr/share/icons
     else
+        echo ""
         echo -e "\033[0;35phinger-cursors is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # ----------------------------------------------------------------------------------------------
