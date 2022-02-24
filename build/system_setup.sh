@@ -5,8 +5,10 @@ trap 'catch $? $LINENO' EXIT
 
 catch() {
     if [ "$1" != "0" ]; then
+        echo ""
         echo -e "\033[1;31mInstallation failed!\033[0m"
         echo -e "\033[1;31mError $1 occurred on $2\033[0m"
+        echo ""
     fi
 }
 
@@ -273,21 +275,25 @@ simple() {
     # ----------------------------------------------------------------------------------------------
 
     echo ""
-    echo -e "\033[1;33mSetting up ranger...\033[0m"
+    echo -e "\033[1;35mSetting up ranger...\033[0m"
     echo ""
 
     # ranger zoxide
     if [ ! -d "/home/cmd/.config/ranger/plugins/zoxide" ]; then
         git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
     else
+        echo ""
         echo -e "\033[0;35ranger zoxide is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # devicons2
     if [ ! -d "/home/cmd/.config/ranger/plugins/devicons2" ]; then
         git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
     else
+        echo ""
         echo -e "\033[0;35ranger devicons2 is already installed, skipping...\033[0m"
+        echo ""
     fi
 
     # ----------------------------------------------------------------------------------------------
@@ -295,7 +301,7 @@ simple() {
     # -----------------------------------------------------------------------------------------------
 
     echo ""
-    echo -e "\033[1;33mSetting up Neovim...\033[0m"
+    echo -e "\033[1;35mSetting up Neovim...\033[0m"
     echo ""
 
     # vim-plug
@@ -327,7 +333,9 @@ simple() {
   
     # inside a VM? 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
+        echo ""
         echo -e "\033[0;35mInside a virtual machine, skipping UFW setup...\033[0m"
+        echo ""
     else
         echo ""
         echo -e "\033[1;35mConfiguring UFW...\033[0m"
