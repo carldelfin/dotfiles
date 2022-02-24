@@ -212,12 +212,12 @@ simple() {
         echo -e "\033[0;35Material Icons are already installed, skipping...\033[0m"
         echo ""
     else
-        cd /tmp
-        wget https://github.com/google/material-design-icons/releases/download/3.0.1/material-design-icons-3.0.1.zip
-        unzip *.zip
-        mv material-design-icons-3.0.1/iconfont/*.ttf ~/.local/share/fonts/
-        rm *.zip
-        rm -rf material-design-icons-3.0.1
+        mkdir -p ~/.local/share/fonts
+        cd ~/.local/share/fonts
+        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsOutlined-Regular.otf
+        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsRound-Regular.otf
+        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsSharp-Regular.otf
+        wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsTwoTone-Regular.otf
         cd
     fi
 
@@ -345,7 +345,7 @@ simple() {
         echo -e "\033[0;35mInside a virtual machine, skipping UFW setup...\033[0m"
     else
         echo ""
-        echo -e "\033[1;33mConfiguring UFW...\033[0m"
+        echo -e "\033[1;35mConfiguring UFW...\033[0m"
         echo ""
     
         sudo ufw default deny incoming
@@ -360,7 +360,7 @@ simple() {
     # ------------------------------------------------------------------------------------------------
     
     echo ""
-    echo -e "\033[1;33mChanging GRUB background...\033[0m"
+    echo -e "\033[1;35mChanging GRUB background...\033[0m"
     echo ""
 
     sudo cp ~/dotfiles/wallpaper/wallpaper.png /boot/grub

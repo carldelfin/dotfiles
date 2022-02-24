@@ -83,7 +83,6 @@ alias rr='ranger'
 alias vim='/usr/bin/nvim.appimage'
 alias nvim='/usr/bin/nvim.appimage'
 alias ff='vim $(fzf --height 40% --reverse)'
-alias t='todo.sh'
 
 # ------------------------------------------------------------------------------
 # bash autocomplete
