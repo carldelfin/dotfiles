@@ -153,7 +153,7 @@ simple() {
         wget https://github.com/todotxt/todo.txt-cli/archive/refs/tags/v2.12.0.zip
         unzip *.zip
         cd todo.txt-cli-2.12.0
-        sudo make install
+        sudo make install INSTALL_DIR=/usr/bin
         cp /usr/local/etc/todo/config ~/.todo/config
     else
         echo ""
@@ -221,6 +221,22 @@ simple() {
         rm -rf fontawesome-free-6.0.0-desktop
         cd
     fi
+
+    # material design icons
+    if fc-list | grep -q "Material"; then
+        echo ""
+        echo -e "\033[0;35Material Icons are already installed, skipping...\033[0m"
+        echo ""
+    else
+        cd /tmp
+        wget https://github.com/google/material-design-icons/releases/download/3.0.1/material-design-icons-3.0.1.zip
+        unzip *.zip
+        mv material-design-icons-3.0.1/iconfont/*.ttf ~/.local/share/fonts/
+        rm *.zip
+        rm -rf material-design-icons-3.0.1
+        cd
+    fi
+
 
     fc-cache -f
 
