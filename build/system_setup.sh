@@ -25,7 +25,7 @@ simple() {
         make cmake python3-pip kitty polybar suckless-tools rofi pass pinentry-gnome3 \
         ufw rsync unzip curl network-manager xinput feh arandr zathura ranger fzf scrot \
         syncthing zoxide htop alsa-utils pulseaudio libavcodec-extra qpdfview inkscape \
-        firefox-esr exfat-fuse libreoffice udiskie mpv npm lightdm xsecurelock psmisc
+        firefox-esr exfat-fuse libreoffice udiskie mpv lightdm xsecurelock psmisc
 
     # kvm/qemu 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -207,11 +207,11 @@ simple() {
     fi
 
     # material design icons
-    if fc-list | grep -q "Material"; then
-        echo ""
-        echo -e "\033[0;35Material Icons are already installed, skipping...\033[0m"
-        echo ""
-    else
+    # if fc-list | grep -q "Material"; then
+    #     echo ""
+    #     echo -e "\033[0;35Material Icons are already installed, skipping...\033[0m"
+    #     echo ""
+    # else
         mkdir -p ~/.local/share/fonts
         cd ~/.local/share/fonts
         wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsOutlined-Regular.otf
@@ -219,7 +219,7 @@ simple() {
         wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsSharp-Regular.otf
         wget https://github.com/google/material-design-icons/blob/master/font/MaterialIconsTwoTone-Regular.otf
         cd
-    fi
+    # fi
 
     fc-cache -f
 
@@ -327,14 +327,14 @@ simple() {
     cd
 
     # install language servers
-    sudo npm i -g bash-language-server
-    sudo npm i -g pyright
+    #sudo npm i -g bash-language-server
+    #sudo npm i -g pyright
 
-    cd /tmp
-    wget https://github.com/valentjn/ltex-ls/releases/download/15.2.0/ltex-ls-15.2.0-linux-x64.tar.gz
-    mkdir -p ~/.local/bin
-    tar -C ~/.local/bin -xzf ltex-ls-15.2.0-linux-x64.tar.gz
-    rm ltex-ls-15.2.0-linux-x64.tar.gz
+    #cd /tmp
+    #wget https://github.com/valentjn/ltex-ls/releases/download/15.2.0/ltex-ls-15.2.0-linux-x64.tar.gz
+    #mkdir -p ~/.local/bin
+    #tar -C ~/.local/bin -xzf ltex-ls-15.2.0-linux-x64.tar.gz
+    #rm ltex-ls-15.2.0-linux-x64.tar.gz
 
     # ------------------------------------------------------------------------------------------------
     # Configure ufw
