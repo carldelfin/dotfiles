@@ -39,29 +39,6 @@ require'shade'.setup{
   opacity_step = 1,
   keys = { toggle = '<A-v>' }}
 
---require("nvim-treesitter.configs").setup {
---  ensure_installed = { "r", "bash", "c", "bibtex", "css", "cpp", "dockerfile", "go",
---                       "julia", "latex", "lua", "make", "markdown", "python", "regex",
---                       "vim", "yaml", "toml", "rasi" },
---  sync_install = false,
---  highlight = {
---    enable = true,
---    additional_vim_regex_highlighting = false,
---  }}
-
---require('lspconfig').bashls.setup {}
---require('lspconfig').pyright.setup {}
---require('lspconfig').ltex.setup {}
---require('lspconfig').r_language_server.setup {
---  settings = {
---    r = {
---      lsp = {
---        diagnostics = false,
---      },
---    },
---  },
---}
-
 EOF
 
 " --------------------------------------------------------------------------------------------------
@@ -69,13 +46,7 @@ EOF
 " --------------------------------------------------------------------------------------------------
 
 " mucomplete
-let g:mucomplete#enable_auto_at_startup = 0
-let g:mucomplete#completion_delay = 50
-let g:mucomplete#reopen_immediately = 0
-let g:mucomplete#chains = {
-            \   'default': ['file', 'omni', 'keyn', 'dict'],
-            \   'vim': ['file', 'cmd', 'keyn'],
-            \ }
+let g:mucomplete#enable_auto_at_startup = 1
 
 " vimtex
 let g:vimtex_view_method = 'zathura'

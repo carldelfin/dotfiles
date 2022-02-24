@@ -12,19 +12,6 @@ dotpush() {
 	cd
 }
 
-ayurpush() {
-	cd ~/ayur
-        git pull # to avoid conflicts
-    	git add .
-    	if [ -z "$1" ]; then
-    		git commit -m "Automated commit + push from terminal"
-	else
-		git commit -m "$*"
-	fi
-    	git push
-	cd
-}
-
 # pull changes in dotfiles from github
 dotpull() {
 	cd ~/dotfiles

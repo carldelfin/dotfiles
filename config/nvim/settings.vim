@@ -2,7 +2,7 @@
 set omnifunc=v:lua.vim.lsp.omnifunc
 set noinfercase
 set completeopt-=preview
-set completeopt+=menuone,noselect
+set completeopt+=longest,menuone,noselect
 set shortmess+=c
 "set updatetime=300
 "set timeoutlen=500

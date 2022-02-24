@@ -249,7 +249,7 @@ simple() {
     # copy ranger config
     ranger --copy-config=all
 
-    # symlink configs
+    # symlinks 
     ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
     ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
     ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
@@ -316,16 +316,6 @@ simple() {
     cd ~/.vim/plugged/vim-hexokinase
     make hexokinase
     cd
-
-    # install language servers
-    #sudo npm i -g bash-language-server
-    #sudo npm i -g pyright
-
-    #cd /tmp
-    #wget https://github.com/valentjn/ltex-ls/releases/download/15.2.0/ltex-ls-15.2.0-linux-x64.tar.gz
-    #mkdir -p ~/.local/bin
-    #tar -C ~/.local/bin -xzf ltex-ls-15.2.0-linux-x64.tar.gz
-    #rm ltex-ls-15.2.0-linux-x64.tar.gz
 
     # ------------------------------------------------------------------------------------------------
     # Configure ufw
