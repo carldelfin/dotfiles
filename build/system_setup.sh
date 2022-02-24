@@ -130,6 +130,20 @@ simple() {
         echo -e "\033[0;35mgiph is already installed, skipping...\033[0m"
     fi
 
+    # todo.txt-cli
+    if ! command -v todo.sh &> /dev/null; then
+        mkdir -p ~/.todo
+        cd /tmp
+        wget https://github.com/todotxt/todo.txt-cli/archive/refs/tags/v2.12.0.zip
+        unzip *.zip
+        cd todo.txt_cli-2.12.0
+        sudo make install
+        cp /usr/local/etc/todo/config ~/.todo/config
+    else
+        echo -e "\033[0;35mtodo.txt-clie is already installed, skipping...\033[0m"
+    fi
+
+
     # ----------------------------------------------------------------------------------------------
     # Appearance
     # ----------------------------------------------------------------------------------------------
@@ -243,6 +257,7 @@ simple() {
     ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
     sudo ln -s -f ~/dotfiles/config/index.theme /usr/share/icons/default/index.theme
     sudo ln -s -f ~/dotfiles/config/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf 
+    ln -s -f ~/dotfiles/config/todo/config ~/.todo/config
 
     # ----------------------------------------------------------------------------------------------
     # Ranger setup
