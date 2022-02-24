@@ -25,7 +25,7 @@ simple() {
         make cmake python3-pip kitty polybar suckless-tools rofi pass pinentry-gnome3 \
         ufw rsync unzip curl network-manager xinput feh arandr zathura ranger fzf scrot \
         syncthing zoxide htop alsa-utils pulseaudio libavcodec-extra qpdfview inkscape \
-        firefox-esr exfat-fuse libreoffice udiskie mpv npm lightdm xsecurelock
+        firefox-esr exfat-fuse libreoffice udiskie mpv npm lightdm xsecurelock psmisc
 
     # kvm/qemu 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -146,22 +146,6 @@ simple() {
         echo ""
     fi
 
-    # todo.txt-cli
-    if ! command -v todo.sh &> /dev/null; then
-        mkdir -p ~/.todo
-        cd /tmp
-        wget https://github.com/todotxt/todo.txt-cli/archive/refs/tags/v2.12.0.zip
-        unzip *.zip
-        cd todo.txt-cli-2.12.0
-        sudo make install INSTALL_DIR=/usr/bin
-        cp /usr/local/etc/todo/config ~/.todo/config
-    else
-        echo ""
-        echo -e "\033[0;35mtodo.txt-cli is already installed, skipping...\033[0m"
-        echo ""
-    fi
-
-
     # ----------------------------------------------------------------------------------------------
     # Appearance
     # ----------------------------------------------------------------------------------------------
@@ -237,7 +221,6 @@ simple() {
         cd
     fi
 
-
     fc-cache -f
 
     # phinger cursors
@@ -299,7 +282,6 @@ simple() {
     ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
     sudo ln -s -f ~/dotfiles/config/index.theme /usr/share/icons/default/index.theme
     sudo ln -s -f ~/dotfiles/config/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf 
-    ln -s -f ~/dotfiles/config/todo/config ~/.todo/config
 
     # ----------------------------------------------------------------------------------------------
     # Ranger setup
@@ -372,6 +354,17 @@ simple() {
         sudo ufw enable
         sudo ufw allow syncthing
     fi
+    
+    # ------------------------------------------------------------------------------------------------
+    # Change GRUB background 
+    # ------------------------------------------------------------------------------------------------
+    
+    echo ""
+    echo -e "\033[1;33mChanging GRUB background...\033[0m"
+    echo ""
+
+    sudo cp ~/dotfiles/wallpaper/wallpaper.png /boot/grub
+    sudo update-grub
 }
 
 simple
