@@ -9,7 +9,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'eigenfoo/stan-vim'
-"Plug 'lifepillar/vim-mucomplete'
+Plug 'lifepillar/vim-mucomplete'
 Plug 'akinsho/bufferline.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
@@ -23,7 +23,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'terrortylor/nvim-comment'
 Plug 'preservim/vim-pencil'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neovim/nvim-lspconfig'
+Plug 'aserebryakov/vim-todo-lists'
 
 call plug#end()
