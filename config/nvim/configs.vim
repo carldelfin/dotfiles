@@ -47,6 +47,9 @@ EOF
 
 " mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
+"let g:mucomplete#chains = []
+"0let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
+"0o0let g:mucomplete#chains.unite = []
 
 " vimtex
 let g:vimtex_view_method = 'zathura'
@@ -75,8 +78,8 @@ let R_hi_fun = 1
 let R_hi_fun_paren = 0
 let R_hi_fun_globenv = 0
 
-" don't expand a dataframe to show columns
-let R_objbr_opendf = 0
+" expand a dataframe to show columns
+let R_objbr_opendf = 1
 
 " make sure R follows colorscheme
 let g:rout_follow_colorscheme = 1
@@ -104,3 +107,11 @@ let R_assign_map = '<<'
 autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType rnoweb inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
+
+" text describing the object whose name is being completed
+hi def link previewDescr Title
+" the line separating the description from either the function arguments or
+" the object summary
+hi def link previewSep   PreProc
+" the name of the argument (when completing function arguments)
+hi def link previewArg Statement

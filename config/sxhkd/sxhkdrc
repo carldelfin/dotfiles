@@ -66,7 +66,7 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 # --------------------------------------------------------------------------------------------------
-# Switch between floating and tiled
+# Toggle between floating, tiled, and fullscreen
 # --------------------------------------------------------------------------------------------------
 
 super + space
@@ -75,6 +75,9 @@ super + space
     else \
         bspc node focused -t tiled; \
     fi
+
+super + shift + space 
+    bspc node focused -t '~fullscreen'
 
 # --------------------------------------------------------------------------------------------------
 # Focus/swap

@@ -73,6 +73,9 @@ nnoremap <A-g> zg
 vmap <Return> <Plug>RDSendSection
 nmap <Return> <Plug>RDSendLine
 
+" clear R console
+nmap <A-l> <Plug>RClearConsole
+
 " Nvim-R object browser
 vmap <A-o> <LocalLeader>ro
 nmap <A-o> <LocalLeader>ro

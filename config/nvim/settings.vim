@@ -1,11 +1,9 @@
 " completion settings
-set omnifunc=v:lua.vim.lsp.omnifunc
-set noinfercase
 set completeopt-=preview
-set completeopt+=longest,menuone,noselect
+set completeopt+=menu,menuone,noinsert,noselect
 set shortmess+=c
-"set updatetime=300
-"set timeoutlen=500
+set updatetime=300
+set timeoutlen=500
 
 " indentation
 filetype plugin indent on
