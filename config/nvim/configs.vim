@@ -47,9 +47,9 @@ EOF
 
 " mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
-"let g:mucomplete#chains = []
-"0let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
-"0o0let g:mucomplete#chains.unite = []
+let g:mucomplete#chains = []
+let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
+let g:mucomplete#chains.unite = []
 
 " vimtex
 let g:vimtex_view_method = 'zathura'

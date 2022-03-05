@@ -127,3 +127,4 @@ export PATH=$PATH:/home/cmd/.local/bin/ltex-ls-15.2.0/bin
 # xsecurelock
 export XSECURELOCK_AUTH_BACKGROUND_COLOR=rgb:40/44/52
 export XSECURELOCK_AUTH_FOREGROUND_COLOR=rgb:235/203/139
+export PATH=/usr/local/go/bin:/home/cmd/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/cmd/.local/bin:/usr/local/go/bin:/home/cmd/.local/bin/ltex-ls-15.2.0/bin
