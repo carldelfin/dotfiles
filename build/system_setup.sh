@@ -27,7 +27,7 @@ simple() {
         make cmake python3-pip kitty polybar suckless-tools rofi pass pinentry-gnome3 \
         ufw rsync unzip curl network-manager xinput feh arandr zathura ranger fzf scrot \
         syncthing zoxide htop alsa-utils pulseaudio libavcodec-extra qpdfview inkscape \
-        firefox-esr exfat-fuse libreoffice udiskie mpv lightdm xsecurelock psmisc
+        firefox-esr exfat-fuse libreoffice udiskie mpv lightdm xsecurelock psmisc zsh zplug 
 
     # kvm/qemu 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -250,8 +250,9 @@ simple() {
     ranger --copy-config=all
 
     # symlinks 
-    ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
-    ln -s -f ~/dotfiles/config/.bash_functions ~/.bash_functions
+    #ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
+    ln -s -f ~/dotfiles/config/.shell_functions ~/.shell_functions
+    ln -s -f ~/dotfiles/config/zsh/.zshrc ~/.zshrc
     ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
     ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
     ln -s -f ~/dotfiles/config/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
@@ -262,7 +263,7 @@ simple() {
     ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
     ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
     ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
-    ln -s -f ~/dotfiles/config/rofi/ayur.rasi ~/.config/rofi/ayur.rasi
+    ln -s -f ~/dotfiles/config/rofi/oner.rasi ~/.config/rofi/oner.rasi
     ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
     ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
