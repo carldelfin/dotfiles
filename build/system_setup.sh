@@ -271,6 +271,9 @@ simple() {
     sudo ln -s -f ~/dotfiles/config/index.theme /usr/share/icons/default/index.theme
     sudo ln -s -f ~/dotfiles/config/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf 
 
+    # zsh default shell
+    chsh -s /bin/zsh
+
     # ----------------------------------------------------------------------------------------------
     # Ranger setup
     # ----------------------------------------------------------------------------------------------
