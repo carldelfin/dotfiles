@@ -68,6 +68,9 @@ augroup END
 " hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
 
+" Voom
+let voom_ft_modes = {'markdown': 'pandoc', 'rmd': 'pandoc', 'rnoweb': 'latex'}
+
 " ------------------------------------------------------------------------------------------------
 " R specific settings
 " ------------------------------------------------------------------------------------------------

@@ -24,5 +24,6 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'terrortylor/nvim-comment'
 Plug 'preservim/vim-pencil'
 Plug 'aserebryakov/vim-todo-lists'
+Plug 'vim-voom/VOoM'
 
 call plug#end()

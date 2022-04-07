@@ -13,7 +13,5 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-"let onercolor = "regular" 
-"colorscheme oner.vim
 source ~/dotfiles/config/nvim/colors/oner.vim
 set background=dark
