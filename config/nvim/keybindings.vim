@@ -26,6 +26,9 @@ nnoremap <C-q> :q<CR>
 " toggle nvimtree 
 nnoremap <C-t> :NvimTreeToggle<CR>
 
+" start Voom
+nnoremap <C-v> :Voom<CR>
+
 " switch window orientation
 nnoremap <A-w> :wincmd H<CR>
 nnoremap <S-A-w> :wincmd J<CR>

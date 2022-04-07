@@ -12,11 +12,11 @@ super + Return
 
 # program launcher
 super + s
-	rofi -show run -theme ~/dotfiles/config/rofi/ayur.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
+	rofi -show run -theme ~/dotfiles/config/rofi/oner.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
 
 # rofi power menu
 super + j
-  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols --choices=shutdown/reboot/logout" -theme ~/dotfiles/config/rofi/ayur.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 3
+  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols --choices=shutdown/reboot/logout" -theme ~/dotfiles/config/rofi/oner.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 3
 
 # lock screen
 super + shift + j

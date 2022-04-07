@@ -1,4 +1,4 @@
-" Theme: oneR 
+" Theme: oner 
 " Author: Carl Delfin
 " License: MIT
 " Source: http://github.com/carldelfin/oner

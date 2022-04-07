@@ -42,14 +42,11 @@ require'shade'.setup{
 EOF
 
 " --------------------------------------------------------------------------------------------------
-" Vim 
+" Vimscript 
 " --------------------------------------------------------------------------------------------------
 
 " mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
-"let g:mucomplete#chains = []
-"let g:mucomplete#chains.default = ['file', 'omni', 'keyn', 'dict', 'ulti']
-"let g:mucomplete#chains.unite = []
 
 " vimtex
 let g:vimtex_view_method = 'zathura'
@@ -110,11 +107,3 @@ let R_assign_map = '<<'
 autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType rnoweb inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
-
-" text describing the object whose name is being completed
-hi def link previewDescr Title
-" the line separating the description from either the function arguments or
-" the object summary
-hi def link previewSep   PreProc
-" the name of the argument (when completing function arguments)
-hi def link previewArg Statement
