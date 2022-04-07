@@ -9,6 +9,8 @@ compinit
 
 source ~/dotfiles/config/.shell_functions
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
+
 # ------------------------------------------------------------------------------
 # aliases
 # ------------------------------------------------------------------------------
@@ -63,7 +65,7 @@ export XSECURELOCK_AUTH_FOREGROUND_COLOR=rgb:235/203/139
 export PATH=/usr/local/go/bin:/home/cmd/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/cmd/.local/bin:/usr/local/go/bin:/home/cmd/.local/bin/ltex-ls-15.2.0/bin
 
 # ------------------------------------------------------------------------------
-# zplug - manage plugins
+# plugins
 # ------------------------------------------------------------------------------
 
 source /usr/share/zplug/init.zsh
@@ -74,10 +76,8 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
-#zplug "junegunn/fzf"
-#zplug "themes/robbyrussell", from:oh-my-zsh, as:theme   # Theme
 
-# zplug - install/load new plugins when zsh is started or reloaded
+# install/load new plugins when zsh is started or reloaded
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
