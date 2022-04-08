@@ -250,8 +250,6 @@ simple() {
     ranger --copy-config=all
 
     # symlinks 
-    #ln -s -f ~/dotfiles/config/.bashrc ~/.bashrc
-    ln -s -f ~/dotfiles/config/.shell_functions ~/.shell_functions
     ln -s -f ~/dotfiles/config/zsh/.zshrc ~/.zshrc
     ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc
     ln -s -f ~/dotfiles/config/gtk/.gtkrc-2.0 ~/.config/.gtkrc-2.0
@@ -270,9 +268,6 @@ simple() {
     ln -s -f ~/dotfiles/config/index.theme ~/.icons/default/index.theme
     sudo ln -s -f ~/dotfiles/config/index.theme /usr/share/icons/default/index.theme
     sudo ln -s -f ~/dotfiles/config/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf 
-
-    # zsh default shell
-    chsh -s /bin/zsh
 
     # ----------------------------------------------------------------------------------------------
     # Ranger setup
@@ -302,7 +297,7 @@ simple() {
 
     # ----------------------------------------------------------------------------------------------
     # Neovim setup
-    # -----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------------------
 
     echo ""
     echo -e "\033[1;35mSetting up Neovim...\033[0m"
@@ -321,9 +316,9 @@ simple() {
     make hexokinase
     cd
 
-    # ------------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------------------
     # Configure ufw
-    # ------------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------------------
   
     # inside a VM? 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -342,9 +337,9 @@ simple() {
         sudo ufw allow syncthing
     fi
     
-    # ------------------------------------------------------------------------------------------------
-    # Change GRUB background 
-    # ------------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------------------
+    # Change GRUB background
+    # ----------------------------------------------------------------------------------------------
     
     echo ""
     echo -e "\033[1;35mChanging GRUB background...\033[0m"
@@ -352,6 +347,17 @@ simple() {
 
     sudo cp ~/dotfiles/wallpaper/wallpaper.png /boot/grub
     sudo update-grub
+    
+    # ----------------------------------------------------------------------------------------------
+    # Make zsh default shell 
+    # ----------------------------------------------------------------------------------------------
+    
+    echo ""
+    echo -e "\033[1;35mMaking zsh default shell...\033[0m"
+    echo ""
+    
+    chsh -s /bin/zsh
+
 }
 
 simple
