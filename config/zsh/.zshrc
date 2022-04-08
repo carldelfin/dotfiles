@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------------------------------
 
 # source shell functions
-source ~/dotfiles/config/.shell_functions
+source ~/dotfiles/config/zsh/.shell_functions
 
 # automatic cd
 setopt AUTO_CD
