@@ -99,11 +99,11 @@ let R_rconsole_width = 100
 let R_openpdf = 1
 let R_pdfviewer = "zathura"
 
-" << turns into <-  
+" __ turns into <-  
 let R_assign = 1
-let R_assign_map = '<<'
+let R_assign_map = '__'
 
-" >> turns into %>%
-autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
-autocmd FileType rnoweb inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
-autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
+" ++ turns into %>%
+autocmd FileType r inoremap <buffer> ++ <Esc>:normal! a %>%<CR>a 
+autocmd FileType rnoweb inoremap <buffer> ++ <Esc>:normal! a %>%<CR>a 
+autocmd FileType rmd inoremap <buffer> ++ <Esc>:normal! a %>%<CR>a 

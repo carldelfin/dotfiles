@@ -221,6 +221,8 @@ exe "hi! htmlTag"                       .s:fg_brightpurple        .s:bg_none    
 exe "hi! htmlEndTag"                    .s:fg_brightpurple        .s:bg_none            .s:fmt_none
 exe "hi! htmlTagName"                   .s:fg_brightcyan          .s:bg_none            .s:fmt_none
 exe "hi! htmlArg"                       .s:fg_brightblue          .s:bg_none            .s:fmt_none
+exe "hi! htmlH2"                        .s:fg_light4              .s:bg_none            .s:fmt_none
+exe "hi! htmlTitle"                     .s:fg_light4              .s:bg_none            .s:fmt_none
 
 " Vim
 exe "hi! vimCommentTitle"               .s:fg_light2              .s:bg_none            .s:fmt_none

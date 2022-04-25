@@ -19,7 +19,7 @@ catch() {
 
 simple() {
   if ! command -v zotero &> /dev/null; then
-      wget -qO- https://apt.retorque.re/file/zotero-apt/install.sh | sudo bash
+      wget -q0- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash
       sudo apt update
       sudo apt install zotero
   else

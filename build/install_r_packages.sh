@@ -24,7 +24,7 @@ simple() {
                                  "patchwork", "RColorBrewer", "janitor", "data.table", "kableExtra",
                                  "performance", "officer", "flextable", "bayesplot", "haven",
                                  "lavaan", "blavaan", "viridis", "dbplyr", "DBI", "RSQLite",
-                                 "lintr", "GPArotation", "vroom", "ggseg", "xaringan",
+                                 "lintr", "GPArotation", "vroom", "ggseg", "xaringan", "XML",
                                  "xaringanthemer", "blogdown", "MASS", "languageserver"))'
   Rscript -e 'devtools::install_git("https://github.com/JanMarvin/readspss.git")'
   Rscript -e 'devtools::install_git("https://github.com/gadenbuie/xaringanExtra.git")'

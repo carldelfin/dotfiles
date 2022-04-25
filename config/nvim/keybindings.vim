@@ -82,3 +82,6 @@ nmap <A-l> <Plug>RClearConsole
 " Nvim-R object browser
 vmap <A-o> <LocalLeader>ro
 nmap <A-o> <LocalLeader>ro
+
+
+

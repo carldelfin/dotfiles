@@ -10,4 +10,4 @@ windowy=$(("$screenheight"/2-"$windowheight"/2))
 
 bspc rule -a Zathura state=floating rectangle="$windowwidth"x"$windowheight"+"$windowx"+"$windowy"
 
-zathura ~/dotfiles/cheatsheets/vim.pdf
+zathura ~/dotfiles/cheatsheets/test.pdf
