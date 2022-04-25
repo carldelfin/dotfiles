@@ -1,0 +1,56 @@
+// left hand
+
+COMB(qwGrave,     SM_GRV,       KC_Q,     KC_W)
+COMB(wfSquo,      SM_SQUO,      KC_W,     KC_F)
+COMB(fpDquo,      SM_DQUO,      KC_F,     KC_P)
+COMB(pbAcute,     SM_ACT,       KC_P,     KC_B)
+
+COMB(wrAt,        SM_AT,        KC_W,     R_LALT)
+COMB(fsExcl,      SM_EXCL,      KC_F,     S_LCTL)
+COMB(ptQues,      SM_QUES,      KC_P,     T_LGUI)
+COMB(bgAnd,       SM_AND,       KC_B,     KC_G)
+
+COMB(wpTild,      SM_TILD,      KC_W,     KC_P)
+COMB(rtFsls,      SM_FSLS,      R_LALT,   T_LGUI)
+COMB(xdBsls,      SM_BSLS,      KC_X,     KC_D)
+
+COMB(arPerc,      SM_PERC,      A_LSFT,   R_LALT)
+COMB(rsComm,      KC_COMM,      R_LALT,   S_LCTL)
+COMB(stDot,       KC_DOT,       S_LCTL,   T_LGUI)
+COMB(tgHash,      SM_HASH,      T_LGUI,   KC_G)
+
+COMB(rstEsc,      KC_ESC,       R_LALT,   S_LCTL,    T_LGUI)
+
+COMB(xcScol,      SM_SCOL,      KC_X,     KC_C)
+COMB(cdColn,      SM_COLN,      KC_C,     KC_D)
+COMB(dvStar,      SM_STAR,      KC_D,     KC_V)
+
+// right hand
+
+COMB(jlHat,       SM_HAT,       KC_J,     KC_L)
+COMB(luPlus,      SM_PLUS,      KC_L,     KC_U)
+COMB(uyMins,      SM_MINS,      KC_U,     KC_Y)
+COMB(lyAa,        KC_LBRC,      KC_L,     KC_Y)
+COMB(luyDel,      KC_DEL,       KC_L,     KC_U,      KC_Y)
+
+COMB(lnLpar,      SM_LPAR,      KC_L,     N_RGUI)
+COMB(ueRpar,      SM_RPAR,      KC_U,     E_RCTL)
+
+COMB(mnPipe,      SM_PIPE,      KC_M,     N_RGUI)
+COMB(neUndr,      SM_UNDR,      N_RGUI,   E_RCTL)
+COMB(niAe,        KC_QUOT,      N_RGUI,   I_RALT)
+COMB(eiEqls,      SM_EQLS,      E_RCTL,   I_RALT)
+
+COMB(neiBspc,     KC_BSPC,      N_RGUI,   E_RCTL,    I_RALT)
+
+COMB(nhLbrk,      SM_LBRK,      N_RGUI,   KC_H)
+COMB(eLsRbrk,     SM_RBRK,      E_RCTL,   SM_LESS)
+
+COMB(hLeDolr,     SM_DOLR,      KC_H,     SM_LESS)
+COMB(hMrOe,       KC_SCLN,      KC_H,     SM_MORE)
+
+// reset
+
+COMB(agReset,     RESET,        A_LSFT,   KC_G)
+COMB(moReset,     RESET,        KC_M,     O_RSFT)
+
