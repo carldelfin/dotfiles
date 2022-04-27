@@ -19,15 +19,23 @@ enum custom_keycodes {
     R_SEL,
     R_GGP,
     R_HERE,
-    VIM_W,
     VIM_WA,
-    VIM_Q,
     VIM_QA,
     VIM_BD,
     VIM_VS,
     VIM_HS,
     VIM_CD,
-    VIM_CU
+    VIM_CU,
+    KT_RNM,
+    KT_CT,
+    KT_PRV,
+    KT_NXT,
+    KT_NT,
+    FF_ADR,
+    FF_CT,
+    FF_PRV,
+    FF_NXT,
+    FF_NT
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -82,13 +90,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case R_INST:
         if (record->event.pressed) {
-            SEND_STRING("install.packages" SS_LSFT(SS_TAP(X_8)) SS_LSFT(SS_TAP(X_QUOT)) SS_LSFT(SS_TAP(X_QUOT)) SS_LSFT(SS_TAP(X_9)) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+            SEND_STRING("install.packages" SS_LSFT(SS_TAP(X_8)) SS_LSFT(SS_TAP(X_2)) SS_LSFT(SS_TAP(X_2)) SS_LSFT(SS_TAP(X_9)) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
         } else {
         }
         break;
     case R_GHI:
         if (record->event.pressed) {
-            SEND_STRING("devtools" SS_LSFT(SS_TAP(X_DOT)) SS_LSFT(SS_TAP(X_DOT)) "install" SS_LSFT(SS_TAP(X_SLSH)) "github" SS_LSFT(SS_TAP(X_8)) SS_LSFT(SS_TAP(X_QUOT)) SS_LSFT(SS_TAP(X_QUOT)) SS_LSFT(SS_TAP(X_9)) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+            SEND_STRING("devtools" SS_LSFT(SS_TAP(X_DOT)) SS_LSFT(SS_TAP(X_DOT)) "install" SS_LSFT(SS_TAP(X_SLSH)) "github" SS_LSFT(SS_TAP(X_8)) SS_LSFT(SS_TAP(X_2)) SS_LSFT(SS_TAP(X_2)) SS_LSFT(SS_TAP(X_9)) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
         } else {
         }
         break;
@@ -152,21 +160,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else {
         }
         break;
-    case VIM_W:
-        if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_ESCAPE) SS_LSFT(SS_TAP(X_DOT)) "w" SS_TAP(X_ENTER));
-        } else {
-        }
-        break;
     case VIM_WA:
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_ESCAPE) SS_LSFT(SS_TAP(X_DOT)) "wa" SS_TAP(X_ENTER));
-        } else {
-        }
-        break;
-    case VIM_Q:
-        if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_ESCAPE) SS_LSFT(SS_TAP(X_DOT)) "q" SS_TAP(X_ENTER));
         } else {
         }
         break;
@@ -203,6 +199,66 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VIM_CU:
         if (record->event.pressed) {
             SEND_STRING(SS_LCTL(SS_TAP(X_U)));
+        } else {
+        }
+        break;
+    case KT_NXT:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_RIGHT))));
+        } else {
+        }
+        break;
+    case KT_PRV:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_LEFT))));
+        } else {
+        }
+        break;
+    case KT_CT:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_Q))));
+        } else {
+        }
+        break;
+    case KT_NT:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_T))));
+        } else {
+        }
+        break;
+    case KT_RNM:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_LSFT(SS_LALT(SS_TAP(X_T)))));
+        } else {
+        }
+        break;
+    case FF_NXT:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_TAP(X_PGDN)));
+        } else {
+        }
+        break;
+    case FF_PRV:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_TAP(X_PGUP)));
+        } else {
+        }
+        break;
+    case FF_CT:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_TAP(X_W)));
+        } else {
+        }
+        break;
+    case FF_NT:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_TAP(X_T)));
+        } else {
+        }
+        break;
+    case FF_ADR:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL(SS_TAP(X_L)));
         } else {
         }
         break;

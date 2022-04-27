@@ -24,10 +24,10 @@
 // layer taps
 // --------------------------------
 
-#define NUM_TAB LT(_NUM, KC_TAB)
-#define WFL_SPC LT(_WFL, KC_SPC)
-#define NAV_ENT LT(_NAV, KC_ENT)
-#define FUN_BSP LT(_FUN, KC_BSPC)
+#define LY1_TAB LT(_LY1, KC_TAB)
+#define LY2_SPC LT(_LY2, KC_SPC)
+#define LY3_ENT LT(_LY3, KC_ENT)
+#define LY4_BSP LT(_LY4, KC_BSPC)
 
 // --------------------------------
 // symbol definitions based on 
@@ -69,7 +69,7 @@
 
 // --------------------------------
 // linux workspace movement using
-// super + number
+// wfl + number
 // --------------------------------
 
 #define WS_1 G(KC_1)
