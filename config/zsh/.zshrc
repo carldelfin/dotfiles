@@ -17,9 +17,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
 # change prompt
 PROMPT="%F{003}%B%n%b%f on %F{003}%B%m%b%f in %F{003}%B%~%b%f"$'\n'" > "
 
-# print cwd in kitty tabs
-precmd () {print -Pn "\e]0;%~\a"}
-
 # --------------------------------------------------------------------------------------------------
 # plugins
 # --------------------------------------------------------------------------------------------------
@@ -98,9 +95,8 @@ alias ..='cd ..'
 alias c='clear'
 alias e='exit'
 alias rr='ranger'
-alias vim='/usr/bin/nvim.appimage'
-alias nvim='/usr/bin/nvim.appimage'
-alias ff='vim $(fzf --height 40% --reverse)'
+alias vim='nvim'
+alias ff='nvim $(fzf --height 40% --reverse)'
 
 # --------------------------------------------------------------------------------------------------
 # environment variables
@@ -123,7 +119,7 @@ fi
 # neovim
 PATH=$PATH:~/.local/bin
 export FZF_DEFAULT_COMMAND="find -L"
-export EDITOR="/usr/bin/nvim.appimage"
+export EDITOR="nvim"
 PATH="$HOME/.local/bin:$PATH"
 
 # ranger

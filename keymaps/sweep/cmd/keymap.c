@@ -37,11 +37,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(
 // ,-------+-------+-------+-------+-------.    ,-------+-------+-------+-------+-------.
-       KC_Q,   KC_W,   KC_F,   KC_P,   KC_B,        KC_J,   KC_L,   KC_U,   KC_Y,KC_LEAD,
+       KC_Q,   KC_W,   KC_F,   KC_P,   KC_B,        KC_J,   KC_L,   KC_U,   KC_Y,KC_LBRC,
 // |-------+-------+-------+-------+-------|    |-------+-------+-------+-------+-------|
      A_LSFT, R_LALT, S_LCTL, T_LGUI,   KC_G,        KC_M, N_RGUI, E_RCTL, I_RALT, O_RSFT,
 // |-------+-------+-------+-------+-------.    ,-------+-------+-------+-------+-------|
-       KC_Z,   KC_X,   KC_C,   KC_D,   KC_V,        KC_K,   KC_H,SM_LESS,SM_MORE,xxxxxxx,
+       KC_Z,   KC_X,   KC_C,   KC_D,   KC_V,     SM_QUES,   KC_H,   KC_K,KC_SCLN,KC_QUOT,
 // `-------+-------+-------+-------+-------|    |-------+-------+-------+-------+-------'
                             LY1_TAB,LY2_SPC,     LY3_ENT,LY4_BSP
 //                         `-------+-------'    `-------+-------'
@@ -55,11 +55,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ,-------+-------+-------+-------+-------.    ,-------+-------+-------+-------+-------.
     SM_EQLS,   KC_4,   KC_5,   KC_6,SM_PLUS,     xxxxxxx,SM_LBRK,SM_RBRK,xxxxxxx,xxxxxxx,
 // |-------+-------+-------+-------+-------|    |-------+-------+-------+-------+-------|
-       KC_0,   KC_1,   KC_2,   KC_3, SM_DOT,     xxxxxxx,SM_LPAR,SM_RPAR,xxxxxxx,xxxxxxx,
+       KC_0,   KC_1,   KC_2,   KC_3, SM_DOT,     SM_LESS,SM_LPAR,SM_RPAR,SM_MORE,xxxxxxx,
 // |-------+-------+-------+-------+-------.    ,-------+-------+-------+-------+-------|
     SM_STAR,   KC_7,   KC_8,   KC_9,SM_MINS,     xxxxxxx,SM_LSBR,SM_RSBR,xxxxxxx,xxxxxxx,
 // `-------+-------+-------+-------+-------|    |-------+-------+-------+-------+-------'
-                            KC_RALT,KC_LSFT,     KC_LSFT,KC_RALT         
+                            xxxxxxx,xxxxxxx,     KC_LSFT,KC_RALT         
 //                         `-------+-------'    `-------+-------'
     ),
 

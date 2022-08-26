@@ -7,7 +7,6 @@ COMB(pbAcute,     SM_ACT,       KC_P,     KC_B)
 
 COMB(wrAt,        SM_AT,        KC_W,     R_LALT)
 COMB(fsExcl,      SM_EXCL,      KC_F,     S_LCTL)
-COMB(ptQues,      SM_QUES,      KC_P,     T_LGUI)
 COMB(bgAnd,       SM_AND,       KC_B,     KC_G)
 
 COMB(wpTild,      SM_TILD,      KC_W,     KC_P)
@@ -30,24 +29,15 @@ COMB(dvStar,      SM_STAR,      KC_D,     KC_V)
 COMB(jlHat,       SM_HAT,       KC_J,     KC_L)
 COMB(luPlus,      SM_PLUS,      KC_L,     KC_U)
 COMB(uyMins,      SM_MINS,      KC_U,     KC_Y)
-COMB(lyAa,        KC_LBRC,      KC_L,     KC_Y)
 COMB(luyDel,      KC_DEL,       KC_L,     KC_U,      KC_Y)
-
-COMB(lnLpar,      SM_LPAR,      KC_L,     N_RGUI)
-COMB(ueRpar,      SM_RPAR,      KC_U,     E_RCTL)
 
 COMB(mnPipe,      SM_PIPE,      KC_M,     N_RGUI)
 COMB(neUndr,      SM_UNDR,      N_RGUI,   E_RCTL)
-COMB(niAe,        KC_QUOT,      N_RGUI,   I_RALT)
 COMB(eiEqls,      SM_EQLS,      E_RCTL,   I_RALT)
 
 COMB(neiBspc,     KC_BSPC,      N_RGUI,   E_RCTL,    I_RALT)
 
-COMB(nhLbrk,      SM_LBRK,      N_RGUI,   KC_H)
-COMB(eLsRbrk,     SM_RBRK,      E_RCTL,   SM_LESS)
-
 COMB(hLeDolr,     SM_DOLR,      KC_H,     SM_LESS)
-COMB(hMrOe,       KC_SCLN,      KC_H,     SM_MORE)
 
 // reset
 

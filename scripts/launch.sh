@@ -34,3 +34,6 @@ feh --bg-scale ~/dotfiles/wallpaper/wallpaper.png &
 
 # start syncthing
 syncthing -no-browser
+
+# nm-applet
+nm-applet &
