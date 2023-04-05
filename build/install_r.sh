@@ -26,7 +26,8 @@ simple() {
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
   
   # add repository
-  echo "deb http://cloud.r-project.org/bin/linux/debian bullseye-cran40/" | sudo tee -a /etc/apt/sources.list
+  echo "deb http://cloud.r-project.org/bin/linux/debian bookworm-cran40/" | sudo tee -a /etc/apt/sources.list
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B8F25A8A73EACF41
  
   # install
   sudo apt update && sudo apt install -y \
