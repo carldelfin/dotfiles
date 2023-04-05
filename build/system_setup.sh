@@ -117,34 +117,17 @@ simple() {
     fi
 
     # neovim
-    if ! command -v /usr/bin/nvim.appimage &> /dev/null; then
+    if ! command -v nvim &> /dev/null; then
         cd /tmp
-        curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-        chmod u+x nvim.appimage
-        sudo mv nvim.appimage /usr/bin/
-        cd
+        wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+        sudo apt install -y ./nvim-linux64.deb
+        rm nvim-linux64.deb
 
         pip3 install pynvim
 
     else
         echo ""
         echo -e "\033[0;35mNeovim is already installed, skipping...\033[0m"
-        echo ""
-    fi
-
-    # giph
-    if ! command -v giph &> /dev/null; then
-        git clone https://github.com/phisch/giph.git
-        cd giph
-        sudo make install
-        cd ..
-        rm -rf giph
-
-        # dependencies 
-        sudo apt install -y slop ffmpeg xdotool
-    else
-        echo ""
-        echo -e "\033[0;35mgiph is already installed, skipping...\033[0m"
         echo ""
     fi
 
@@ -155,15 +138,6 @@ simple() {
     echo ""
     echo -e "\033[1;35mInstalling theme, icons, fonts...\033[0m"
     echo ""
-
-    # arc gtk
-    sudo apt install -y gtk2-engines-murrine arc-theme
-
-    # papirus icons
-    sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
-    sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
-    sudo apt update
-    sudo apt install papirus-icon-theme libreoffice-style-papirus
 
     # jetbrainsmono with nerd font patch
     if fc-list | grep -q JetBrains; then
@@ -176,20 +150,6 @@ simple() {
         wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
         unzip *.zip
         rm *.zip
-    fi
-
-    # various google fonts
-    if fc-list | grep -q "Fira Sans"; then
-        echo ""
-        echo -e "\033[0;35mGoogle fonts are already installed, skipping...\033[0m"
-        echo ""
-    else
-        mkdir -p ~/.local/share/fonts
-        cd /tmp
-        wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
-        unzip fonts.zip -d ~/.local/share/fonts
-        rm -rf *.zip
-        cd
     fi
 
     # font awesome
@@ -308,7 +268,7 @@ simple() {
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
     # install plugins
-    /usr/bin/nvim.appimage --headless +PlugInstall +qall
+    nvim --headless +PlugInstall +qall
 
     # make hexokinase
     export PATH=$PATH:/usr/local/go/bin
@@ -336,17 +296,6 @@ simple() {
         sudo ufw enable
         sudo ufw allow syncthing
     fi
-    
-    # ----------------------------------------------------------------------------------------------
-    # Change GRUB background
-    # ----------------------------------------------------------------------------------------------
-    
-    echo ""
-    echo -e "\033[1;35mChanging GRUB background...\033[0m"
-    echo ""
-
-    sudo cp ~/dotfiles/wallpaper/wallpaper.png /boot/grub
-    sudo update-grub
     
     # ----------------------------------------------------------------------------------------------
     # Make zsh default shell 
