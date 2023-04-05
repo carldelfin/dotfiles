@@ -105,17 +105,6 @@ alias ff='nvim $(fzf --height 40% --reverse)'
 # zoxide
 eval "$(zoxide init bash --cmd t)"
 
-# freesurfer
-if [ -d "/usr/local/freesurfer" ]; then
-    export FREESURFER_HOME=/usr/local/freesurfer
-    source $FREESURFER_HOME/SetUpFreeSurfer.sh
-fi
-
-# matlab
-if [ -d "/usr/local/MATLAB" ]; then
-    export _JAVA_AWT_WM_NONREPARENTING=1
-fi
-
 # neovim
 PATH=$PATH:~/.local/bin
 export FZF_DEFAULT_COMMAND="find -L"
