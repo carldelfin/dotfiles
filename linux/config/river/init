@@ -63,7 +63,8 @@ riverctl xcursor-theme 'phinger-cursors' 24
 riverctl set-repeat 50 300
 
 # autostart
-riverctl spawn "waybar-restart"
+riverctl spawn waybar
+#riverctl spawn udiskie --automount --no-notify --smart-tray --menu flat
 
 # rivertile
 riverctl default-layout rivertile
