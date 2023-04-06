@@ -49,15 +49,15 @@ do
     riverctl map normal $mod+Shift+Control $i toggle-view-tags $tags
 done
 
-# set background and border color
-river-theme
+# background
+swaybg -m fill -i /usr/share/backgrounds/gnome/blobs-d.svg &
 
-riverctl xcursor-theme 'phinger-cursors' 24
-
-# set background and border color
-riverctl background-color 0x002b36
+# border color
 riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
+
+# cursor theme
+riverctl xcursor-theme 'phinger-cursors' 24
 
 # set keyboard repeat rate
 riverctl set-repeat 50 300
