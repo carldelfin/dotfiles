@@ -1,0 +1,70 @@
+#!/bin/sh
+
+'XKB_DEFAULT_LAYOUT=se'
+
+# super key as modifier
+mod="Mod4"
+
+# super+return for foot
+riverctl map normal Super Return spawn foot
+
+# super+shift+n for nvim
+riverctl map -repeat normal $mod+Shift N spawn "foot nvim"
+
+# super+f for firefox
+riverctl map normal $mod F spawn firefox
+
+# rofi
+riverctl map -repeat normal $mod S spawn "rofi -show run"
+
+# rofi-pass
+riverctl map -repeat normal $mod Tab spawn rofi-pass
+
+# super+q to close the focused view
+riverctl map normal $mod Q close
+
+# super+shift+e to exit river
+riverctl map normal $mod+Shift E exit
+
+# super+space to toggle float
+riverctl map normal $mod Space toggle-float
+
+# super+f to toggle fullscreen
+riverctl map normal $mod F toggle-fullscreen
+
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Super+[1-9] to focus tag [0-8]
+    riverctl map normal $mod $i set-focused-tags $tags
+
+    # Super+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal $mod+Shift $i set-view-tags $tags
+
+    # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal $mod+Control $i toggle-focused-tags $tags
+
+    # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal $mod+Shift+Control $i toggle-view-tags $tags
+done
+
+# set background and border color
+river-theme
+
+riverctl xcursor-theme 'phinger-cursors' 24
+
+# set background and border color
+riverctl background-color 0x002b36
+riverctl border-color-focused 0x93a1a1
+riverctl border-color-unfocused 0x586e75
+
+# set keyboard repeat rate
+riverctl set-repeat 50 300
+
+# autostart
+riverctl spawn "waybar-restart"
+
+# rivertile
+riverctl default-layout rivertile
+exec rivertile -view-padding 6 -outer-padding 6
