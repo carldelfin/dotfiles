@@ -10,6 +10,7 @@ Note that my dotfiles are in a constant state of change! They work for me (most 
 | --------------------| :-----------------------------------------------|
 | Distro              | [Debian 12](https://wiki.debian.org/DebianBookworm)|
 | Window manager      | [river](https://github.com/riverwm/river)|
+| Wallpaper           | [#282c34](https://www.colorhexa.com/282c34)|
 | Bar                 | [yambar](https://codeberg.org/dnkl/yambar)|
 | Cursor              | [phinger-cursors](https://github.com/phisch/phinger-cursors)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
