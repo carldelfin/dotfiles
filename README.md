@@ -13,14 +13,13 @@ Note that my dotfiles are in a constant state of change! They work for me (most 
 | Wallpaper           | [#282c34](https://www.colorhexa.com/282c34)|
 | Bar                 | [yambar](https://codeberg.org/dnkl/yambar)|
 | Cursor              | [phinger-cursors](https://github.com/phisch/phinger-cursors)|
+| Shell               | [zsh](https://www.zsh.org/)|
 | Terminal            | [kitty](https://sw.kovidgoyal.net/kitty/)|
 | Terminal font       | [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) + [Nerd Font patch](https://www.nerdfonts.com/font-downloads)|
 | Editor              | [Neovim](https://neovim.io/)|
 | File manager        | [ranger](https://github.com/ranger/ranger)|
 
 ## Install <a name = "install"></a>
-
-With the above in mind, the easiest way to get started is to clone this repo and executing `build.sh`:
 
 ```bash
 git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash build.sh
