@@ -241,14 +241,6 @@ simple() {
     fi
     
     # ----------------------------------------------------------------------------------------------
-    # Variables 
-    # ----------------------------------------------------------------------------------------------
-    
-    echo 'export XKB_DEFAULT_LAYOUT="se"' >> /home/cmd/.profile
-    echo 'export MOZ_ENABLE_WAYLAND=1' >> /home/cmd/.profile
-    echo 'export GTK_USE_PORTAL=0' >> /home/cmd/.profile
-
-    # ----------------------------------------------------------------------------------------------
     # Make zsh default shell 
     # ----------------------------------------------------------------------------------------------
     
@@ -257,6 +249,16 @@ simple() {
     echo ""
     
     chsh -s /bin/zsh
+    
+    # ----------------------------------------------------------------------------------------------
+    # Fix slow start-up for GTK apps 
+    # ----------------------------------------------------------------------------------------------
+    
+    systemctl --user mask xdg-desktop-portal-gtk.service
+
+    # to reverse, do:
+    # systemctl --user unmask xdg-desktop-portal-gtk.service
+
 
 }
 
