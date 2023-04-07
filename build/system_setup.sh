@@ -25,7 +25,7 @@ simple() {
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura pipx \
         ranger fzf syncthing zoxide htop alsa-utils pulseaudio qpdfview \
-        inkscape mpv zsh zplug brightnessctl 
+        inkscape mpv zsh zplug brightnessctl pavucontrol 
 
     # kvm/qemu 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
