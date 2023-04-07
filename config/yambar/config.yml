@@ -1,0 +1,188 @@
+# Typical laptop setup, with wifi, brightness, battery etc, for
+# i3/Sway.
+
+# For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
+# the sway-xkb module with the xkb module.
+
+# fonts we'll be re-using here and there
+awesome: &awesome Font Awesome 6 Free:style=solid:pixelsize=14
+awesome_brands: &awesome_brands Font Awesome 6 Brands:pixelsize=16
+
+std_underline: &std_underline {underline: { size: 2, color: eceff485}}
+
+# This is THE bar configuration
+bar:
+  height: 26
+  location: top
+  spacing: 5
+  margin: 7
+
+  # Default font
+  font: DejaVu Sans:style=Bold:pixelsize=12
+
+  foreground: eceff485 
+  background: 11111100
+
+  border:
+    width: 0
+    margin: 0
+    top-margin: 0
+
+  left:
+    - river:
+        anchors:
+          - base: &river_base
+              left-margin: 1
+              right-margin: 1 
+              conditions:
+                id == 1: {string: {text: "1"}}  
+                id == 2: {string: {text: "2"}}  
+                id == 3: {string: {text: "3"}}  
+                id == 4: {string: {text: "4"}}  
+                id == 5: {string: {text: "5"}}  
+                id == 6: {string: {text: "6"}}  
+                id == 7: {string: {text: "7"}}  
+                id == 8: {string: {text: "8"}}  
+                id == 9: {string: {text: "9"}}  
+
+        content:
+          map:
+            conditions:
+              state == urgent:
+                map:
+                  <<: *river_base
+              state == focused:
+                map:
+                  {<<: *river_base, foreground: a5d7aa85}
+              state == visible && ~occupied:
+                map:
+                  <<: *river_base
+              state == visible && occupied:
+                map:
+                  <<: *river_base
+              state == unfocused:
+                map:
+                  <<: *river_base
+              state == invisible && ~occupied: {empty: {}}
+              state == invisible && occupied:
+                map:
+                  <<: *river_base
+  center:
+    - clock:
+        time-format: "%H:%M"
+        date-format: "%Y-%m-%d"
+        content:
+          - string: {text: "{date}", right-margin: 5}
+          - string: {text: "{time}"}
+  right:
+    - mem:
+          content:
+            - string: {text:  , font: Font Awesome 6 Free:style=solid}
+            - string: {text: " {percent_used}%"}
+    - cpu:
+          content:
+            map:
+              conditions:
+                id < 0:
+                  - string: {text:  , font: Font Awesome 6 Free:style=solid}
+                  - string: {text: " {cpu}%"}
+    - network:
+        name: enp0s31f6
+        content:
+          map:
+            conditions:
+              ~carrier: {empty: {}}
+              carrier:
+                map:
+                  default: {string: {text:  , font: *awesome, foreground: eceff485}}
+                  conditions:
+                    state == up && ipv4 != "": {string: {text:  , font: *awesome}}
+    - network:
+        name: wlp61s0
+        poll-interval: 1000
+        content:
+          map:
+            default: {string: {text:  , font: *awesome}}
+            conditions:
+              state == down: {string: {text:  , font: *awesome, foreground: ebcb8b85}}
+              state == up:
+                map:
+                  default:
+                    - string: {text:  , font: *awesome}
+                    - string: {text: " {ssid}"}
+                  conditions:
+                    ipv4 == "":
+                      - string: {text:  , font: *awesome}
+                      - string: {text: "{ssid}"}
+    - backlight:
+        name: intel_backlight
+        content: [ string: {text:  , font: *awesome}, string: {text: " {percent}%"}]
+    - battery:
+        name: BAT0
+        poll-interval: 30000
+        anchors:
+          discharging: &discharging
+            list:
+              items:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                - string: {text: " {capacity}%"}
+        content:
+          map:
+            conditions:
+              state == unknown:
+                <<: *discharging
+              state == discharging:
+                <<: *discharging
+              state == charging:
+                - string: {text:  , font: *awesome}
+                - string: {text: " {capacity}%"}
+              state == full:
+                - string: {text:  , font: *awesome}
+                - string: {text: " {capacity}%"}
+              state == "not charging":
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
+                - string: {text: " {capacity}%"}
+    - alsa:
+        card: hw:PCH
+        mixer: Master
+        content:
+          map:
+            conditions:
+              ~online: {string: {text: , font: *awesome}}
+              online:
+                map:
+                  on-click: /bin/sh -c "amixer -D pulse set Master 1+ toggle"
+                  conditions:
+                    muted: {string: {text: , font: *awesome, foreground: ebcb8b85}}
+                    ~muted:
+                      - ramp:
+                         tag: percent
+                         items:
+                           - string: {text: , font: *awesome}
+                           - string: {text: , font: *awesome}
+                           - string: {text: , font: *awesome}
+                      - string: {text: " {percent}%"}

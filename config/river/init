@@ -1,0 +1,132 @@
+#!/bin/sh
+
+# super key as modifier
+mod="Mod4"
+
+# Super+J and Super+K to focus the next/previous view in the layout stack
+riverctl map normal $mod J focus-view next
+riverctl map normal $mod K focus-view previous
+
+# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
+# view in the layout stack
+riverctl map normal $mod+Shift J swap next
+riverctl map normal $mod+Shift K swap previous
+
+# Super+Period and Super+Comma to focus the next/previous output
+#riverctl map normal Super Period focus-output next
+#riverctl map normal Super Comma focus-output previous
+
+# Super+Shift+{Period,Comma} to send the focused view to the next/previous output
+#riverctl map normal Super+Shift Period send-to-output next
+#riverctl map normal Super+Shift Comma send-to-output previous
+
+# Super+Return to bump the focused view to the top of the layout stack
+#riverctl map normal Super Return zoom
+
+# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
+riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+
+# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
+riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+
+# Super+Alt+{H,J,K,L} to move views
+riverctl map normal Super+Alt H move left 100
+riverctl map normal Super+Alt J move down 100
+riverctl map normal Super+Alt K move up 100
+riverctl map normal Super+Alt L move right 100
+
+# Super+Alt+Control+{H,J,K,L} to snap views to screen edges
+#riverctl map normal Super+Alt+Control H snap left
+#riverctl map normal Super+Alt+Control J snap down
+#riverctl map normal Super+Alt+Control K snap up
+#riverctl map normal Super+Alt+Control L snap right
+
+# Super+Alt+Shift+{H,J,K,L} to resize views
+riverctl map normal Super+Alt+Shift H resize horizontal -100
+riverctl map normal Super+Alt+Shift J resize vertical 100
+riverctl map normal Super+Alt+Shift K resize vertical -100
+riverctl map normal Super+Alt+Shift L resize horizontal 100
+
+# Super + Left Mouse Button to move views
+riverctl map-pointer normal Super BTN_LEFT move-view
+
+# Super + Right Mouse Button to resize views
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+# Super + Middle Mouse Button to toggle float
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+
+##########################################################################################
+
+# super+return for kitty 
+riverctl map normal Super Return spawn kitty
+
+# super+shift+n for nvim
+riverctl map -repeat normal $mod+Shift N spawn "kitty nvim"
+
+# super+f for firefox
+riverctl map normal $mod F spawn firefox
+
+# wofi
+riverctl map -repeat normal $mod S spawn "wofi -S run -i -G"
+
+# wofi-pass
+riverctl map -repeat normal $mod Tab spawn "wofi-pass -s -c"
+
+# super+q to close the focused view
+riverctl map normal $mod Q close
+
+# super+shift+e to exit river
+riverctl map normal $mod+Shift E exit
+
+# super+space to toggle float
+riverctl map normal $mod Space toggle-float
+
+# super+f to toggle fullscreen
+riverctl map normal $mod F toggle-fullscreen
+
+# volume control
+riverctl map normal $mod Period spawn "amixer -D pulse sset Master 5%+"
+riverctl map normal $mod Comma spawn "amixer -D pulse sset Master 5%-"
+
+# brightness control
+riverctl map normal $mod+Shift Period spawn "brightnessctl -q -d intel_backlight s +10%"
+riverctl map normal $mod+Shift Comma spawn "brightnessctl -q -d intel_backlight s 10%-"
+
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Super+[1-9] to focus tag [0-8]
+    riverctl map normal $mod $i set-focused-tags $tags
+
+    # Super+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal $mod+Shift $i set-view-tags $tags
+
+    # Super+Ctrl+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal $mod+Control $i toggle-focused-tags $tags
+
+    # Super+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal $mod+Shift+Control $i toggle-view-tags $tags
+done
+
+# background and borders
+riverctl background-color 0x282c34
+riverctl border-color-focused 0x8392b3
+riverctl border-color-unfocused 0x434c5e
+
+# cursor theme
+riverctl xcursor-theme "phinger-cursors" 24
+
+# keyboard repeat rate
+riverctl set-repeat 50 300
+
+# yambar 
+riverctl spawn yambar 
+riverctl spawn "syncthing -no-browser" 
+
+# rivertile
+riverctl default-layout rivertile
+exec rivertile -view-padding 0 -outer-padding 0

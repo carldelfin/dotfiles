@@ -19,7 +19,7 @@ catch() {
 
 simple() {
   if ! command -v qmk &> /dev/null; then
-      pip3 install --user qmk
+      pipx install qmk
       qmk setup
   else
       echo "QMK is already installed"

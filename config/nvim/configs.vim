@@ -34,11 +34,6 @@ require("bufferline").setup{
             highlight = "Directory",
             text_align = "left" }}}}
 
-require'shade'.setup{
-  overlay_opacity = 50,
-  opacity_step = 1,
-  keys = { toggle = '<A-v>' }}
-
 EOF
 
 " --------------------------------------------------------------------------------------------------
@@ -64,9 +59,6 @@ augroup END
 
 " hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
-
-" Voom
-let voom_ft_modes = {'markdown': 'pandoc', 'rmd': 'pandoc', 'rnoweb': 'latex'}
 
 " ------------------------------------------------------------------------------------------------
 " R specific settings
@@ -99,11 +91,4 @@ let R_rconsole_width = 100
 let R_openpdf = 1
 let R_pdfviewer = "zathura"
 
-" __ turns into <-  
-let R_assign = 1
-let R_assign_map = '__'
-
-" ++ turns into %>%
-autocmd FileType r inoremap <buffer> ++ <Esc>:normal! a %>%<CR>a 
-autocmd FileType rnoweb inoremap <buffer> ++ <Esc>:normal! a %>%<CR>a 
-autocmd FileType rmd inoremap <buffer> ++ <Esc>:normal! a %>%<CR>a 
+let R_assign = 0

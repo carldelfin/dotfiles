@@ -19,9 +19,9 @@ catch() {
 
 simple() {
   if ! command -v zotero &> /dev/null; then
-      wget -q0- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash
+      wget -qO- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash
       sudo apt update
-      sudo apt install zotero
+      sudo apt install -y zotero
   else
       echo "Zotero is already installed"
   fi

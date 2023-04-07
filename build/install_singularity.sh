@@ -20,26 +20,23 @@ catch() {
   fi
 }
 
-export SINGULARITY_VERSION=3.7.0
-export GO_VERSION=1.16.2
+# NOTE:
+# needs to be updated manually
+export SINGULARITY_VERSION=3.11.0
 
 simple() {
 
     # build dependencies
-    sudo apt install -y \
-    build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev pkg-config cryptsetup
+    sudo apt-get install -y \
+       wget \
+       build-essential \
+       libseccomp-dev \
+       libglib2.0-dev \
+       pkg-config \
+       squashfs-tools \
+       cryptsetup \
+       runc
 
-    # check if Go is installed, install if not
-    if go version | grep -q $GO_VERSION; then
-        echo "Go is already installed"
-    else
-        cd /tmp
-        wget https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz
-        sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
-        echo "export PATH=/usr/local/go/bin:$PATH" >> ~/.bashrc && source ~/.bashrc
-        rm go${GO_VERSION}.linux-amd64.tar.gz
-    fi
-    
     # check if Singularity is installed, install if not
     if singularity version | grep -q $SINGULARITY_VERSION; then
         echo "Singularity is already installed"
