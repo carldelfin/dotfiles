@@ -85,7 +85,7 @@ riverctl map normal $mod+Shift E exit
 riverctl map normal $mod Space toggle-float
 
 # super+f to toggle fullscreen
-riverctl map normal $mod F toggle-fullscreen
+riverctl map normal $mod+Shift F toggle-fullscreen
 
 # volume control
 riverctl map normal $mod Period spawn "amixer -D pulse sset Master 5%+"

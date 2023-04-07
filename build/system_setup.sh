@@ -246,6 +246,7 @@ simple() {
     
     echo 'export XKB_DEFAULT_LAYOUT="se"' >> /home/cmd/.profile
     echo 'export MOZ_ENABLE_WAYLAND=1' >> /home/cmd/.profile
+    echo 'export GTK_USE_PORTAL=0' >> /home/cmd/.profile
 
     # ----------------------------------------------------------------------------------------------
     # Make zsh default shell 
