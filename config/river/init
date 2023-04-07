@@ -67,7 +67,7 @@ riverctl map normal Super Return spawn kitty
 riverctl map -repeat normal $mod+Shift N spawn "kitty nvim"
 
 # super+f for firefox
-riverctl map normal $mod F spawn "MOZ_ENABLE_WAYLAND=1 firefox"
+riverctl map normal $mod F spawn "firefox"
 
 # wofi
 riverctl map -repeat normal $mod S spawn "wofi -S run -i -G"
