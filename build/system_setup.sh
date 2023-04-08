@@ -254,11 +254,7 @@ simple() {
     # Fix slow start-up for GTK apps 
     # ----------------------------------------------------------------------------------------------
     
-    systemctl --user mask xdg-desktop-portal-gtk.service
-
-    # to reverse, do:
-    # systemctl --user unmask xdg-desktop-portal-gtk.service
-
+    sudo apt remove -y xdg-desktop-portal-gtk xdg-desktop-portal-gnome
 
 }
 
