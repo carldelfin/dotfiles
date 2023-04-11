@@ -26,7 +26,7 @@ simple() {
 
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura pipx \
-        syncthing htop alsa-utils pulseaudio qpdfview swaylock unzip \
+        syncthing htop alsa-utils pulseaudio qpdfview swaylock unzip fuse \
         inkscape mpv brightnessctl pavucontrol npm pinentry-qt lua5.4
 
     # kvm/qemu

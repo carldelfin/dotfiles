@@ -72,7 +72,8 @@ alias ff='fzf'
 
 export VISUAL=nvim
 export EDITOR=nvim
-export FZF_DEFAULT_COMMAND="find -."
+#export FZF_DEFAULT_COMMAND="find -."
+#export FZF_DEFAULT_COMMAND="fd --type f"
 
 # z.lua
 eval "$(lua $HOME/.local/bin/z.lua-1.8.16/z.lua --init bash enhanced once)"
