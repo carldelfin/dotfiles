@@ -48,7 +48,7 @@ fi
 # source functions
 # ------------------------------------------------------------------------------
 
-source ~/dotfiles/config/.bash_functions
+source ~/dotfiles/config/.shell_functions
 
 # ------------------------------------------------------------------------------
 # aliases
