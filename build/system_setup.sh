@@ -21,6 +21,8 @@ simple() {
     echo ""
     echo -e "\033[1;35mInstalling applications...\033[0m"
     echo ""
+    
+    mkdir -p $HOME/.local/bin
 
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura pipx \
@@ -164,7 +166,6 @@ simple() {
 
     # create missing directories and files
     mkdir -p ~/.config/{river,kitty,ranger,yambar,nvim,zathura,bash}
-    mkdir -p ~/.local/bin
 
     # copy ranger config
     ranger --copy-config=all
