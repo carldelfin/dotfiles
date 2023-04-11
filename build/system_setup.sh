@@ -168,7 +168,7 @@ simple() {
     mkdir -p ~/.config/{river,kitty,ranger,yambar,nvim,zathura,bash}
 
     # copy ranger config
-    ranger --copy-config=all
+    # ranger --copy-config=all
 
     # symlinks
     ln -s -f ~/dotfiles/config/bash/.bashrc ~/.bashrc
