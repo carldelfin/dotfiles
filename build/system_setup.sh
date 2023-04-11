@@ -164,6 +164,7 @@ simple() {
 
     # create missing directories and files
     mkdir -p ~/.config/{river,kitty,ranger,yambar,nvim,zathura,bash}
+    mkdir -p ~/.local/bin
 
     # copy ranger config
     ranger --copy-config=all
