@@ -29,6 +29,12 @@ simple() {
         syncthing htop alsa-utils pulseaudio qpdfview swaylock unzip fuse \
         inkscape mpv brightnessctl pavucontrol npm pinentry-qt lua5.4
 
+    # river
+     sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg
+      echo "deb [signed-by=/usr/share/keyrings/nickh-archive-keyring.gpg] https://www.ne.jp/asahi/nickh/debian/ bookworm/" | sudo tee /etc/apt/sources.list.d/nickh.list
+      sudo apt update
+      sudo apt install -y river
+
     # kvm/qemu
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
         echo ""
