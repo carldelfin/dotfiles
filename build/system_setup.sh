@@ -13,9 +13,9 @@ catch() {
 }
 
 simple() {
-    
+
     # ----------------------------------------------------------------------------------------------
-    # Applications 
+    # Applications
     # ----------------------------------------------------------------------------------------------
 
     echo ""
@@ -24,10 +24,10 @@ simple() {
 
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura pipx \
-        ranger fzf syncthing zoxide htop alsa-utils pulseaudio qpdfview \
-        inkscape mpv zsh zplug brightnessctl pavucontrol 
+        syncthing htop alsa-utils pulseaudio qpdfview swaylock \
+        inkscape mpv brightnessctl pavucontrol npm pinentry-qt
 
-    # kvm/qemu 
+    # kvm/qemu
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
         echo ""
         echo -e "\033[0;35mInside a virtual machine, skipping KVM/QEMU install...\033[0m"
@@ -45,21 +45,6 @@ simple() {
         sudo usermod -a -G libvirt $(whoami)
     fi
 
-    # go
-    # NOTE:
-    # this needs to be updated manually
-    if ! command -v go version &> /dev/null; then
-        cd /tmp
-        wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
-        sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.3.linux-amd64.tar.gz
-        rm go1.20.3.linux-amd64.tar.gz
-        cd
-    else
-        echo ""
-        echo -e "\033[0;35mGo is already installed, skipping...\033[0m"
-        echo ""
-    fi
-
     # mullvad
     if ! command -v mullvad &> /dev/null; then
         cd /tmp
@@ -75,11 +60,11 @@ simple() {
     fi
 
     # neovim
-    if ! command -v nvim &> /dev/null; then
-        cd /tmp
-        wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
-        sudo apt install -y ./nvim-linux64.deb
-        rm nvim-linux64.deb
+    if ! command -v nvim.appimage &> /dev/null; then
+        cd $HOME/.local/bin
+        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+        chmod u+x nvim.appimage
+        cd
 
     else
         echo ""
@@ -87,10 +72,32 @@ simple() {
         echo ""
     fi
 
+    # zoxide
+    cd $HOME/.local/bin
+    wget https://github.com/skywind3000/z.lua/archive/refs/tags/1.8.16.tar.gz
+    tar -xf *.tar.gz
+    rm *tar.gz
+    cd
+
+    # ranger
+    cd $HOME/.local/bin
+    wget https://github.com/ranger/ranger/archive/refs/tags/v1.9.3.tar.gz
+    tar -xf *.tar.gz
+    rm *tar.gz
+    cd
+
+    # fzf
+    cd $HOME/.local/bin
+    wget https://github.com/junegunn/fzf/releases/download/0.39.0/fzf-0.39.0-linux_amd64.tar.gz
+    tar -xf *.tar.gz
+    rm *tar.gz
+    cd
+
+
     # ----------------------------------------------------------------------------------------------
     # Appearance
     # ----------------------------------------------------------------------------------------------
-    
+
     echo ""
     echo -e "\033[1;35mInstalling theme, icons, fonts...\033[0m"
     echo ""
@@ -140,7 +147,7 @@ simple() {
     # ----------------------------------------------------------------------------------------------
     # Permissions
     # ----------------------------------------------------------------------------------------------
-    
+
     echo ""
     echo -e "\033[1;35mMaking sure configs and scripts are executable...\033[0m"
     echo ""
@@ -156,13 +163,13 @@ simple() {
     echo ""
 
     # create missing directories and files
-    mkdir -p ~/.config/{river,kitty,ranger,yambar,nvim,zathura,zsh}
+    mkdir -p ~/.config/{river,kitty,ranger,yambar,nvim,zathura,bash}
 
     # copy ranger config
     ranger --copy-config=all
 
-    # symlinks 
-    ln -s -f ~/dotfiles/config/zsh/.zshrc ~/.zshrc
+    # symlinks
+    ln -s -f ~/dotfiles/config/bash/.bashrc ~/.bashrc
     ln -s -f ~/dotfiles/config/river/init ~/.config/river/init
     ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
     ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
@@ -172,58 +179,17 @@ simple() {
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/yambar/config.yml ~/.config/yambar/config.yml
 
-    # ----------------------------------------------------------------------------------------------
-    # Ranger setup
-    # ----------------------------------------------------------------------------------------------
-
-    echo ""
-    echo -e "\033[1;35mSetting up ranger...\033[0m"
-    echo ""
-
-    # ranger zoxide
-    if [ ! -d "/home/cmd/.config/ranger/plugins/zoxide" ]; then
-        git clone https://github.com/jchook/ranger-zoxide.git ~/.config/ranger/plugins/zoxide
-    else
-        echo ""
-        echo -e "\033[0;35ranger zoxide is already installed, skipping...\033[0m"
-        echo ""
-    fi
-
-    # devicons2
-    if [ ! -d "/home/cmd/.config/ranger/plugins/devicons2" ]; then
-        git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
-    else
-        echo ""
-        echo -e "\033[0;35ranger devicons2 is already installed, skipping...\033[0m"
-        echo ""
-    fi
-
-    # ----------------------------------------------------------------------------------------------
-    # Neovim setup
-    # ----------------------------------------------------------------------------------------------
-
-    echo ""
-    echo -e "\033[1;35mSetting up Neovim...\033[0m"
-    echo ""
-
-    # vim-plug
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-    # install plugins
-    nvim --headless +PlugInstall +qall
-
-    # make hexokinase
-    export PATH=$PATH:/usr/local/go/bin
-    cd ~/.vim/plugged/vim-hexokinase
-    make hexokinase
+    # kitty color scheme
+    mkdir -p ~/.config/kitty/themes
+    cd ~/.config/kitty/themes
+    wget https://github.com/edeneast/nightfox.nvim/raw/main/extra/nordfox/nightfox_kitty.conf 
     cd
 
     # ----------------------------------------------------------------------------------------------
     # Configure ufw
     # ----------------------------------------------------------------------------------------------
-  
-    # inside a VM? 
+
+    # inside a VM?
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
         echo ""
         echo -e "\033[0;35mInside a virtual machine, skipping UFW setup...\033[0m"
@@ -232,28 +198,18 @@ simple() {
         echo ""
         echo -e "\033[1;35mConfiguring UFW...\033[0m"
         echo ""
-    
+
         sudo ufw default deny incoming
         sudo ufw default allow outgoing
         sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
         sudo ufw enable
         sudo ufw allow syncthing
     fi
-    
+
     # ----------------------------------------------------------------------------------------------
-    # Make zsh default shell 
+    # Fix slow start-up for GTK apps
     # ----------------------------------------------------------------------------------------------
-    
-    echo ""
-    echo -e "\033[1;35mMaking zsh default shell...\033[0m"
-    echo ""
-    
-    chsh -s /bin/zsh
-    
-    # ----------------------------------------------------------------------------------------------
-    # Fix slow start-up for GTK apps 
-    # ----------------------------------------------------------------------------------------------
-    
+
     sudo apt remove -y xdg-desktop-portal-gtk xdg-desktop-portal-gnome
 
 }
