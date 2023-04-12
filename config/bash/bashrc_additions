@@ -1,0 +1,46 @@
+
+# ------------------------------------------------------------------------------
+# environment variables, paths, etc
+# ------------------------------------------------------------------------------
+
+export VISUAL=nvim
+export EDITOR=nvim
+
+PATH=$HOME/.local/bin:$PATH
+
+# z.lua
+eval "$(lua $HOME/.local/bin/z.lua-1.8.16/z.lua --init bash enhanced once)"
+
+# ------------------------------------------------------------------------------
+# aliases
+# ------------------------------------------------------------------------------
+
+alias ls='ls -alF --color=auto'
+alias ll='ls -alF --color=auto'
+alias l='ls -CF --color=auto'
+alias ..='cd ..'
+alias c='clear'
+alias e='exit'
+alias vim='$HOME/.local/bin/nvim.appimage'
+alias nvim='$HOME/.local/bin/nvim.appimage'
+alias ff='lf'
+alias zz='fzf'
+alias zzz='vim $(fzf --height 40% --reverse)'
+
+# ------------------------------------------------------------------------------
+# functions 
+# ------------------------------------------------------------------------------
+
+function t() {
+    if  [[ "$argv[1]" == "-"* ]]; then
+        z "$@"
+    else
+        cd "$@" 2> /dev/null || z "$@"
+    fi
+}
+
+function gp() {
+    git pull
+    git commit -a -m "$*"
+    git push
+}
