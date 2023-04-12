@@ -136,13 +136,11 @@ simple() {
     echo ""
 
     # create missing directories and files
-    mkdir -p $HOME/.config/{river,kitty,yambar,nvim,zathura,bash,lf}
+    mkdir -p $HOME/.config/{river,kitty,yambar,zathura}
 
     # symlinks
-    ln -s -f ~/dotfiles/config/bash/.bashrc ~/.bashrc
     ln -s -f ~/dotfiles/config/river/init ~/.config/river/init
     ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-    ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/yambar/config.yml ~/.config/yambar/config.yml
 
