@@ -124,6 +124,7 @@ simple() {
     # symlink configs
     ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
     ln -s -f ~/dotfiles/config/lf/* ~/.config/lf/
+    ln -s -f ~/dotfiles/config/.Rprofile ~/.Rprofile
     
     # install neovim plugins
     # (necessary to do this three times to ensure everything installs correctly)
