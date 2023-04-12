@@ -12,20 +12,6 @@ require('nightfox').setup({
   }
 })
 
-require("indent_blankline").setup{
-    char = "│",
-    buftype_exclude = {"terminal"},
-    space_char = ' ',
-    show_first_indent_level = true,
-    show_trailing_blankline_indent = false,
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6"}}
-
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)

@@ -73,8 +73,6 @@ simple() {
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     fi
 
-    # install neovim plugins
-    $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
 
     # z.lua
     if [ -f "$HOME/.local/bin/z.lua-1.8.16/z.lua" ]; then
@@ -126,6 +124,11 @@ simple() {
     # symlink configs
     ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
     ln -s -f ~/dotfiles/config/lf/* ~/.config/lf/
+    
+    # install neovim plugins
+    $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
+    $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
+    $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
    
 }
 

@@ -1,17 +1,3 @@
-" vimtex
-let g:vimtex_view_method = 'zathura'
-
-" vim-pandoc
-let g:pandoc#modules#disabled = ["folding"]
-let g:pandoc#syntax#conceal#use = 0
-
-" pencil
-let g:pencil#wrapModeDefault = 'soft'
-augroup pencil
-  autocmd!
-  autocmd FileType text,rmarkdown,markdown,mkd call pencil#init()
-augroup END
-
 " --------------------------------------------------------------------------------------------------
 " R specific settings
 " --------------------------------------------------------------------------------------------------

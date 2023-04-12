@@ -5,12 +5,13 @@ set shortmess+=c
 set updatetime=300
 set timeoutlen=500
 
-" indentation
+" indentation and wrapping
 filetype plugin indent on
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
+set linebreak
 
 " spelling
 set spelllang=en_us,sv
@@ -37,7 +38,7 @@ set noerrorbells
 set noswapfile
 set nobackup
 
-" use eight lines of scrolloff
+" use six lines of scrolloff
 set scrolloff=6
 
 " try to keep within 100 characters

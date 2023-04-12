@@ -2,9 +2,6 @@
 let mapleader = ","
 let maplocalleader="\<space>"
 
-" completion
-" inoremap <C-Space> <C-x><C-o>
-
 " sensible defaults
 nnoremap Y y$
 nnoremap n nzzzv
@@ -24,12 +21,7 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-q> :Bdelete<CR>
 
 " toggle netrw 
-"nnoremap <C-t> :NvimTreeToggle<CR>
 nnoremap <C-t> :Lexplore <CR>
-"nnoremap <C-t> :Lexplore %:p:h<CR>
-
-" start Voom
-" nnoremap <C-v> :Voom<CR>
 
 " switch window orientation
 nnoremap <A-w> :wincmd H<CR>
@@ -52,7 +44,6 @@ nnoremap <S-A-e> :resize -2<CR> " up
 nnoremap <S-A-i> :vertical resize +2<CR> " right
 
 " hop 
-"nnoremap <A-c> <cmd>HopChar2<cr>
 nnoremap <\\> <cmd>HopPattern<cr>
 nnoremap s <cmd>HopChar1<cr>
 omap s <cmd>HopChar1<cr>
@@ -60,16 +51,8 @@ omap s <cmd>HopChar1<cr>
 " buffer control 
 nnoremap <silent> tt :Buffers<CR>
 
-" output the current syntax group 
-nnoremap jj :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
-
 " reload config
 nnoremap ll :so%<CR>
-
-" mark word as correct
-" nnoremap <A-g> zg
 
 " send R code
 vmap <Return> <Plug>RDSendSection
@@ -82,5 +65,7 @@ nmap <A-l> <Plug>RClearConsole
 vmap <A-o> <LocalLeader>ro
 nmap <A-o> <LocalLeader>ro
 
-
-
+" quick heads and tails
+nmap <silent> <LocalLeader>hh :call RAction('head', ', n = 20')<CR>
+nmap <silent> <LocalLeader>tt :call RAction('tail', ', n = 20')<CR>
+nmap <silent> <LocalLeader>ss :call RAction('summary')<CR>
