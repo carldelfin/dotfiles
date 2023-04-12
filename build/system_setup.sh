@@ -27,7 +27,7 @@ simple() {
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura pipx \
         syncthing htop alsa-utils pulseaudio qpdfview swaylock unzip fuse \
-        inkscape mpv brightnessctl pavucontrol npm pinentry-qt lua5.4
+        inkscape mpv brightnessctl pavucontrol pinentry-qt lua5.4
 
     # river
      sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg
@@ -66,41 +66,6 @@ simple() {
         echo -e "\033[0;35mMullvad is already installed, skipping...\033[0m"
         echo ""
     fi
-
-    # neovim
-    if ! command -v nvim.appimage &> /dev/null; then
-        cd $HOME/.local/bin
-        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-        chmod u+x nvim.appimage
-        cd
-
-    else
-        echo ""
-        echo -e "\033[0;35mNeovim is already installed, skipping...\033[0m"
-        echo ""
-    fi
-
-    # zoxide
-    cd $HOME/.local/bin
-    wget https://github.com/skywind3000/z.lua/archive/refs/tags/1.8.16.tar.gz
-    tar -xf *.tar.gz
-    rm *tar.gz
-    cd
-
-    # ranger
-    cd $HOME/.local/bin
-    wget https://github.com/ranger/ranger/archive/refs/tags/v1.9.3.tar.gz
-    tar -xf *.tar.gz
-    rm *tar.gz
-    cd
-
-    # fzf
-    cd $HOME/.local/bin
-    wget https://github.com/junegunn/fzf/releases/download/0.39.0/fzf-0.39.0-linux_amd64.tar.gz
-    tar -xf *.tar.gz
-    rm *tar.gz
-    cd
-
 
     # ----------------------------------------------------------------------------------------------
     # Appearance
@@ -171,18 +136,12 @@ simple() {
     echo ""
 
     # create missing directories and files
-    mkdir -p ~/.config/{river,kitty,ranger,yambar,nvim,zathura,bash}
-
-    # copy ranger config
-    # ranger --copy-config=all
+    mkdir -p $HOME/.config/{river,kitty,yambar,nvim,zathura,bash,lf}
 
     # symlinks
     ln -s -f ~/dotfiles/config/bash/.bashrc ~/.bashrc
     ln -s -f ~/dotfiles/config/river/init ~/.config/river/init
     ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-    ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-    ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
-    ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
     ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/yambar/config.yml ~/.config/yambar/config.yml
