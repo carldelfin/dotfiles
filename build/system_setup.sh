@@ -23,7 +23,7 @@ simple() {
     echo ""
     
     sudo apt install -y \
-        cmake kitty yambar wofi wofi-pass ufw rsync curl zathura \
+        cmake kitty yambar wofi wofi-pass ufw rsync curl zathura npm \
         syncthing htop swaylock swaybg inkscape mpv brightnessctl lua5.4
 
     # river

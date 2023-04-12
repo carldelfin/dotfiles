@@ -37,6 +37,13 @@ simple() {
     else 
         lua -v
     fi
+    
+    if ! command -v npm -v &> /dev/null; then
+        echo -e "\033[1;31mnpm not found!\033[0m"
+        exit
+    else 
+        npm -v
+    fi
 
     # ----------------------------------------------------------------------------------------------
     # Applications
@@ -60,7 +67,7 @@ simple() {
 
     # vim-plug
     if [ -d "$HOME/.vim/plugged" ]; then
-        echo -e "\033[0;35vim-plug found, skipping...\033[0m"
+        echo -e "\033[0;35mvim-plug found, skipping...\033[0m"
     else
         sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
