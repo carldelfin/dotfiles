@@ -22,12 +22,12 @@ simple() {
     echo -e "\033[1;35mInstalling applications...\033[0m"
     echo ""
     
-    mkdir -p $HOME/.local/bin
-
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura \
         syncthing htop swaylock \
-        inkscape mpv brightnessctl pinentry-qt lua5.4
+        inkscape mpv brightnessctl \
+        #pinentry-qt \
+        lua5.4
 
     # river
      sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg
@@ -139,8 +139,8 @@ simple() {
     # symlinks
     ln -s -f ~/dotfiles/config/river/init ~/.config/river/init
     ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-    ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/yambar/config.yml ~/.config/yambar/config.yml
+    ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/environment.d ~/.config/environment.d
 
     # kitty color scheme
@@ -174,8 +174,8 @@ simple() {
     # Fix slow start-up for GTK apps
     # ----------------------------------------------------------------------------------------------
 
-    sudo apt remove -y xdg-desktop-portal-gtk xdg-desktop-portal-gnome
-    sudo apt autoremove -y
+    #sudo apt remove -y xdg-desktop-portal-gtk xdg-desktop-portal-gnome
+    #sudo apt autoremove -y
 
 }
 
