@@ -57,12 +57,23 @@ cp -r .ssh .gnupg .password-store ~/
 cd
 ```
 
-### Wayland for Firefox
+Make sure `~/.gnupg` has the right permissions:
 
-To enable pure Wayland for Firefox, add the following to `etc/environment` (e.g. using `sudo nano /etc/environment`):
+```bash
+chown -R $(whoami) ~/.gnupg/
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
+```
+
+### Environment variables
+
+To enable pure Wayland for Firefox, and to make sure the correct keyboard layout is set, add the following lines to `etc/environment` (e.g. using `sudo nano /etc/environment`):
 
 ```bash
 MOZ_ENABLE_WAYLAND=1
+XKB_DEFAULT_LAYOUT='se'
 ```
+
+
 
 

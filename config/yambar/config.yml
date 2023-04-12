@@ -5,10 +5,10 @@
 # the sway-xkb module with the xkb module.
 
 # fonts we'll be re-using here and there
-awesome: &awesome Font Awesome 6 Free:style=solid:pixelsize=14
-awesome_brands: &awesome_brands Font Awesome 6 Brands:pixelsize=16
+awesome: &awesome Font Awesome 6 Free:style=solid:pixelsize=15
+awesome_brands: &awesome_brands Font Awesome 6 Brands:pixelsize=17
 
-std_underline: &std_underline {underline: { size: 2, color: eceff485}}
+std_underline: &std_underline {underline: { size: 2, color: eceff4cc}}
 
 # This is THE bar configuration
 bar:
@@ -18,9 +18,9 @@ bar:
   margin: 7
 
   # Default font
-  font: DejaVu Sans:style=Bold:pixelsize=12
+  font: DejaVu Sans:style=Bold:pixelsize=13
 
-  foreground: eceff485 
+  foreground: eceff4cc 
   background: 11111100
 
   border:
@@ -53,7 +53,7 @@ bar:
                   <<: *river_base
               state == focused:
                 map:
-                  {<<: *river_base, foreground: a5d7aa85}
+                  {<<: *river_base, foreground: a5d7aacc}
               state == visible && ~occupied:
                 map:
                   <<: *river_base
@@ -94,17 +94,17 @@ bar:
               ~carrier: {empty: {}}
               carrier:
                 map:
-                  default: {string: {text:  , font: *awesome, foreground: eceff485}}
+                  default: {string: {text:  , font: *awesome, foreground: eceff4cc}}
                   conditions:
                     state == up && ipv4 != "": {string: {text:  , font: *awesome}}
     - network:
         name: wlp61s0
-        poll-interval: 1000
+        poll-interval: 60
         content:
           map:
             default: {string: {text:  , font: *awesome}}
             conditions:
-              state == down: {string: {text:  , font: *awesome, foreground: ebcb8b85}}
+              state == down: {string: {text:  , font: *awesome, foreground: ebcb8bcc}}
               state == up:
                 map:
                   default:
@@ -119,7 +119,7 @@ bar:
         content: [ string: {text:  , font: *awesome}, string: {text: " {percent}%"}]
     - battery:
         name: BAT0
-        poll-interval: 30000
+        poll-interval: 60
         anchors:
           discharging: &discharging
             list:
@@ -127,17 +127,17 @@ bar:
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                - string: {text: " {capacity}%"}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                - string: {text: " {capacity}% {estimate}"}
         content:
           map:
             conditions:
@@ -155,17 +155,17 @@ bar:
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                      - string: {text:  , foreground: ebcb8b85, font: *awesome}
-                - string: {text: " {capacity}%"}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                      - string: {text:  , foreground: ebcb8bcc, font: *awesome}
+                - string: {text: " {capacity}% {estimate}"}
     - alsa:
         card: hw:PCH
         mixer: Master
@@ -175,9 +175,9 @@ bar:
               ~online: {string: {text: , font: *awesome}}
               online:
                 map:
-                  on-click: /bin/sh -c "amixer -D pulse set Master 1+ toggle"
+                  on-click: /bin/sh -c "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
                   conditions:
-                    muted: {string: {text: , font: *awesome, foreground: ebcb8b85}}
+                    muted: {string: {text: , font: *awesome, foreground: ebcb8bcc}}
                     ~muted:
                       - ramp:
                          tag: percent

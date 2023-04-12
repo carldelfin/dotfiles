@@ -21,11 +21,12 @@ set ifs "\n"
 set scrolloff 10
 
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
-set cursorpreviewfmt "\033[7;2m"
+# set cursorpreviewfmt "\033[7;2m"
 
 set hidden
-set sortby size; set info size
+sortby natural; set info atime
 set dircounts
+set drawbox
 
 # use enter for shell commands
 map <enter> shell
@@ -110,3 +111,11 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+# integrate with lf
+cmd z-jump ${{
+  # ZLUA_SCRIPT="/path/to/z.lua"  # Usually unnecessary
+  lf -remote "send ${id} cd '$($ZLUA_SCRIPT -e $@)'"
+}}
+
+map t push :z-jump<space>

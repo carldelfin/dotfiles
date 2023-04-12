@@ -92,8 +92,8 @@ riverctl map normal $mod Period spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SI
 riverctl map normal $mod Comma spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
 
 # brightness control
-riverctl map normal $mod+Shift Period spawn "brightnessctl -q -d intel_backlight s +10%"
-riverctl map normal $mod+Shift Comma spawn "brightnessctl -q -d intel_backlight s 10%-"
+riverctl map normal $mod+Shift Period spawn "brightnessctl -q -d intel_backlight s +5%"
+riverctl map normal $mod+Shift Comma spawn "brightnessctl -q -d intel_backlight s 5%-"
 
 for i in $(seq 1 9)
 do
@@ -113,7 +113,7 @@ do
 done
 
 # background and borders
-swaybg -m fill -i /usr/share/backgrounds/gnome/blobs-d.svg &
+swaybg -m fill -i /usr/share/backgrounds/gnome/adwaita-d.webp &
 riverctl border-color-focused 0x8392b3
 riverctl border-color-unfocused 0x434c5e
 

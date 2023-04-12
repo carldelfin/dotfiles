@@ -24,7 +24,8 @@ simple() {
 
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura npm \
-        syncthing htop swaylock swaybg inkscape mpv brightnessctl lua5.4
+        syncthing htop swaylock swaybg inkscape mpv brightnessctl \
+        pinentry-qt lua5.4
 
     # river
     sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg
@@ -166,8 +167,8 @@ simple() {
     # Fix slow start-up for GTK apps
     # ----------------------------------------------------------------------------------------------
 
-    #sudo apt remove -y xdg-desktop-portal-gtk xdg-desktop-portal-gnome
-    #sudo apt autoremove -y
+    sudo apt remove -y xdg-desktop-portal-gtk 
+    sudo apt autoremove -y
 
 }
 

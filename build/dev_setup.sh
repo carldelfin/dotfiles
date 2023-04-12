@@ -37,7 +37,8 @@ simple() {
     else 
         lua -v
     fi
-    
+   
+    # npm is required to install LSP servers
     if ! command -v npm -v &> /dev/null; then
         echo -e "\033[1;31mnpm not found!\033[0m"
         exit
@@ -72,7 +73,6 @@ simple() {
         sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     fi
-
 
     # z.lua
     if [ -f "$HOME/.local/bin/z.lua-1.8.16/z.lua" ]; then
@@ -126,6 +126,7 @@ simple() {
     ln -s -f ~/dotfiles/config/lf/* ~/.config/lf/
     
     # install neovim plugins
+    # (necessary to do this three times to ensure everything installs correctly)
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
