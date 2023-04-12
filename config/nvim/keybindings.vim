@@ -1,3 +1,7 @@
+" --------------------------------------------------------------------------------------------------
+" keybindings 
+" --------------------------------------------------------------------------------------------------
+
 " leader keys
 let mapleader = ","
 let maplocalleader="\<space>"
@@ -65,7 +69,7 @@ nmap <A-l> <Plug>RClearConsole
 vmap <A-o> <LocalLeader>ro
 nmap <A-o> <LocalLeader>ro
 
-" quick heads and tails
+" quick R actions
 nmap <silent> <LocalLeader>hh :call RAction('head', ', n = 20')<CR>
 nmap <silent> <LocalLeader>tt :call RAction('tail', ', n = 20')<CR>
 nmap <silent> <LocalLeader>ss :call RAction('summary')<CR>
