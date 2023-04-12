@@ -9,10 +9,8 @@
 # 
 #
 # This scripts lets you select what applications to install, including and beyond the initial
-# system setup. I use more or less all of them, but sometimes only have use for some of them on
-# certain machines. In addition, keeping them separate is quite handy for testing purposes.
-# 
-# The script is based on previous work by Nathan Davieau, MestreLion, dols3m, and sergiofbsilva:
+# system setup. The script is based on previous work by Nathan Davieau, MestreLion, dols3m, 
+# and sergiofbsilva:
 #
 # https://serverfault.com/a/777849
 # https://stackoverflow.com/a/54261882
@@ -33,44 +31,44 @@ function prompt_for_multiselect {
     print_active()      { printf "$2  $ESC[7m $1 $ESC[27m"; }
     get_cursor_row()    { IFS=';' read -sdR -p $'\E[6n' ROW COL; echo ${ROW#*[}; }
     key_input()         {
-      local key
-      IFS= read -rsn1 key 2>/dev/null >&2
-      if [[ $key = ""      ]]; then echo enter; fi;
-      if [[ $key = $'\x20' ]]; then echo space; fi;
-      if [[ $key = $'\x1b' ]]; then
-        read -rsn2 key
-        if [[ $key = [A ]]; then echo up;    fi;
-        if [[ $key = [B ]]; then echo down;  fi;
-      fi 
-    }
-    toggle_option()    {
-      local arr_name=$1
-      eval "local arr=(\"\${${arr_name}[@]}\")"
-      local option=$2
-      if [[ ${arr[option]} == true ]]; then
-        arr[option]=
-      else
-        arr[option]=true
-      fi
-      eval $arr_name='("${arr[@]}")'
-    }
+        local key
+        IFS= read -rsn1 key 2>/dev/null >&2
+        if [[ $key = ""      ]]; then echo enter; fi;
+            if [[ $key = $'\x20' ]]; then echo space; fi;
+                if [[ $key = $'\x1b' ]]; then
+                    read -rsn2 key
+                    if [[ $key = [A ]]; then echo up;    fi;
+                        if [[ $key = [B ]]; then echo down;  fi;
+                fi 
+            }
+            toggle_option()    {
+                local arr_name=$1
+                eval "local arr=(\"\${${arr_name}[@]}\")"
+                local option=$2
+                if [[ ${arr[option]} == true ]]; then
+                    arr[option]=
+                else
+                    arr[option]=true
+                fi
+                eval $arr_name='("${arr[@]}")'
+            }
 
-    local retval=$1
-    local options
-    local defaults
+            local retval=$1
+            local options
+            local defaults
 
-    IFS=';' read -r -a options <<< "$2"
-    if [[ -z $3 ]]; then
-      defaults=()
-    else
-      IFS=';' read -r -a defaults <<< "$3"
-    fi
-    local selected=()
+            IFS=';' read -r -a options <<< "$2"
+            if [[ -z $3 ]]; then
+                defaults=()
+            else
+                IFS=';' read -r -a defaults <<< "$3"
+            fi
+            local selected=()
 
-    for ((i=0; i<${#options[@]}; i++)); do
-      selected+=("${defaults[i]:-false}")
-      printf "\n"
-    done
+            for ((i=0; i<${#options[@]}; i++)); do
+                selected+=("${defaults[i]:-false}")
+                printf "\n"
+            done
 
     # determine current screen position for overwriting the options
     local lastrow=`get_cursor_row`
@@ -87,7 +85,7 @@ function prompt_for_multiselect {
         for option in "${options[@]}"; do
             local prefix="[ ]"
             if [[ ${selected[idx]} == true ]]; then
-              prefix="[${GREEN}x${NC}]"
+                prefix="[${GREEN}x${NC}]"
             fi
 
             cursor_to $(($startrow + $idx))
@@ -104,11 +102,11 @@ function prompt_for_multiselect {
             space)  toggle_option selected $active;;
             enter)  break;;
             up)     ((active--));
-                    if [ $active -lt 0 ]; then active=$((${#options[@]} - 1)); fi;;
-            down)   ((active++));
+                if [ $active -lt 0 ]; then active=$((${#options[@]} - 1)); fi;;
+                down)   ((active++));
                     if [ $active -ge ${#options[@]} ]; then active=0; fi;;
-        esac
-    done
+                esac
+            done
 
     # cursor position back to normal
     cursor_to $lastrow
@@ -119,33 +117,36 @@ function prompt_for_multiselect {
 }
 
 # possible options
-OPTIONS_VALUES=("Exit" "Initial system setup" "Install R" "Install Zotero" "Install TexLive" "Install Singularity" "Install QMK")
+OPTIONS_VALUES=("Exit" "System setup" "Development setup" "Install R" "Install Zotero" "Install TexLive" "Install Singularity" "Install QMK")
 
 for i in "${!OPTIONS_VALUES[@]}"; do
-	OPTIONS_STRING+="${OPTIONS_VALUES[$i]};"
+    OPTIONS_STRING+="${OPTIONS_VALUES[$i]};"
 done
 
 # define actions based on options
 function ACTIONS {
     if [ "${SELECTED[0]}" == "true" ]; then
-    	exit 1
+        exit 1
     fi
     if [ "${SELECTED[1]}" == "true" ]; then
         source ~/dotfiles/build/system_setup.sh
     fi
     if [ "${SELECTED[2]}" == "true" ]; then
-        source ~/dotfiles/build/install_r.sh
+        source ~/dotfiles/build/dev_setup.sh.sh
     fi
     if [ "${SELECTED[3]}" == "true" ]; then
-        source ~/dotfiles/build/install_zotero.sh
+        source ~/dotfiles/build/install_r.sh
     fi
     if [ "${SELECTED[4]}" == "true" ]; then
-        source ~/dotfiles/build/install_texlive.sh
+        source ~/dotfiles/build/install_zotero.sh
     fi
     if [ "${SELECTED[5]}" == "true" ]; then
-        source ~/dotfiles/build/install_singularity.sh
+        source ~/dotfiles/build/install_texlive.sh
     fi
     if [ "${SELECTED[6]}" == "true" ]; then
+        source ~/dotfiles/build/install_singularity.sh
+    fi
+    if [ "${SELECTED[7]}" == "true" ]; then
         source ~/dotfiles/build/install_qmk.sh
     fi
 }

@@ -21,16 +21,16 @@ simple() {
     echo ""
     echo -e "\033[1;35mInstalling applications...\033[0m"
     echo ""
-    
+
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura npm \
         syncthing htop swaylock swaybg inkscape mpv brightnessctl lua5.4
 
     # river
-     sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg
-     echo "deb [signed-by=/usr/share/keyrings/nickh-archive-keyring.gpg] https://www.ne.jp/asahi/nickh/debian/ bookworm/" | sudo tee /etc/apt/sources.list.d/nickh.list
-     sudo apt update
-     sudo apt install -y river
+    sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/nickh-archive-keyring.gpg] https://www.ne.jp/asahi/nickh/debian/ bookworm/" | sudo tee /etc/apt/sources.list.d/nickh.list
+    sudo apt update
+    sudo apt install -y river
 
     # kvm/qemu
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -113,22 +113,15 @@ simple() {
     fi
 
     # ----------------------------------------------------------------------------------------------
-    # Permissions
-    # ----------------------------------------------------------------------------------------------
-
-    echo ""
-    echo -e "\033[1;35mMaking sure configs and scripts are executable...\033[0m"
-    echo ""
-
-    sudo chmod +x ~/dotfiles/config/river/init
-
-    # ----------------------------------------------------------------------------------------------
     # Directories, symlinks, and configs
     # ----------------------------------------------------------------------------------------------
 
     echo ""
     echo -e "\033[1;35mSetting up directories and symlinks...\033[0m"
     echo ""
+
+    # make sure river init is executable
+    sudo chmod +x ~/dotfiles/config/river/init
 
     # create missing directories and files
     mkdir -p $HOME/.config/{river,kitty,yambar,zathura}

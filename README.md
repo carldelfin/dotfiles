@@ -16,7 +16,14 @@
 
 ## Pre-install
 
-Make sure you have a bootable USB drive:
+Download the Debian 12 ISO (note that Debian 12 is currently in `testing`):
+
+```bash
+cd /tmp
+wget https://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/amd64/iso-cd/debian-testing-amd64-netinst.iso-cd
+```
+
+Create bootable USB:
 
 ```bash
 # check usb device
@@ -26,7 +33,7 @@ lsblk
 sudo umount /dev/sdX
 
 # flash
-sudo dd if=/path/to/installer.iso of=/dev/sdX bs=4M && sync
+sudo dd if=/tmp/debian-testing-amd64-netinst.iso of=/dev/sdX bs=4M && sync
 ```
 
 ## Install
