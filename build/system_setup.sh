@@ -25,15 +25,15 @@ simple() {
     mkdir -p $HOME/.local/bin
 
     sudo apt install -y \
-        cmake kitty yambar wofi wofi-pass ufw rsync curl zathura pipx \
-        syncthing htop alsa-utils pulseaudio qpdfview swaylock unzip fuse \
-        inkscape mpv brightnessctl pavucontrol pinentry-qt lua5.4
+        cmake kitty yambar wofi wofi-pass ufw rsync curl zathura \
+        syncthing htop swaylock \
+        inkscape mpv brightnessctl pinentry-qt lua5.4
 
     # river
      sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg
-      echo "deb [signed-by=/usr/share/keyrings/nickh-archive-keyring.gpg] https://www.ne.jp/asahi/nickh/debian/ bookworm/" | sudo tee /etc/apt/sources.list.d/nickh.list
-      sudo apt update
-      sudo apt install -y river
+     echo "deb [signed-by=/usr/share/keyrings/nickh-archive-keyring.gpg] https://www.ne.jp/asahi/nickh/debian/ bookworm/" | sudo tee /etc/apt/sources.list.d/nickh.list
+     sudo apt update
+     sudo apt install -y river
 
     # kvm/qemu
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -74,16 +74,15 @@ simple() {
     echo ""
     echo -e "\033[1;35mInstalling theme, icons, fonts...\033[0m"
     echo ""
+        
+    mkdir -p ~/.local/share/fonts
 
     # jetbrainsmono with nerd font patch
-    # NOTE:
-    # this needs to be updated manually
     if fc-list | grep -q JetBrains; then
         echo ""
         echo -e "\033[0;35mJetBrainsMono is already installed, skipping...\033[0m"
         echo ""
     else
-        mkdir -p ~/.local/share/fonts
         cd ~/.local/share/fonts
         wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
         unzip *.zip
@@ -96,7 +95,6 @@ simple() {
         echo -e "\033[0;35Font Awesome is already installed, skipping...\033[0m"
         echo ""
     else
-        mkdir -p ~/.local/share/fonts
         cd /tmp
         wget https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-desktop.zip
         unzip *.zip
@@ -143,6 +141,7 @@ simple() {
     ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/yambar/config.yml ~/.config/yambar/config.yml
+    ln -s -f ~/dotfiles/config/environment.d ~/.config/environment.d
 
     # kitty color scheme
     mkdir -p ~/.config/kitty/themes
@@ -176,6 +175,7 @@ simple() {
     # ----------------------------------------------------------------------------------------------
 
     sudo apt remove -y xdg-desktop-portal-gtk xdg-desktop-portal-gnome
+    sudo apt autoremove -y
 
 }
 

@@ -58,6 +58,14 @@ simple() {
         cd
     fi
 
+    # vim-plug
+    if [ -d "$HOME/.vim/plugged" ]; then
+        echo -e "\033[0;35vim-plug found, skipping...\033[0m"
+    else
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    fi
+
     # z.lua
     if [ -f "$HOME/.local/bin/z.lua-1.8.16/z.lua" ]; then
         echo -e "\033[0;35mz.lua executable found, skipping...\033[0m"

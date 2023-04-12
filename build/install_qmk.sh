@@ -19,6 +19,7 @@ catch() {
 
 simple() {
   if ! command -v qmk &> /dev/null; then
+      sudo apt install -y pipx
       pipx install qmk
       qmk setup
   else
