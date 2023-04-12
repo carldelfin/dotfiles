@@ -132,7 +132,7 @@ function ACTIONS {
         source ~/dotfiles/build/system_setup.sh
     fi
     if [ "${SELECTED[2]}" == "true" ]; then
-        source ~/dotfiles/build/dev_setup.sh.sh
+        source ~/dotfiles/build/dev_setup.sh
     fi
     if [ "${SELECTED[3]}" == "true" ]; then
         source ~/dotfiles/build/install_r.sh

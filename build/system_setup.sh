@@ -112,6 +112,8 @@ simple() {
         echo ""
     fi
 
+    gsettings set org.gnome.desktop.interface cursor-theme phinger-cursors
+
     # ----------------------------------------------------------------------------------------------
     # Directories, symlinks, and configs
     # ----------------------------------------------------------------------------------------------
@@ -136,7 +138,7 @@ simple() {
     # kitty color scheme
     mkdir -p ~/.config/kitty/themes
     cd ~/.config/kitty/themes
-    wget https://github.com/edeneast/nightfox.nvim/raw/main/extra/nordfox/nightfox_kitty.conf 
+    wget https://raw.githubusercontent.com/EdenEast/nightfox.nvim/main/extra/nightfox/nightfox_kitty.conf
     cd
 
     # ----------------------------------------------------------------------------------------------

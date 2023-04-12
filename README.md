@@ -45,8 +45,24 @@ git clone https://github.com/carldelfin/dotfiles.git && cd dotfiles && bash buil
 
 ## Post-install
 
+### Sensitive files
+
+For understandable reasons, I don't keep sensitive files in my dotfiles repo, but they are regularly backed up to external harddrives. 
+
+```bash
+cd
+rm -rf .gnupg .ssh .password-store 
+cd /media/cmd/backup_1/latest
+cp -r .ssh .gnupg .password-store ~/
+cd
+```
+
+### Wayland for Firefox
+
 To enable pure Wayland for Firefox, add the following to `etc/environment` (e.g. using `sudo nano /etc/environment`):
 
 ```bash
 MOZ_ENABLE_WAYLAND=1
 ```
+
+

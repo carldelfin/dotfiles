@@ -88,8 +88,8 @@ riverctl map normal $mod Space toggle-float
 riverctl map normal $mod+Shift F toggle-fullscreen
 
 # volume control
-riverctl map normal $mod Period spawn "amixer -D pulse sset Master 5%+"
-riverctl map normal $mod Comma spawn "amixer -D pulse sset Master 5%-"
+riverctl map normal $mod Period spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+riverctl map normal $mod Comma spawn "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
 
 # brightness control
 riverctl map normal $mod+Shift Period spawn "brightnessctl -q -d intel_backlight s +10%"
