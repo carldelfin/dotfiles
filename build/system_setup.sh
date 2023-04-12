@@ -127,11 +127,12 @@ simple() {
     sudo chmod +x ~/dotfiles/config/river/init
 
     # create missing directories and files
-    mkdir -p $HOME/.config/{river,kitty,yambar,zathura}
+    mkdir -p $HOME/.config/{river,kitty,yambar,zathura,wofi}
 
     # symlinks
     ln -s -f ~/dotfiles/config/river/init ~/.config/river/init
     ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+    ln -s -f ~/dotfiles/config/wofi/style.css ~/.config/wofi/style.css
     ln -s -f ~/dotfiles/config/yambar/config.yml ~/.config/yambar/config.yml
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
     ln -s -f ~/dotfiles/config/environment.d ~/.config/environment.d

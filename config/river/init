@@ -113,7 +113,7 @@ do
 done
 
 # background and borders
-swaybg -m fill -i /usr/share/backgrounds/gnome/adwaita-d.webp &
+swaybg -m fill -i $HOME/dotfiles/wallpapers/terafox.jpeg &
 riverctl border-color-focused 0x8392b3
 riverctl border-color-unfocused 0x434c5e
 
