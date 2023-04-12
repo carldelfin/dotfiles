@@ -99,7 +99,7 @@ simple() {
     fi
 
     # fzf
-    if [ -f "$HOME/.local/bin/lf" ]; then
+    if [ -f "$HOME/.local/bin/fzf" ]; then
         echo -e "\033[0;35mfzf executable found, skipping...\033[0m"
     else
         cd $HOME/.local/bin
@@ -108,7 +108,6 @@ simple() {
         rm *tar.gz
         cd
     fi
-
 
     # ----------------------------------------------------------------------------------------------
     # Configs
