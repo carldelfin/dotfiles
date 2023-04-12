@@ -7,7 +7,6 @@ lua << EOF
 require('hop').setup{}
 require('nvim_comment').setup{}
 require('neoscroll').setup{}
-require('nvim-tree').setup{}
 
 require("indent_blankline").setup{
     char = "│",
@@ -22,17 +21,6 @@ require("indent_blankline").setup{
         "IndentBlanklineIndent4",
         "IndentBlanklineIndent5",
         "IndentBlanklineIndent6"}}
-
-require("bufferline").setup{
-    options = {
-        close_command = "Bdelete",
-        separator_style = "thin",
-        always_show_bufferline = true,
-        offsets = {{
-            filetype = "NvimTree",
-            text = "File Explorer",
-            highlight = "Directory",
-            text_align = "left" }}}}
 
 local lsp = require('lsp-zero').preset({})
 
@@ -60,7 +48,7 @@ cmp.setup({
   }
 })
 
-cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 
 EOF
 
@@ -120,3 +108,18 @@ let R_openpdf = 1
 let R_pdfviewer = "zathura"
 
 let R_assign = 2
+
+" ------------------------------------------------------------------------------------------------
+" netrw 
+" ------------------------------------------------------------------------------------------------
+
+let g:netrw_keepdir = 0
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
+
+hi! link netrwMarkFile Search
+
+

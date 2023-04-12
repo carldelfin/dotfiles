@@ -121,7 +121,7 @@ exe "hi! Ignore"                        .s:fg_none                .s:bg_none    
 exe "hi! Include"                       .s:fg_brightpurple        .s:bg_none            .s:fmt_bold
 exe "hi! LineNr"                        .s:fg_light2              .s:bg_none            .s:fmt_none
 exe "hi! LongLineWarning"               .s:fg_brightred           .s:bg_none            .s:fmt_undr
-exe "hi! MatchParen"                    .s:fg_dark2               .s:bg_brightcyan      .s:fmt_none
+exe "hi! MatchParen"                    .s:fg_brightorange          .s:bg_none            .s:fmt_bold
 exe "hi! ModeMsg"                       .s:fg_palegreen           .s:bg_none            .s:fmt_none
 exe "hi! MoreMsg"                       .s:fg_palegreen           .s:bg_none            .s:fmt_none
 exe "hi! NonText"                       .s:fg_light3              .s:bg_none            .s:fmt_none

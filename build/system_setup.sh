@@ -25,9 +25,8 @@ simple() {
     sudo apt install -y \
         cmake kitty yambar wofi wofi-pass ufw rsync curl zathura \
         syncthing htop swaylock \
-        inkscape mpv brightnessctl \
+        inkscape mpv brightnessctl lua5.4
         #pinentry-qt \
-        lua5.4
 
     # river
      sudo wget -O /usr/share/keyrings/nickh-archive-keyring.gpg https://www.ne.jp/asahi/nickh/debian/nickh-archive-keyring.gpg

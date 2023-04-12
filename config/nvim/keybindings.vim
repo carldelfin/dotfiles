@@ -23,8 +23,10 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap <C-s> :w<CR>
 nnoremap <C-q> :Bdelete<CR>
 
-" toggle nvimtree 
-nnoremap <C-t> :NvimTreeToggle<CR>
+" toggle netrw 
+"nnoremap <C-t> :NvimTreeToggle<CR>
+nnoremap <C-t> :Lexplore <CR>
+"nnoremap <C-t> :Lexplore %:p:h<CR>
 
 " start Voom
 " nnoremap <C-v> :Voom<CR>
@@ -35,6 +37,7 @@ nnoremap <S-A-w> :wincmd J<CR>
 
 " fzf
 nnoremap <A-f> <cmd>FZF<cr>
+nnoremap <A-h> <cmd>FZF $HOME/<cr>
 
 " window movement
 nnoremap <A-m> <C-w>h " left
@@ -55,11 +58,7 @@ nnoremap s <cmd>HopChar1<cr>
 omap s <cmd>HopChar1<cr>
 
 " buffer control 
-nnoremap <silent> tt :BufferLinePick<CR>
-nnoremap <silent> <A-s> :BufferLineCyclePrev<CR>
-nnoremap <silent> <A-t> :BufferLineCycleNext<CR>
-nnoremap <silent> <S-A-s> :BufferLineMovePrev<CR>
-nnoremap <silent> <S-A-t> :BufferLineMoveNext<CR>
+nnoremap <silent> tt :Buffers<CR>
 
 " output the current syntax group 
 nnoremap jj :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
