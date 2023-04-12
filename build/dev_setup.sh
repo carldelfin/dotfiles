@@ -66,6 +66,9 @@ simple() {
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     fi
 
+    # install neovim plugins
+    $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
+
     # z.lua
     if [ -f "$HOME/.local/bin/z.lua-1.8.16/z.lua" ]; then
         echo -e "\033[0;35mz.lua executable found, skipping...\033[0m"
