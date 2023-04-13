@@ -6,16 +6,6 @@ require('hop').setup({})
 require('nvim_comment').setup({})
 require('neoscroll').setup({})
 
-require('nightfox').setup({
-    options = {
-        styles = {
-            comments = "italic",
-            keywords = "bold",
-            types = "italic,bold",
-        }
-    }
-})
-
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)

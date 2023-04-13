@@ -19,7 +19,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 
 " misc
-Plug 'EdenEast/nightfox.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'moll/vim-bbye'
 Plug 'junegunn/fzf'

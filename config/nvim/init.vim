@@ -13,4 +13,5 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme nightfox
+source ~/dotfiles/config/nvim/colors/oner.vim
+set background=dark

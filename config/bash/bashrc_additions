@@ -6,8 +6,10 @@
 export VISUAL=nvim
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND="find \! \( -path '*/.git' -prune \) -printf '%P\n'"
+export RANGER_ZLUA="$HOME/.local/bin/z.lua-1.8.16/z.lua"
 
 PATH=$HOME/.local/bin:$PATH
+RANGER_LOAD_DEFAULT_RC=false
 
 # z.lua
 eval "$(lua $HOME/.local/bin/z.lua-1.8.16/z.lua --init bash enhanced once)"
@@ -18,15 +20,15 @@ eval "$(lua $HOME/.local/bin/z.lua-1.8.16/z.lua --init bash enhanced once)"
 
 alias ls='ls -alF --color=auto'
 alias ll='ls -alF --color=auto'
-alias l='ls -CF --color=auto'
+alias l='ls -aCF --color=auto'
 alias ..='cd ..'
 alias c='clear'
 alias e='exit'
 alias vim='$HOME/.local/bin/nvim.appimage'
 alias nvim='$HOME/.local/bin/nvim.appimage'
-alias ff='lf'
-alias zz='fzf'
-alias zzz='vim $(fzf --height 40% --reverse)'
+alias rr='python3 $HOME/.local/bin/ranger-1.9.3/ranger.py'
+alias ff='fzf'
+alias ee='vim $(fzf --height 40% --reverse)'
 
 # ------------------------------------------------------------------------------
 # functions 

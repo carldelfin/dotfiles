@@ -85,12 +85,12 @@ simple() {
         cd
     fi
 
-    # lf
-    if [ -f "$HOME/.local/bin/lf" ]; then
-        echo -e "\033[0;35mlf executable found, skipping...\033[0m"
+    # ranger
+    if [ -f "$HOME/.local/bin/ranger-1.9.3/ranger.py" ]; then
+        echo -e "\033[0;35mranger executable found, skipping...\033[0m"
     else
-        cd $HOME/.local/bin
-        wget https://github.com/gokcehan/lf/releases/download/r28/lf-linux-amd64.tar.gz
+	cd $HOME/.local/bin
+        wget https://github.com/ranger/ranger/archive/refs/tags/v1.9.3.tar.gz
         tar -xf *.tar.gz
         rm *tar.gz
         cd
@@ -116,14 +116,19 @@ simple() {
     echo ""
     
     # create config directories
-    mkdir -p $HOME/.config/{nvim,lf}
+    mkdir -p $HOME/.config/{nvim,ranger}
     
     # append to .bashrc
     cat $HOME/dotfiles/config/bash/bashrc_additions >> $HOME/.bashrc
     
+    # copy ranger config
+    python3 $HOME/.local/bin/ranger-1.9.3/ranger.py --copy-config=all
+
     # symlink configs
     ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
-    ln -s -f ~/dotfiles/config/lf/* ~/.config/lf/
+    ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
+    ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
+    ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
     ln -s -f ~/dotfiles/config/.Rprofile ~/.Rprofile
     
     # install neovim plugins
@@ -131,7 +136,15 @@ simple() {
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
-   
+
+    # devicons2 for ranger
+    if [ ! -d "$HOME/.config/ranger/plugins/devicons2" ]; then
+        git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
+    else
+        echo ""
+        echo -e "\033[0;35ranger devicons2 is already installed, skipping...\033[0m"
+        echo ""
+    fi   
 }
 
 simple

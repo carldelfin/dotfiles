@@ -27,7 +27,6 @@ simple() {
   
   # add repository
   echo "deb http://cloud.r-project.org/bin/linux/debian bookworm-cran40/" | sudo tee -a /etc/apt/sources.list
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B8F25A8A73EACF41
  
   # install
   sudo apt update && sudo apt install -y \
@@ -41,6 +40,20 @@ simple() {
   libcairo2-dev libnode-dev libgdal-dev \
   libudunits2-dev libprotobuf-dev protobuf-compiler \
   libjq-dev libmagick++-dev
+  
+  # fix package management
+  Rscript -e 'dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)'
+  Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER"))'
+  
+  # install language server
+  Rscript -e 'install.packages("remotes")'
+  Rscript -e 'remotes::install_github("REditorSupport/languageserver")'
+  
+  # install commonly used packages
+  Rscript -e 'install.packages("rstan", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'
+  Rscript -e 'install.packages(c("brms", "tidyverse", "devtools", "emmeans", "digest","XML", "DT", "knitr", "here", "httr"))'
+  Rscript -e 'devtools::install_github("thomasp85/patchwork")'
+
 }
 
 simple

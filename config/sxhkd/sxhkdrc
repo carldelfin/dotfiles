@@ -1,0 +1,108 @@
+# --------------------------------------------------------------------------------------------------
+# WM independent hotkeys
+# --------------------------------------------------------------------------------------------------
+
+# reload sxhkd config
+super + Escape
+	pkill -USR1 -x sxhkd
+	
+# terminal emulator
+super + Return
+	kitty
+
+# program launcher
+super + s
+	rofi -show run -theme ~/dotfiles/config/rofi/oner.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 26
+
+# rofi power menu
+super + j
+  	rofi -show menu -modi "menu:rofi-power-menu --no-symbols --choices=shutdown/reboot/logout" -theme ~/dotfiles/config/rofi/oner.rasi -font 'JetBrains Mono Medium Nerd Font Complete 12' -width 16 -lines 3
+
+# lock screen
+super + shift + j
+    env XSECURELOCK_AUTH_BACKGROUND_COLOR=rgb:40/44/52 XSECURELOCK_AUTH_TIMEOUT=10 XSECURELOCK_PASSWORD_PROMPT=time_hex xsecurelock &
+
+# laptop keyboard toggle
+super + a + k
+    bash ~/dotfiles/scripts/keyboard_switcher.sh
+
+# sound levels
+super + comma
+  	amixer -D pulse sset Master 5%-
+
+super + period
+  	amixer -D pulse sset Master 5%+
+
+# launch pass
+super + Tab
+  	rofi-pass
+
+# launch firefox
+super + f
+	firefox
+
+# screenshot current window
+super + shift + m 
+    scrot -u
+
+# screenshot all
+super + shift + control + m
+    scrot
+
+# start udiskie as background process
+super + shift + u
+   udiskie & 
+
+# --------------------------------------------------------------------------------------------------
+# bspwm hotkeys
+# --------------------------------------------------------------------------------------------------
+
+# quit/restart bspwm
+super + alt + {q,f}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# --------------------------------------------------------------------------------------------------
+# Toggle between floating, tiled, and fullscreen
+# --------------------------------------------------------------------------------------------------
+
+super + space
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
+super + shift + space 
+    bspc node focused -t '~fullscreen'
+
+# --------------------------------------------------------------------------------------------------
+# Focus/swap
+# --------------------------------------------------------------------------------------------------
+
+# move focus with mnei
+super + {m,n,e,i}
+	bspc node -f {west,south,north,east}
+
+# focus the node in the given direction
+super + {_,shift + }{m,n,e,i}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the older or newer node in the focus history
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# --------------------------------------------------------------------------------------------------
+# Move/resize
+# --------------------------------------------------------------------------------------------------
+
+# expand a window by moving one of its side outward
+super + alt + {m,n,e,i}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {m,n,e,i}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
