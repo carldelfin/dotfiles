@@ -125,11 +125,11 @@ simple() {
     python3 $HOME/.local/bin/ranger-1.9.3/ranger.py --copy-config=all
 
     # symlink configs
-    ln -s -f ~/dotfiles/config/nvim/* ~/.config/nvim/
-    ln -s -f ~/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-    ln -s -f ~/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
-    ln -s -f ~/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
-    ln -s -f ~/dotfiles/config/.Rprofile ~/.Rprofile
+    ln -s -f $HOME/dotfiles/config/nvim/* ~/.config/nvim/
+    ln -s -f $HOME/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
+    ln -s -f $HOME/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
+    ln -s -f $HOME/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
+    ln -s -f $HOME/dotfiles/config/.Rprofile ~/.Rprofile
     
     # install neovim plugins
     # (necessary to do this three times to ensure everything installs correctly)
@@ -139,12 +139,15 @@ simple() {
 
     # devicons2 for ranger
     if [ ! -d "$HOME/.config/ranger/plugins/devicons2" ]; then
-        git clone https://github.com/cdump/ranger-devicons2 ~/.config/ranger/plugins/devicons2
+        git clone https://github.com/cdump/ranger-devicons2 $HOME/.config/ranger/plugins/devicons2
     else
         echo ""
         echo -e "\033[0;35ranger devicons2 is already installed, skipping...\033[0m"
         echo ""
-    fi   
+    fi
+
+    # z.lua for ranger
+    cp $HOME/.local/bin/z.lua-1.8.16/ranger_zlua.py $HOME/.config/ranger/plugins/
 }
 
 simple
