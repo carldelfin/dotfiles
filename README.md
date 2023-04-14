@@ -125,3 +125,5 @@ mullvad connect
 ```
 
 Finally, do a connection check at [https://mullvad.net/en/check](https://mullvad.net/en/check).
+
+## Aleph setup
