@@ -68,10 +68,11 @@ Then, run `build.sh` and select what to install. You'll need to at least run `Sy
 cd dotfiles && bash build.sh
 ```
 
-## 
+## Personal 
+
 ### :key: Sensitive files
 
-For understandable reasons, I don't keep sensitive files here in my dotfiles repo. Instead, they are regularly backed up to various external places. 
+For understandable reasons, I don't keep sensitive files (everything in `.ssh`, `.gnupg`, `.password-store`) here in my dotfiles repo. Instead, the relevant folders are regularly backed up to various external drives. 
 
 ```bash
 cd
@@ -87,4 +88,13 @@ Make sure `~/.gnupg` has the right permissions:
 chown -R $(whoami) ~/.gnupg/
 chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
+```
+
+### :repeat: Syncthing status
+
+I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status. It's intended for use with [polybar](https://github.com/polybar/polybar). It will not work out of the box for anyone but me, but should be easy to change according to your own needs.
+
+```bash
+git clone https://github.com/carldelfin/syncthing-status.git
+cd syncthing-status && chmod +x syncthing_status.R
 ```
