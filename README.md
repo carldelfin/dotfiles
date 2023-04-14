@@ -101,7 +101,7 @@ cd syncthing-status && chmod +x syncthing_status.R
 
 ### :shield: Mullvad VPN status
 
-I've also made a small shell script, [mullvad-vpn-status](https://github.com/carldelfin/mullvad-vpn-status), that checks Mullvad VPN connection status and allows the user to toggle connections on/off. It too is intended for use with [polybar](https://github.com/polybar/polybar).
+I've also made a small shell script, [mullvad-vpn-status](https://github.com/carldelfin/mullvad-vpn-status), that checks Mullvad VPN connection status, and warns the user when the account has less than a week left until expiry. It too is intended for use with [polybar](https://github.com/polybar/polybar).
 
 ```bash
 git clone https://github.com/carldelfin/mullvad-vpn-status.git
@@ -119,4 +119,9 @@ mullvad dns set default --block-ads --block-malware --block-trackers --block-gam
 
 # make sure we auto connect
 mullvad auto-connect set on
+
+# connect
+mullvad connect
 ```
+
+Finally, do a connection check at [https://mullvad.net/en/check](https://mullvad.net/en/check).
