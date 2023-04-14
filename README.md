@@ -117,6 +117,9 @@ mullvad account login
 # block specific content via dns
 mullvad dns set default --block-ads --block-malware --block-trackers --block-gambling --block-adult-content
 
+# allow local lan connections
+mullvad lan set allow
+
 # make sure we auto connect
 mullvad auto-connect set on
 
@@ -127,3 +130,16 @@ mullvad connect
 Finally, do a connection check at [https://mullvad.net/en/check](https://mullvad.net/en/check).
 
 ## Aleph setup
+
+aleph_setup.sh
+
+Mullvad manual
+
+sudo nano /etc/environment
+
+MOZ_ENABLE_WAYLAND
+        
+sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
+
+# kitty
+alias ssh="kitty +kitten ssh"

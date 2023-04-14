@@ -24,7 +24,7 @@ simple() {
 
     sudo apt install -y \
         xorg bspwm picom build-essential apt-transport-https software-properties-common \
-        make cmake kitty polybar suckless-tools rofi pass pinentry-gnome3 lua5.4 \
+        make cmake polybar suckless-tools rofi pass pinentry-gnome3 lua5.4 \
         ufw rsync unzip curl network-manager xinput feh arandr zathura scrot npm \
         syncthing htop alsa-utils pulseaudio libavcodec-extra qpdfview inkscape \
         firefox-esr exfat-fuse libreoffice udiskie mpv lightdm xsecurelock psmisc \
@@ -103,6 +103,19 @@ simple() {
         echo -e "\033[0;35mMullvad is already installed, skipping...\033[0m"
         echo ""
     fi
+
+    # wezterm
+    if ! command -v wezterm &> /dev/null; then
+        curl -LO https://github.com/wez/wezterm/releases/download/20230408-112425-69ae8472/WezTerm-20230408-112425-69ae8472-Ubuntu20.04.AppImage
+        chmod +x WezTerm-20230408-112425-69ae8472-Ubuntu20.04.AppImage
+        mkdir -p $HOME/.local/bin
+        mv ./WezTerm-20230408-112425-69ae8472-Ubuntu20.04.AppImage $HOME/.local/bin/wezterm
+    else
+        echo ""
+        echo -e "\033[0;35mWezTerm is already installed, skipping...\033[0m"
+        echo ""
+    fi
+
 
     # ----------------------------------------------------------------------------------------------
     # Appearance
@@ -198,7 +211,7 @@ simple() {
     echo ""
 
     # create missing directories and files
-    mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,gtkrc-2.0,gtk-3.0,zathura,lightdm}
+    mkdir -p ~/.config/{bspwm,sxhkd,wezterm,rofi,rofi-pass,gtkrc-2.0,gtk-3.0,zathura,lightdm}
     mkdir -p ~/.icons/default
     touch ~/.icons/default/index.theme
 
@@ -209,7 +222,7 @@ simple() {
     ln -s -f ~/dotfiles/config/mimeapps.list ~/.config/mimeapps.list
     ln -s -f ~/dotfiles/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
     ln -s -f ~/dotfiles/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
-    ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+    ln -s -f ~/dotfiles/config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
     ln -s -f ~/dotfiles/config/rofi/oner.rasi ~/.config/rofi/oner.rasi
     ln -s -f ~/dotfiles/config/rofi-pass/config ~/.config/rofi-pass/config
     ln -s -f ~/dotfiles/config/zathura/zathurarc ~/.config/zathura/zathurarc
@@ -233,7 +246,6 @@ simple() {
     
         sudo ufw default deny incoming
         sudo ufw default allow outgoing
-        sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
         sudo ufw enable
         sudo ufw allow syncthing
     fi

@@ -30,6 +30,9 @@ alias rr='python3 $HOME/.local/bin/ranger-1.9.3/ranger.py'
 alias ff='fzf'
 alias ee='vim $(fzf --height 40% --reverse)'
 
+# are we using kitty terminal?
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 # ------------------------------------------------------------------------------
 # functions 
 # ------------------------------------------------------------------------------

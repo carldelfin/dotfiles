@@ -55,7 +55,6 @@ simple() {
     
         sudo ufw default deny incoming
         sudo ufw default allow outgoing
-        sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
         sudo ufw enable
         sudo ufw allow syncthing
     fi
