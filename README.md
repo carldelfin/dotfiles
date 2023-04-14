@@ -1,8 +1,4 @@
-# Dotfiles
-
-This repo contains all my configuration files along with instructions for setting up my system after a clean install. If you want to use any parts, make sure to **closely examine the code** and make sure you understand what it does before executing anything. I take no responsibility for messed up installs.  
-
-## :robot: What are dotfiles?
+# :robot: What are dotfiles?
 
 Me: 
 
@@ -11,6 +7,10 @@ Me:
 ChatGPT: 
 
 > Dotfiles are files that are typically hidden on Unix-like operating systems, denoted by a leading dot (e.g., ".bashrc", ".vimrc", etc.), hence the name "dotfiles". These files store configuration settings and customization options for various command-line tools, text editors, and other software applications. Dotfiles are usually written in plain text and contain settings such as aliases, environment variables, color schemes, keybindings, and other preferences that personalize the behavior of software on a user's system.
+
+Me:
+
+> :thumbsup:
 
 ## :desktop_computer: Overview
 
@@ -72,7 +72,7 @@ cd dotfiles && bash build.sh
 
 ### :key: Sensitive files
 
-For understandable reasons, I don't keep sensitive files (everything in `.ssh`, `.gnupg`, `.password-store`) here in my dotfiles repo. Instead, the relevant folders are regularly backed up to various external drives. 
+For understandable reasons, I don't keep sensitive files (everything in `.ssh`, `.gnupg`, `.password-store` plus `.mullvad-account`) here in my dotfiles repo. Instead, the relevant folders are regularly backed up to various external drives. 
 
 ```bash
 cd
@@ -92,7 +92,7 @@ chmod 700 ~/.gnupg
 
 ### :repeat: Syncthing status
 
-I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status and is intended for use with [polybar](https://github.com/polybar/polybar). It will not work out of the box for anyone but me, but should be easy to change according to your own needs.
+I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status and is intended for use with [polybar](https://github.com/polybar/polybar). It will not work out of the box for anyone but me (it's also written in R :shrug:), but should be easy to change according to your own needs.
 
 ```bash
 git clone https://github.com/carldelfin/syncthing-status.git
