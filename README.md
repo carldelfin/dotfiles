@@ -92,9 +92,31 @@ chmod 700 ~/.gnupg
 
 ### :repeat: Syncthing status
 
-I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status. It's intended for use with [polybar](https://github.com/polybar/polybar). It will not work out of the box for anyone but me, but should be easy to change according to your own needs.
+I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status and is intended for use with [polybar](https://github.com/polybar/polybar). It will not work out of the box for anyone but me, but should be easy to change according to your own needs.
 
 ```bash
 git clone https://github.com/carldelfin/syncthing-status.git
 cd syncthing-status && chmod +x syncthing_status.R
+```
+
+### :shield: Mullvad VPN status
+
+I've also made a small shell script, [mullvad-vpn-status](https://github.com/carldelfin/mullvad-vpn-status), that checks Mullvad VPN connection status and allows the user to toggle connections on/off. It too is intended for use with [polybar](https://github.com/polybar/polybar).
+
+```bash
+git clone https://github.com/carldelfin/mullvad-vpn-status.git
+cd mullvad-vpn-status && chmod +x mullvad_vpn_status.sh
+```
+
+Note that you need to manually configure Mullvad via the CLI:
+
+```bash
+# enter account number when prompted
+mullvad account login
+
+# block specific content via dns
+mullvad dns set default --block-ads --block-malware --block-trackers --block-gambling --block-adult-content
+
+# make sure we auto connect
+mullvad auto-connect set on
 ```
