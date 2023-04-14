@@ -8,7 +8,7 @@ super + Escape
 	
 # terminal emulator
 super + Return
-	wezterm
+	$HOME/.local/bin/wezterm
 
 # program launcher
 super + s

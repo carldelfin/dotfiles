@@ -21,7 +21,7 @@ Me:
 | Bar                 | [polybar](https://github.com/polybar/polybar)|
 | Cursor theme        | [phinger-cursors](https://github.com/phisch/phinger-cursors)|
 | Shell               | [bash](https://www.gnu.org/software/bash/)|
-| Terminal emulator   | [kitty](https://sw.kovidgoyal.net/kitty/)|
+| Terminal emulator   | [WezTerm](https://wezfurlong.org/wezterm/)|
 | Terminal font       | [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) + [Nerd Font patch](https://www.nerdfonts.com/font-downloads)|
 | Editor              | [Neovim](https://neovim.io/)|
 | File manager        | [ranger](https://github.com/ranger/ranger)|
