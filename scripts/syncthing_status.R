@@ -40,10 +40,10 @@ if (length(res) <= 1) {
 
     # combine into df
     out <- data.frame(id = names(res_parsed),
-                      connected = as.integer(lapply(res_parsed, "[[", 4)))
+                      connected = as.integer(lapply(res_parsed, "[[", 5)))
 
     # replace full ID with name
-    id_part <- c(".*7LI.*", ".*HZ4.*", ".*6YB.*", ".*UQQ.*")
+    id_part <- c(".*7LI.*", ".*HZ4.*", ".*QXGCFE.*", ".*R2LQNU.*")
     name <- c("wintermute", "aleph", "neuromancer", "galaxy")
     out$id <- stringr::str_replace_all(out$id, setNames(name, id_part))
 
@@ -58,4 +58,6 @@ if (length(res) <= 1) {
     } else {
         cat(paste0(" ", sum(out$connected), "/", nrow(out))) 
     }
+
+    rm(res, res_parsed)
 }

@@ -39,11 +39,14 @@ simple() {
   libopenblas-dev liblapack-dev libopencv-dev \
   libcairo2-dev libnode-dev libgdal-dev \
   libudunits2-dev libprotobuf-dev protobuf-compiler \
-  libjq-dev libmagick++-dev
+  libjq-dev libmagick++-dev libharfbuzz-dev libfribidi-dev
   
-  # fix package management
+  # package management
   Rscript -e 'dir.create(Sys.getenv("R_LIBS_USER"), recursive = TRUE)'
   Rscript -e '.libPaths(Sys.getenv("R_LIBS_USER"))'
+
+  # symlink .Rprofile
+  ln -s -f $HOME/dotfiles/config/.Rprofile ~/.Rprofile
   
   # install language server
   Rscript -e 'install.packages("remotes")'

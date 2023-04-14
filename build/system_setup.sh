@@ -24,10 +24,11 @@ simple() {
 
     sudo apt install -y \
         xorg bspwm picom build-essential apt-transport-https software-properties-common \
-        make cmake kitty polybar suckless-tools rofi pass pinentry-gnome3 \
-        ufw rsync unzip curl network-manager xinput feh arandr zathura scrot \
+        make cmake kitty polybar suckless-tools rofi pass pinentry-gnome3 lua5.4 \
+        ufw rsync unzip curl network-manager xinput feh arandr zathura scrot npm \
         syncthing htop alsa-utils pulseaudio libavcodec-extra qpdfview inkscape \
-        firefox-esr exfat-fuse libreoffice udiskie mpv lightdm xsecurelock psmisc
+        firefox-esr exfat-fuse libreoffice udiskie mpv lightdm xsecurelock psmisc \
+        brightnessctl
 
     # kvm/qemu 
     if [[ $(systemd-detect-virt) = *kvm* ]]; then
@@ -41,10 +42,10 @@ simple() {
         sudo apt install -y \
             qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst \
             libvirt-daemon virt-manager
-        sudo virsh net-start default
-        sudo virsh net-autostart default
-        sudo modprobe vhost_net
-        sudo usermod -a -G libvirt $(whoami)
+        #sudo virsh net-start default
+        #sudo virsh net-autostart default
+        #sudo modprobe vhost_net
+        #sudo usermod -a -G libvirt $(whoami)
     fi
 
     # passmenu
@@ -141,7 +142,7 @@ simple() {
     else
         mkdir -p ~/.local/share/fonts
         cd /tmp
-        wget -O fonts.zip "https://fonts.google.com/download?family=Roboto|Noto%20Sans|Open%20Sans|Roboto%20Condensed|Source%20Sans%20Pro|Raleway|Merriweather|Roboto%20Slab|PT%20Sans|Open%20Sans%20Condensed|Droid%20Sans|Droid%20Serif|Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
+        wget -O fonts.zip "https://fonts.google.com/download?family=Fira%20Sans|Fira%20Sans%20Condensed|Fira%20Sans%20Extra%20Condensed|Fira%20Mono"
         unzip fonts.zip -d ~/.local/share/fonts
         rm -rf *.zip
         cd
@@ -200,9 +201,6 @@ simple() {
     mkdir -p ~/.config/{bspwm,sxhkd,kitty,rofi,rofi-pass,gtkrc-2.0,gtk-3.0,zathura,lightdm}
     mkdir -p ~/.icons/default
     touch ~/.icons/default/index.theme
-
-    # copy ranger config
-    ranger --copy-config=all
 
     # symlinks
     ln -s -f ~/dotfiles/config/.inputrc ~/.inputrc

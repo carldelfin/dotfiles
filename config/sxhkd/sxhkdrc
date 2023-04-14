@@ -33,6 +33,13 @@ super + comma
 super + period
   	amixer -D pulse sset Master 5%+
 
+# brightness
+super + shift + comma
+    brightnessctl set 5%-
+
+super + shift + period 
+    brightnessctl set 5%+
+
 # launch pass
 super + Tab
   	rofi-pass

@@ -129,10 +129,9 @@ simple() {
     ln -s -f $HOME/dotfiles/config/ranger/rifle.conf ~/.config/ranger/rifle.conf
     ln -s -f $HOME/dotfiles/config/ranger/rc.conf ~/.config/ranger/rc.conf
     ln -s -f $HOME/dotfiles/config/ranger/commands.py ~/.config/ranger/commands.py
-    ln -s -f $HOME/dotfiles/config/.Rprofile ~/.Rprofile
     
     # install neovim plugins
-    # (necessary to do this three times to ensure everything installs correctly)
+    # (it's necessary to do this three times to ensure everything installs correctly)
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
     $HOME/.local/bin/nvim.appimage --headless +PlugInstall +qall
