@@ -25,10 +25,10 @@ Me:
 | Terminal font       | [JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) + [Nerd Font patch](https://www.nerdfonts.com/font-downloads)|
 | Editor              | [Neovim](https://neovim.io/)|
 | File manager        | [ranger](https://github.com/ranger/ranger)|
-| File navigation     | [z.lua](https://github.com/skywind3000/z.lua)|
+| Navigation          | [z.lua](https://github.com/skywind3000/z.lua)|
 | Fuzzy finder        | [fzf](https://github.com/junegunn/fzf)|
 
-## :spiral_notepad: Pre-install
+## 1. Pre-install
 
 These instructions assume that you're already on a Linux system. Download the latest Debian 12 ISO (note that Debian 12 is currently in `testing`):
 
@@ -49,34 +49,37 @@ sudo umount /dev/sdX
 sudo dd if=debian-testing-amd64-netinst.iso of=/dev/sdX bs=4M && sync
 ```
 
-## :link: Install
+## 2. Install
 
 Boot the USB and follow the on-screen instructions, they're fairly straightforward. If you need help, check out the [Debian installation guide](https://www.debian.org/releases/stable/amd64/), in particular [chapter 6](https://www.debian.org/releases/stable/amd64/ch06.en.html). I always do a clean install (i.e., everything is wiped) and set up [encrypted LVM](https://wiki.debian.org/LVM#Encrypted_LVM) for my entire drive. If you only need [bspwm](https://github.com/baskerville/bspwm) as your window manager (and why wouldn't you? :shrug:), make sure to deselect `Debian desktop environment` and `GNOME` at the software selection step. I also select `SSH server`.
 
-## :heavy_check_mark: Post-install
+## 3. Post-install
 
-When logged into your clean system, all you have is a terminal prompt. To get started, install [git](https://git-scm.com/) and clone this repo:
+### 3.1 Install git
+
+Now the fun begins! When logged into your clean system, all you'll have is a terminal prompt. To get started, install [git](https://git-scm.com/) and clone this repo:
 
 ```bash
 sudo apt install -y git
 git clone https://github.com/carldelfin/dotfiles.git
 ```
+### 3.2 Run `build.sh`
 
-Then, run `build.sh` and select what to install. You'll need to at least run `System setup` in order to get a working system. The separate `Development setup` installs and configures [neovim](https://neovim.io/), [ranger](https://github.com/ranger/ranger), [fzf](https://github.com/junegunn/fzf), [z.lua](https://github.com/skywind3000/z.lua), with the caveat that they are all downloaded as standalone executables and placed in `$HOME/.local/bin`. Using standalone executables makes it possible to replicate my development setup on systems where I do not have `sudo` rights.
+Run `build.sh` (e.g. `bash dotfiles/build.sh`) and select what to install from the menu. You'll need to at least run `System setup` in order to get a working system. The separate `Development setup` installs and configures [neovim](https://neovim.io/), [ranger](https://github.com/ranger/ranger), [fzf](https://github.com/junegunn/fzf), [z.lua](https://github.com/skywind3000/z.lua), with the caveat that they are all **downloaded as standalone executables and placed in `$HOME/.local/bin`**. Using standalone executables makes it possible to replicate my development setup on systems where I do not have `sudo` rights.
 
 ```bash
 cd dotfiles && bash build.sh
 ```
+### 3.2 Sensitive files
 
-## Personal 
-
-### :key: Sensitive files
-
-For understandable reasons, I don't keep sensitive files (everything in `.ssh`, `.gnupg`, `.password-store` plus `.mullvad-account`) here in my dotfiles repo. Instead, the relevant folders are regularly backed up to various external drives. 
+I don't like to keep sensitive files and directories (e.g. `.ssh`, `.gnupg`, and so on) here in my dotfiles repo. Instead, the relevant folders are regularly backed up to various external drives, which makes them easy to copy back after a clean install. 
 
 ```bash
+# remove any existing directories
 cd
 rm -rf .gnupg .ssh .password-store 
+
+# cd into backup folder and copy
 cd /media/cmd/backup_1/latest
 cp -r .ssh .gnupg .password-store ~/
 cd
@@ -90,25 +93,25 @@ chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
 ```
 
-### :repeat: Syncthing status
+### 3.3 Syncthing status
 
-I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status and is intended for use with [polybar](https://github.com/polybar/polybar). It will not work out of the box for anyone but me (it's also written in R :shrug:), but should be easy to change according to your own needs.
+I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status. It's intended for use with [polybar](https://github.com/polybar/polybar). Note that it will not work out of the box for anyone but me (it's also written in R, just because :shrug:), but you can easily change the relevant parts of the code (related to Syncthing IDs) according to your own needs. Or just rewrite it in something more convenient.
 
 ```bash
 git clone https://github.com/carldelfin/syncthing-status.git
 cd syncthing-status && chmod +x syncthing_status.R
 ```
 
-### :shield: Mullvad VPN status
+### 3.4 Mullvad VPN status
 
-I've also made a small shell script, [mullvad-vpn-status](https://github.com/carldelfin/mullvad-vpn-status), that checks Mullvad VPN connection status, and warns the user when the account has less than a week left until expiry. It too is intended for use with [polybar](https://github.com/polybar/polybar).
+On the topic of Polybar, I've also made a small shell script, [mullvad-vpn-status](https://github.com/carldelfin/mullvad-vpn-status), that --- you guessed it --- checks Mullvad VPN connection status. It also warns the user when the account has less than a week left until expiry.
 
 ```bash
 git clone https://github.com/carldelfin/mullvad-vpn-status.git
 cd mullvad-vpn-status && chmod +x mullvad_vpn_status.sh
 ```
 
-Note that you need to manually configure Mullvad via the CLI:
+Note that you'll need to manually configure Mullvad via the CLI:
 
 ```bash
 # enter account number when prompted
@@ -127,19 +130,32 @@ mullvad auto-connect set on
 mullvad connect
 ```
 
-Finally, do a connection check at [https://mullvad.net/en/check](https://mullvad.net/en/check).
+Finally, it doesn't hurt to do a connection check over at [https://mullvad.net/en/check](https://mullvad.net/en/check).
 
-## Aleph setup
+### 3.4 Local SSH connections
 
-aleph_setup.sh
+If you run `System setup` then [ufw](https://launchpad.net/ufw) is configured to allow all outgoing traffic and deny all incoming traffic. If you use Syncthing, you'll need to make an exception:
 
-Mullvad manual
+```bash
+sudo ufw allow syncthing
+```
 
-sudo nano /etc/environment
+I also like to allow local SSH connections (adapt accordingly):
 
+```bash
+sudo ufw allow from 192.168.20.0/24 to any port 22
+```
+
+### 3.4 Aleph setup
+
+There is an option to select `Aleph setup` in the `build.sh` menu. Aleph is my "central server", you could say, named in equal parts after [The Aleph](https://en.wikipedia.org/wiki/The_Aleph_(short_story)) and Bobby's fancy harddrive in [Mona Lisa Overdrive](https://en.wikipedia.org/wiki/Mona_Lisa_Overdrive). It does backups, mostly. This script is not likely something you'd run, but it's included here because these are, after all, my own dotfiles.
+
+One thing is necessary to do after running the scrupt, and that is enabling Firefox to use the [Wayland](https://wayland.freedesktop.org/) only. Add the following to `/etc/environment`:
+
+```bash
 MOZ_ENABLE_WAYLAND
-        
-sudo ufw allow from 192.168.20.0/24 to any port 22 # allow ssh connections from within LAN
+```
 
-# kitty
-alias ssh="kitty +kitten ssh"
+### 3.5 Remaining options
+
+The remaining options in `build.sh` include setting up [R](https://www.r-project.org/) and installing some of my most used packages, as well as setting up [QMK](https://qmk.fm/) for that sweet, sweet [ErgoMechKeyboard](https://www.reddit.com/r/ErgoMechKeyboards/) goodness. Make sure you look into them **before** you run them to make sure you understand what they do!
