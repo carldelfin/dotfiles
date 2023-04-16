@@ -1,7 +1,11 @@
 dotfiles
 ========
 
-- [0. Quick overview](#quick-overview)
+- [0. Quick overview](#0-quick-overview)
+- [1. Pre-install](#1-pre-install)
+- [2. Install](#2-install)
+- [3. Post-install](#3-post-install)
+    - [3.1 Install git](#31-install-git)
 
 ## 0. Quick overview
 
