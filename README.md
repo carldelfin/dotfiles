@@ -60,7 +60,7 @@ git clone https://github.com/carldelfin/dotfiles.git
 ```
 ### 3.2 Run `build.sh`
 
-Run `build.sh` (e.g. `bash dotfiles/build.sh`) and select what to install from the menu. You'll need to at least run `System setup` in order to get a working system. The separate `Development setup` installs and configures [neovim](https://neovim.io/), [ranger](https://github.com/ranger/ranger), [fzf](https://github.com/junegunn/fzf), [z.lua](https://github.com/skywind3000/z.lua), with the caveat that they are all **downloaded as standalone executables and placed in `$HOME/.local/bin`**. Using standalone executables makes it possible to replicate my development setup on systems where I do not have `sudo` rights.
+Run `build.sh` and select what to install from the menu. You'll need to at least run `System setup` in order to get a working system. The separate `Development setup` installs and configures [neovim](https://neovim.io/), [ranger](https://github.com/ranger/ranger), [fzf](https://github.com/junegunn/fzf), [z.lua](https://github.com/skywind3000/z.lua), with the caveat that they are all **downloaded as standalone executables and placed in `$HOME/.local/bin`**. Using standalone executables makes it possible to replicate my development setup on systems where I do not have `sudo` rights.
 
 ```bash
 cd dotfiles && bash build.sh
@@ -143,12 +143,12 @@ sudo ufw allow from 192.168.20.0/24 to any port 22
 
 ### 3.4 Aleph setup
 
-There is an option to select `Aleph setup` in the `build.sh` menu. Aleph is my "central server", you could say, named in equal parts after [The Aleph](https://en.wikipedia.org/wiki/The_Aleph_(short_story)) and Bobby's fancy harddrive in [Mona Lisa Overdrive](https://en.wikipedia.org/wiki/Mona_Lisa_Overdrive). It does backups, mostly. This script is not likely something you'd run, but it's included here because these are, after all, my own dotfiles.
+There is an option to select `Aleph setup` in the `build.sh` menu. Aleph is my "central server", you could say, named in equal parts after [The Aleph](https://en.wikipedia.org/wiki/The_Aleph_(short_story)) and Bobby's fancy harddrive in [Mona Lisa Overdrive](https://en.wikipedia.org/wiki/Mona_Lisa_Overdrive). It runs Syncthing, does backups, and is also used as a media server/viewer. This script is not likely something you'd run, but it's included here because these are, after all, my own dotfiles.
 
-One thing is necessary to do after running the scrupt, and that is enabling Firefox to use the [Wayland](https://wayland.freedesktop.org/) only. Add the following to `/etc/environment`:
+I usually stick with the default Gnome desktop environment, so make sure to set Firefox to use the [Wayland](https://wayland.freedesktop.org/) protocol only. Add the following to `/etc/environment`:
 
 ```bash
-MOZ_ENABLE_WAYLAND
+MOZ_ENABLE_WAYLAND=1
 ```
 
 ### 3.5 Remaining options
