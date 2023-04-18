@@ -7,8 +7,12 @@ System setup
 - [3. Post-install](#3-post-install)
     - [3.1 Install git](#31-install-git)
     - [3.2 Run build.sh](#32-run-buildsh)
-    - [3.3 Install git](#31-install-git)
-    - [3.4 Install git](#31-install-git)
+    - [3.3 Sensitive files](#33-sensitive-files)
+    - [3.4 Syncthing status](#34-syncthing-status)
+    - [3.5 Mullvad VPN status](#35-mullvad-vpn-status)
+    - [3.6 Local SSH connections](#36-local-ssh-connections)
+    - [3.7 Remaining options](#37-remaining-options)
+- [4. Aleph setup](#4-aleph-setup)
 
 ## 0. System overview
 
@@ -63,21 +67,24 @@ git clone https://github.com/carldelfin/dotfiles.git
 ```
 ### 3.2 Run build.sh
 
-Run `build.sh` and select what to install from the menu. You'll need to at least run `System setup` in order to get a working system. The separate `Development setup` installs and configures [neovim](https://neovim.io/), [ranger](https://github.com/ranger/ranger), [fzf](https://github.com/junegunn/fzf), [z.lua](https://github.com/skywind3000/z.lua), with the caveat that they are all **downloaded as standalone executables and placed in `$HOME/.local/bin`**. Using standalone executables makes it possible to replicate my development setup on systems where I do not have `sudo` rights.
+Run `build.sh` and select what to install from the menu:
 
 ```bash
 cd dotfiles && bash build.sh
 ```
-### 3.2 Sensitive files
 
-I don't like to keep sensitive files and directories (e.g. `.ssh`, `.gnupg`, and so on) here in my dotfiles repo. Instead, the relevant folders are regularly backed up to various external drives, which makes them easy to copy back after a clean install. 
+You'll need to at least run `System setup` in order to get a working system. The separate `Development setup` installs and configures [neovim](https://neovim.io/), [ranger](https://github.com/ranger/ranger), [fzf](https://github.com/junegunn/fzf), [z.lua](https://github.com/skywind3000/z.lua), with the caveat that they are all **downloaded as standalone executables and placed in `$HOME/.local/bin`**. Using standalone executables makes it possible to replicate my development setup on systems where I do not have `sudo` rights.
+
+### 3.3 Sensitive files
+
+I don't keep sensitive files and directories (e.g. `.ssh`, `.gnupg`, `.password-store`) here in my dotfiles repo. They are regularly backed up to various external drives, which makes them easy to copy back over after a clean install. 
 
 ```bash
 # remove any existing directories
 cd
 rm -rf .gnupg .ssh .password-store 
 
-# cd into backup folder and copy
+# cd into backup directory and copy
 cd /media/cmd/backup_1/latest
 cp -r .ssh .gnupg .password-store ~/
 cd
@@ -91,7 +98,7 @@ chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
 ```
 
-### 3.3 Syncthing status
+### 3.4 Syncthing status
 
 I've made a small R script, [syncthing-status](https://github.com/carldelfin/syncthing-status) that, well, checks [Syncthing](https://syncthing.net/) status. It's intended for use with [polybar](https://github.com/polybar/polybar). Note that it will not work out of the box for anyone but me (it's also written in R, just because :shrug:), but you can easily change the relevant parts of the code (related to Syncthing IDs) according to your own needs. Or just rewrite it in something more convenient.
 
@@ -100,7 +107,7 @@ git clone https://github.com/carldelfin/syncthing-status.git
 cd syncthing-status && chmod +x syncthing_status.R
 ```
 
-### 3.4 Mullvad VPN status
+### 3.5 Mullvad VPN status
 
 On the topic of Polybar, I've also made a small shell script, [mullvad-vpn-status](https://github.com/carldelfin/mullvad-vpn-status), that --- you guessed it --- checks Mullvad VPN connection status. It also warns the user when the account has less than a week left until expiry.
 
@@ -130,7 +137,7 @@ mullvad connect
 
 Finally, it doesn't hurt to do a connection check over at [https://mullvad.net/en/check](https://mullvad.net/en/check).
 
-### 3.4 Local SSH connections
+### 3.6 Local SSH connections
 
 If you run `System setup` then [ufw](https://launchpad.net/ufw) is configured to allow all outgoing traffic and deny all incoming traffic. If you use Syncthing, you'll need to make an exception:
 
@@ -143,8 +150,11 @@ I also like to allow local SSH connections (adapt accordingly):
 ```bash
 sudo ufw allow from 192.168.XXX.0/24 to any port 22
 ```
+### 3.7 Remaining options
 
-### 3.4 Aleph setup
+The remaining options in `build.sh` include setting up [R](https://www.r-project.org/) and installing some of my most used packages, as well as setting up [QMK](https://qmk.fm/) for that sweet, sweet [ErgoMechKeyboard](https://www.reddit.com/r/ErgoMechKeyboards/) goodness. Make sure you look into them **before** you run them to make sure you understand what they do!
+
+### 4. Aleph setup
 
 There is an option to select `Aleph setup` in the `build.sh` menu. Aleph is my "central server", you could say, named in equal parts after [The Aleph](https://en.wikipedia.org/wiki/The_Aleph_(short_story)) and Bobby's fancy harddrive in [Mona Lisa Overdrive](https://en.wikipedia.org/wiki/Mona_Lisa_Overdrive). It runs Syncthing, does backups, and is also used as a media server/viewer. This script is not likely something you'd run, but it's included here because these are, after all, my own dotfiles.
 
@@ -154,6 +164,3 @@ I usually stick with the default Gnome desktop environment, so make sure to set 
 MOZ_ENABLE_WAYLAND=1
 ```
 
-### 3.5 Remaining options
-
-The remaining options in `build.sh` include setting up [R](https://www.r-project.org/) and installing some of my most used packages, as well as setting up [QMK](https://qmk.fm/) for that sweet, sweet [ErgoMechKeyboard](https://www.reddit.com/r/ErgoMechKeyboards/) goodness. Make sure you look into them **before** you run them to make sure you understand what they do!
