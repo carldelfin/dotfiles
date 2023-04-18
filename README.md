@@ -1,13 +1,16 @@
-dotfiles
-========
+System setup
+============
 
-- [0. Quick overview](#0-quick-overview)
+- [0. System overview](#0-system-overview)
 - [1. Pre-install](#1-pre-install)
-- [2. Install](#2-install)
+- [2. Install Debian](#2-install-debian)
 - [3. Post-install](#3-post-install)
     - [3.1 Install git](#31-install-git)
+    - [3.2 Run build.sh](#32-run-buildsh)
+    - [3.3 Install git](#31-install-git)
+    - [3.4 Install git](#31-install-git)
 
-## 0. Quick overview
+## 0. System overview
 
 | Component           | Link                                            |
 | --------------------| :-----------------------------------------------|
@@ -44,7 +47,7 @@ sudo umount /dev/sdX
 sudo dd if=debian-testing-amd64-netinst.iso of=/dev/sdX bs=4M && sync
 ```
 
-## 2. Install
+## 2. Install Debian
 
 Boot the USB and follow the on-screen instructions, they're fairly straightforward. If you need help, check out the [Debian installation guide](https://www.debian.org/releases/stable/amd64/), in particular [chapter 6](https://www.debian.org/releases/stable/amd64/ch06.en.html). I always do a clean install (i.e., everything is wiped) and set up [encrypted LVM](https://wiki.debian.org/LVM#Encrypted_LVM) for my entire drive. If you only need [bspwm](https://github.com/baskerville/bspwm) as your window manager (and why wouldn't you? :shrug:), make sure to deselect `Debian desktop environment` and `GNOME` at the software selection step. I also select `SSH server`.
 
@@ -58,7 +61,7 @@ Now the fun begins! When logged into your clean system, all you'll have is a ter
 sudo apt install -y git
 git clone https://github.com/carldelfin/dotfiles.git
 ```
-### 3.2 Run `build.sh`
+### 3.2 Run build.sh
 
 Run `build.sh` and select what to install from the menu. You'll need to at least run `System setup` in order to get a working system. The separate `Development setup` installs and configures [neovim](https://neovim.io/), [ranger](https://github.com/ranger/ranger), [fzf](https://github.com/junegunn/fzf), [z.lua](https://github.com/skywind3000/z.lua), with the caveat that they are all **downloaded as standalone executables and placed in `$HOME/.local/bin`**. Using standalone executables makes it possible to replicate my development setup on systems where I do not have `sudo` rights.
 
@@ -138,7 +141,7 @@ sudo ufw allow syncthing
 I also like to allow local SSH connections (adapt accordingly):
 
 ```bash
-sudo ufw allow from 192.168.20.0/24 to any port 22
+sudo ufw allow from 192.168.XXX.0/24 to any port 22
 ```
 
 ### 3.4 Aleph setup
