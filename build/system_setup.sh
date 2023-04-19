@@ -198,9 +198,6 @@ simple() {
 
     sudo chmod +x ~/dotfiles/config/bspwm/bspwmrc
     sudo chmod +x ~/dotfiles/scripts/launch.sh
-    sudo chmod +x ~/dotfiles/scripts/vpn.sh
-    sudo chmod +x ~/dotfiles/scripts/backup.sh
-    sudo chmod +x ~/dotfiles/scripts/keyboard_toggle.sh
 
     # ----------------------------------------------------------------------------------------------
     # Directories, symlinks, and configs
