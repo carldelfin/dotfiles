@@ -22,7 +22,8 @@ simple() {
     echo -e "\033[1;35mInstalling applications...\033[0m"
     echo ""
 
-    #sudo apt install -y \
+    sudo apt install -y \
+        zsh zplug
     #    build-essential apt-transport-https software-properties-common \
     #    make cmake ufw rsync unzip curl network-manager syncthing htop
 
@@ -62,6 +63,7 @@ simple() {
     ln -s -f ~/dotfiles/config/sway/config ~/.config/sway/config
     ln -s -f ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
     ln -s -f ~/dotfiles/config/kitty/theme.conf ~/.config/kitty/themes/theme.conf
+    ln -s -f ~/dotfiles/config/zsh/.zshrc ~/.zshrc
 
     # ----------------------------------------------------------------------------------------------
     # Configure ufw
@@ -82,6 +84,12 @@ simple() {
         sudo ufw enable
         sudo ufw allow syncthing
     fi
+
+    # ----------------------------------------------------------------------------------------------
+    # Make Zsh default
+    # ----------------------------------------------------------------------------------------------
+  
+    chsh -s $(which zsh)
 
 }
 
